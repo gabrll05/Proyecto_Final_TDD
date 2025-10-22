@@ -1,7 +1,7 @@
-Analysis & Elaboration Status : Successful - Wed Oct 22 16:22:07 2025
+Analysis & Elaboration Status : Successful - Wed Oct 22 16:34:35 2025
 Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 Revision Name : ProyectoFT
-Top-level Entity Name : regfile
+Top-level Entity Name : alu
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A until Partition Merge
 Total registers : N/A until Partition Merge
