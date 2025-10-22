@@ -1,0 +1,7 @@
+
+State Machine - |control_unit|state
+Name state.WRITEBACK state.EXECUTE state.DECODE state.FETCH 
+state.FETCH 0 0 0 0 
+state.DECODE 0 0 1 1 
+state.EXECUTE 0 1 0 1 
+state.WRITEBACK 1 0 0 1 

@@ -9,81 +9,55 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/fabia/Desktop/Proyecto_Final_TDD/simulation/modelsim
-valu
+vrom_program
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1761172539
+!s110 1761173289
 !i10b 1
-!s100 oTFfcMXi6?]:W@6fllOU>2
-Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-I2:lk2dL9DChzjlj2X>H:I2
-Z4 VDg1SIo80bB@j0V0VzS_@n1
+!s100 K@XleY>7:Dbc_T5DaeS_`1
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IScUdf5PEBk?oWS`iU@g=E2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
-w1761170744
-8C:/Users/fabia/Desktop/Proyecto_Final_TDD/alu.sv
-FC:/Users/fabia/Desktop/Proyecto_Final_TDD/alu.sv
+w1761173064
+8C:/Users/fabia/Desktop/Proyecto_Final_TDD/rom_program.sv
+FC:/Users/fabia/Desktop/Proyecto_Final_TDD/rom_program.sv
 !i122 0
-L0 7 107
-Z5 OV;L;2020.1;71
+L0 5 16
+Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1761172539.000000
-!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/alu.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/alu.sv|
+Z5 !s108 1761173289.000000
+!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/rom_program.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/rom_program.sv|
 !i113 1
-Z7 o-sv -work work
-Z8 !s92 -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD
-Z9 tCvgOpt 0
-vdivider
+Z6 o-sv -work work
+Z7 !s92 -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD
+Z8 tCvgOpt 0
+vtb_rom
 R1
-R2
+!s110 1761173290
 !i10b 1
-!s100 YkTDPk5EiP]:A;N6a3mWZ1
+!s100 XTc`2dCGH?g]5b_;YOe0F0
+R2
+ICY1NC57UHbaaF;zj2R]n43
 R3
-InjBjG__>MzG[M;DJFB2bm0
-R4
 S1
 R0
-w1761170703
-8C:/Users/fabia/Desktop/Proyecto_Final_TDD/divider.sv
-FC:/Users/fabia/Desktop/Proyecto_Final_TDD/divider.sv
+w1761173153
+8C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_rom.sv
+FC:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_rom.sv
 !i122 1
-L0 6 71
-R5
-r1
-!s85 0
-31
-R6
-!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/divider.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/divider.sv|
-!i113 1
-R7
-R8
-R9
-vtb_alu
-R1
-R2
-!i10b 1
-!s100 1=Dg5JV`3jMl<W[F5>7:D0
-R3
-IgD:`>3k228]4I8e2o;19^3
+L0 2 17
 R4
-S1
-R0
-w1761172417
-8C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_alu.sv
-FC:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_alu.sv
-!i122 2
-L0 5 63
-R5
 r1
 !s85 0
 31
-R6
-!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_alu.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_alu.sv|
+R5
+!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_rom.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_rom.sv|
 !i113 1
+R6
 R7
 R8
-R9
