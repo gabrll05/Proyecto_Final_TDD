@@ -1,0 +1,117 @@
+# ============================================================
+# .gitignore para proyecto ARMv4 Calculadora (Quartus + ModelSim)
+# ============================================================
+
+# --- Carpetas de compilación de Quartus ---
+/db/
+/incremental_db/
+/output_files/
+/simulation/
+/greybox_tmp/
+/tmp/
+/cdb/
+/hps_isw_handoff/
+
+# --- Archivos temporales de Quartus ---
+*.rpt
+*.summary
+*.smsg
+*.sdc
+*.sld
+*.sof
+*.pof
+*.jic
+*.qdf
+*.qws
+*.qsf
+*.bak
+*.rpt
+*.vho
+*.vhd
+*.v
+*.eqn
+*.done
+*.pin
+*.fit.*
+*.map.*
+*.sta.*
+*.asm.*
+*.html
+*.csv
+*.xml
+*.log
+*.sav
+*.tcl
+*.qpf.bak
+
+# --- ModelSim / Simulation ---
+/modelsim.ini
+/work/
+transcript
+vsim.wlf
+*.wlf
+*.do
+*.vcd
+*.dat
+*.mem
+*.elf
+*.lst
+*.objdump
+
+# --- Archivos de backup y sistema ---
+*~
+*.swp
+*.tmp
+*.bak
+*.orig
+*.old
+*.lock
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Compilaciones de proyectos anteriores ---
+*.qsf.lock
+*.rpt.lock
+*.sld.lock
+*.sof.lock
+
+# --- Archivos generados de simulación personalizados ---
+*.vcd
+*.out
+*.sim
+*.log
+
+# --- Archivos de herramientas ---
+/__pycache__/
+/.vscode/
+/.idea/
+/*.user
+*.pro.user
+
+# --- Exportaciones o PDFs del proyecto ---
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.bmp
+
+# --- Archivos de programa / ROM / Memoria ---
+*.mif
+*.hex
+*.bin
+
+# --- Documentación temporal ---
+/docs/*.aux
+/docs/*.log
+/docs/*.toc
+/docs/*.out
+/docs/*.bbl
+/docs/*.blg
+
+# --- Solo mantener código fuente y documentos ---
+!/src/
+!/sim/
+!/docs/
+!README.md
+!LICENSE

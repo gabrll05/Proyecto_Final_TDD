@@ -1,0 +1,64 @@
+// ============================================================
+// alu.sv
+// Unidad Aritmético-Lógica para CPU ARMv4 mínima
+// ============================================================
+
+module alu (
+    input  logic [31:0] a,        // Operando A
+    input  logic [31:0] b,        // Operando B
+    input  logic [3:0]  sel,      // Código de operación
+    output logic [31:0] result,   // Resultado de operación
+    output logic        z_flag,   // Flag de cero
+    output logic        n_flag,   // Flag de negativo
+    output logic        c_flag,   // Flag de acarreo
+    output logic        v_flag    // Flag de overflow
+);
+
+    logic [32:0] temp; // bit extra para acarreo
+
+    always_comb begin
+        // Valores por defecto
+        result = 32'b0;
+        temp   = 33'b0;
+        c_flag = 1'b0;
+        v_flag = 1'b0;
+
+        case (sel)
+            4'b0000: begin  // ADD
+                temp   = a + b;
+                result = temp[31:0];
+                c_flag = temp[32];
+                v_flag = (a[31] == b[31]) && (result[31] != a[31]);
+            end
+
+            4'b0001: begin  // SUB
+                temp   = a - b;
+                result = temp[31:0];
+                c_flag = ~temp[32];
+                v_flag = (a[31] != b[31]) && (result[31] != a[31]);
+            end
+
+            4'b0010: begin  // MUL
+                result = a * b;
+            end
+
+            4'b0011: begin  // MOV
+                result = b;
+            end
+
+            4'b0100: begin  // CMP (solo actualiza flags)
+                temp   = a - b;
+                result = 32'b0;
+                c_flag = ~temp[32];
+                v_flag = (a[31] != b[31]) && (temp[31] != a[31]);
+            end
+
+            default: result = 32'b0;
+        endcase
+    end
+
+    // Flags comunes
+    assign z_flag = (result == 32'b0);
+    assign n_flag = result[31];
+
+endmodule

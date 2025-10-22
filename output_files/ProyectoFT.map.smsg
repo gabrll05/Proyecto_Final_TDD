@@ -1,0 +1,2 @@
+Warning (10268): Verilog HDL information at divider.sv(29): always construct contains both blocking and non-blocking assignments File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/divider.sv Line: 29
+Info (10281): Verilog HDL Declaration information at divider.sv(15): object "done" differs only in case from object "DONE" in the same scope File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/divider.sv Line: 15
