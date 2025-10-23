@@ -1,5 +1,5 @@
 Analysis & Elaboration report for ProyectoFT
-Wed Oct 22 20:13:04 2025
+Wed Oct 22 20:42:34 2025
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
@@ -38,10 +38,10 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                 ;
 +-------------------------------+------------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Wed Oct 22 20:13:04 2025          ;
+; Analysis & Elaboration Status ; Successful - Wed Oct 22 20:42:34 2025          ;
 ; Quartus Prime Version         ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
 ; Revision Name                 ; ProyectoFT                                     ;
-; Top-level Entity Name         ; ps2_controller                                 ;
+; Top-level Entity Name         ; input_interface                                ;
 ; Family                        ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)   ; N/A until Partition Merge                      ;
 ; Total registers               ; N/A until Partition Merge                      ;
@@ -75,7 +75,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CSXFC6D6F31C6     ;                    ;
-; Top-level entity name                                                           ; ps2_controller     ; ProyectoFT         ;
+; Top-level entity name                                                           ; input_interface    ; ProyectoFT         ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -162,7 +162,7 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
-    Info: Processing started: Wed Oct 22 20:12:50 2025
+    Info: Processing started: Wed Oct 22 20:42:03 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ProyectoFT -c ProyectoFT --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -192,14 +192,24 @@ Info (12021): Found 1 design units, including 1 entities, in source file ps2_con
     Info (12023): Found entity 1: ps2_controller File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_controller.sv Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file tb_ps2_controller.sv
     Info (12023): Found entity 1: tb_ps2_controller File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_ps2_controller.sv Line: 5
-Info (12127): Elaborating entity "ps2_controller" for the top level hierarchy
+Info (12021): Found 1 design units, including 1 entities, in source file ps2_decoder.sv
+    Info (12023): Found entity 1: ps2_decoder File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_decoder.sv Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file tb_ps2_decoder.sv
+    Info (12023): Found entity 1: tb_ps2_decoder File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_ps2_decoder.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file input_interface.sv
+    Info (12023): Found entity 1: input_interface File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/input_interface.sv Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file tb_input_interface.sv
+    Info (12023): Found entity 1: tb_input_interface File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_input_interface.sv Line: 5
+Info (12127): Elaborating entity "input_interface" for the top level hierarchy
+Info (12128): Elaborating entity "ps2_controller" for hierarchy "ps2_controller:u_ctrl" File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/input_interface.sv Line: 30
 Warning (10230): Verilog HDL assignment warning at ps2_controller.sv(47): truncated value with size 32 to match size of target (4) File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_controller.sv Line: 47
+Info (12128): Elaborating entity "ps2_decoder" for hierarchy "ps2_decoder:u_dec" File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/input_interface.sv Line: 43
 Info (144001): Generated suppressed messages file C:/Users/fabia/Desktop/Proyecto_Final_TDD/output_files/ProyectoFT.map.smsg
 Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4791 megabytes
-    Info: Processing ended: Wed Oct 22 20:13:04 2025
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:18
+    Info: Peak virtual memory: 4803 megabytes
+    Info: Processing ended: Wed Oct 22 20:42:34 2025
+    Info: Elapsed time: 00:00:31
+    Info: Total CPU time (on all processors): 00:00:28
 
 
 +--------------------------------------------+

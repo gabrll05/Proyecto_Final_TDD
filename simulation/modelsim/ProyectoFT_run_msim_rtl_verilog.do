@@ -46,10 +46,12 @@ vlib rtl_work
 vmap work rtl_work
 
 vlog -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD {C:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_controller.sv}
+vlog -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD {C:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_decoder.sv}
+vlog -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD {C:/Users/fabia/Desktop/Proyecto_Final_TDD/input_interface.sv}
 
-vlog -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD {C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_ps2_controller.sv}
+vlog -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD {C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_input_interface.sv}
 
-vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  tb_ps2_controller
+vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  tb_input_interface
 
 add wave *
 view structure

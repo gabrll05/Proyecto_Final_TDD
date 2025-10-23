@@ -1,4 +1,21 @@
-|ps2_controller
+|input_interface
+clk => clk.IN2
+reset => reset.IN2
+ps2_clk => ps2_clk.IN1
+ps2_data => ps2_data.IN1
+key_value[0] <= ps2_decoder:u_dec.key_value
+key_value[1] <= ps2_decoder:u_dec.key_value
+key_value[2] <= ps2_decoder:u_dec.key_value
+key_value[3] <= ps2_decoder:u_dec.key_value
+key_value[4] <= ps2_decoder:u_dec.key_value
+key_value[5] <= ps2_decoder:u_dec.key_value
+key_value[6] <= ps2_decoder:u_dec.key_value
+key_value[7] <= ps2_decoder:u_dec.key_value
+key_valid <= ps2_decoder:u_dec.key_valid
+is_operator <= ps2_decoder:u_dec.is_operator
+
+
+|input_interface|ps2_controller:u_ctrl
 clk => scancode[0]~reg0.CLK
 clk => scancode[1]~reg0.CLK
 clk => scancode[2]~reg0.CLK
@@ -51,14 +68,76 @@ reset => shift_reg[7].ACLR
 reset => shift_reg[8].ACLR
 ps2_clk => ps2_clk_sync[0].DATAIN
 ps2_data => ps2_data_sync[0].DATAIN
-scancode[0] << scancode[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-scancode[1] << scancode[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-scancode[2] << scancode[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-scancode[3] << scancode[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-scancode[4] << scancode[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-scancode[5] << scancode[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-scancode[6] << scancode[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-scancode[7] << scancode[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-valid << valid~reg0.DB_MAX_OUTPUT_PORT_TYPE
+scancode[0] <= scancode[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+scancode[1] <= scancode[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+scancode[2] <= scancode[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+scancode[3] <= scancode[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+scancode[4] <= scancode[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+scancode[5] <= scancode[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+scancode[6] <= scancode[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+scancode[7] <= scancode[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+valid <= valid~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|input_interface|ps2_decoder:u_dec
+clk => release_pending.CLK
+clk => is_operator~reg0.CLK
+clk => key_valid~reg0.CLK
+clk => key_value[0]~reg0.CLK
+clk => key_value[1]~reg0.CLK
+clk => key_value[2]~reg0.CLK
+clk => key_value[3]~reg0.CLK
+clk => key_value[4]~reg0.CLK
+clk => key_value[5]~reg0.CLK
+clk => key_value[6]~reg0.CLK
+clk => key_value[7]~reg0.CLK
+reset => release_pending.ACLR
+reset => is_operator~reg0.ACLR
+reset => key_valid~reg0.ACLR
+reset => key_value[0]~reg0.ACLR
+reset => key_value[1]~reg0.ACLR
+reset => key_value[2]~reg0.ACLR
+reset => key_value[3]~reg0.ACLR
+reset => key_value[4]~reg0.ACLR
+reset => key_value[5]~reg0.ACLR
+reset => key_value[6]~reg0.ACLR
+reset => key_value[7]~reg0.ACLR
+scancode[0] => Decoder0.IN7
+scancode[0] => Equal0.IN7
+scancode[1] => Decoder0.IN6
+scancode[1] => Equal0.IN6
+scancode[2] => Decoder0.IN5
+scancode[2] => Equal0.IN5
+scancode[3] => Decoder0.IN4
+scancode[3] => Equal0.IN4
+scancode[4] => Decoder0.IN3
+scancode[4] => Equal0.IN3
+scancode[5] => Decoder0.IN2
+scancode[5] => Equal0.IN2
+scancode[6] => Decoder0.IN1
+scancode[6] => Equal0.IN1
+scancode[7] => Decoder0.IN0
+scancode[7] => Equal0.IN0
+valid => key_valid.OUTPUTSELECT
+valid => release_pending.ENA
+valid => key_value[7]~reg0.ENA
+valid => key_value[6]~reg0.ENA
+valid => key_value[5]~reg0.ENA
+valid => key_value[4]~reg0.ENA
+valid => key_value[3]~reg0.ENA
+valid => key_value[2]~reg0.ENA
+valid => key_value[1]~reg0.ENA
+valid => key_value[0]~reg0.ENA
+valid => is_operator~reg0.ENA
+key_value[0] <= key_value[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+key_value[1] <= key_value[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+key_value[2] <= key_value[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+key_value[3] <= key_value[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+key_value[4] <= key_value[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+key_value[5] <= key_value[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+key_value[6] <= key_value[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+key_value[7] <= key_value[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+key_valid <= key_valid~reg0.DB_MAX_OUTPUT_PORT_TYPE
+is_operator <= is_operator~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 

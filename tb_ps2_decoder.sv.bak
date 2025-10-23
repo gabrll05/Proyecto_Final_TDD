@@ -1,0 +1,40 @@
+`timescale 1ns/1ps
+module tb_ps2_decoder;
+
+  logic clk, reset;
+  logic [7:0] scancode;
+  logic valid;
+  logic [7:0] key_value;
+  logic key_valid, is_operator;
+
+  ps2_decoder uut (
+    .clk(clk), .reset(reset),
+    .scancode(scancode), .valid(valid),
+    .key_value(key_value), .key_valid(key_valid),
+    .is_operator(is_operator)
+  );
+
+  always #10 clk = ~clk;
+
+  initial begin
+    clk = 0; reset = 1; valid = 0; scancode = 8'h00;
+    #50 reset = 0;
+
+    $display("=== Test ps2_decoder ===");
+
+    // Tecla "2"
+    scancode = 8'h1E; valid = 1; #20; valid = 0; #40;
+    if (key_valid) $display("Tecla: %s", key_value);
+
+    // Tecla "+"
+    scancode = 8'h79; valid = 1; #20; valid = 0; #40;
+    if (key_valid) $display("Operador: %s", key_value);
+
+    // Tecla "Enter"
+    scancode = 8'h5A; valid = 1; #20; valid = 0; #40;
+    if (key_valid) $display("Enter detectado: %s", key_value);
+
+    $stop;
+  end
+endmodule
+`

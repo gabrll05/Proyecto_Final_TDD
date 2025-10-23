@@ -1,7 +1,7 @@
-Analysis & Elaboration Status : Successful - Wed Oct 22 20:13:04 2025
+Analysis & Elaboration Status : Successful - Wed Oct 22 20:42:34 2025
 Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 Revision Name : ProyectoFT
-Top-level Entity Name : ps2_controller
+Top-level Entity Name : input_interface
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A until Partition Merge
 Total registers : N/A until Partition Merge
