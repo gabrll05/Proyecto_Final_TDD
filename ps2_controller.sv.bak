@@ -1,0 +1,57 @@
+// ============================================================
+// ps2_controller.sv
+// Controlador PS/2 (lectura de teclado para CPU ARMv4)
+// ============================================================
+module ps2_controller(
+    input  logic clk,         // reloj del sistema FPGA (50 MHz)
+    input  logic reset,
+    input  logic ps2_clk,     // reloj del teclado PS/2
+    input  logic ps2_data,    // datos del teclado PS/2
+    output logic [7:0] scancode,  // código de tecla recibido
+    output logic       valid      // 1 cuando hay nueva tecla
+);
+
+    // Sincronización a reloj FPGA
+    logic [2:0] ps2_clk_sync;
+    always_ff @(posedge clk) begin
+        ps2_clk_sync <= {ps2_clk_sync[1:0], ps2_clk};
+    end
+
+    wire ps2_clk_fall = (ps2_clk_sync[2:1] == 2'b10);
+
+    // Registro de desplazamiento
+    logic [10:0] shift_reg;
+    logic [3:0]  bit_count;
+    logic        reading;
+
+    always_ff @(posedge clk or posedge reset) begin
+        if (reset) begin
+            shift_reg <= 11'b0;
+            bit_count <= 0;
+            reading   <= 0;
+            valid     <= 0;
+            scancode  <= 8'b0;
+        end else begin
+            valid <= 0;
+
+            if (ps2_clk_fall) begin
+                if (!reading) begin
+                    // Detecta bit de inicio (0)
+                    if (!ps2_data) begin
+                        reading   <= 1;
+                        bit_count <= 0;
+                    end
+                end else begin
+                    shift_reg[bit_count] <= ps2_data;
+                    bit_count <= bit_count + 1;
+
+                    if (bit_count == 10) begin
+                        reading  <= 0;
+                        valid    <= 1;
+                        scancode <= shift_reg[8:1]; // bits de datos
+                    end
+                end
+            end
+        end
+    end
+endmodule

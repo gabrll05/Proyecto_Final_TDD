@@ -45,11 +45,11 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
-vlog -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD {C:/Users/fabia/Desktop/Proyecto_Final_TDD/rom_program.sv}
+vlog -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD {C:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_controller.sv}
 
-vlog -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD {C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_rom.sv}
+vlog -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD {C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_ps2_controller.sv}
 
-vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  tb_rom
+vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  tb_ps2_controller
 
 add wave *
 view structure

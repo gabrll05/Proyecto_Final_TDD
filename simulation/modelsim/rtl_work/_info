@@ -9,54 +9,54 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/fabia/Desktop/Proyecto_Final_TDD/simulation/modelsim
-vrom_program
+vps2_controller
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-!s110 1761173289
+!s110 1761185673
 !i10b 1
-!s100 K@XleY>7:Dbc_T5DaeS_`1
+!s100 gM[@e_V^aoncOXDBcco=D3
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IScUdf5PEBk?oWS`iU@g=E2
+IX:ed35_C]L4m[@X0``B=g1
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
-w1761173064
-8C:/Users/fabia/Desktop/Proyecto_Final_TDD/rom_program.sv
-FC:/Users/fabia/Desktop/Proyecto_Final_TDD/rom_program.sv
+w1761185356
+8C:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_controller.sv
+FC:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_controller.sv
 !i122 0
-L0 5 16
+L0 4 55
 Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1761173289.000000
-!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/rom_program.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/rom_program.sv|
+Z5 !s108 1761185673.000000
+!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_controller.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_controller.sv|
 !i113 1
 Z6 o-sv -work work
 Z7 !s92 -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD
 Z8 tCvgOpt 0
-vtb_rom
+vtb_ps2_controller
 R1
-!s110 1761173290
+!s110 1761185674
 !i10b 1
-!s100 XTc`2dCGH?g]5b_;YOe0F0
+!s100 zWS[i0F[8PNcX0Z?B0;>93
 R2
-ICY1NC57UHbaaF;zj2R]n43
+IS<GA2o4di<BRAMz2B=PaQ3
 R3
 S1
 R0
-w1761173153
-8C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_rom.sv
-FC:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_rom.sv
+w1761185567
+8C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_ps2_controller.sv
+FC:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_ps2_controller.sv
 !i122 1
-L0 2 17
+L0 5 76
 R4
 r1
 !s85 0
 31
 R5
-!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_rom.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_rom.sv|
+!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_ps2_controller.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_ps2_controller.sv|
 !i113 1
 R6
 R7
