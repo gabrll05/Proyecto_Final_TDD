@@ -13,7 +13,7 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work altera_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_primitives.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:43:06 on Oct 22,2025
+# Start time: 20:17:11 on Nov 02,2025
 # vlog -reportprogress 300 -vlog01compat -work altera_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_primitives.v 
 # -- Compiling module global
 # -- Compiling module carry
@@ -95,7 +95,7 @@
 # 	alt_iobuf_diff
 # 	alt_bidir_diff
 # 	alt_bidir_buf
-# End time: 20:43:08 on Oct 22,2025, Elapsed time: 0:00:02
+# End time: 20:17:12 on Nov 02,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/lpm_ver
@@ -106,7 +106,7 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work lpm_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/220model.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:43:10 on Oct 22,2025
+# Start time: 20:17:13 on Nov 02,2025
 # vlog -reportprogress 300 -vlog01compat -work lpm_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/220model.v 
 # -- Compiling module LPM_MEMORY_INITIALIZATION
 # -- Compiling module LPM_HINT_EVALUATION
@@ -170,7 +170,7 @@
 # 	lpm_inpad
 # 	lpm_outpad
 # 	lpm_bipad
-# End time: 20:43:10 on Oct 22,2025, Elapsed time: 0:00:00
+# End time: 20:17:14 on Nov 02,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/sgate_ver
@@ -181,7 +181,7 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work sgate_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/sgate.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:43:12 on Oct 22,2025
+# Start time: 20:17:15 on Nov 02,2025
 # vlog -reportprogress 300 -vlog01compat -work sgate_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/sgate.v 
 # -- Compiling module oper_add
 # -- Compiling module oper_addsub
@@ -223,7 +223,7 @@
 # 	oper_decoder
 # 	oper_bus_mux
 # 	oper_latch
-# End time: 20:43:12 on Oct 22,2025, Elapsed time: 0:00:00
+# End time: 20:17:15 on Nov 02,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/altera_mf_ver
@@ -234,7 +234,7 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work altera_mf_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_mf.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:43:13 on Oct 22,2025
+# Start time: 20:17:16 on Nov 02,2025
 # vlog -reportprogress 300 -vlog01compat -work altera_mf_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_mf.v 
 # -- Compiling module lcell
 # -- Compiling module ALTERA_MF_MEMORY_INITIALIZATION
@@ -364,7 +364,7 @@
 # 	alt_fault_injection
 # 	sld_virtual_jtag_basic
 # 	altsource_probe
-# End time: 20:43:16 on Oct 22,2025, Elapsed time: 0:00:03
+# End time: 20:17:18 on Nov 02,2025, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/altera_lnsim_ver
@@ -375,7 +375,7 @@
 # Modifying modelsim.ini
 # vlog -sv -work altera_lnsim_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_lnsim.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:43:17 on Oct 22,2025
+# Start time: 20:17:19 on Nov 02,2025
 # vlog -reportprogress 300 -sv -work altera_lnsim_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_lnsim.sv 
 # -- Compiling package altera_lnsim_functions
 # -- Compiling package altera_generic_pll_functions
@@ -458,7 +458,7 @@
 # 	altera_iopll
 # 	fourteennm_altera_iopll
 # 	fourteennm_simple_iopll
-# End time: 20:43:19 on Oct 22,2025, Elapsed time: 0:00:02
+# End time: 20:17:20 on Nov 02,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/cyclonev_ver
@@ -469,7 +469,7 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work cyclonev_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/cyclonev_atoms_ncrypt.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:43:19 on Oct 22,2025
+# Start time: 20:17:21 on Nov 02,2025
 # vlog -reportprogress 300 -vlog01compat -work cyclonev_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/cyclonev_atoms_ncrypt.v 
 # ** Warning: (vlog-2083) <protected>(<protected>): Carriage return (0x0D) is not followed by a newline (0x0A).
 # ** Warning: (vlog-2083) <protected>(<protected>): Carriage return (0x0D) is not followed by a newline (0x0A).
@@ -483,19 +483,19 @@
 # ** Warning: (vlog-2083) <protected>(<protected>): Carriage return (0x0D) is not followed by a newline (0x0A).
 # 
 # Top level modules:
-# End time: 20:43:22 on Oct 22,2025, Elapsed time: 0:00:03
+# End time: 20:17:24 on Nov 02,2025, Elapsed time: 0:00:03
 # Errors: 0, Warnings: 10
 # vlog -vlog01compat -work cyclonev_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/cyclonev_hmi_atoms_ncrypt.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:43:22 on Oct 22,2025
+# Start time: 20:17:24 on Nov 02,2025
 # vlog -reportprogress 300 -vlog01compat -work cyclonev_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/cyclonev_hmi_atoms_ncrypt.v 
 # 
 # Top level modules:
-# End time: 20:43:30 on Oct 22,2025, Elapsed time: 0:00:08
+# End time: 20:17:27 on Nov 02,2025, Elapsed time: 0:00:03
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work cyclonev_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/cyclonev_atoms.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:43:30 on Oct 22,2025
+# Start time: 20:17:27 on Nov 02,2025
 # vlog -reportprogress 300 -vlog01compat -work cyclonev_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/cyclonev_atoms.v 
 # -- Compiling UDP CYCLONEV_PRIM_DFFE
 # -- Compiling UDP CYCLONEV_PRIM_DFFEAS
@@ -635,7 +635,7 @@
 # 	cyclonev_mem_phy
 # 	cyclonev_oscillator
 # 	cyclonev_hps_interface_fpga2sdram
-# End time: 20:43:32 on Oct 22,2025, Elapsed time: 0:00:02
+# End time: 20:17:29 on Nov 02,2025, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/cyclonev_hssi_ver
@@ -646,15 +646,15 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work cyclonev_hssi_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/cyclonev_hssi_atoms_ncrypt.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:43:34 on Oct 22,2025
+# Start time: 20:17:30 on Nov 02,2025
 # vlog -reportprogress 300 -vlog01compat -work cyclonev_hssi_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/cyclonev_hssi_atoms_ncrypt.v 
 # 
 # Top level modules:
-# End time: 20:43:36 on Oct 22,2025, Elapsed time: 0:00:02
+# End time: 20:17:33 on Nov 02,2025, Elapsed time: 0:00:03
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work cyclonev_hssi_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/cyclonev_hssi_atoms.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:43:37 on Oct 22,2025
+# Start time: 20:17:33 on Nov 02,2025
 # vlog -reportprogress 300 -vlog01compat -work cyclonev_hssi_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/cyclonev_hssi_atoms.v 
 # -- Compiling module cyclonev_hssi_8g_pcs_aggregate
 # -- Compiling module cyclonev_hssi_8g_rx_pcs
@@ -754,7 +754,7 @@
 # 	arriav_hssi_avmm_interface
 # 	arriav_hssi_pma_hi_pmaif
 # 	arriav_hssi_pma_hi_xcvrif
-# End time: 20:43:38 on Oct 22,2025, Elapsed time: 0:00:01
+# End time: 20:17:34 on Nov 02,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/cyclonev_pcie_hip_ver
@@ -765,7 +765,7 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work cyclonev_pcie_hip_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/cyclonev_pcie_hip_atoms_ncrypt.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:43:39 on Oct 22,2025
+# Start time: 20:17:35 on Nov 02,2025
 # vlog -reportprogress 300 -vlog01compat -work cyclonev_pcie_hip_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/cyclonev_pcie_hip_atoms_ncrypt.v 
 # ** Warning: (vlog-2083) <protected>(<protected>): Carriage return (0x0D) is not followed by a newline (0x0A).
 # ** Warning: (vlog-2083) <protected>(<protected>): Carriage return (0x0D) is not followed by a newline (0x0A).
@@ -775,18 +775,18 @@
 # ** Warning: (vlog-2083) <protected>(<protected>): Carriage return (0x0D) is not followed by a newline (0x0A).
 # 
 # Top level modules:
-# End time: 20:43:43 on Oct 22,2025, Elapsed time: 0:00:04
+# End time: 20:17:39 on Nov 02,2025, Elapsed time: 0:00:04
 # Errors: 0, Warnings: 6
 # vlog -vlog01compat -work cyclonev_pcie_hip_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/cyclonev_pcie_hip_atoms.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:43:45 on Oct 22,2025
+# Start time: 20:17:39 on Nov 02,2025
 # vlog -reportprogress 300 -vlog01compat -work cyclonev_pcie_hip_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/cyclonev_pcie_hip_atoms.v 
 # -- Compiling module cyclonev_hd_altpe2_hip_top
 # -- Compiling module arriav_hd_altpe2_hip_top
 # 
 # Top level modules:
 # 	cyclonev_hd_altpe2_hip_top
-# End time: 20:43:46 on Oct 22,2025, Elapsed time: 0:00:01
+# End time: 20:17:40 on Nov 02,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # if {[file exists rtl_work]} {
@@ -798,56 +798,55 @@
 # vmap work rtl_work 
 # Modifying modelsim.ini
 # 
-# vlog -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD {C:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_controller.sv}
+# vlog -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD {C:/Users/fabia/Desktop/Proyecto_Final_TDD/spi_input_interface.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:43:48 on Oct 22,2025
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD" C:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_controller.sv 
-# -- Compiling module ps2_controller
+# Start time: 20:17:41 on Nov 02,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD" C:/Users/fabia/Desktop/Proyecto_Final_TDD/spi_input_interface.sv 
+# -- Compiling module spi_input_interface
 # 
 # Top level modules:
-# 	ps2_controller
-# End time: 20:43:48 on Oct 22,2025, Elapsed time: 0:00:00
+# 	spi_input_interface
+# End time: 20:17:41 on Nov 02,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD {C:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_decoder.sv}
+# vlog -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD {C:/Users/fabia/Desktop/Proyecto_Final_TDD/top_fpga_spi_test.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:43:48 on Oct 22,2025
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD" C:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_decoder.sv 
-# -- Compiling module ps2_decoder
+# Start time: 20:17:42 on Nov 02,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD" C:/Users/fabia/Desktop/Proyecto_Final_TDD/top_fpga_spi_test.sv 
+# -- Compiling module top_fpga_spi_test
 # 
 # Top level modules:
-# 	ps2_decoder
-# End time: 20:43:48 on Oct 22,2025, Elapsed time: 0:00:00
+# 	top_fpga_spi_test
+# End time: 20:17:42 on Nov 02,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD {C:/Users/fabia/Desktop/Proyecto_Final_TDD/input_interface.sv}
+# vlog -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD {C:/Users/fabia/Desktop/Proyecto_Final_TDD/SPI_io.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:43:49 on Oct 22,2025
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD" C:/Users/fabia/Desktop/Proyecto_Final_TDD/input_interface.sv 
-# -- Compiling module input_interface
+# Start time: 20:17:42 on Nov 02,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD" C:/Users/fabia/Desktop/Proyecto_Final_TDD/SPI_io.sv 
+# -- Compiling module SPI_io
 # 
 # Top level modules:
-# 	input_interface
-# End time: 20:43:49 on Oct 22,2025, Elapsed time: 0:00:00
+# 	SPI_io
+# End time: 20:17:42 on Nov 02,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vlog -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD {C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_input_interface.sv}
+# vlog -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD {C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_spi_input_interface.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 20:43:49 on Oct 22,2025
-# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD" C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_input_interface.sv 
-# -- Compiling module tb_input_interface
+# Start time: 20:17:43 on Nov 02,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD" C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_spi_input_interface.sv 
+# -- Compiling module tb_spi_input_interface
 # 
 # Top level modules:
-# 	tb_input_interface
-# End time: 20:43:49 on Oct 22,2025, Elapsed time: 0:00:00
+# 	tb_spi_input_interface
+# End time: 20:17:43 on Nov 02,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  tb_input_interface
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" tb_input_interface 
-# Start time: 20:43:50 on Oct 22,2025
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  tb_spi_input_interface
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" tb_spi_input_interface 
+# Start time: 20:17:43 on Nov 02,2025
 # Loading sv_std.std
-# Loading work.tb_input_interface
-# Loading work.input_interface
-# Loading work.ps2_controller
-# Loading work.ps2_decoder
+# Loading work.tb_spi_input_interface
+# Loading work.spi_input_interface
+# Loading work.SPI_io
 # 
 # add wave *
 # view structure
@@ -855,12 +854,9 @@
 # view signals
 # .main_pane.objects.interior.cs.body.tree
 # run -all
-# === Test input_interface ===
-# 🔹 Tecla traducida: 2 (ASCII=32, operador=0)  t=1050170000
-# 🔹 Tecla traducida: + (ASCII=2b, operador=1)  t=2350170000
-# 🔹 Tecla traducida: 3 (ASCII=33, operador=0)  t=3650170000
-# 🔹 Tecla traducida: = (ASCII=3d, operador=1)  t=4950170000
+# === Test SPI Input Interface ===
+# 🔹 Tecla recibida: 3 (ASCII=33, op=0) t=370000
 # === Fin del test ===
-# ** Note: $stop    : C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_input_interface.sv(69)
-#    Time: 5400100 ns  Iteration: 0  Instance: /tb_input_interface
-# Break in Module tb_input_interface at C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_input_interface.sv line 69
+# ** Note: $stop    : C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_spi_input_interface.sv(45)
+#    Time: 1090 ns  Iteration: 0  Instance: /tb_spi_input_interface
+# Break in Module tb_spi_input_interface at C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_spi_input_interface.sv line 45

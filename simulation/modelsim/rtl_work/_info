@@ -9,107 +9,108 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/fabia/Desktop/Proyecto_Final_TDD/simulation/modelsim
-vinput_interface
+vspi_input_interface
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1761187429
+!s110 1762136261
 !i10b 1
-!s100 Lkg3[=8=bXWFkB0Ndn7MY0
-Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-I3Lfb3j>X@KiZ<n3[h5Qc=1
-Z4 VDg1SIo80bB@j0V0VzS_@n1
+!s100 EHMJK9KXYEI>Q0j3>nL?_1
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+ImQDO>8bm3dTW35cfWY8U52
+Z3 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
-w1761187262
-8C:/Users/fabia/Desktop/Proyecto_Final_TDD/input_interface.sv
-FC:/Users/fabia/Desktop/Proyecto_Final_TDD/input_interface.sv
-!i122 2
-L0 6 40
-Z5 OV;L;2020.1;71
-r1
-!s85 0
-31
-Z6 !s108 1761187429.000000
-!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/input_interface.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/input_interface.sv|
-!i113 1
-Z7 o-sv -work work
-Z8 !s92 -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD
-Z9 tCvgOpt 0
-vps2_controller
-R1
-Z10 !s110 1761187428
-!i10b 1
-!s100 gM[@e_V^aoncOXDBcco=D3
-R3
-IX:ed35_C]L4m[@X0``B=g1
-R4
-S1
-R0
-w1761185356
-8C:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_controller.sv
-FC:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_controller.sv
+w1762135118
+8C:/Users/fabia/Desktop/Proyecto_Final_TDD/spi_input_interface.sv
+FC:/Users/fabia/Desktop/Proyecto_Final_TDD/spi_input_interface.sv
 !i122 0
-L0 4 55
-R5
+L0 5 68
+Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z11 !s108 1761187428.000000
-!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_controller.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_controller.sv|
+!s108 1762136261.000000
+!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/spi_input_interface.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/spi_input_interface.sv|
 !i113 1
-R7
-R8
-R9
-vps2_decoder
+Z5 o-sv -work work
+Z6 !s92 -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD
+Z7 tCvgOpt 0
+vSPI_io
 R1
-R10
+Z8 !s110 1762136262
 !i10b 1
-!s100 Aa5MDg;eTdi7>haPCQUML2
-R3
-I>J@m^O>SUcm`Rz>BTo;;?3
-R4
-S1
-R0
-w1761186118
-8C:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_decoder.sv
-FC:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_decoder.sv
-!i122 1
-L0 5 64
-R5
-r1
-!s85 0
-31
-R11
-!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_decoder.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/ps2_decoder.sv|
-!i113 1
-R7
-R8
-R9
-vtb_input_interface
-R1
+!s100 68@AD>gQ^U=ddD60alNdo3
 R2
-!i10b 1
-!s100 JGNjJ8hBE=EYEnECFh:II0
+IS5P_Q8E5RZLcZ8@Sl`Y882
 R3
-Im=kBlMdfnind;YPbiW4d]1
-R4
 S1
 R0
-w1761187280
-8C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_input_interface.sv
-FC:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_input_interface.sv
-!i122 3
-L0 5 67
-R5
+w1762135740
+8C:/Users/fabia/Desktop/Proyecto_Final_TDD/SPI_io.sv
+FC:/Users/fabia/Desktop/Proyecto_Final_TDD/SPI_io.sv
+!i122 2
+L0 7 72
+R4
 r1
 !s85 0
 31
-R6
-!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_input_interface.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_input_interface.sv|
+Z9 !s108 1762136262.000000
+!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/SPI_io.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/SPI_io.sv|
 !i113 1
+R5
+R6
 R7
+n@s@p@i_io
+vtb_spi_input_interface
+R1
+!s110 1762136263
+!i10b 1
+!s100 OEJ>PdP?c2_OV`c_be2KE3
+R2
+I=`[[PF8lIoi:h`7333UVZ3
+R3
+S1
+R0
+w1762135152
+8C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_spi_input_interface.sv
+FC:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_spi_input_interface.sv
+!i122 3
+L0 2 51
+R4
+r1
+!s85 0
+31
+!s108 1762136263.000000
+!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_spi_input_interface.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_spi_input_interface.sv|
+!i113 1
+R5
+R6
+R7
+vtop_fpga_spi_test
+R1
 R8
+!i10b 1
+!s100 mkk_aR_nL7Po>2:_>mZmd2
+R2
+I][GoQAFnSCY8ZPBR`8Z=H2
+R3
+S1
+R0
+w1762136066
+8C:/Users/fabia/Desktop/Proyecto_Final_TDD/top_fpga_spi_test.sv
+FC:/Users/fabia/Desktop/Proyecto_Final_TDD/top_fpga_spi_test.sv
+!i122 1
+L0 6 44
+R4
+r1
+!s85 0
+31
 R9
+!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/top_fpga_spi_test.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/top_fpga_spi_test.sv|
+!i113 1
+R5
+R6
+R7

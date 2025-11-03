@@ -4,51 +4,63 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "alu_sel[0]",
+					"name" : "ACK",
 					"strict" : false
 				},
 				{
-					"name" : "alu_sel[1]",
+					"name" : "LEDR[0]",
 					"strict" : false
 				},
 				{
-					"name" : "alu_sel[2]",
+					"name" : "LEDR[1]",
 					"strict" : false
 				},
 				{
-					"name" : "reg_wr_en",
+					"name" : "LEDR[2]",
 					"strict" : false
 				},
 				{
-					"name" : "pc_en",
+					"name" : "LEDR[3]",
 					"strict" : false
 				},
 				{
-					"name" : "instr[28]",
+					"name" : "LEDR[4]",
 					"strict" : false
 				},
 				{
-					"name" : "instr[29]",
+					"name" : "LEDR[5]",
 					"strict" : false
 				},
 				{
-					"name" : "instr[30]",
+					"name" : "LEDR[6]",
 					"strict" : false
 				},
 				{
-					"name" : "instr[31]",
+					"name" : "LEDR[8]",
 					"strict" : false
 				},
 				{
-					"name" : "clk",
+					"name" : "LEDR[9]",
 					"strict" : false
 				},
 				{
-					"name" : "reset",
+					"name" : "MOSI",
 					"strict" : false
 				},
 				{
-					"name" : "alu_busy",
+					"name" : "KEY[0]",
+					"strict" : false
+				},
+				{
+					"name" : "REQ",
+					"strict" : false
+				},
+				{
+					"name" : "SCK",
+					"strict" : false
+				},
+				{
+					"name" : "SS",
 					"strict" : false
 				}
 			]

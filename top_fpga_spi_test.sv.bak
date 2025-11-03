@@ -1,0 +1,53 @@
+// ============================================================
+// top_fpga_spi_test.sv
+// Prueba física de SPI input con Arduino
+// Muestra el dato recibido en LEDs y HEX
+// ============================================================
+module top_fpga_spi_test (
+    input  logic CLOCK_50,       // Reloj base FPGA
+    input  logic [0:0] KEY,      // Reset activo en bajo
+    input  logic MOSI, SCK, SS, REQ,
+    output logic ACK,
+    output logic [6:0] HEX0,     // Display de 7 segmentos
+    output logic [9:0] LEDR      // LEDs debug
+);
+
+    // Reset sincronizado
+    logic rst_n;
+    assign rst_n = KEY[0];
+
+    // Señales internas
+    logic [7:0] key_value;
+    logic key_valid, is_operator;
+
+    // ------------------------------------------------------------
+    // Interfaz SPI de entrada (del Arduino)
+    // ------------------------------------------------------------
+    spi_input_interface u_input (
+        .clk(CLOCK_50),
+        .rst(rst_n),
+        .mosi(MOSI),
+        .sck(SCK),
+        .req(REQ),
+        .ss(SS),
+        .ack(ACK),
+        .key_value(key_value),
+        .key_valid(key_valid),
+        .is_operator(is_operator)
+    );
+
+    // ------------------------------------------------------------
+    // LEDs y Display
+    // ------------------------------------------------------------
+    // Muestra el valor ASCII recibido (para debug)
+    assign LEDR[7:0] = key_value;
+    assign LEDR[8]   = key_valid;
+    assign LEDR[9]   = is_operator;
+
+    // Conversión a display 7 segmentos (solo para números)
+    seven_segment_display u_disp (
+        .sev_seg_in(key_value[3:0]),  // solo dígito si aplica
+        .sev_seg_out(HEX0)
+    );
+
+endmodule

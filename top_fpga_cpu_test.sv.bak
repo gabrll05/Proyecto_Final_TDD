@@ -1,0 +1,36 @@
+// ============================================================
+// top_fpga_cpu_test.sv
+// Top-level para probar la CPU ARMv4 mínima en FPGA
+// Muestra el resultado de la ALU en los LEDS
+// ============================================================
+module top_fpga_cpu_test (
+    input  logic CLOCK_50,       // reloj principal FPGA (50 MHz)
+    input  logic [0:0] KEY,      // KEY0 como reset activo en bajo
+    output logic [9:0] LEDR      // LEDs para debug / resultado
+);
+
+    // Señal de reset sincronizada
+    logic rst_n;
+    assign rst_n = KEY[0];
+
+    // =========================================
+    // Instancia de la CPU
+    // =========================================
+    cpu_armv4 u_cpu (
+        .clk   (CLOCK_50),
+        .reset (~rst_n)           // reset activo en alto
+    );
+
+    // =========================================
+    // Monitorización básica (solo para debug)
+    // =========================================
+    // Si tu CPU no expone el resultado directamente,
+    // podés conectar internamente la ALU a los LEDS.
+    // En este caso usaremos el contenido de la ROM
+    // para mostrar que el programa se está ejecutando.
+
+    // Para visualización simple, podés mostrar el contador de programa
+    // o un subconjunto de señales internas más adelante.
+    assign LEDR = {10{1'b0}}; // placeholder para LEDs apagados
+
+endmodule

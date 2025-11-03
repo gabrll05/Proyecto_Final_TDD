@@ -3,14 +3,17 @@
 // Interfaz de entrada PS/2 completa para Calculadora ARM-V4
 // Combina: ps2_controller + ps2_decoder
 // ============================================================
-module input_interface (
-    input  logic clk,
-    input  logic reset,
-    input  logic ps2_clk,
-    input  logic ps2_data,
-    output logic [7:0] key_value,   // ASCII del número u operador
-    output logic       key_valid,   // 1 = nueva tecla
-    output logic       is_operator  // 1 = operador (+,-,*,/,=)
+spi_input_interface u_input (
+    .clk(clk),
+    .rst(reset),
+    .mosi(MOSI),
+    .sck(SCK),
+    .req(REQ),
+    .ss(SS),
+    .ack(ACK),
+    .key_value(key_value),
+    .key_valid(key_valid),
+    .is_operator(is_operator)
 );
 
     // Señales internas

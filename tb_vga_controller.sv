@@ -23,3 +23,4 @@ module tb_vga_controller;
     $stop;
   end
 endmodule
+	
