@@ -1,51 +1,24 @@
-|top_fpga_spi_test
-CLOCK_50 => CLOCK_50.IN1
-KEY[0] => rst_n.IN1
-MOSI => MOSI.IN1
-SCK => SCK.IN1
-SS => SS.IN1
-REQ => REQ.IN1
-ACK << spi_input_interface:u_input.ack
-HEX0[0] << <GND>
-HEX0[1] << <GND>
-HEX0[2] << <GND>
-HEX0[3] << <GND>
-HEX0[4] << <GND>
-HEX0[5] << <GND>
-HEX0[6] << <GND>
-LEDR[0] << spi_input_interface:u_input.key_value
-LEDR[1] << spi_input_interface:u_input.key_value
-LEDR[2] << spi_input_interface:u_input.key_value
-LEDR[3] << spi_input_interface:u_input.key_value
-LEDR[4] << spi_input_interface:u_input.key_value
-LEDR[5] << spi_input_interface:u_input.key_value
-LEDR[6] << spi_input_interface:u_input.key_value
-LEDR[7] << spi_input_interface:u_input.key_value
-LEDR[8] << spi_input_interface:u_input.key_valid
-LEDR[9] << spi_input_interface:u_input.is_operator
-
-
-|top_fpga_spi_test|spi_input_interface:u_input
-clk => ~NO_FANOUT~
+|SPI_top
 rst => rst.IN1
 mosi => mosi.IN1
 sck => sck.IN1
 req => req.IN1
 ss => ss.IN1
-ack <= SPI_io:u_spi.ack
-key_value[0] <= key_value[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-key_value[1] <= key_value[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-key_value[2] <= key_value[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-key_value[3] <= key_value[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-key_value[4] <= key_value[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-key_value[5] <= key_value[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-key_value[6] <= key_value[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-key_value[7] <= key_value[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-key_valid <= key_valid~reg0.DB_MAX_OUTPUT_PORT_TYPE
-is_operator <= is_operator~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ack << SPI_io:u_SPI_io.ack
+master_data_reg[0] << master_data_reg[0].DB_MAX_OUTPUT_PORT_TYPE
+master_data_reg[1] << master_data_reg[1].DB_MAX_OUTPUT_PORT_TYPE
+master_data_reg[2] << master_data_reg[2].DB_MAX_OUTPUT_PORT_TYPE
+master_data_reg[3] << master_data_reg[3].DB_MAX_OUTPUT_PORT_TYPE
+sev_seg_md[0] << seven_segment_display:u_sev_seg_d.sev_seg_out
+sev_seg_md[1] << seven_segment_display:u_sev_seg_d.sev_seg_out
+sev_seg_md[2] << seven_segment_display:u_sev_seg_d.sev_seg_out
+sev_seg_md[3] << seven_segment_display:u_sev_seg_d.sev_seg_out
+sev_seg_md[4] << seven_segment_display:u_sev_seg_d.sev_seg_out
+sev_seg_md[5] << seven_segment_display:u_sev_seg_d.sev_seg_out
+sev_seg_md[6] << seven_segment_display:u_sev_seg_d.sev_seg_out
 
 
-|top_fpga_spi_test|spi_input_interface:u_input|SPI_io:u_spi
+|SPI_top|SPI_io:u_SPI_io
 rst => req_active.IN0
 rst => cs[0].PRESET
 rst => cs[1].ACLR
@@ -88,5 +61,19 @@ master_data_register[0] <= md[0].DB_MAX_OUTPUT_PORT_TYPE
 master_data_register[1] <= md[1].DB_MAX_OUTPUT_PORT_TYPE
 master_data_register[2] <= md[2].DB_MAX_OUTPUT_PORT_TYPE
 master_data_register[3] <= md[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SPI_top|seven_segment_display:u_sev_seg_d
+sev_seg_in[0] => Decoder0.IN3
+sev_seg_in[1] => Decoder0.IN2
+sev_seg_in[2] => Decoder0.IN1
+sev_seg_in[3] => Decoder0.IN0
+sev_seg_out[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+sev_seg_out[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+sev_seg_out[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+sev_seg_out[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+sev_seg_out[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+sev_seg_out[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+sev_seg_out[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 

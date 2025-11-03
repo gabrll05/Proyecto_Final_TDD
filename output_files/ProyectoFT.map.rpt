@@ -1,5 +1,5 @@
-Analysis & Elaboration report for ProyectoFT
-Sun Nov  2 20:16:39 2025
+Analysis & Synthesis report for ProyectoFT
+Mon Nov  3 12:51:00 2025
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
@@ -7,11 +7,19 @@ Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Elaboration Summary
-  3. Parallel Compilation
-  4. Analysis & Elaboration Settings
-  5. Analysis & Elaboration Messages
-  6. Analysis & Elaboration Suppressed Messages
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Inverted Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
+ 14. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -35,47 +43,36 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+--------------------------------------------------------------------------------+
-; Analysis & Elaboration Summary                                                 ;
-+-------------------------------+------------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Sun Nov  2 20:16:39 2025          ;
-; Quartus Prime Version         ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
-; Revision Name                 ; ProyectoFT                                     ;
-; Top-level Entity Name         ; top_fpga_spi_test                              ;
-; Family                        ; Cyclone V                                      ;
-; Logic utilization (in ALMs)   ; N/A until Partition Merge                      ;
-; Total registers               ; N/A until Partition Merge                      ;
-; Total pins                    ; N/A until Partition Merge                      ;
-; Total virtual pins            ; N/A until Partition Merge                      ;
-; Total block memory bits       ; N/A until Partition Merge                      ;
-; Total PLLs                    ; N/A until Partition Merge                      ;
-; Total DLLs                    ; N/A until Partition Merge                      ;
-+-------------------------------+------------------------------------------------+
-
-
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++---------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Nov  3 12:51:00 2025          ;
+; Quartus Prime Version           ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
+; Revision Name                   ; ProyectoFT                                     ;
+; Top-level Entity Name           ; SPI_top                                        ;
+; Family                          ; Cyclone V                                      ;
+; Logic utilization (in ALMs)     ; N/A                                            ;
+; Total registers                 ; 10                                             ;
+; Total pins                      ; 17                                             ;
+; Total virtual pins              ; 0                                              ;
+; Total block memory bits         ; 0                                              ;
+; Total DSP Blocks                ; 0                                              ;
+; Total HSSI RX PCSs              ; 0                                              ;
+; Total HSSI PMA RX Deserializers ; 0                                              ;
+; Total HSSI TX PCSs              ; 0                                              ;
+; Total HSSI PMA TX Serializers   ; 0                                              ;
+; Total PLLs                      ; 0                                              ;
+; Total DLLs                      ; 0                                              ;
++---------------------------------+------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration Settings                                                                                           ;
+; Analysis & Synthesis Settings                                                                                             ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CSXFC6D6F31C6     ;                    ;
-; Top-level entity name                                                           ; top_fpga_spi_test  ; ProyectoFT         ;
+; Top-level entity name                                                           ; SPI_top            ; ProyectoFT         ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -156,69 +153,195 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+---------------------------------+
-; Analysis & Elaboration Messages ;
-+---------------------------------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                           ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                       ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------------------+---------+
+; SPI_io.sv                        ; yes             ; User SystemVerilog HDL File  ; C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/SPI_io.sv                ;         ;
+; SPI_top.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/SPI_top.sv               ;         ;
+; seven_segment_display.sv         ; yes             ; User SystemVerilog HDL File  ; C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/seven_segment_display.sv ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 9         ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 15        ;
+;     -- 7 input functions                    ; 0         ;
+;     -- 6 input functions                    ; 2         ;
+;     -- 5 input functions                    ; 1         ;
+;     -- 4 input functions                    ; 10        ;
+;     -- <=3 input functions                  ; 2         ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 10        ;
+;                                             ;           ;
+; I/O pins                                    ; 17        ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; rst~input ;
+; Maximum fan-out                             ; 17        ;
+; Total fan-out                               ; 124       ;
+; Average fan-out                             ; 2.10      ;
++---------------------------------------------+-----------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                 ;
++----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+-----------------------+--------------+
+; Compilation Hierarchy Node             ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Entity Name           ; Library Name ;
++----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+-----------------------+--------------+
+; |SPI_top                               ; 15 (0)              ; 10 (0)                    ; 0                 ; 0          ; 17   ; 0            ; |SPI_top                                   ; SPI_top               ; work         ;
+;    |SPI_io:u_SPI_io|                   ; 8 (8)               ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |SPI_top|SPI_io:u_SPI_io                   ; SPI_io                ; work         ;
+;    |seven_segment_display:u_sev_seg_d| ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |SPI_top|seven_segment_display:u_sev_seg_d ; seven_segment_display ; work         ;
++----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+-----------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 10    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 10    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 4     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; SPI_io:u_SPI_io|cs[0]                  ; 2       ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |SPI_top|SPI_io:u_SPI_io|md[0] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 10                          ;
+;     CLR               ; 6                           ;
+;     ENA CLR           ; 4                           ;
+; arriav_lcell_comb     ; 16                          ;
+;     normal            ; 16                          ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 2                           ;
+;         4 data inputs ; 10                          ;
+;         5 data inputs ; 1                           ;
+;         6 data inputs ; 2                           ;
+; boundary_port         ; 17                          ;
+;                       ;                             ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.29                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Elaboration
+Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
-    Info: Processing started: Sun Nov  2 20:16:26 2025
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ProyectoFT -c ProyectoFT --analysis_and_elaboration
+    Info: Processing started: Mon Nov  3 12:50:51 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ProyectoFT -c ProyectoFT
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
-    Info (12023): Found entity 1: alu File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/alu.sv Line: 7
-Info (12021): Found 1 design units, including 1 entities, in source file tb_alu.sv
-    Info (12023): Found entity 1: tb_alu File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_alu.sv Line: 5
+    Info (12023): Found entity 1: alu File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/alu.sv Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file regfile.sv
-    Info (12023): Found entity 1: regfile File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/regfile.sv Line: 6
-Info (12021): Found 1 design units, including 1 entities, in source file tb_regfile.sv
-    Info (12023): Found entity 1: tb_regfile File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_regfile.sv Line: 5
+    Info (12023): Found entity 1: regfile File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/regfile.sv Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file divider.sv
-    Info (12023): Found entity 1: divider File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/divider.sv Line: 6
-Info (12021): Found 1 design units, including 1 entities, in source file tb_divider.sv
-    Info (12023): Found entity 1: tb_divider File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_divider.sv Line: 6
+    Info (12023): Found entity 1: divider File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/divider.sv Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file control_unit.sv
-    Info (12023): Found entity 1: control_unit File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/control_unit.sv Line: 5
+    Info (12023): Found entity 1: control_unit File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/control_unit.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file cpu_armv4.sv
-    Info (12023): Found entity 1: cpu_armv4 File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/cpu_armv4.sv Line: 5
+    Info (12023): Found entity 1: cpu_armv4 File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file rom_program.sv
-    Info (12023): Found entity 1: rom_program File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/rom_program.sv Line: 5
+    Info (12023): Found entity 1: rom_program File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file ram_data.sv
-    Info (12023): Found entity 1: ram_data File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/ram_data.sv Line: 5
-Info (12021): Found 1 design units, including 1 entities, in source file tb_rom.sv
-    Info (12023): Found entity 1: tb_rom File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_rom.sv Line: 2
-Info (12021): Found 1 design units, including 1 entities, in source file tb_input_interface.sv
-    Info (12023): Found entity 1: tb_input_interface File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_input_interface.sv Line: 5
+    Info (12023): Found entity 1: ram_data File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/ram_data.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file vga_controller.sv
-    Info (12023): Found entity 1: vga_controller File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/vga_controller.sv Line: 5
+    Info (12023): Found entity 1: vga_controller File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/vga_controller.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file vga_textgen.sv
-    Info (12023): Found entity 1: vga_textgen File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/vga_textgen.sv Line: 5
-Info (12021): Found 1 design units, including 1 entities, in source file tb_vga_controller.sv
-    Info (12023): Found entity 1: tb_vga_controller File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_vga_controller.sv Line: 2
-Info (12021): Found 1 design units, including 1 entities, in source file spi_input_interface.sv
-    Info (12023): Found entity 1: spi_input_interface File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/spi_input_interface.sv Line: 5
-Info (12021): Found 1 design units, including 1 entities, in source file tb_spi_input_interface.sv
-    Info (12023): Found entity 1: tb_spi_input_interface File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_spi_input_interface.sv Line: 2
-Info (12021): Found 1 design units, including 1 entities, in source file top_fpga_spi_test.sv
-    Info (12023): Found entity 1: top_fpga_spi_test File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/top_fpga_spi_test.sv Line: 6
+    Info (12023): Found entity 1: vga_textgen File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/vga_textgen.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file spi_io.sv
-    Info (12023): Found entity 1: SPI_io File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/SPI_io.sv Line: 7
-Info (12127): Elaborating entity "top_fpga_spi_test" for the top level hierarchy
-Warning (10034): Output port "HEX0" at top_fpga_spi_test.sv(11) has no driver File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/top_fpga_spi_test.sv Line: 11
-Info (12128): Elaborating entity "spi_input_interface" for hierarchy "spi_input_interface:u_input" File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/top_fpga_spi_test.sv Line: 37
-Info (12128): Elaborating entity "SPI_io" for hierarchy "spi_input_interface:u_input|SPI_io:u_spi" File: C:/Users/fabia/Desktop/Proyecto_Final_TDD/spi_input_interface.sv Line: 33
-Info (144001): Generated suppressed messages file C:/Users/fabia/Desktop/Proyecto_Final_TDD/output_files/ProyectoFT.map.smsg
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 4791 megabytes
-    Info: Processing ended: Sun Nov  2 20:16:39 2025
-    Info: Elapsed time: 00:00:13
-    Info: Total CPU time (on all processors): 00:00:26
+    Info (12023): Found entity 1: SPI_io File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/SPI_io.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file top_fpga_cpu_test.sv
+    Info (12023): Found entity 1: top_fpga_cpu_test File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/top_fpga_cpu_test.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file spi_top.sv
+    Info (12023): Found entity 1: SPI_top File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/SPI_top.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file seven_segment_display.sv
+    Info (12023): Found entity 1: seven_segment_display File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/seven_segment_display.sv Line: 1
+Info (12127): Elaborating entity "SPI_top" for the top level hierarchy
+Info (12128): Elaborating entity "SPI_io" for hierarchy "SPI_io:u_SPI_io" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/SPI_top.sv Line: 20
+Info (12128): Elaborating entity "seven_segment_display" for hierarchy "seven_segment_display:u_sev_seg_d" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/SPI_top.sv Line: 25
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/output_files/ProyectoFT.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 36 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 12 output pins
+    Info (21061): Implemented 19 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4854 megabytes
+    Info: Processing ended: Mon Nov  3 12:51:00 2025
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:17
 
 
-+--------------------------------------------+
-; Analysis & Elaboration Suppressed Messages ;
-+--------------------------------------------+
-The suppressed messages can be found in C:/Users/fabia/Desktop/Proyecto_Final_TDD/output_files/ProyectoFT.map.smsg.
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/output_files/ProyectoFT.map.smsg.
 
 
