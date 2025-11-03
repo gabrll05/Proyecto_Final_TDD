@@ -1,0 +1,57 @@
+// ============================================================
+// tb_cpu_romcheck.sv
+// Testbench para verificar lectura de ROM y ejecución de CPU ARMv4
+// ============================================================
+`timescale 1ns/1ps
+module tb_cpu_romcheck;
+
+    // Señales de prueba
+    logic clk;
+    logic reset;
+    logic [31:0] result;
+
+    // Instancia de la CPU
+    cpu_armv4 uut (
+        .clk(clk),
+        .reset(reset),
+        .alu_result_out(result)
+    );
+
+    // Generador de reloj
+    initial clk = 0;
+    always #5 clk = ~clk;   // 100 MHz simulado
+
+    // Reset inicial
+    initial begin
+        $display("\n==============================================");
+        $display("🚀  INICIO DE SIMULACIÓN - PRUEBA ROM + CPU");
+        $display("==============================================\n");
+
+        reset = 1;
+        #20;
+        reset = 0;
+
+        // Ejecutar por 1000 ns
+        #1000;
+
+        $display("\n==============================================");
+        $display("✅ FIN DE SIMULACIÓN");
+        $display("==============================================\n");
+        $stop;
+    end
+
+    // Monitoreo de señales internas
+    // ---------------------------------------------------------------
+    // Si usás ModelSim o la consola de Quartus, vas a ver algo así:
+    // PC=0 | Instr=E3A00002 | ALU=2
+    // PC=1 | Instr=E3A01003 | ALU=3
+    // PC=2 | Instr=E0802001 | ALU=5
+    // ---------------------------------------------------------------
+    always_ff @(posedge clk) begin
+        if (!reset) begin
+            $display("t=%0t | PC=%0d | Instr=%h | ALU=%0d",
+                     $time, uut.pc, uut.instr, uut.alu_result_out);
+        end
+    end
+
+endmodule

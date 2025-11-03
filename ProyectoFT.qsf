@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSXFC6D6F31C6
-set_global_assignment -name TOP_LEVEL_ENTITY SPI_top
+set_global_assignment -name TOP_LEVEL_ENTITY top_fpga_cpu_test
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 22.1STD.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "15:50:01  OCTOBER 22, 2025"
 set_global_assignment -name LAST_QUARTUS_VERSION "22.1std.0 Lite Edition"
@@ -58,41 +58,36 @@ set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH tb_spi_input_interface -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH tb_cpu_romcheck -section_id eda_simulation
 set_global_assignment -name SYSTEMVERILOG_FILE regfile.sv
 set_global_assignment -name SYSTEMVERILOG_FILE divider.sv
 set_global_assignment -name SYSTEMVERILOG_FILE control_unit.sv
 set_global_assignment -name SYSTEMVERILOG_FILE cpu_armv4.sv
 set_global_assignment -name SYSTEMVERILOG_FILE rom_program.sv
-set_global_assignment -name HEX_FILE program_mem.hex
 set_global_assignment -name SYSTEMVERILOG_FILE ram_data.sv
 set_global_assignment -name SYSTEMVERILOG_FILE vga_controller.sv
 set_global_assignment -name SYSTEMVERILOG_FILE vga_textgen.sv
-set_global_assignment -name EDA_TEST_BENCH_NAME tb_spi_input_interface -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id tb_spi_input_interface
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME tb_spi_input_interface -section_id tb_spi_input_interface
-set_global_assignment -name EDA_TEST_BENCH_FILE tb_spi_input_interface.sv -section_id tb_spi_input_interface
 set_global_assignment -name SYSTEMVERILOG_FILE SPI_io.sv
 set_global_assignment -name SYSTEMVERILOG_FILE top_fpga_cpu_test.sv
+set_location_assignment PIN_AF14 -to CLOCK_50
+set_location_assignment PIN_AJ4 -to KEY[0]
+set_location_assignment PIN_AA24 -to LEDR[0]
+set_location_assignment PIN_AB23 -to LEDR[1]
+set_location_assignment PIN_AC23 -to LEDR[2]
+set_location_assignment PIN_AD24 -to LEDR[3]
+set_location_assignment PIN_AG25 -to LEDR[4]
+set_location_assignment PIN_AF25 -to LEDR[5]
+set_location_assignment PIN_AE24 -to LEDR[6]
+set_location_assignment PIN_AF24 -to LEDR[7]
+set_location_assignment PIN_AB22 -to LEDR[8]
+set_location_assignment PIN_AC22 -to LEDR[9]
 set_global_assignment -name SYSTEMVERILOG_FILE SPI_top.sv
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name SYSTEMVERILOG_FILE seven_segment_display.sv
 set_location_assignment PIN_AD7 -to ack
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ack
 set_location_assignment PIN_AC12 -to mosi
 set_location_assignment PIN_AA12 -to req
-set_location_assignment PIN_AJ4 -to rst
 set_location_assignment PIN_AD12 -to sck
 set_location_assignment PIN_AD10 -to ss
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sck
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to req
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to mosi
-set_location_assignment PIN_AF24 -to master_data_reg[0]
-set_location_assignment PIN_AB22 -to master_data_reg[1]
-set_location_assignment PIN_AE24 -to master_data_reg[2]
-set_location_assignment PIN_AC22 -to master_data_reg[3]
 set_location_assignment PIN_AH22 -to sev_seg_md[0]
 set_location_assignment PIN_AF23 -to sev_seg_md[1]
 set_location_assignment PIN_AG23 -to sev_seg_md[2]
@@ -100,4 +95,19 @@ set_location_assignment PIN_AE23 -to sev_seg_md[3]
 set_location_assignment PIN_AE22 -to sev_seg_md[4]
 set_location_assignment PIN_AG22 -to sev_seg_md[5]
 set_location_assignment PIN_AD21 -to sev_seg_md[6]
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ack
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sck
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to req
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to mosi
+set_global_assignment -name HEX_FILE program_mem.hex
+set_global_assignment -name SYSTEMVERILOG_FILE clock_divider.sv
+set_global_assignment -name SYSTEMVERILOG_FILE tb_cpu_romcheck.sv
+set_global_assignment -name EDA_TEST_BENCH_NAME tb_cpu_romcheck -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id tb_cpu_romcheck
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME tb_cpu_romcheck -section_id tb_cpu_romcheck
+set_global_assignment -name SYSTEMVERILOG_FILE tb_alu_isolated.sv
+set_global_assignment -name EDA_TEST_BENCH_FILE tb_cpu_romcheck.sv -section_id tb_cpu_romcheck
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

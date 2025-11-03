@@ -8,108 +8,211 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/fabia/Desktop/Proyecto_Final_TDD/simulation/modelsim
-vspi_input_interface
+Z0 dC:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/simulation/modelsim
+valu
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-!s110 1762136261
+!s110 1762209099
 !i10b 1
-!s100 EHMJK9KXYEI>Q0j3>nL?_1
+!s100 kdJePk0Hea?>HP@<E2AEF2
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
-ImQDO>8bm3dTW35cfWY8U52
+IB]MNP`a:[A?9C77NfEzlI2
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
-w1762135118
-8C:/Users/fabia/Desktop/Proyecto_Final_TDD/spi_input_interface.sv
-FC:/Users/fabia/Desktop/Proyecto_Final_TDD/spi_input_interface.sv
+w1762209058
+8C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/alu.sv
+FC:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/alu.sv
 !i122 0
-L0 5 68
+L0 6 75
 Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-!s108 1762136261.000000
-!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/spi_input_interface.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/spi_input_interface.sv|
+!s108 1762209099.000000
+!s107 C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/alu.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD|C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/alu.sv|
 !i113 1
 Z5 o-sv -work work
-Z6 !s92 -sv -work work +incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD
+Z6 !s92 -sv -work work {+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD}
 Z7 tCvgOpt 0
-vSPI_io
+vclock_divider
 R1
-Z8 !s110 1762136262
+Z8 !s110 1762209100
 !i10b 1
-!s100 68@AD>gQ^U=ddD60alNdo3
+!s100 U>C1k7j5DoWeXDg;kCl2n2
 R2
-IS5P_Q8E5RZLcZ8@Sl`Y882
+IHLU74lUcJDQc2=TiUY=CA3
 R3
 S1
 R0
-w1762135740
-8C:/Users/fabia/Desktop/Proyecto_Final_TDD/SPI_io.sv
-FC:/Users/fabia/Desktop/Proyecto_Final_TDD/SPI_io.sv
-!i122 2
-L0 7 72
+w1762197595
+8C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/clock_divider.sv
+FC:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/clock_divider.sv
+!i122 5
+L0 5 17
 R4
 r1
 !s85 0
 31
-Z9 !s108 1762136262.000000
-!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/SPI_io.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/SPI_io.sv|
+Z9 !s108 1762209100.000000
+!s107 C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/clock_divider.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD|C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/clock_divider.sv|
 !i113 1
 R5
 R6
 R7
-n@s@p@i_io
-vtb_spi_input_interface
-R1
-!s110 1762136263
-!i10b 1
-!s100 OEJ>PdP?c2_OV`c_be2KE3
-R2
-I=`[[PF8lIoi:h`7333UVZ3
-R3
-S1
-R0
-w1762135152
-8C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_spi_input_interface.sv
-FC:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_spi_input_interface.sv
-!i122 3
-L0 2 51
-R4
-r1
-!s85 0
-31
-!s108 1762136263.000000
-!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_spi_input_interface.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/tb_spi_input_interface.sv|
-!i113 1
-R5
-R6
-R7
-vtop_fpga_spi_test
+vcontrol_unit
 R1
 R8
 !i10b 1
-!s100 mkk_aR_nL7Po>2:_>mZmd2
+!s100 3R7:2V[mGb;AeX:0U?=a73
 R2
-I][GoQAFnSCY8ZPBR`8Z=H2
+I]lPU=z6O@J;i@j7RcZ9Fz2
 R3
 S1
 R0
-w1762136066
-8C:/Users/fabia/Desktop/Proyecto_Final_TDD/top_fpga_spi_test.sv
-FC:/Users/fabia/Desktop/Proyecto_Final_TDD/top_fpga_spi_test.sv
-!i122 1
-L0 6 44
+w1762208786
+8C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/control_unit.sv
+FC:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/control_unit.sv
+!i122 2
+L0 6 86
 R4
 r1
 !s85 0
 31
 R9
-!s107 C:/Users/fabia/Desktop/Proyecto_Final_TDD/top_fpga_spi_test.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/fabia/Desktop/Proyecto_Final_TDD|C:/Users/fabia/Desktop/Proyecto_Final_TDD/top_fpga_spi_test.sv|
+!s107 C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/control_unit.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD|C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/control_unit.sv|
+!i113 1
+R5
+R6
+R7
+vcpu_armv4
+R1
+R8
+!i10b 1
+!s100 CVUnKnzTR5PzgaCcQKe0e1
+R2
+I6<bKfT0Wl>LfY0k<GoGIX1
+R3
+S1
+R0
+w1762208597
+8C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv
+FC:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv
+!i122 3
+L0 6 81
+R4
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD|C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv|
+!i113 1
+R5
+R6
+R7
+vregfile
+R1
+R8
+!i10b 1
+!s100 bfnK27GKk12]1Je]OCF8=0
+R2
+IKP1M]ZDf@Ajgz=jOaPcEO3
+R3
+S1
+R0
+w1762202447
+8C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/regfile.sv
+FC:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/regfile.sv
+!i122 1
+L0 5 44
+R4
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/regfile.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD|C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/regfile.sv|
+!i113 1
+R5
+R6
+R7
+vrom_program
+R1
+R8
+!i10b 1
+!s100 RC6270EHY]bQTjmG89UAd2
+R2
+I0ZV1;e>W4GzG`L<9b_W=d0
+R3
+S1
+R0
+w1762197617
+8C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv
+FC:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv
+!i122 6
+L0 5 12
+R4
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD|C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv|
+!i113 1
+R5
+R6
+R7
+vtb_cpu_romcheck
+R1
+!s110 1762209101
+!i10b 1
+!s100 QoJ]W@zP@fYEFXPgJD]1J0
+R2
+I96^cX9Z3iZ=IAdg1<KHkY3
+R3
+S1
+R0
+w1762207533
+8C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/tb_cpu_romcheck.sv
+FC:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/tb_cpu_romcheck.sv
+!i122 7
+L0 7 75
+R4
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/tb_cpu_romcheck.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD|C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/tb_cpu_romcheck.sv|
+!i113 1
+R5
+R6
+R7
+vtop_fpga_cpu_test
+R1
+R8
+!i10b 1
+!s100 Va;c7iaOz2[70DJaPJ>K:1
+R2
+Ii1<@^UaNz0MkD_Z>9R7Lg1
+R3
+S1
+R0
+w1762197605
+8C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/top_fpga_cpu_test.sv
+FC:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/top_fpga_cpu_test.sv
+!i122 4
+L0 5 37
+R4
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/top_fpga_cpu_test.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD|C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/top_fpga_cpu_test.sv|
 !i113 1
 R5
 R6

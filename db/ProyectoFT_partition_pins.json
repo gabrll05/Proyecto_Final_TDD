@@ -4,71 +4,51 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "ack",
+					"name" : "LEDR[0]",
 					"strict" : false
 				},
 				{
-					"name" : "master_data_reg[0]",
+					"name" : "LEDR[1]",
 					"strict" : false
 				},
 				{
-					"name" : "master_data_reg[1]",
+					"name" : "LEDR[2]",
 					"strict" : false
 				},
 				{
-					"name" : "master_data_reg[2]",
+					"name" : "LEDR[3]",
 					"strict" : false
 				},
 				{
-					"name" : "master_data_reg[3]",
+					"name" : "LEDR[4]",
 					"strict" : false
 				},
 				{
-					"name" : "sev_seg_md[0]",
+					"name" : "LEDR[5]",
 					"strict" : false
 				},
 				{
-					"name" : "sev_seg_md[1]",
+					"name" : "LEDR[6]",
 					"strict" : false
 				},
 				{
-					"name" : "sev_seg_md[2]",
+					"name" : "LEDR[7]",
 					"strict" : false
 				},
 				{
-					"name" : "sev_seg_md[3]",
+					"name" : "LEDR[8]",
 					"strict" : false
 				},
 				{
-					"name" : "sev_seg_md[4]",
+					"name" : "LEDR[9]",
 					"strict" : false
 				},
 				{
-					"name" : "sev_seg_md[5]",
+					"name" : "KEY[0]",
 					"strict" : false
 				},
 				{
-					"name" : "sev_seg_md[6]",
-					"strict" : false
-				},
-				{
-					"name" : "mosi",
-					"strict" : false
-				},
-				{
-					"name" : "rst",
-					"strict" : false
-				},
-				{
-					"name" : "req",
-					"strict" : false
-				},
-				{
-					"name" : "sck",
-					"strict" : false
-				},
-				{
-					"name" : "ss",
+					"name" : "CLOCK_50",
 					"strict" : false
 				}
 			]
