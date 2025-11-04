@@ -1,6 +1,6 @@
 // ============================================================
 // cpu_armv4.sv
-// Procesador ARMv4 mínimo con ROM de programa
+// Procesador ARMv4 mínimo con ROM y RAM de datos
 // ============================================================
 
 module cpu_armv4 (
@@ -22,7 +22,7 @@ module cpu_armv4 (
     logic [7:0]  pc;
 
     // ============================================================
-    // PC + ROM
+    // PC + ROM (Programa)
     // ============================================================
     always_ff @(posedge clk or posedge reset) begin
         if (reset)
@@ -52,7 +52,7 @@ module cpu_armv4 (
     );
 
     // ============================================================
-    // Banco de Registros (usa tus nombres reales)
+    // Banco de Registros
     // ============================================================
     regfile u_regfile (
         .clk(clk),
@@ -67,20 +67,46 @@ module cpu_armv4 (
     );
 
     // ============================================================
-    // ALU (usa tus puertos reales)
+    // ALU
     // ============================================================
     alu u_alu (
         .clk(clk),
         .reset(reset),
         .a(regA),
         .b(regB),
-        .imm(instr[7:0]),          // soporte inmediato (si lo tienes)
-        .instr(instr[24:21]),      // <- CORREGIDO: opcode ARMv4 real
+        .imm(instr[7:0]),          // Soporte inmediato (MOV)
+        .instr(instr[24:21]),      // Opcode ARMv4
         .sel(alu_sel),
         .result(alu_result),
         .busy(), .z_flag(), .n_flag(), .c_flag(), .v_flag()
     );
 
     assign alu_result_out = alu_result;
+
+    // ============================================================
+    // Memoria de Datos (para instrucciones STR / LDR)
+    // ============================================================
+    logic [31:0] ram_data_out;
+    logic        ram_wr_en;
+    logic        ram_rd_en;
+
+    // STR → opcode 1100 | LDR → opcode 0101 (solo ejemplo)
+    assign ram_wr_en = (instr[24:21] == 4'b1100);
+    assign ram_rd_en = (instr[24:21] == 4'b0101);
+
+    ram_data u_ram (
+        .clk(clk),
+        .wr_en(ram_wr_en),
+        .addr(regA),
+        .wr_data(regB),
+        .rd_data(ram_data_out)
+    );
+
+    // Si se ejecuta un LDR, cargar el valor desde memoria
+    always_ff @(posedge clk) begin
+        if (ram_rd_en)
+            $display("📥 LOAD: R%0d <= MEM[%0d] = %0d (0x%0h) @t=%0t",
+                     reg_wr, regA, ram_data_out, ram_data_out, $time);
+    end
 
 endmodule

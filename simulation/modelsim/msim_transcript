@@ -13,7 +13,7 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work altera_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_primitives.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:31:23 on Nov 03,2025
+# Start time: 18:17:02 on Nov 03,2025
 # vlog -reportprogress 300 -vlog01compat -work altera_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_primitives.v 
 # -- Compiling module global
 # -- Compiling module carry
@@ -95,7 +95,7 @@
 # 	alt_iobuf_diff
 # 	alt_bidir_diff
 # 	alt_bidir_buf
-# End time: 16:31:24 on Nov 03,2025, Elapsed time: 0:00:01
+# End time: 18:17:02 on Nov 03,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/lpm_ver
@@ -106,7 +106,7 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work lpm_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/220model.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:31:24 on Nov 03,2025
+# Start time: 18:17:03 on Nov 03,2025
 # vlog -reportprogress 300 -vlog01compat -work lpm_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/220model.v 
 # -- Compiling module LPM_MEMORY_INITIALIZATION
 # -- Compiling module LPM_HINT_EVALUATION
@@ -170,7 +170,7 @@
 # 	lpm_inpad
 # 	lpm_outpad
 # 	lpm_bipad
-# End time: 16:31:25 on Nov 03,2025, Elapsed time: 0:00:01
+# End time: 18:17:03 on Nov 03,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/sgate_ver
@@ -181,7 +181,7 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work sgate_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/sgate.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:31:25 on Nov 03,2025
+# Start time: 18:17:04 on Nov 03,2025
 # vlog -reportprogress 300 -vlog01compat -work sgate_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/sgate.v 
 # -- Compiling module oper_add
 # -- Compiling module oper_addsub
@@ -223,7 +223,7 @@
 # 	oper_decoder
 # 	oper_bus_mux
 # 	oper_latch
-# End time: 16:31:25 on Nov 03,2025, Elapsed time: 0:00:00
+# End time: 18:17:04 on Nov 03,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/altera_mf_ver
@@ -234,7 +234,7 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work altera_mf_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_mf.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:31:26 on Nov 03,2025
+# Start time: 18:17:04 on Nov 03,2025
 # vlog -reportprogress 300 -vlog01compat -work altera_mf_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_mf.v 
 # -- Compiling module lcell
 # -- Compiling module ALTERA_MF_MEMORY_INITIALIZATION
@@ -364,7 +364,7 @@
 # 	alt_fault_injection
 # 	sld_virtual_jtag_basic
 # 	altsource_probe
-# End time: 16:31:27 on Nov 03,2025, Elapsed time: 0:00:01
+# End time: 18:17:05 on Nov 03,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/altera_lnsim_ver
@@ -375,7 +375,7 @@
 # Modifying modelsim.ini
 # vlog -sv -work altera_lnsim_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_lnsim.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:31:27 on Nov 03,2025
+# Start time: 18:17:06 on Nov 03,2025
 # vlog -reportprogress 300 -sv -work altera_lnsim_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/altera_lnsim.sv 
 # -- Compiling package altera_lnsim_functions
 # -- Compiling package altera_generic_pll_functions
@@ -458,7 +458,7 @@
 # 	altera_iopll
 # 	fourteennm_altera_iopll
 # 	fourteennm_simple_iopll
-# End time: 16:31:28 on Nov 03,2025, Elapsed time: 0:00:01
+# End time: 18:17:07 on Nov 03,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/cyclonev_ver
@@ -469,7 +469,7 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work cyclonev_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/cyclonev_atoms_ncrypt.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:31:28 on Nov 03,2025
+# Start time: 18:17:07 on Nov 03,2025
 # vlog -reportprogress 300 -vlog01compat -work cyclonev_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/cyclonev_atoms_ncrypt.v 
 # ** Warning: (vlog-2083) <protected>(<protected>): Carriage return (0x0D) is not followed by a newline (0x0A).
 # ** Warning: (vlog-2083) <protected>(<protected>): Carriage return (0x0D) is not followed by a newline (0x0A).
@@ -483,19 +483,19 @@
 # ** Warning: (vlog-2083) <protected>(<protected>): Carriage return (0x0D) is not followed by a newline (0x0A).
 # 
 # Top level modules:
-# End time: 16:31:31 on Nov 03,2025, Elapsed time: 0:00:03
+# End time: 18:17:10 on Nov 03,2025, Elapsed time: 0:00:03
 # Errors: 0, Warnings: 10
 # vlog -vlog01compat -work cyclonev_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/cyclonev_hmi_atoms_ncrypt.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:31:31 on Nov 03,2025
+# Start time: 18:17:10 on Nov 03,2025
 # vlog -reportprogress 300 -vlog01compat -work cyclonev_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/cyclonev_hmi_atoms_ncrypt.v 
 # 
 # Top level modules:
-# End time: 16:31:32 on Nov 03,2025, Elapsed time: 0:00:01
+# End time: 18:17:11 on Nov 03,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work cyclonev_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/cyclonev_atoms.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:31:32 on Nov 03,2025
+# Start time: 18:17:11 on Nov 03,2025
 # vlog -reportprogress 300 -vlog01compat -work cyclonev_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/cyclonev_atoms.v 
 # -- Compiling UDP CYCLONEV_PRIM_DFFE
 # -- Compiling UDP CYCLONEV_PRIM_DFFEAS
@@ -635,7 +635,7 @@
 # 	cyclonev_mem_phy
 # 	cyclonev_oscillator
 # 	cyclonev_hps_interface_fpga2sdram
-# End time: 16:31:33 on Nov 03,2025, Elapsed time: 0:00:01
+# End time: 18:17:12 on Nov 03,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/cyclonev_hssi_ver
@@ -646,15 +646,15 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work cyclonev_hssi_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/cyclonev_hssi_atoms_ncrypt.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:31:34 on Nov 03,2025
+# Start time: 18:17:13 on Nov 03,2025
 # vlog -reportprogress 300 -vlog01compat -work cyclonev_hssi_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/cyclonev_hssi_atoms_ncrypt.v 
 # 
 # Top level modules:
-# End time: 16:31:35 on Nov 03,2025, Elapsed time: 0:00:01
+# End time: 18:17:15 on Nov 03,2025, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 0
 # vlog -vlog01compat -work cyclonev_hssi_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/cyclonev_hssi_atoms.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:31:35 on Nov 03,2025
+# Start time: 18:17:16 on Nov 03,2025
 # vlog -reportprogress 300 -vlog01compat -work cyclonev_hssi_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/cyclonev_hssi_atoms.v 
 # -- Compiling module cyclonev_hssi_8g_pcs_aggregate
 # -- Compiling module cyclonev_hssi_8g_rx_pcs
@@ -754,7 +754,7 @@
 # 	arriav_hssi_avmm_interface
 # 	arriav_hssi_pma_hi_pmaif
 # 	arriav_hssi_pma_hi_xcvrif
-# End time: 16:31:36 on Nov 03,2025, Elapsed time: 0:00:01
+# End time: 18:17:17 on Nov 03,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # vlib verilog_libs/cyclonev_pcie_hip_ver
@@ -765,7 +765,7 @@
 # Modifying modelsim.ini
 # vlog -vlog01compat -work cyclonev_pcie_hip_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/cyclonev_pcie_hip_atoms_ncrypt.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:31:36 on Nov 03,2025
+# Start time: 18:17:17 on Nov 03,2025
 # vlog -reportprogress 300 -vlog01compat -work cyclonev_pcie_hip_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/mentor/cyclonev_pcie_hip_atoms_ncrypt.v 
 # ** Warning: (vlog-2083) <protected>(<protected>): Carriage return (0x0D) is not followed by a newline (0x0A).
 # ** Warning: (vlog-2083) <protected>(<protected>): Carriage return (0x0D) is not followed by a newline (0x0A).
@@ -775,18 +775,18 @@
 # ** Warning: (vlog-2083) <protected>(<protected>): Carriage return (0x0D) is not followed by a newline (0x0A).
 # 
 # Top level modules:
-# End time: 16:31:39 on Nov 03,2025, Elapsed time: 0:00:03
+# End time: 18:17:20 on Nov 03,2025, Elapsed time: 0:00:03
 # Errors: 0, Warnings: 6
 # vlog -vlog01compat -work cyclonev_pcie_hip_ver {c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/cyclonev_pcie_hip_atoms.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:31:39 on Nov 03,2025
+# Start time: 18:17:20 on Nov 03,2025
 # vlog -reportprogress 300 -vlog01compat -work cyclonev_pcie_hip_ver c:/intelfpga_lite/22.1std/quartus/eda/sim_lib/cyclonev_pcie_hip_atoms.v 
 # -- Compiling module cyclonev_hd_altpe2_hip_top
 # -- Compiling module arriav_hd_altpe2_hip_top
 # 
 # Top level modules:
 # 	cyclonev_hd_altpe2_hip_top
-# End time: 16:31:39 on Nov 03,2025, Elapsed time: 0:00:00
+# End time: 18:17:20 on Nov 03,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # if {[file exists rtl_work]} {
@@ -800,89 +800,99 @@
 # 
 # vlog -sv -work work +incdir+C:/Users/ema08/OneDrive\ -\ Estudiantes\ ITCR/Escritorio/Taller\ de\ diseno/Proyecto_Final_TDD {C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/alu.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:31:39 on Nov 03,2025
+# Start time: 18:17:20 on Nov 03,2025
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD" C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/alu.sv 
 # -- Compiling module alu
 # 
 # Top level modules:
 # 	alu
-# End time: 16:31:39 on Nov 03,2025, Elapsed time: 0:00:00
+# End time: 18:17:20 on Nov 03,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/ema08/OneDrive\ -\ Estudiantes\ ITCR/Escritorio/Taller\ de\ diseno/Proyecto_Final_TDD {C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/regfile.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:31:40 on Nov 03,2025
+# Start time: 18:17:20 on Nov 03,2025
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD" C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/regfile.sv 
 # -- Compiling module regfile
 # 
 # Top level modules:
 # 	regfile
-# End time: 16:31:40 on Nov 03,2025, Elapsed time: 0:00:00
+# End time: 18:17:21 on Nov 03,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/ema08/OneDrive\ -\ Estudiantes\ ITCR/Escritorio/Taller\ de\ diseno/Proyecto_Final_TDD {C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/control_unit.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:31:40 on Nov 03,2025
+# Start time: 18:17:21 on Nov 03,2025
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD" C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/control_unit.sv 
 # -- Compiling module control_unit
 # 
 # Top level modules:
 # 	control_unit
-# End time: 16:31:40 on Nov 03,2025, Elapsed time: 0:00:00
+# End time: 18:17:21 on Nov 03,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/ema08/OneDrive\ -\ Estudiantes\ ITCR/Escritorio/Taller\ de\ diseno/Proyecto_Final_TDD {C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:31:40 on Nov 03,2025
+# Start time: 18:17:21 on Nov 03,2025
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD" C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv 
 # -- Compiling module cpu_armv4
 # 
 # Top level modules:
 # 	cpu_armv4
-# End time: 16:31:40 on Nov 03,2025, Elapsed time: 0:00:00
+# End time: 18:17:21 on Nov 03,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -sv -work work +incdir+C:/Users/ema08/OneDrive\ -\ Estudiantes\ ITCR/Escritorio/Taller\ de\ diseno/Proyecto_Final_TDD {C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/ram_data.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 18:17:21 on Nov 03,2025
+# vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD" C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/ram_data.sv 
+# -- Compiling module ram_data
+# 
+# Top level modules:
+# 	ram_data
+# End time: 18:17:21 on Nov 03,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/ema08/OneDrive\ -\ Estudiantes\ ITCR/Escritorio/Taller\ de\ diseno/Proyecto_Final_TDD {C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/top_fpga_cpu_test.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:31:40 on Nov 03,2025
+# Start time: 18:17:21 on Nov 03,2025
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD" C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/top_fpga_cpu_test.sv 
 # -- Compiling module top_fpga_cpu_test
 # 
 # Top level modules:
 # 	top_fpga_cpu_test
-# End time: 16:31:40 on Nov 03,2025, Elapsed time: 0:00:00
+# End time: 18:17:21 on Nov 03,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/ema08/OneDrive\ -\ Estudiantes\ ITCR/Escritorio/Taller\ de\ diseno/Proyecto_Final_TDD {C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/clock_divider.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:31:40 on Nov 03,2025
+# Start time: 18:17:21 on Nov 03,2025
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD" C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/clock_divider.sv 
 # -- Compiling module clock_divider
 # 
 # Top level modules:
 # 	clock_divider
-# End time: 16:31:40 on Nov 03,2025, Elapsed time: 0:00:00
+# End time: 18:17:21 on Nov 03,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vlog -sv -work work +incdir+C:/Users/ema08/OneDrive\ -\ Estudiantes\ ITCR/Escritorio/Taller\ de\ diseno/Proyecto_Final_TDD {C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:31:40 on Nov 03,2025
+# Start time: 18:17:21 on Nov 03,2025
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD" C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv 
 # -- Compiling module rom_program
 # 
 # Top level modules:
 # 	rom_program
-# End time: 16:31:40 on Nov 03,2025, Elapsed time: 0:00:00
+# End time: 18:17:22 on Nov 03,2025, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # 
 # vlog -sv -work work +incdir+C:/Users/ema08/OneDrive\ -\ Estudiantes\ ITCR/Escritorio/Taller\ de\ diseno/Proyecto_Final_TDD {C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/tb_cpu_romcheck.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 16:31:40 on Nov 03,2025
+# Start time: 18:17:22 on Nov 03,2025
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD" C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/tb_cpu_romcheck.sv 
 # -- Compiling module tb_cpu_romcheck
 # 
 # Top level modules:
 # 	tb_cpu_romcheck
-# End time: 16:31:41 on Nov 03,2025, Elapsed time: 0:00:01
+# End time: 18:17:22 on Nov 03,2025, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  tb_cpu_romcheck
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs=""+acc"" tb_cpu_romcheck 
-# Start time: 16:31:41 on Nov 03,2025
+# Start time: 18:17:22 on Nov 03,2025
 # Loading sv_std.std
 # Loading work.tb_cpu_romcheck
 # Loading work.cpu_armv4
@@ -890,6 +900,7 @@
 # Loading work.control_unit
 # Loading work.regfile
 # Loading work.alu
+# Loading work.ram_data
 # ** Warning: (vsim-3015) [PCDPC] - Port size (3) does not match connection size (4) for port 'rd_addr_a'. The port definition is at: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/regfile.sv(12).
 #    Time: 0 ps  Iteration: 0  Instance: /tb_cpu_romcheck/uut/u_regfile File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 57
 # ** Warning: (vsim-3015) [PCDPC] - Port size (3) does not match connection size (4) for port 'rd_addr_b'. The port definition is at: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/regfile.sv(13).
@@ -900,9 +911,9 @@
 # add wave *
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: fabia  Hostname: FABIANA  ProcessID: 29256
-#           Attempting to use alternate WLF file "./wlft0mzz09".
+#           Attempting to use alternate WLF file "./wlft8sbk4k".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlft0mzz09
+#           Using alternate file: ./wlft8sbk4k
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
@@ -959,40 +970,52 @@
 # 📝 Escritura en R2 = 5 (0x00000005) @t=135000
 # 📖 Lectura: A=R0=2 | B=R0=2 | wr_en=0 @t=145000
 # ⏸️  ALU: NOP/UNKNOWN opcode=1100 @t=145000
+# 💾 STORE: MEM[2] <= 2 (0x2) @t=145000
 # t=145000 | PC=3 | Instr=e5802000 | ALU=5 | WR_en=0 | RegW=2
 # 📖 Lectura: A=R0=2 | B=R0=2 | wr_en=0 @t=155000
 # ⏸️  ALU: NOP/UNKNOWN opcode=1100 @t=155000
+# 💾 STORE: MEM[2] <= 2 (0x2) @t=155000
 # t=155000 | PC=3 | Instr=e5802000 | ALU=0 | WR_en=0 | RegW=2
 # 📖 Lectura: A=R0=2 | B=R0=2 | wr_en=0 @t=165000
 # ⏸️  ALU: NOP/UNKNOWN opcode=1100 @t=165000
+# 💾 STORE: MEM[2] <= 2 (0x2) @t=165000
 # t=165000 | PC=3 | Instr=e5802000 | ALU=0 | WR_en=0 | RegW=2
 # 📖 Lectura: A=R0=2 | B=R0=2 | wr_en=0 @t=175000
 # ⏸️  ALU: NOP/UNKNOWN opcode=1100 @t=175000
+# 💾 STORE: MEM[2] <= 2 (0x2) @t=175000
 # t=175000 | PC=3 | Instr=e5802000 | ALU=0 | WR_en=0 | RegW=2
 # 📖 Lectura: A=R0=2 | B=R2=5 | wr_en=0 @t=185000
 # ⏸️  ALU: NOP/UNKNOWN opcode=0000 @t=185000
+# 🔍 MEM[2] = 2 (0x2) @t=185000
 # t=185000 | PC=4 | Instr=ea000002 | ALU=0 | WR_en=0 | RegW=0
 # 📖 Lectura: A=R0=2 | B=R2=5 | wr_en=0 @t=195000
 # ⏸️  ALU: NOP/UNKNOWN opcode=0000 @t=195000
+# 🔍 MEM[2] = 2 (0x2) @t=195000
 # t=195000 | PC=4 | Instr=ea000002 | ALU=0 | WR_en=0 | RegW=0
 # 📖 Lectura: A=R0=2 | B=R2=5 | wr_en=0 @t=205000
 # ⏸️  ALU: NOP/UNKNOWN opcode=0000 @t=205000
+# 🔍 MEM[2] = 2 (0x2) @t=205000
 # t=205000 | PC=4 | Instr=ea000002 | ALU=0 | WR_en=0 | RegW=0
 # 📖 Lectura: A=R0=2 | B=R2=5 | wr_en=0 @t=215000
 # ⏸️  ALU: NOP/UNKNOWN opcode=0000 @t=215000
+# 🔍 MEM[2] = 2 (0x2) @t=215000
 # t=215000 | PC=4 | Instr=ea000002 | ALU=0 | WR_en=0 | RegW=0
 # 📖 Lectura: A=R0=2 | B=R0=2 | wr_en=0 @t=225000
 # 📥 ALU: MOV #0 → result=0 @t=225000
+# 🔍 MEM[2] = 2 (0x2) @t=225000
 # t=225000 | PC=5 | Instr=e1a00000 | ALU=0 | WR_en=0 | RegW=0
 # 📖 Lectura: A=R0=2 | B=R0=2 | wr_en=0 @t=235000
 # 📥 ALU: MOV #0 → result=0 @t=235000
+# 🔍 MEM[2] = 2 (0x2) @t=235000
 # t=235000 | PC=5 | Instr=e1a00000 | ALU=0 | WR_en=0 | RegW=0
 # 📖 Lectura: A=R0=2 | B=R0=2 | wr_en=0 @t=245000
 # 📥 ALU: MOV #0 → result=0 @t=245000
+# 🔍 MEM[2] = 2 (0x2) @t=245000
 # t=245000 | PC=5 | Instr=e1a00000 | ALU=0 | WR_en=0 | RegW=0
 # 📝 Escritura en R0 = 0 (0x0) @t=255000
 # 📖 Lectura: A=R0=2 | B=R0=2 | wr_en=1 @t=255000
 # 📥 ALU: MOV #0 → result=0 @t=255000
+# 🔍 MEM[2] = 2 (0x2) @t=255000
 # t=255000 | PC=5 | Instr=e1a00000 | ALU=0 | WR_en=1 | RegW=0
 # 📝 Escritura en R0 = 0 (0x00000000) @t=255000
 # 📖 Lectura: A=Rx=x | B=Rx=x | wr_en=0 @t=265000
@@ -1531,5 +1554,3 @@
 # ** Note: $stop    : C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/tb_cpu_romcheck.sv(45)
 #    Time: 2020 ns  Iteration: 0  Instance: /tb_cpu_romcheck
 # Break in Module tb_cpu_romcheck at C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/tb_cpu_romcheck.sv line 45
-# End time: 16:39:54 on Nov 03,2025, Elapsed time: 0:08:13
-# Errors: 0, Warnings: 5

@@ -1,5 +1,5 @@
-Analysis & Synthesis report for ProyectoFT
-Mon Nov  3 16:47:53 2025
+Analysis & Elaboration report for ProyectoFT
+Mon Nov  3 18:16:40 2025
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
@@ -7,25 +7,17 @@ Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Synthesis Summary
-  3. Analysis & Synthesis Settings
-  4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |top_fpga_cpu_test|cpu_armv4:u_cpu|control_unit:u_ctrl|state
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: cpu_armv4:u_cpu|regfile:u_regfile
- 13. Port Connectivity Checks: "cpu_armv4:u_cpu|alu:u_alu"
- 14. Port Connectivity Checks: "cpu_armv4:u_cpu|regfile:u_regfile"
- 15. Port Connectivity Checks: "cpu_armv4:u_cpu|control_unit:u_ctrl"
- 16. Port Connectivity Checks: "cpu_armv4:u_cpu"
- 17. Post-Synthesis Netlist Statistics for Top Partition
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
- 20. Analysis & Synthesis Suppressed Messages
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Parameter Settings for User Entity Instance: cpu_armv4:u_cpu|regfile:u_regfile
+  5. Analysis & Elaboration Settings
+  6. Port Connectivity Checks: "cpu_armv4:u_cpu|ram_data:u_ram"
+  7. Port Connectivity Checks: "cpu_armv4:u_cpu|alu:u_alu"
+  8. Port Connectivity Checks: "cpu_armv4:u_cpu|regfile:u_regfile"
+  9. Port Connectivity Checks: "cpu_armv4:u_cpu|control_unit:u_ctrl"
+ 10. Port Connectivity Checks: "cpu_armv4:u_cpu"
+ 11. Analysis & Elaboration Messages
+ 12. Analysis & Elaboration Suppressed Messages
 
 
 
@@ -49,31 +41,53 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                     ;
-+---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Nov  3 16:47:53 2025          ;
-; Quartus Prime Version           ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
-; Revision Name                   ; ProyectoFT                                     ;
-; Top-level Entity Name           ; top_fpga_cpu_test                              ;
-; Family                          ; Cyclone V                                      ;
-; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 167                                            ;
-; Total pins                      ; 12                                             ;
-; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 0                                              ;
-; Total DSP Blocks                ; 0                                              ;
-; Total HSSI RX PCSs              ; 0                                              ;
-; Total HSSI PMA RX Deserializers ; 0                                              ;
-; Total HSSI TX PCSs              ; 0                                              ;
-; Total HSSI PMA TX Serializers   ; 0                                              ;
-; Total PLLs                      ; 0                                              ;
-; Total DLLs                      ; 0                                              ;
-+---------------------------------+------------------------------------------------+
++--------------------------------------------------------------------------------+
+; Analysis & Elaboration Summary                                                 ;
++-------------------------------+------------------------------------------------+
+; Analysis & Elaboration Status ; Successful - Mon Nov  3 18:16:40 2025          ;
+; Quartus Prime Version         ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
+; Revision Name                 ; ProyectoFT                                     ;
+; Top-level Entity Name         ; top_fpga_cpu_test                              ;
+; Family                        ; Cyclone V                                      ;
+; Logic utilization (in ALMs)   ; N/A until Partition Merge                      ;
+; Total registers               ; N/A until Partition Merge                      ;
+; Total pins                    ; N/A until Partition Merge                      ;
+; Total virtual pins            ; N/A until Partition Merge                      ;
+; Total block memory bits       ; N/A until Partition Merge                      ;
+; Total PLLs                    ; N/A until Partition Merge                      ;
+; Total DLLs                    ; N/A until Partition Merge                      ;
++-------------------------------+------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu_armv4:u_cpu|regfile:u_regfile ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                        ;
+; W              ; 32    ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                                             ;
+; Analysis & Elaboration Settings                                                                                           ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
@@ -159,299 +173,13 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 4           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
-+----------------------------+-------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                ;
-+----------------------------------+-----------------+---------------------------------------+----------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                             ; File Name with Absolute Path                                                                                   ; Library ;
-+----------------------------------+-----------------+---------------------------------------+----------------------------------------------------------------------------------------------------------------+---------+
-; alu.sv                           ; yes             ; User SystemVerilog HDL File           ; C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/alu.sv               ;         ;
-; regfile.sv                       ; yes             ; User SystemVerilog HDL File           ; C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/regfile.sv           ;         ;
-; control_unit.sv                  ; yes             ; User SystemVerilog HDL File           ; C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/control_unit.sv      ;         ;
-; cpu_armv4.sv                     ; yes             ; User SystemVerilog HDL File           ; C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv         ;         ;
-; rom_program.sv                   ; yes             ; User SystemVerilog HDL File           ; C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv       ;         ;
-; top_fpga_cpu_test.sv             ; yes             ; User SystemVerilog HDL File           ; C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/top_fpga_cpu_test.sv ;         ;
-; program_mem.hex                  ; yes             ; User Hexadecimal (Intel-Format) File  ; C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/program_mem.hex      ;         ;
-; clock_divider.sv                 ; yes             ; User SystemVerilog HDL File           ; C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/clock_divider.sv     ;         ;
-+----------------------------------+-----------------+---------------------------------------+----------------------------------------------------------------------------------------------------------------+---------+
-
-
-+------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                ;
-+---------------------------------------------+--------------+
-; Resource                                    ; Usage        ;
-+---------------------------------------------+--------------+
-; Estimate of Logic utilization (ALMs needed) ; 121          ;
-;                                             ;              ;
-; Combinational ALUT usage for logic          ; 150          ;
-;     -- 7 input functions                    ; 0            ;
-;     -- 6 input functions                    ; 68           ;
-;     -- 5 input functions                    ; 2            ;
-;     -- 4 input functions                    ; 9            ;
-;     -- <=3 input functions                  ; 71           ;
-;                                             ;              ;
-; Dedicated logic registers                   ; 167          ;
-;                                             ;              ;
-; I/O pins                                    ; 12           ;
-;                                             ;              ;
-; Total DSP Blocks                            ; 0            ;
-;                                             ;              ;
-; Maximum fan-out node                        ; KEY[0]~input ;
-; Maximum fan-out                             ; 167          ;
-; Total fan-out                               ; 1282         ;
-; Average fan-out                             ; 3.76         ;
-+---------------------------------------------+--------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                              ;
-+-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------+-------------------+--------------+
-; Compilation Hierarchy Node  ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                    ; Entity Name       ; Library Name ;
-+-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------+-------------------+--------------+
-; |top_fpga_cpu_test          ; 150 (0)             ; 167 (0)                   ; 0                 ; 0          ; 12   ; 0            ; |top_fpga_cpu_test                                     ; top_fpga_cpu_test ; work         ;
-;    |clock_divider:u_div|    ; 26 (26)             ; 27 (27)                   ; 0                 ; 0          ; 0    ; 0            ; |top_fpga_cpu_test|clock_divider:u_div                 ; clock_divider     ; work         ;
-;    |cpu_armv4:u_cpu|        ; 124 (8)             ; 140 (8)                   ; 0                 ; 0          ; 0    ; 0            ; |top_fpga_cpu_test|cpu_armv4:u_cpu                     ; cpu_armv4         ; work         ;
-;       |alu:u_alu|           ; 70 (70)             ; 32 (32)                   ; 0                 ; 0          ; 0    ; 0            ; |top_fpga_cpu_test|cpu_armv4:u_cpu|alu:u_alu           ; alu               ; work         ;
-;       |control_unit:u_ctrl| ; 2 (2)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |top_fpga_cpu_test|cpu_armv4:u_cpu|control_unit:u_ctrl ; control_unit      ; work         ;
-;       |regfile:u_regfile|   ; 36 (36)             ; 96 (96)                   ; 0                 ; 0          ; 0    ; 0            ; |top_fpga_cpu_test|cpu_armv4:u_cpu|regfile:u_regfile   ; regfile           ; work         ;
-;       |rom_program:u_rom|   ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_fpga_cpu_test|cpu_armv4:u_cpu|rom_program:u_rom   ; rom_program       ; work         ;
-+-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------+-------------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-Encoding Type:  One-Hot
-+--------------------------------------------------------------------------------+
-; State Machine - |top_fpga_cpu_test|cpu_armv4:u_cpu|control_unit:u_ctrl|state   ;
-+-----------------+-----------------+---------------+--------------+-------------+
-; Name            ; state.WRITEBACK ; state.EXECUTE ; state.DECODE ; state.FETCH ;
-+-----------------+-----------------+---------------+--------------+-------------+
-; state.FETCH     ; 0               ; 0             ; 0            ; 0           ;
-; state.DECODE    ; 0               ; 0             ; 1            ; 1           ;
-; state.EXECUTE   ; 0               ; 1             ; 0            ; 1           ;
-; state.WRITEBACK ; 1               ; 0             ; 0            ; 1           ;
-+-----------------+-----------------+---------------+--------------+-------------+
-
-
-+----------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                     ;
-+-----------------------------------------------+----------------------------------------+
-; Register name                                 ; Reason for Removal                     ;
-+-----------------------------------------------+----------------------------------------+
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][31] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][30] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][29] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][28] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][27] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][26] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][25] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][24] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][23] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][22] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][21] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][20] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][19] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][18] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][17] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][16] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][15] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][14] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][13] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][12] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][11] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][10] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][9]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][8]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][7]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][6]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][5]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][4]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][3]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][2]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][1]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[7][0]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][31] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][31] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][31] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][30] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][30] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][30] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][29] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][29] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][29] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][28] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][28] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][28] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][27] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][27] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][27] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][26] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][26] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][26] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][25] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][25] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][25] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][24] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][24] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][24] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][23] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][23] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][23] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][22] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][22] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][22] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][21] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][21] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][21] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][20] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][20] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][20] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][19] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][19] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][19] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][18] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][18] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][18] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][17] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][17] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][17] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][16] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][16] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][16] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][15] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][15] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][15] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][14] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][14] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][14] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][13] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][13] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][13] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][12] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][12] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][12] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][11] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][11] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][11] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][10] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][10] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][10] ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][9]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][9]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][9]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][8]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][8]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][8]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][7]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][7]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][7]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][6]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][6]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][6]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][5]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][5]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][5]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][4]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][4]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][4]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][3]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][3]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][3]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][2]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][2]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][2]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][1]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][1]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][1]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[6][0]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[5][0]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[4][0]  ; Lost fanout                            ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][31] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][30] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][29] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][28] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][27] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][26] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][25] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][24] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][23] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][22] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][21] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][20] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][19] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][18] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][17] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][16] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][15] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][14] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][13] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][12] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][11] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][10] ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][9]  ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][8]  ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][7]  ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][6]  ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][5]  ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][4]  ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][3]  ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][2]  ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][1]  ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[3][0]  ; Stuck at GND due to stuck port data_in ;
-; cpu_armv4:u_cpu|control_unit:u_ctrl|state~4   ; Lost fanout                            ;
-; cpu_armv4:u_cpu|control_unit:u_ctrl|state~5   ; Lost fanout                            ;
-; Total Number of Removed Registers = 162       ;                                        ;
-+-----------------------------------------------+----------------------------------------+
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 167   ;
-; Number of registers using Synchronous Clear  ; 30    ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 167   ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 104   ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |top_fpga_cpu_test|cpu_armv4:u_cpu|regfile:u_regfile|Mux32 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: cpu_armv4:u_cpu|regfile:u_regfile ;
-+----------------+-------+-------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                  ;
-+----------------+-------+-------------------------------------------------------+
-; N              ; 8     ; Signed Integer                                        ;
-; W              ; 32    ; Signed Integer                                        ;
-+----------------+-------+-------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu_armv4:u_cpu|ram_data:u_ram"                                                        ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; rd_data ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------+
@@ -498,50 +226,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; arriav_ff             ; 167                         ;
-;     CLR               ; 33                          ;
-;     CLR SCLR          ; 30                          ;
-;     ENA CLR           ; 104                         ;
-; arriav_lcell_comb     ; 150                         ;
-;     arith             ; 64                          ;
-;         1 data inputs ; 30                          ;
-;         2 data inputs ; 34                          ;
-;     normal            ; 86                          ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 1                           ;
-;         3 data inputs ; 2                           ;
-;         4 data inputs ; 9                           ;
-;         5 data inputs ; 2                           ;
-;         6 data inputs ; 68                          ;
-; boundary_port         ; 12                          ;
-;                       ;                             ;
-; Max LUT depth         ; 6.10                        ;
-; Average LUT depth     ; 3.51                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:00     ;
-+----------------+--------------+
-
-
-+-------------------------------+
-; Analysis & Synthesis Messages ;
-+-------------------------------+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Synthesis
+Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
-    Info: Processing started: Mon Nov  3 16:47:44 2025
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ProyectoFT -c ProyectoFT
+    Info: Processing started: Mon Nov  3 18:16:29 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ProyectoFT -c ProyectoFT --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
@@ -557,7 +249,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file cpu_arm
 Info (12021): Found 1 design units, including 1 entities, in source file rom_program.sv
     Info (12023): Found entity 1: rom_program File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file ram_data.sv
-    Info (12023): Found entity 1: ram_data File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/ram_data.sv Line: 5
+    Info (12023): Found entity 1: ram_data File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/ram_data.sv Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file vga_controller.sv
     Info (12023): Found entity 1: vga_controller File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/vga_controller.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file vga_textgen.sv
@@ -589,27 +281,19 @@ Warning (10030): Net "memory.we_a" at rom_program.sv(9) has no driver or initial
 Info (12128): Elaborating entity "control_unit" for hierarchy "cpu_armv4:u_cpu|control_unit:u_ctrl" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 52
 Info (12128): Elaborating entity "regfile" for hierarchy "cpu_armv4:u_cpu|regfile:u_regfile" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 67
 Info (12128): Elaborating entity "alu" for hierarchy "cpu_armv4:u_cpu|alu:u_alu" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 82
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/db/ProyectoFT.ram0_rom_program_aa5684e4.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (12128): Elaborating entity "ram_data" for hierarchy "cpu_armv4:u_cpu|ram_data:u_ram" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 103
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Info (286030): Timing-Driven Synthesis is running
-Info (17049): 130 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/output_files/ProyectoFT.map.smsg
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 261 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 10 output pins
-    Info (21061): Implemented 249 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 4854 megabytes
-    Info: Processing ended: Mon Nov  3 16:47:53 2025
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:18
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 8 warnings
+    Info: Peak virtual memory: 4791 megabytes
+    Info: Processing ended: Mon Nov  3 18:16:40 2025
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:23
 
 
-+------------------------------------------+
-; Analysis & Synthesis Suppressed Messages ;
-+------------------------------------------+
++--------------------------------------------+
+; Analysis & Elaboration Suppressed Messages ;
++--------------------------------------------+
 The suppressed messages can be found in C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/output_files/ProyectoFT.map.smsg.
 
 

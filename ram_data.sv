@@ -1,28 +1,36 @@
 // ============================================================
 // ram_data.sv
-// Memoria RAM para CPU ARMv4 mínima
+// Memoria de datos para instrucciones LDR / STR
 // ============================================================
-module ram_data #(
-    parameter ADDR_WIDTH = 8,
-    parameter DATA_WIDTH = 32
-)(
-    input  logic clk,
-    input  logic wr_en,
-    input  logic [ADDR_WIDTH-1:0] addr,
-    input  logic [DATA_WIDTH-1:0] wr_data,
-    output logic [DATA_WIDTH-1:0] rd_data
-);
 
-    // Memoria RAM simple
-    logic [DATA_WIDTH-1:0] mem [0:(1<<ADDR_WIDTH)-1];
+module ram_data (
+    input  logic        clk,
+    input  logic        wr_en,
+    input  logic [31:0] addr,
+    input  logic [31:0] wr_data,
+    output logic [31:0] rd_data
+);
+    // Memoria simple de 256 posiciones (puede ajustarse)
+    logic [31:0] mem [0:255];
 
     // Escritura sincrónica
     always_ff @(posedge clk) begin
-        if (wr_en)
+        if (wr_en) begin
             mem[addr] <= wr_data;
+            $display("💾 STORE: MEM[%0d] <= %0d (0x%0h) @t=%0t",
+                     addr, wr_data, wr_data, $time);
+        end
     end
 
     // Lectura combinacional
     assign rd_data = mem[addr];
+
+    // 🔍 Bloque de depuración opcional:
+    // Muestra el valor actual de la memoria en una dirección concreta
+    always_ff @(posedge clk) begin
+        if (!wr_en && mem[addr] !== 32'bx)
+            $display("🔍 MEM[%0d] = %0d (0x%0h) @t=%0t",
+                     addr, mem[addr], mem[addr], $time);
+    end
 
 endmodule
