@@ -1,81 +1,58 @@
 // ============================================================
 // tb_cpu_romcheck.sv
-// Testbench para verificar lectura de ROM y ejecución de CPU ARMv4 mínima
+// Testbench limpio con filtros y fin automático
 // ============================================================
-
 `timescale 1ns/1ps
+
 module tb_cpu_romcheck;
 
-    // Señales de prueba
     logic clk;
     logic reset;
-    logic [31:0] result;
+    logic [31:0] alu_result_out;
 
-    // Instancia de la CPU
     cpu_armv4 uut (
         .clk(clk),
         .reset(reset),
-        .alu_result_out(result)
+        .alu_result_out(alu_result_out)
     );
 
-    // ============================================================
-    // Generador de reloj
-    // ============================================================
+    // Reloj
     initial clk = 0;
-    always #5 clk = ~clk;   // 100 MHz simulado
+    always #5000 clk = ~clk;   // 10us periodo
 
-    // ============================================================
-    // Reset y simulación principal
-    // ============================================================
+    // Secuencia principal
     initial begin
-        $display("\n==============================================");
-        $display("🚀  INICIO DE SIMULACIÓN - PRUEBA ROM + CPU");
+        $display("==============================================");
+        $display("🚀 INICIO DE SIMULACIÓN - PRUEBA ROM + CPU + RAM");
         $display("==============================================\n");
 
         reset = 1;
-        #20;
+        #20000;
         reset = 0;
 
-        // Ejecutar durante 2000 ns
-        #2000;
+        // Ejecutar por tiempo suficiente
+        #4000000;
 
-        $display("\n==============================================");
-        $display("✅ FIN DE SIMULACIÓN");
-        $display("==============================================\n");
+        // Mostrar estado final
+        $display("\n--------------------------------");
+        $display("📦 ESTADO FINAL DE LA MEMORIA");
+        $display("--------------------------------");
+        for (int i = 0; i < 8; i++) begin
+            if (uut.u_ram.mem_array[i] !== 32'hxxxxxxxx)
+                $display("MEM[%0d] = %h", i, uut.u_ram.mem_array[i]);
+        end
+
+        $display("\n✅ FIN DE SIMULACIÓN");
         $stop;
     end
 
-    // ============================================================
-    // Monitoreo principal
-    // ============================================================
-    // Imprime el estado actual de:
-    // - PC (program counter)
-    // - Instrucción leída desde la ROM
-    // - Resultado actual de la ALU
-    // - Registro destino al que se escribe
-    // ============================================================
-    always_ff @(posedge clk) begin
-        if (!reset) begin
+    // Monitoreo filtrado
+    always @(posedge clk) begin
+        if (^uut.instr !== 1'bx && uut.pc < 8'd20) begin
             $display("t=%0t | PC=%0d | Instr=%h | ALU=%0d | WR_en=%b | RegW=%0d",
-                     $time,
-                     uut.pc,
-                     uut.instr,
-                     uut.alu_result_out,
-                     uut.reg_wr_en,
-                     uut.reg_wr);
+                     $time, uut.pc, uut.instr, uut.alu_result_out,
+                     uut.reg_wr_en, uut.reg_wr);
         end
-    end
-
-    // ============================================================
-    // Monitoreo adicional del banco de registros
-    // ============================================================
-    always_ff @(posedge clk) begin
-        if (!reset && uut.reg_wr_en)
-            $display("📝 Escritura en R%0d = %0d (0x%h) @t=%0t",
-                     uut.reg_wr,
-                     uut.alu_result_out,
-                     uut.alu_result_out,
-                     $time);
     end
 
 endmodule

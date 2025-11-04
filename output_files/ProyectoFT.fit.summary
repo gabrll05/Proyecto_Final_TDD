@@ -1,12 +1,12 @@
-Fitter Status : Successful - Mon Nov  3 16:48:22 2025
+Fitter Status : Successful - Mon Nov  3 19:31:39 2025
 Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 Revision Name : ProyectoFT
 Top-level Entity Name : top_fpga_cpu_test
 Family : Cyclone V
 Device : 5CSXFC6D6F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 113 / 41,910 ( < 1 % )
-Total registers : 190
+Logic utilization (in ALMs) : 102 / 41,910 ( < 1 % )
+Total registers : 216
 Total pins : 12 / 499 ( 2 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 5,662,720 ( 0 % )

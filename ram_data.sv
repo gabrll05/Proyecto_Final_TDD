@@ -1,36 +1,26 @@
 // ============================================================
 // ram_data.sv
-// Memoria de datos para instrucciones LDR / STR
+// RAM de datos simple de 256 palabras x 32 bits
 // ============================================================
-
 module ram_data (
     input  logic        clk,
-    input  logic        wr_en,
-    input  logic [31:0] addr,
-    input  logic [31:0] wr_data,
-    output logic [31:0] rd_data
+    input  logic        we,          // write enable
+    input  logic [7:0]  addr,        // dirección (256 posiciones)
+    input  logic [31:0] data_in,     // dato de entrada
+    output logic [31:0] data_out     // dato leído
 );
-    // Memoria simple de 256 posiciones (puede ajustarse)
-    logic [31:0] mem [0:255];
-
-    // Escritura sincrónica
-    always_ff @(posedge clk) begin
-        if (wr_en) begin
-            mem[addr] <= wr_data;
-            $display("💾 STORE: MEM[%0d] <= %0d (0x%0h) @t=%0t",
-                     addr, wr_data, wr_data, $time);
-        end
-    end
+    // ========================================================
+    // Memoria interna
+    // ========================================================
+    logic [31:0] mem_array [0:255];   // accesible desde el testbench
 
     // Lectura combinacional
-    assign rd_data = mem[addr];
+    assign data_out = mem_array[addr];
 
-    // 🔍 Bloque de depuración opcional:
-    // Muestra el valor actual de la memoria en una dirección concreta
+    // Escritura síncrona
     always_ff @(posedge clk) begin
-        if (!wr_en && mem[addr] !== 32'bx)
-            $display("🔍 MEM[%0d] = %0d (0x%0h) @t=%0t",
-                     addr, mem[addr], mem[addr], $time);
+        if (we)
+            mem_array[addr] <= data_in;
     end
 
 endmodule

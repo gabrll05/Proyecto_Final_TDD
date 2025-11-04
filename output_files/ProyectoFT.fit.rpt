@@ -1,5 +1,5 @@
 Fitter report for ProyectoFT
-Mon Nov  3 16:48:22 2025
+Mon Nov  3 19:31:39 2025
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
@@ -64,15 +64,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +---------------------------------+------------------------------------------------+
-; Fitter Status                   ; Successful - Mon Nov  3 16:48:22 2025          ;
+; Fitter Status                   ; Successful - Mon Nov  3 19:31:39 2025          ;
 ; Quartus Prime Version           ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
 ; Revision Name                   ; ProyectoFT                                     ;
 ; Top-level Entity Name           ; top_fpga_cpu_test                              ;
 ; Family                          ; Cyclone V                                      ;
 ; Device                          ; 5CSXFC6D6F31C6                                 ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 113 / 41,910 ( < 1 % )                         ;
-; Total registers                 ; 190                                            ;
+; Logic utilization (in ALMs)     ; 102 / 41,910 ( < 1 % )                         ;
+; Total registers                 ; 216                                            ;
 ; Total pins                      ; 12 / 499 ( 2 % )                               ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0 / 5,662,720 ( 0 % )                          ;
@@ -160,42 +160,36 @@ https://fpgasoftware.intel.com/eula.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   1.1%      ;
-;     Processor 3            ;   1.0%      ;
-;     Processor 4            ;   0.9%      ;
+;     Processor 3            ;   0.9%      ;
+;     Processor 4            ;   0.8%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter Netlist Optimizations                                                                                                                                                                                                                                                  ;
-+-----------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+---------------------------------------------------------+------------------+-----------------------+
-; Node                                          ; Action     ; Operation                                         ; Reason                     ; Node Port ; Node Port Name ; Destination Node                                        ; Destination Port ; Destination Port Name ;
-+-----------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+---------------------------------------------------------+------------------+-----------------------+
-; CLOCK_50~inputCLKENA0                         ; Created    ; Placement                                         ; Fitter Periphery Placement ;           ;                ;                                                         ;                  ;                       ;
-; KEY[0]~inputCLKENA0                           ; Created    ; Placement                                         ; Fitter Periphery Placement ;           ;                ;                                                         ;                  ;                       ;
-; cpu_armv4:u_cpu|alu:u_alu|result[28]          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|alu:u_alu|result[28]~DUPLICATE          ;                  ;                       ;
-; cpu_armv4:u_cpu|pc[5]                         ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|pc[5]~DUPLICATE                         ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][0]  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][0]~DUPLICATE  ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][2]  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][2]~DUPLICATE  ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][3]  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][3]~DUPLICATE  ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][6]  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][6]~DUPLICATE  ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][7]  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][7]~DUPLICATE  ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][10] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][10]~DUPLICATE ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][11] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][11]~DUPLICATE ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][14] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][14]~DUPLICATE ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][16] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][16]~DUPLICATE ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][18] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][18]~DUPLICATE ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][20] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][20]~DUPLICATE ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][26] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][26]~DUPLICATE ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][27] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][27]~DUPLICATE ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][0]  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][0]~DUPLICATE  ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][1]  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][1]~DUPLICATE  ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][2]  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][2]~DUPLICATE  ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][8]  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][8]~DUPLICATE  ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][16] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][16]~DUPLICATE ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][4]  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][4]~DUPLICATE  ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][10] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][10]~DUPLICATE ;                  ;                       ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][17] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][17]~DUPLICATE ;                  ;                       ;
-+-----------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+---------------------------------------------------------+------------------+-----------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Netlist Optimizations                                                                                                                                                                                                                                                            ;
++----------------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+--------------------------------------------------------------+------------------+-----------------------+
+; Node                                               ; Action     ; Operation                                         ; Reason                     ; Node Port ; Node Port Name ; Destination Node                                             ; Destination Port ; Destination Port Name ;
++----------------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+--------------------------------------------------------------+------------------+-----------------------+
+; CLOCK_50~inputCLKENA0                              ; Created    ; Placement                                         ; Fitter Periphery Placement ;           ;                ;                                                              ;                  ;                       ;
+; KEY[0]~inputCLKENA0                                ; Created    ; Placement                                         ; Fitter Periphery Placement ;           ;                ;                                                              ;                  ;                       ;
+; clock_divider:u_div|counter[25]                    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; clock_divider:u_div|counter[25]~DUPLICATE                    ;                  ;                       ;
+; cpu_armv4:u_cpu|alu:u_alu|result[9]                ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|alu:u_alu|result[9]~DUPLICATE                ;                  ;                       ;
+; cpu_armv4:u_cpu|alu:u_alu|result[28]               ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|alu:u_alu|result[28]~DUPLICATE               ;                  ;                       ;
+; cpu_armv4:u_cpu|alu:u_alu|result[31]               ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|alu:u_alu|result[31]~DUPLICATE               ;                  ;                       ;
+; cpu_armv4:u_cpu|pc[0]                              ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|pc[0]~DUPLICATE                              ;                  ;                       ;
+; cpu_armv4:u_cpu|pc[5]                              ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|pc[5]~DUPLICATE                              ;                  ;                       ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][3]  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][3]~DUPLICATE  ;                  ;                       ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][5]  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][5]~DUPLICATE  ;                  ;                       ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][6]  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][6]~DUPLICATE  ;                  ;                       ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][8]  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][8]~DUPLICATE  ;                  ;                       ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][9]  ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][9]~DUPLICATE  ;                  ;                       ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][10] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][10]~DUPLICATE ;                  ;                       ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][13] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][13]~DUPLICATE ;                  ;                       ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][16] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][16]~DUPLICATE ;                  ;                       ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][23] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][23]~DUPLICATE ;                  ;                       ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][25] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][25]~DUPLICATE ;                  ;                       ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][26] ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][26]~DUPLICATE ;                  ;                       ;
++----------------------------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+--------------------------------------------------------------+------------------+-----------------------+
 
 
 +--------------------------------------------------------------------------------------------------+
@@ -228,8 +222,8 @@ https://fpgasoftware.intel.com/eula.
 ; Type                ; Total [A + B]      ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+--------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                    ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 344 ) ; 0.00 % ( 0 / 344 )         ; 0.00 % ( 0 / 344 )       ;
-;     -- Achieved     ; 0.00 % ( 0 / 344 ) ; 0.00 % ( 0 / 344 )         ; 0.00 % ( 0 / 344 )       ;
+;     -- Requested    ; 0.00 % ( 0 / 360 ) ; 0.00 % ( 0 / 360 )         ; 0.00 % ( 0 / 360 )       ;
+;     -- Achieved     ; 0.00 % ( 0 / 360 ) ; 0.00 % ( 0 / 360 )         ; 0.00 % ( 0 / 360 )       ;
 ;                     ;                    ;                            ;                          ;
 ; Routing (by net)    ;                    ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )   ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -252,7 +246,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 344 )    ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 360 )    ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 0 )      ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -268,14 +262,14 @@ The pin-out file can be found in C:/Users/ema08/OneDrive - Estudiantes ITCR/Escr
 +-------------------------------------------------------------+--------------------+-------+
 ; Resource                                                    ; Usage              ; %     ;
 +-------------------------------------------------------------+--------------------+-------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 113 / 41,910       ; < 1 % ;
-; ALMs needed [=A-B+C]                                        ; 113                ;       ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 129 / 41,910       ; < 1 % ;
-;         [a] ALMs used for LUT logic and registers           ; 46                 ;       ;
-;         [b] ALMs used for LUT logic                         ; 46                 ;       ;
-;         [c] ALMs used for registers                         ; 37                 ;       ;
+; Logic utilization (ALMs needed / total ALMs on device)      ; 102 / 41,910       ; < 1 % ;
+; ALMs needed [=A-B+C]                                        ; 102                ;       ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 122 / 41,910       ; < 1 % ;
+;         [a] ALMs used for LUT logic and registers           ; 50                 ;       ;
+;         [b] ALMs used for LUT logic                         ; 26                 ;       ;
+;         [c] ALMs used for registers                         ; 46                 ;       ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                  ;       ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 16 / 41,910        ; < 1 % ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 20 / 41,910        ; < 1 % ;
 ;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 0 / 41,910         ; 0 %   ;
 ;         [a] Due to location constrained logic               ; 0                  ;       ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                  ;       ;
@@ -284,25 +278,25 @@ The pin-out file can be found in C:/Users/ema08/OneDrive - Estudiantes ITCR/Escr
 ;                                                             ;                    ;       ;
 ; Difficulty packing design                                   ; Low                ;       ;
 ;                                                             ;                    ;       ;
-; Total LABs:  partially or completely used                   ; 20 / 4,191         ; < 1 % ;
-;     -- Logic LABs                                           ; 20                 ;       ;
+; Total LABs:  partially or completely used                   ; 18 / 4,191         ; < 1 % ;
+;     -- Logic LABs                                           ; 18                 ;       ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                  ;       ;
 ;                                                             ;                    ;       ;
-; Combinational ALUT usage for logic                          ; 151                ;       ;
+; Combinational ALUT usage for logic                          ; 135                ;       ;
 ;     -- 7 input functions                                    ; 0                  ;       ;
-;     -- 6 input functions                                    ; 68                 ;       ;
-;     -- 5 input functions                                    ; 2                  ;       ;
-;     -- 4 input functions                                    ; 9                  ;       ;
-;     -- <=3 input functions                                  ; 72                 ;       ;
-; Combinational ALUT usage for route-throughs                 ; 24                 ;       ;
+;     -- 6 input functions                                    ; 46                 ;       ;
+;     -- 5 input functions                                    ; 5                  ;       ;
+;     -- 4 input functions                                    ; 11                 ;       ;
+;     -- <=3 input functions                                  ; 73                 ;       ;
+; Combinational ALUT usage for route-throughs                 ; 33                 ;       ;
 ;                                                             ;                    ;       ;
-; Dedicated logic registers                                   ; 190                ;       ;
+; Dedicated logic registers                                   ; 216                ;       ;
 ;     -- By type:                                             ;                    ;       ;
-;         -- Primary logic registers                          ; 164 / 83,820       ; < 1 % ;
+;         -- Primary logic registers                          ; 190 / 83,820       ; < 1 % ;
 ;         -- Secondary logic registers                        ; 26 / 83,820        ; < 1 % ;
 ;     -- By function:                                         ;                    ;       ;
-;         -- Design implementation registers                  ; 167                ;       ;
-;         -- Routing optimization registers                   ; 23                 ;       ;
+;         -- Design implementation registers                  ; 199                ;       ;
+;         -- Routing optimization registers                   ; 17                 ;       ;
 ;                                                             ;                    ;       ;
 ; Virtual pins                                                ; 0                  ;       ;
 ; I/O pins                                                    ; 12 / 499           ; 2 %   ;
@@ -364,11 +358,11 @@ The pin-out file can be found in C:/Users/ema08/OneDrive - Estudiantes ITCR/Escr
 ; Impedance control blocks                                    ; 0 / 4              ; 0 %   ;
 ; Hard Memory Controllers                                     ; 0 / 2              ; 0 %   ;
 ; Average interconnect usage (total/H/V)                      ; 0.1% / 0.1% / 0.1% ;       ;
-; Peak interconnect usage (total/H/V)                         ; 4.6% / 4.6% / 4.7% ;       ;
-; Maximum fan-out                                             ; 189                ;       ;
-; Highest non-global fan-out                                  ; 163                ;       ;
-; Total fan-out                                               ; 1400               ;       ;
-; Average fan-out                                             ; 3.58               ;       ;
+; Peak interconnect usage (total/H/V)                         ; 5.1% / 5.1% / 5.1% ;       ;
+; Maximum fan-out                                             ; 215                ;       ;
+; Highest non-global fan-out                                  ; 188                ;       ;
+; Total fan-out                                               ; 1406               ;       ;
+; Average fan-out                                             ; 3.43               ;       ;
 +-------------------------------------------------------------+--------------------+-------+
 
 
@@ -377,14 +371,14 @@ The pin-out file can be found in C:/Users/ema08/OneDrive - Estudiantes ITCR/Escr
 +-------------------------------------------------------------+-----------------------+--------------------------------+
 ; Statistic                                                   ; Top                   ; hard_block:auto_generated_inst ;
 +-------------------------------------------------------------+-----------------------+--------------------------------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 113 / 41910 ( < 1 % ) ; 0 / 41910 ( 0 % )              ;
-; ALMs needed [=A-B+C]                                        ; 113                   ; 0                              ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 129 / 41910 ( < 1 % ) ; 0 / 41910 ( 0 % )              ;
-;         [a] ALMs used for LUT logic and registers           ; 46                    ; 0                              ;
-;         [b] ALMs used for LUT logic                         ; 46                    ; 0                              ;
-;         [c] ALMs used for registers                         ; 37                    ; 0                              ;
+; Logic utilization (ALMs needed / total ALMs on device)      ; 102 / 41910 ( < 1 % ) ; 0 / 41910 ( 0 % )              ;
+; ALMs needed [=A-B+C]                                        ; 102                   ; 0                              ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 122 / 41910 ( < 1 % ) ; 0 / 41910 ( 0 % )              ;
+;         [a] ALMs used for LUT logic and registers           ; 50                    ; 0                              ;
+;         [b] ALMs used for LUT logic                         ; 26                    ; 0                              ;
+;         [c] ALMs used for registers                         ; 46                    ; 0                              ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                     ; 0                              ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 16 / 41910 ( < 1 % )  ; 0 / 41910 ( 0 % )              ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 20 / 41910 ( < 1 % )  ; 0 / 41910 ( 0 % )              ;
 ;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 0 / 41910 ( 0 % )     ; 0 / 41910 ( 0 % )              ;
 ;         [a] Due to location constrained logic               ; 0                     ; 0                              ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                     ; 0                              ;
@@ -393,28 +387,28 @@ The pin-out file can be found in C:/Users/ema08/OneDrive - Estudiantes ITCR/Escr
 ;                                                             ;                       ;                                ;
 ; Difficulty packing design                                   ; Low                   ; Low                            ;
 ;                                                             ;                       ;                                ;
-; Total LABs:  partially or completely used                   ; 20 / 4191 ( < 1 % )   ; 0 / 4191 ( 0 % )               ;
-;     -- Logic LABs                                           ; 20                    ; 0                              ;
+; Total LABs:  partially or completely used                   ; 18 / 4191 ( < 1 % )   ; 0 / 4191 ( 0 % )               ;
+;     -- Logic LABs                                           ; 18                    ; 0                              ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
-; Combinational ALUT usage for logic                          ; 151                   ; 0                              ;
+; Combinational ALUT usage for logic                          ; 135                   ; 0                              ;
 ;     -- 7 input functions                                    ; 0                     ; 0                              ;
-;     -- 6 input functions                                    ; 68                    ; 0                              ;
-;     -- 5 input functions                                    ; 2                     ; 0                              ;
-;     -- 4 input functions                                    ; 9                     ; 0                              ;
-;     -- <=3 input functions                                  ; 72                    ; 0                              ;
-; Combinational ALUT usage for route-throughs                 ; 24                    ; 0                              ;
+;     -- 6 input functions                                    ; 46                    ; 0                              ;
+;     -- 5 input functions                                    ; 5                     ; 0                              ;
+;     -- 4 input functions                                    ; 11                    ; 0                              ;
+;     -- <=3 input functions                                  ; 73                    ; 0                              ;
+; Combinational ALUT usage for route-throughs                 ; 33                    ; 0                              ;
 ; Memory ALUT usage                                           ; 0                     ; 0                              ;
 ;     -- 64-address deep                                      ; 0                     ; 0                              ;
 ;     -- 32-address deep                                      ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Dedicated logic registers                                   ; 0                     ; 0                              ;
 ;     -- By type:                                             ;                       ;                                ;
-;         -- Primary logic registers                          ; 164 / 83820 ( < 1 % ) ; 0 / 83820 ( 0 % )              ;
+;         -- Primary logic registers                          ; 190 / 83820 ( < 1 % ) ; 0 / 83820 ( 0 % )              ;
 ;         -- Secondary logic registers                        ; 26 / 83820 ( < 1 % )  ; 0 / 83820 ( 0 % )              ;
 ;     -- By function:                                         ;                       ;                                ;
-;         -- Design implementation registers                  ; 167                   ; 0                              ;
-;         -- Routing optimization registers                   ; 23                    ; 0                              ;
+;         -- Design implementation registers                  ; 199                   ; 0                              ;
+;         -- Routing optimization registers                   ; 17                    ; 0                              ;
 ;                                                             ;                       ;                                ;
 ;                                                             ;                       ;                                ;
 ; Virtual pins                                                ; 0                     ; 0                              ;
@@ -431,8 +425,8 @@ The pin-out file can be found in C:/Users/ema08/OneDrive - Estudiantes ITCR/Escr
 ;     -- Registered Output Connections                        ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Internal Connections                                        ;                       ;                                ;
-;     -- Total Connections                                    ; 1400                  ; 0                              ;
-;     -- Registered Connections                               ; 584                   ; 0                              ;
+;     -- Total Connections                                    ; 1406                  ; 0                              ;
+;     -- Registered Connections                               ; 620                   ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; External Connections                                        ;                       ;                                ;
 ;     -- Top                                                  ; 0                     ; 0                              ;
@@ -464,8 +458,8 @@ The pin-out file can be found in C:/Users/ema08/OneDrive - Estudiantes ITCR/Escr
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
 ; Name     ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
-; CLOCK_50 ; AF14  ; 3B       ; 32           ; 0            ; 0            ; 27                    ; 0                  ; yes    ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
-; KEY[0]   ; AJ4   ; 3B       ; 22           ; 0            ; 34           ; 190                   ; 0                  ; yes    ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
+; CLOCK_50 ; AF14  ; 3B       ; 32           ; 0            ; 0            ; 28                    ; 0                  ; yes    ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
+; KEY[0]   ; AJ4   ; 3B       ; 22           ; 0            ; 34           ; 216                   ; 0                  ; yes    ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 +----------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
 
 
@@ -1440,13 +1434,13 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +-----------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+--------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node  ; ALMs needed [=A-B+C] ; [A] ALMs used in final placement ; [B] Estimate of ALMs recoverable by dense packing ; [C] Estimate of ALMs unavailable ; ALMs used for memory ; Combinational ALUTs ; Dedicated Logic Registers ; I/O Registers ; Block Memory Bits ; M10Ks ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                    ; Entity Name       ; Library Name ;
 +-----------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+--------------------------------------------------------+-------------------+--------------+
-; |top_fpga_cpu_test          ; 113.0 (0.5)          ; 128.0 (0.5)                      ; 15.0 (0.0)                                        ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 151 (1)             ; 190 (0)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 12   ; 0            ; |top_fpga_cpu_test                                     ; top_fpga_cpu_test ; work         ;
-;    |clock_divider:u_div|    ; 13.0 (13.0)          ; 13.5 (13.5)                      ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 26 (26)             ; 27 (27)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_fpga_cpu_test|clock_divider:u_div                 ; clock_divider     ; work         ;
-;    |cpu_armv4:u_cpu|        ; 99.5 (5.5)           ; 114.0 (6.1)                      ; 14.5 (0.6)                                        ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 124 (8)             ; 163 (9)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_fpga_cpu_test|cpu_armv4:u_cpu                     ; cpu_armv4         ; work         ;
-;       |alu:u_alu|           ; 40.7 (40.7)          ; 43.4 (43.4)                      ; 2.7 (2.7)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 70 (70)             ; 33 (33)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_fpga_cpu_test|cpu_armv4:u_cpu|alu:u_alu           ; alu               ; work         ;
-;       |control_unit:u_ctrl| ; 1.3 (1.3)            ; 2.0 (2.0)                        ; 0.7 (0.7)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 2 (2)               ; 4 (4)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_fpga_cpu_test|cpu_armv4:u_cpu|control_unit:u_ctrl ; control_unit      ; work         ;
-;       |regfile:u_regfile|   ; 49.0 (49.0)          ; 59.0 (59.0)                      ; 10.0 (10.0)                                       ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 36 (36)             ; 117 (117)                 ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_fpga_cpu_test|cpu_armv4:u_cpu|regfile:u_regfile   ; regfile           ; work         ;
-;       |rom_program:u_rom|   ; 3.0 (3.0)            ; 3.5 (3.5)                        ; 0.5 (0.5)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 8 (8)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_fpga_cpu_test|cpu_armv4:u_cpu|rom_program:u_rom   ; rom_program       ; work         ;
+; |top_fpga_cpu_test          ; 102.0 (0.5)          ; 120.5 (0.5)                      ; 18.5 (0.0)                                        ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 135 (1)             ; 216 (0)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 12   ; 0            ; |top_fpga_cpu_test                                     ; top_fpga_cpu_test ; work         ;
+;    |clock_divider:u_div|    ; 13.0 (13.0)          ; 14.0 (14.0)                      ; 1.0 (1.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 26 (26)             ; 28 (28)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_fpga_cpu_test|clock_divider:u_div                 ; clock_divider     ; work         ;
+;    |cpu_armv4:u_cpu|        ; 88.5 (5.7)           ; 106.0 (5.7)                      ; 17.5 (0.0)                                        ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 108 (8)             ; 188 (10)                  ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_fpga_cpu_test|cpu_armv4:u_cpu                     ; cpu_armv4         ; work         ;
+;       |alu:u_alu|           ; 25.3 (25.3)          ; 26.2 (26.2)                      ; 0.9 (0.9)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 50 (50)             ; 35 (35)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_fpga_cpu_test|cpu_armv4:u_cpu|alu:u_alu           ; alu               ; work         ;
+;       |control_unit:u_ctrl| ; 1.9 (1.9)            ; 2.3 (2.3)                        ; 0.4 (0.4)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 2 (2)               ; 4 (4)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_fpga_cpu_test|cpu_armv4:u_cpu|control_unit:u_ctrl ; control_unit      ; work         ;
+;       |regfile:u_regfile|   ; 51.2 (51.2)          ; 67.9 (67.9)                      ; 16.7 (16.7)                                       ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 37 (37)             ; 139 (139)                 ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_fpga_cpu_test|cpu_armv4:u_cpu|regfile:u_regfile   ; regfile           ; work         ;
+;       |rom_program:u_rom|   ; 3.9 (3.9)            ; 3.9 (3.9)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 11 (11)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |top_fpga_cpu_test|cpu_armv4:u_cpu|rom_program:u_rom   ; rom_program       ; work         ;
 +-----------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+--------------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -1466,8 +1460,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LEDR[7]  ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; LEDR[8]  ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; LEDR[9]  ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
-; KEY[0]   ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; CLOCK_50 ; Input    ; -- ; (0)  ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; KEY[0]   ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; CLOCK_50 ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 +----------+----------+----+------+------+----+------+-------+--------+------------------------+--------------------------+
 
 
@@ -1477,10 +1471,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Source Pin / Fanout                ; Pad To Core Index ; Setting ;
 +------------------------------------+-------------------+---------+
 ; KEY[0]                             ;                   ;         ;
-;      - clock_divider:u_div|clk_out ; 0                 ; 0       ;
-;      - KEY[0]~inputCLKENA0         ; 0                 ; 0       ;
-; CLOCK_50                           ;                   ;         ;
 ;      - clock_divider:u_div|clk_out ; 1                 ; 0       ;
+;      - KEY[0]~inputCLKENA0         ; 1                 ; 0       ;
+; CLOCK_50                           ;                   ;         ;
+;      - clock_divider:u_div|clk_out ; 0                 ; 0       ;
 +------------------------------------+-------------------+---------+
 
 
@@ -1490,15 +1484,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name                                                ; Location           ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +-----------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 ; CLOCK_50                                            ; PIN_AF14           ; 2       ; Clock        ; no     ; --                   ; --               ; --                        ;
-; CLOCK_50                                            ; PIN_AF14           ; 26      ; Clock        ; yes    ; Global Clock         ; GCLK7            ; --                        ;
+; CLOCK_50                                            ; PIN_AF14           ; 27      ; Clock        ; yes    ; Global Clock         ; GCLK7            ; --                        ;
 ; KEY[0]                                              ; PIN_AJ4            ; 2       ; Async. clear ; no     ; --                   ; --               ; --                        ;
-; KEY[0]                                              ; PIN_AJ4            ; 189     ; Async. clear ; yes    ; Global Clock         ; GCLK5            ; --                        ;
-; clock_divider:u_div|clk_out                         ; FF_X83_Y4_N50      ; 163     ; Clock        ; no     ; --                   ; --               ; --                        ;
-; cpu_armv4:u_cpu|alu:u_alu|Mux29~0                   ; LABCELL_X80_Y5_N39 ; 31      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
-; cpu_armv4:u_cpu|control_unit:u_ctrl|state.WRITEBACK ; FF_X84_Y5_N5       ; 11      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; cpu_armv4:u_cpu|regfile:u_regfile|Decoder0~1        ; LABCELL_X80_Y5_N36 ; 45      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; cpu_armv4:u_cpu|regfile:u_regfile|Decoder0~2        ; LABCELL_X81_Y5_N12 ; 37      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; cpu_armv4:u_cpu|regfile:u_regfile|Decoder0~3        ; LABCELL_X80_Y5_N51 ; 35      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; KEY[0]                                              ; PIN_AJ4            ; 215     ; Async. clear ; yes    ; Global Clock         ; GCLK5            ; --                        ;
+; clock_divider:u_div|clk_out                         ; FF_X84_Y9_N56      ; 188     ; Clock        ; no     ; --                   ; --               ; --                        ;
+; cpu_armv4:u_cpu|alu:u_alu|Mux29~0                   ; LABCELL_X83_Y6_N39 ; 33      ; Sync. clear  ; no     ; --                   ; --               ; --                        ;
+; cpu_armv4:u_cpu|control_unit:u_ctrl|state.WRITEBACK ; FF_X85_Y8_N50      ; 12      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; cpu_armv4:u_cpu|regfile:u_regfile|Decoder0~1        ; LABCELL_X85_Y8_N39 ; 43      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; cpu_armv4:u_cpu|regfile:u_regfile|Decoder0~2        ; LABCELL_X85_Y8_N51 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; cpu_armv4:u_cpu|regfile:u_regfile|Decoder0~3        ; LABCELL_X85_Y8_N21 ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
+; cpu_armv4:u_cpu|regfile:u_regfile|Decoder0~4        ; LABCELL_X85_Y8_N3  ; 32      ; Clock enable ; no     ; --                   ; --               ; --                        ;
 +-----------------------------------------------------+--------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
 
 
@@ -1507,8 +1502,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------+----------+---------+----------------------+------------------+---------------------------+
 ; Name     ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +----------+----------+---------+----------------------+------------------+---------------------------+
-; CLOCK_50 ; PIN_AF14 ; 26      ; Global Clock         ; GCLK7            ; --                        ;
-; KEY[0]   ; PIN_AJ4  ; 189     ; Global Clock         ; GCLK5            ; --                        ;
+; CLOCK_50 ; PIN_AF14 ; 27      ; Global Clock         ; GCLK7            ; --                        ;
+; KEY[0]   ; PIN_AJ4  ; 215     ; Global Clock         ; GCLK5            ; --                        ;
 +----------+----------+---------+----------------------+------------------+---------------------------+
 
 
@@ -1517,14 +1512,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------+-------------------------+
 ; Routing Resource Type                       ; Usage                   ;
 +---------------------------------------------+-------------------------+
-; Block interconnects                         ; 451 / 289,320 ( < 1 % ) ;
-; C12 interconnects                           ; 1 / 13,420 ( < 1 % )    ;
-; C2 interconnects                            ; 161 / 119,108 ( < 1 % ) ;
-; C4 interconnects                            ; 73 / 56,300 ( < 1 % )   ;
+; Block interconnects                         ; 401 / 289,320 ( < 1 % ) ;
+; C12 interconnects                           ; 4 / 13,420 ( < 1 % )    ;
+; C2 interconnects                            ; 162 / 119,108 ( < 1 % ) ;
+; C4 interconnects                            ; 87 / 56,300 ( < 1 % )   ;
 ; DQS bus muxes                               ; 0 / 25 ( 0 % )          ;
 ; DQS-18 I/O buses                            ; 0 / 25 ( 0 % )          ;
 ; DQS-9 I/O buses                             ; 0 / 25 ( 0 % )          ;
-; Direct links                                ; 56 / 289,320 ( < 1 % )  ;
+; Direct links                                ; 62 / 289,320 ( < 1 % )  ;
 ; Global clocks                               ; 2 / 16 ( 13 % )         ;
 ; HPS SDRAM PLL inputs                        ; 0 / 1 ( 0 % )           ;
 ; HPS SDRAM PLL outputs                       ; 0 / 1 ( 0 % )           ;
@@ -1580,12 +1575,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; HPS_INTERFACE_TPIU_TRACE_INPUTs             ; 0 / 2 ( 0 % )           ;
 ; HPS_INTERFACE_TPIU_TRACE_OUTPUTs            ; 0 / 33 ( 0 % )          ;
 ; Horizontal periphery clocks                 ; 0 / 72 ( 0 % )          ;
-; Local interconnects                         ; 71 / 84,580 ( < 1 % )   ;
+; Local interconnects                         ; 94 / 84,580 ( < 1 % )   ;
 ; Quadrant clocks                             ; 0 / 66 ( 0 % )          ;
-; R14 interconnects                           ; 14 / 12,676 ( < 1 % )   ;
-; R14/C12 interconnect drivers                ; 14 / 20,720 ( < 1 % )   ;
-; R3 interconnects                            ; 201 / 130,992 ( < 1 % ) ;
-; R6 interconnects                            ; 224 / 266,960 ( < 1 % ) ;
+; R14 interconnects                           ; 21 / 12,676 ( < 1 % )   ;
+; R14/C12 interconnect drivers                ; 22 / 20,720 ( < 1 % )   ;
+; R3 interconnects                            ; 224 / 130,992 ( < 1 % ) ;
+; R6 interconnects                            ; 233 / 266,960 ( < 1 % ) ;
 ; Spine clocks                                ; 2 / 360 ( < 1 % )       ;
 ; Wire stub REs                               ; 0 / 15,858 ( 0 % )      ;
 +---------------------------------------------+-------------------------+
@@ -1713,119 +1708,119 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------------+-----------------------------+-------------------+
 ; Source Clock(s)             ; Destination Clock(s)        ; Delay Added in ns ;
 +-----------------------------+-----------------------------+-------------------+
-; clock_divider:u_div|clk_out ; clock_divider:u_div|clk_out ; 98.7              ;
-; CLOCK_50                    ; CLOCK_50                    ; 4.4               ;
+; clock_divider:u_div|clk_out ; clock_divider:u_div|clk_out ; 121.3             ;
+; CLOCK_50                    ; CLOCK_50                    ; 4.6               ;
 +-----------------------------+-----------------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
 
 
-+-------------------------------------------------------------------------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Details                                                                                 ;
-+-----------------------------------------------------+-----------------------------------------------------+-------------------+
-; Source Register                                     ; Destination Register                                ; Delay Added in ns ;
-+-----------------------------------------------------+-----------------------------------------------------+-------------------+
-; clock_divider:u_div|counter[25]                     ; clock_divider:u_div|clk_out                         ; 2.239             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][23]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 1.120             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][26]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 1.119             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][22]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 1.115             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][19]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 1.026             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][17]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 1.022             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][12]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 1.018             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][9]        ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 1.009             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][14]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 1.008             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][2]        ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 1.008             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][31]       ; cpu_armv4:u_cpu|alu:u_alu|result[31]                ; 0.968             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][29]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.968             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][21]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.968             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][3]        ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.942             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][4]        ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.940             ;
-; cpu_armv4:u_cpu|control_unit:u_ctrl|state.WRITEBACK ; cpu_armv4:u_cpu|control_unit:u_ctrl|state.FETCH     ; 0.919             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][15]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.916             ;
-; cpu_armv4:u_cpu|control_unit:u_ctrl|state.FETCH     ; cpu_armv4:u_cpu|control_unit:u_ctrl|state.DECODE    ; 0.911             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][28]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.899             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][11]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.893             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][13]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.890             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][10]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.878             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][30]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.851             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][24]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.851             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[22]                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][22]       ; 0.805             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[23]                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][23]       ; 0.798             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][27]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.767             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][25]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.756             ;
-; cpu_armv4:u_cpu|control_unit:u_ctrl|state.DECODE    ; cpu_armv4:u_cpu|control_unit:u_ctrl|state.EXECUTE   ; 0.728             ;
-; cpu_armv4:u_cpu|control_unit:u_ctrl|state.EXECUTE   ; cpu_armv4:u_cpu|control_unit:u_ctrl|state.WRITEBACK ; 0.714             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[8]                 ; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][8]        ; 0.704             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][8]        ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.701             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][5]        ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.701             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[5]                 ; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][5]        ; 0.696             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[3]                 ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][3]        ; 0.689             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][20]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.670             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[4]                 ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][4]        ; 0.669             ;
-; cpu_armv4:u_cpu|pc[2]                               ; cpu_armv4:u_cpu|alu:u_alu|result[1]                 ; 0.668             ;
-; cpu_armv4:u_cpu|pc[0]                               ; cpu_armv4:u_cpu|alu:u_alu|result[1]                 ; 0.664             ;
-; cpu_armv4:u_cpu|pc[1]                               ; cpu_armv4:u_cpu|alu:u_alu|result[1]                 ; 0.663             ;
-; cpu_armv4:u_cpu|pc[3]                               ; cpu_armv4:u_cpu|alu:u_alu|result[1]                 ; 0.663             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][7]        ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.648             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][1]        ; cpu_armv4:u_cpu|alu:u_alu|result[1]                 ; 0.642             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][10]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.636             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[26]                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][26]       ; 0.632             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][13]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.620             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[25]                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][25]       ; 0.616             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][11]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.610             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][6]        ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.588             ;
-; cpu_armv4:u_cpu|pc[5]                               ; cpu_armv4:u_cpu|alu:u_alu|result[1]                 ; 0.587             ;
-; cpu_armv4:u_cpu|pc[6]                               ; cpu_armv4:u_cpu|alu:u_alu|result[1]                 ; 0.581             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[16]                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][16]       ; 0.576             ;
-; cpu_armv4:u_cpu|pc[4]                               ; cpu_armv4:u_cpu|alu:u_alu|result[1]                 ; 0.572             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][16]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.567             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][18]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.566             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[2]                 ; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][2]        ; 0.561             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[9]                 ; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][9]        ; 0.555             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[6]                 ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][6]        ; 0.549             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[7]                 ; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][7]        ; 0.549             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[14]                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][14]       ; 0.543             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][30]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.539             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[17]                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][17]       ; 0.539             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[12]                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][12]       ; 0.539             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[19]                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][19]       ; 0.523             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][15]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.519             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][26]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.515             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][25]       ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.513             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][10]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.510             ;
-; cpu_armv4:u_cpu|pc[7]                               ; cpu_armv4:u_cpu|alu:u_alu|result[1]                 ; 0.498             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][29]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.488             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][0]        ; cpu_armv4:u_cpu|alu:u_alu|result[1]                 ; 0.480             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][13]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.471             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[18]                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][18]       ; 0.469             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][11]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.465             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[20]                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][20]       ; 0.449             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[1]                 ; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][1]        ; 0.426             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][14]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.419             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][15]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.418             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][2]        ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.403             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][21]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.395             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][21]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.395             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][26]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.386             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][30]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.370             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][3]        ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.370             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; cpu_armv4:u_cpu|regfile:u_regfile|regs[0][0]        ; 0.362             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][16]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.360             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][14]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.360             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][12]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.360             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][12]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.360             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][16]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.360             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[10]                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][10]       ; 0.355             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[11]                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][11]       ; 0.347             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][7]        ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.345             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][5]        ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.345             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][20]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.340             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][5]        ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.328             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][29]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.324             ;
-; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; cpu_armv4:u_cpu|regfile:u_regfile|regs[1][30]       ; 0.321             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][17]       ; cpu_armv4:u_cpu|alu:u_alu|result[0]                 ; 0.312             ;
-; cpu_armv4:u_cpu|regfile:u_regfile|regs[2][9]        ; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; 0.310             ;
-+-----------------------------------------------------+-----------------------------------------------------+-------------------+
++------------------------------------------------------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details                                                                                ;
++-----------------------------------------------------+----------------------------------------------------+-------------------+
+; Source Register                                     ; Destination Register                               ; Delay Added in ns ;
++-----------------------------------------------------+----------------------------------------------------+-------------------+
+; clock_divider:u_div|counter[25]                     ; clock_divider:u_div|clk_out                        ; 2.281             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][23]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 1.137             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][31]  ; cpu_armv4:u_cpu|alu:u_alu|result[31]               ; 1.136             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][29]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 1.136             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][25]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 1.136             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][30]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 1.126             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][22]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 1.126             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][24]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 1.118             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][5]   ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 1.047             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][3]   ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 1.047             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][6]   ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 1.046             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][4]   ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 1.046             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][21]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 1.042             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][2]   ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 1.038             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][27]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 1.033             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][28]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 1.032             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][26]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 1.031             ;
+; cpu_armv4:u_cpu|control_unit:u_ctrl|state.WRITEBACK ; cpu_armv4:u_cpu|control_unit:u_ctrl|state.FETCH    ; 0.911             ;
+; cpu_armv4:u_cpu|control_unit:u_ctrl|state.FETCH     ; cpu_armv4:u_cpu|control_unit:u_ctrl|state.DECODE   ; 0.900             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][19]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 0.829             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][17]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 0.828             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][15]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 0.828             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][14]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 0.816             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][18]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 0.814             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][13]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 0.812             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][16]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 0.811             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[1][30]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.809             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[2][24]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.807             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[3][26]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.805             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][9]   ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 0.803             ;
+; cpu_armv4:u_cpu|alu:u_alu|result[31]                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][31] ; 0.792             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][20]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 0.780             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[2][30]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.773             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][7]   ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 0.772             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[3][23]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.770             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][11]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 0.767             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[2][23]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.766             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[1][24]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.760             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[1][27]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.756             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][12]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 0.745             ;
+; cpu_armv4:u_cpu|control_unit:u_ctrl|state.DECODE    ; cpu_armv4:u_cpu|control_unit:u_ctrl|state.EXECUTE  ; 0.728             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[3][2]   ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.714             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[3][5]   ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.711             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[2][2]   ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.710             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[2][15]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.707             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[2][5]   ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.706             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[3][6]   ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.701             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[3][3]   ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.698             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[2][13]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 0.697             ;
+; cpu_armv4:u_cpu|pc[0]                               ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.694             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[2][3]   ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.694             ;
+; cpu_armv4:u_cpu|pc[3]                               ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.693             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[3][4]   ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.692             ;
+; cpu_armv4:u_cpu|pc[2]                               ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.689             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[2][4]   ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.688             ;
+; cpu_armv4:u_cpu|alu:u_alu|result[29]                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][29] ; 0.684             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[2][17]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 0.678             ;
+; cpu_armv4:u_cpu|pc[1]                               ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.674             ;
+; cpu_armv4:u_cpu|alu:u_alu|result[6]                 ; cpu_armv4:u_cpu|regfile:u_regfile|registers[1][6]  ; 0.662             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[1][15]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.661             ;
+; cpu_armv4:u_cpu|alu:u_alu|result[25]                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][25] ; 0.658             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[2][27]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.657             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][8]   ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 0.657             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][10]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 0.654             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[1][2]   ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.654             ;
+; cpu_armv4:u_cpu|alu:u_alu|result[23]                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][23] ; 0.652             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[1][13]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 0.649             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[3][29]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.644             ;
+; cpu_armv4:u_cpu|alu:u_alu|result[22]                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][22] ; 0.644             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[3][9]   ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.639             ;
+; cpu_armv4:u_cpu|alu:u_alu|result[30]                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][30] ; 0.638             ;
+; cpu_armv4:u_cpu|alu:u_alu|result[24]                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][24] ; 0.638             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[1][17]  ; cpu_armv4:u_cpu|alu:u_alu|result[30]               ; 0.633             ;
+; cpu_armv4:u_cpu|alu:u_alu|result[5]                 ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][5]  ; 0.632             ;
+; cpu_armv4:u_cpu|alu:u_alu|result[7]                 ; cpu_armv4:u_cpu|regfile:u_regfile|registers[3][7]  ; 0.628             ;
+; cpu_armv4:u_cpu|alu:u_alu|result[12]                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[2][12] ; 0.626             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[3][30]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.624             ;
+; cpu_armv4:u_cpu|pc[7]                               ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.624             ;
+; cpu_armv4:u_cpu|pc[6]                               ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.624             ;
+; cpu_armv4:u_cpu|pc[4]                               ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.624             ;
+; cpu_armv4:u_cpu|pc[5]                               ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.624             ;
+; cpu_armv4:u_cpu|alu:u_alu|result[2]                 ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][2]  ; 0.613             ;
+; cpu_armv4:u_cpu|alu:u_alu|result[11]                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[1][11] ; 0.610             ;
+; cpu_armv4:u_cpu|alu:u_alu|result[3]                 ; cpu_armv4:u_cpu|regfile:u_regfile|registers[3][3]  ; 0.599             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[3][28]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.596             ;
+; cpu_armv4:u_cpu|alu:u_alu|result[17]                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[1][17] ; 0.596             ;
+; cpu_armv4:u_cpu|alu:u_alu|result[4]                 ; cpu_armv4:u_cpu|regfile:u_regfile|registers[0][4]  ; 0.596             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[2][28]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.589             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[1][31]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.588             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[2][31]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.588             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[1][29]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.588             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[2][29]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.588             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[3][31]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.588             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[1][25]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.588             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[2][25]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.588             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[3][24]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.588             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[1][23]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.588             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[3][25]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.588             ;
+; cpu_armv4:u_cpu|regfile:u_regfile|registers[2][20]  ; cpu_armv4:u_cpu|alu:u_alu|result[0]                ; 0.583             ;
+; cpu_armv4:u_cpu|alu:u_alu|result[18]                ; cpu_armv4:u_cpu|regfile:u_regfile|registers[1][18] ; 0.582             ;
++-----------------------------------------------------+----------------------------------------------------+-------------------+
 Note: This table only shows the top 100 path(s) that have the largest delay added for hold.
 
 
@@ -1842,7 +1837,7 @@ Warning (292013): Feature LogicLock is only available with a valid subscription 
 Warning (15714): Some pins have incomplete I/O assignments. Refer to the I/O Assignment Warnings report for details
 Info (184020): Starting Fitter periphery placement operations
 Info (11191): Automatically promoted 2 clocks (2 global)
-    Info (11162): KEY[0]~inputCLKENA0 with 166 fanout uses global clock CLKCTRL_G6
+    Info (11162): KEY[0]~inputCLKENA0 with 198 fanout uses global clock CLKCTRL_G6
         Info (12525): This signal is driven by core routing -- it may be moved during placement to reduce routing delays
     Info (11162): CLOCK_50~inputCLKENA0 with 26 fanout uses global clock CLKCTRL_G7
 Warning (16406): 1 global input pin(s) will use non-dedicated clock routing
@@ -1870,7 +1865,7 @@ Warning (15705): Ignored locations or region assignments to the following nodes
     Warning (15706): Node "sev_seg_md[5]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "sev_seg_md[6]" is assigned to location or region, but does not exist in design
     Warning (15706): Node "ss" is assigned to location or region, but does not exist in design
-Info (11798): Fitter preparation operations ending: elapsed time is 00:00:08
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:09
 Info (170189): Fitter placement preparation operations beginning
 Info (14951): The Fitter is using Advanced Physical Optimization.
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:01
@@ -1882,8 +1877,8 @@ Info (170195): Router estimated average interconnect usage is 0% of the availabl
     Info (170196): Router estimated peak interconnect usage is 3% of the available device resources in the region that extends from location X78_Y0 to location X89_Y10
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:02
-Info (11888): Total time spent on timing analysis during the Fitter is 0.64 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:03
+Info (11888): Total time spent on timing analysis during the Fitter is 0.86 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -1892,10 +1887,10 @@ Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:03
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/output_files/ProyectoFT.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 20 warnings
-    Info: Peak virtual memory: 6605 megabytes
-    Info: Processing ended: Mon Nov  3 16:48:23 2025
-    Info: Elapsed time: 00:00:29
-    Info: Total CPU time (on all processors): 00:00:58
+    Info: Peak virtual memory: 6621 megabytes
+    Info: Processing ended: Mon Nov  3 19:31:39 2025
+    Info: Elapsed time: 00:00:34
+    Info: Total CPU time (on all processors): 00:01:02
 
 
 +----------------------------+

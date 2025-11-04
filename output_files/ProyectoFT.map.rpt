@@ -1,5 +1,5 @@
 Analysis & Elaboration report for ProyectoFT
-Mon Nov  3 18:16:40 2025
+Mon Nov  3 19:58:21 2025
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
@@ -9,15 +9,12 @@ Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
   1. Legal Notice
   2. Analysis & Elaboration Summary
   3. Parallel Compilation
-  4. Parameter Settings for User Entity Instance: cpu_armv4:u_cpu|regfile:u_regfile
-  5. Analysis & Elaboration Settings
-  6. Port Connectivity Checks: "cpu_armv4:u_cpu|ram_data:u_ram"
-  7. Port Connectivity Checks: "cpu_armv4:u_cpu|alu:u_alu"
-  8. Port Connectivity Checks: "cpu_armv4:u_cpu|regfile:u_regfile"
-  9. Port Connectivity Checks: "cpu_armv4:u_cpu|control_unit:u_ctrl"
- 10. Port Connectivity Checks: "cpu_armv4:u_cpu"
- 11. Analysis & Elaboration Messages
- 12. Analysis & Elaboration Suppressed Messages
+  4. Analysis & Elaboration Settings
+  5. Port Connectivity Checks: "cpu_armv4:u_cpu|ram_data:u_ram"
+  6. Port Connectivity Checks: "cpu_armv4:u_cpu|alu:u_alu"
+  7. Port Connectivity Checks: "cpu_armv4:u_cpu"
+  8. Analysis & Elaboration Messages
+  9. Analysis & Elaboration Suppressed Messages
 
 
 
@@ -44,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                 ;
 +-------------------------------+------------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Mon Nov  3 18:16:40 2025          ;
+; Analysis & Elaboration Status ; Successful - Mon Nov  3 19:58:21 2025          ;
 ; Quartus Prime Version         ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
 ; Revision Name                 ; ProyectoFT                                     ;
 ; Top-level Entity Name         ; top_fpga_cpu_test                              ;
@@ -73,17 +70,6 @@ https://fpgasoftware.intel.com/eula.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 +----------------------------+-------------+
-
-
-+--------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: cpu_armv4:u_cpu|regfile:u_regfile ;
-+----------------+-------+-------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                  ;
-+----------------+-------+-------------------------------------------------------+
-; N              ; 8     ; Signed Integer                                        ;
-; W              ; 32    ; Signed Integer                                        ;
-+----------------+-------+-------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -173,13 +159,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "cpu_armv4:u_cpu|ram_data:u_ram"                                                        ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                             ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; rd_data ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu_armv4:u_cpu|ram_data:u_ram"                                                         ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------+
@@ -193,28 +179,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; c_flag ; Output ; Info     ; Explicitly unconnected   ;
 ; v_flag ; Output ; Info     ; Explicitly unconnected   ;
 +--------+--------+----------+--------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "cpu_armv4:u_cpu|regfile:u_regfile"                                                                                                                                                   ;
-+-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port      ; Type  ; Severity ; Details                                                                                                                                                                          ;
-+-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; rd_addr_a ; Input ; Warning  ; Input port expression (4 bits) is wider than the input port (3 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; rd_addr_b ; Input ; Warning  ; Input port expression (4 bits) is wider than the input port (3 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; wr_addr   ; Input ; Warning  ; Input port expression (4 bits) is wider than the input port (3 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-+-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "cpu_armv4:u_cpu|control_unit:u_ctrl"                                                       ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port        ; Type   ; Severity ; Details                                                                             ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
-; reg_rd_a[3] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; reg_rd_b[3] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; reg_wr[3]   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------+
@@ -232,7 +196,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
-    Info: Processing started: Mon Nov  3 18:16:29 2025
+    Info: Processing started: Mon Nov  3 19:58:13 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ProyectoFT -c ProyectoFT --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -245,11 +209,11 @@ Info (12021): Found 1 design units, including 1 entities, in source file divider
 Info (12021): Found 1 design units, including 1 entities, in source file control_unit.sv
     Info (12023): Found entity 1: control_unit File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/control_unit.sv Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file cpu_armv4.sv
-    Info (12023): Found entity 1: cpu_armv4 File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 6
+    Info (12023): Found entity 1: cpu_armv4 File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file rom_program.sv
     Info (12023): Found entity 1: rom_program File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file ram_data.sv
-    Info (12023): Found entity 1: ram_data File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/ram_data.sv Line: 6
+    Info (12023): Found entity 1: ram_data File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/ram_data.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file vga_controller.sv
     Info (12023): Found entity 1: vga_controller File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/vga_controller.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file vga_textgen.sv
@@ -268,27 +232,32 @@ Info (12021): Found 1 design units, including 1 entities, in source file tb_cpu_
     Info (12023): Found entity 1: tb_cpu_romcheck File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/tb_cpu_romcheck.sv Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file tb_alu_isolated.sv
     Info (12023): Found entity 1: tb_alu_isolated File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/tb_alu_isolated.sv Line: 2
+Warning (10236): Verilog HDL Implicit Net warning at cpu_armv4.sv(96): created implicit net for "srcA" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 96
+Warning (10236): Verilog HDL Implicit Net warning at cpu_armv4.sv(97): created implicit net for "srcB" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 97
 Info (12127): Elaborating entity "top_fpga_cpu_test" for the top level hierarchy
 Info (12128): Elaborating entity "clock_divider" for hierarchy "clock_divider:u_div" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/top_fpga_cpu_test.sv Line: 26
 Warning (10230): Verilog HDL assignment warning at clock_divider.sv(17): truncated value with size 32 to match size of target (26) File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/clock_divider.sv Line: 17
 Info (12128): Elaborating entity "cpu_armv4" for hierarchy "cpu_armv4:u_cpu" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/top_fpga_cpu_test.sv Line: 35
-Warning (10230): Verilog HDL assignment warning at cpu_armv4.sv(31): truncated value with size 32 to match size of target (8) File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 31
-Info (12128): Elaborating entity "rom_program" for hierarchy "cpu_armv4:u_cpu|rom_program:u_rom" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 37
-Warning (10850): Verilog HDL warning at rom_program.sv(12): number of words (6) in memory file does not match the number of elements in the address range [0:255] File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv Line: 12
+Warning (10036): Verilog HDL or VHDL warning at cpu_armv4.sv(96): object "srcA" assigned a value but never read File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 96
+Warning (10036): Verilog HDL or VHDL warning at cpu_armv4.sv(97): object "srcB" assigned a value but never read File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 97
+Warning (10230): Verilog HDL assignment warning at cpu_armv4.sv(36): truncated value with size 32 to match size of target (8) File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 36
+Warning (10230): Verilog HDL assignment warning at cpu_armv4.sv(96): truncated value with size 4 to match size of target (1) File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 96
+Warning (10230): Verilog HDL assignment warning at cpu_armv4.sv(97): truncated value with size 4 to match size of target (1) File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 97
+Info (12128): Elaborating entity "rom_program" for hierarchy "cpu_armv4:u_cpu|rom_program:u_rom" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 42
+Warning (10850): Verilog HDL warning at rom_program.sv(12): number of words (7) in memory file does not match the number of elements in the address range [0:255] File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv Line: 12
 Warning (10030): Net "memory.data_a" at rom_program.sv(9) has no driver or initial value, using a default initial value '0' File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv Line: 9
 Warning (10030): Net "memory.waddr_a" at rom_program.sv(9) has no driver or initial value, using a default initial value '0' File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv Line: 9
 Warning (10030): Net "memory.we_a" at rom_program.sv(9) has no driver or initial value, using a default initial value '0' File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv Line: 9
-Info (12128): Elaborating entity "control_unit" for hierarchy "cpu_armv4:u_cpu|control_unit:u_ctrl" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 52
-Info (12128): Elaborating entity "regfile" for hierarchy "cpu_armv4:u_cpu|regfile:u_regfile" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 67
-Info (12128): Elaborating entity "alu" for hierarchy "cpu_armv4:u_cpu|alu:u_alu" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 82
-Info (12128): Elaborating entity "ram_data" for hierarchy "cpu_armv4:u_cpu|ram_data:u_ram" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 103
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (12128): Elaborating entity "control_unit" for hierarchy "cpu_armv4:u_cpu|control_unit:u_ctrl" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 58
+Info (12128): Elaborating entity "regfile" for hierarchy "cpu_armv4:u_cpu|regfile:u_regfile" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 73
+Info (12128): Elaborating entity "alu" for hierarchy "cpu_armv4:u_cpu|alu:u_alu" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 88
+Info (12128): Elaborating entity "ram_data" for hierarchy "cpu_armv4:u_cpu|ram_data:u_ram" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 105
 Info (144001): Generated suppressed messages file C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/output_files/ProyectoFT.map.smsg
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 8 warnings
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 13 warnings
     Info: Peak virtual memory: 4791 megabytes
-    Info: Processing ended: Mon Nov  3 18:16:40 2025
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:23
+    Info: Processing ended: Mon Nov  3 19:58:21 2025
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:17
 
 
 +--------------------------------------------+
