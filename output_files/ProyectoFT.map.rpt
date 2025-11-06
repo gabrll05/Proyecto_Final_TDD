@@ -1,5 +1,5 @@
 Analysis & Elaboration report for ProyectoFT
-Mon Nov  3 19:58:21 2025
+Wed Nov  5 23:00:29 2025
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
@@ -9,12 +9,83 @@ Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
   1. Legal Notice
   2. Analysis & Elaboration Summary
   3. Parallel Compilation
-  4. Analysis & Elaboration Settings
-  5. Port Connectivity Checks: "cpu_armv4:u_cpu|ram_data:u_ram"
-  6. Port Connectivity Checks: "cpu_armv4:u_cpu|alu:u_alu"
-  7. Port Connectivity Checks: "cpu_armv4:u_cpu"
-  8. Analysis & Elaboration Messages
-  9. Analysis & Elaboration Suppressed Messages
+  4. Parameter Settings for User Entity Instance: alu_core:u_alu_core
+  5. Parameter Settings for User Entity Instance: alu_core:u_alu_core|sumador:u_add
+  6. Parameter Settings for User Entity Instance: alu_core:u_alu_core|restador:u_sub
+  7. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul
+  8. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[0].u_add_i
+  9. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[1].u_add_i
+ 10. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[2].u_add_i
+ 11. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[3].u_add_i
+ 12. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[4].u_add_i
+ 13. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[5].u_add_i
+ 14. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[6].u_add_i
+ 15. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[7].u_add_i
+ 16. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[8].u_add_i
+ 17. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[9].u_add_i
+ 18. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[10].u_add_i
+ 19. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[11].u_add_i
+ 20. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[12].u_add_i
+ 21. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[13].u_add_i
+ 22. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[14].u_add_i
+ 23. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[15].u_add_i
+ 24. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[16].u_add_i
+ 25. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[17].u_add_i
+ 26. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[18].u_add_i
+ 27. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[19].u_add_i
+ 28. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[20].u_add_i
+ 29. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[21].u_add_i
+ 30. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[22].u_add_i
+ 31. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[23].u_add_i
+ 32. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[24].u_add_i
+ 33. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[25].u_add_i
+ 34. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[26].u_add_i
+ 35. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[27].u_add_i
+ 36. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[28].u_add_i
+ 37. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[29].u_add_i
+ 38. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[30].u_add_i
+ 39. Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[31].u_add_i
+ 40. Parameter Settings for User Entity Instance: alu_core:u_alu_core|divider:u_divmod
+ 41. Parameter Settings for User Entity Instance: alu_core:u_alu_core|logic_ops:u_logic
+ 42. Analysis & Elaboration Settings
+ 43. Port Connectivity Checks: "alu_core:u_alu_core|divider:u_divmod"
+ 44. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[31].u_add_i"
+ 45. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[30].u_add_i"
+ 46. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[29].u_add_i"
+ 47. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[28].u_add_i"
+ 48. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[27].u_add_i"
+ 49. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[26].u_add_i"
+ 50. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[25].u_add_i"
+ 51. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[24].u_add_i"
+ 52. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[23].u_add_i"
+ 53. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[22].u_add_i"
+ 54. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[21].u_add_i"
+ 55. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[20].u_add_i"
+ 56. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[19].u_add_i"
+ 57. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[18].u_add_i"
+ 58. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[17].u_add_i"
+ 59. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[16].u_add_i"
+ 60. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[15].u_add_i"
+ 61. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[14].u_add_i"
+ 62. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[13].u_add_i"
+ 63. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[12].u_add_i"
+ 64. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[11].u_add_i"
+ 65. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[10].u_add_i"
+ 66. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[9].u_add_i"
+ 67. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[8].u_add_i"
+ 68. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[7].u_add_i"
+ 69. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[6].u_add_i"
+ 70. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[5].u_add_i"
+ 71. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[4].u_add_i"
+ 72. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[3].u_add_i"
+ 73. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[2].u_add_i"
+ 74. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[1].u_add_i"
+ 75. Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[0].u_add_i"
+ 76. Port Connectivity Checks: "alu_core:u_alu_core|restador:u_sub"
+ 77. Port Connectivity Checks: "alu_core:u_alu_core|sumador:u_add"
+ 78. Port Connectivity Checks: "alu_core:u_alu_core"
+ 79. Analysis & Elaboration Messages
+ 80. Analysis & Elaboration Suppressed Messages
 
 
 
@@ -41,10 +112,10 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                                 ;
 +-------------------------------+------------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Mon Nov  3 19:58:21 2025          ;
+; Analysis & Elaboration Status ; Successful - Wed Nov  5 23:00:29 2025          ;
 ; Quartus Prime Version         ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
 ; Revision Name                 ; ProyectoFT                                     ;
-; Top-level Entity Name         ; top_fpga_cpu_test                              ;
+; Top-level Entity Name         ; cpu_armv4                                      ;
 ; Family                        ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)   ; N/A until Partition Merge                      ;
 ; Total registers               ; N/A until Partition Merge                      ;
@@ -72,13 +143,393 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; N              ; 32    ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|sumador:u_add ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|restador:u_sub ;
++----------------+-------+--------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                   ;
++----------------+-------+--------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                         ;
++----------------+-------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[0].u_add_i ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                               ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[1].u_add_i ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                               ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[2].u_add_i ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                               ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[3].u_add_i ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                               ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[4].u_add_i ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                               ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[5].u_add_i ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                               ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[6].u_add_i ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                               ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[7].u_add_i ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                               ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[8].u_add_i ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                               ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[9].u_add_i ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                               ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[10].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[11].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[12].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[13].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[14].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[15].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[16].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[17].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[18].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[19].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[20].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[21].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[22].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[23].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[24].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[25].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[26].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[27].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[28].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[29].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[30].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[31].u_add_i ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                          ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                                                ;
++----------------+-------+-----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|divider:u_divmod ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu_core:u_alu_core|logic_ops:u_logic ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; N              ; 32    ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +---------------------------------------------------------------------------------------------------------------------------+
 ; Analysis & Elaboration Settings                                                                                           ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CSXFC6D6F31C6     ;                    ;
-; Top-level entity name                                                           ; top_fpga_cpu_test  ; ProyectoFT         ;
+; Top-level entity name                                                           ; cpu_armv4          ; ProyectoFT         ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -159,35 +610,553 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|divider:u_divmod"                                               ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; div0 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +--------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "cpu_armv4:u_cpu|ram_data:u_ram"                                                         ;
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[31].u_add_i"              ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port     ; Type   ; Severity ; Details                                                                             ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
-; data_out ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; B[30..0] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[63]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout     ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------+
-; Port Connectivity Checks: "cpu_armv4:u_cpu|alu:u_alu" ;
-+--------+--------+----------+--------------------------+
-; Port   ; Type   ; Severity ; Details                  ;
-+--------+--------+----------+--------------------------+
-; busy   ; Output ; Info     ; Explicitly unconnected   ;
-; z_flag ; Output ; Info     ; Explicitly unconnected   ;
-; n_flag ; Output ; Info     ; Explicitly unconnected   ;
-; c_flag ; Output ; Info     ; Explicitly unconnected   ;
-; v_flag ; Output ; Info     ; Explicitly unconnected   ;
-+--------+--------+----------+--------------------------+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[30].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..62] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[29..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "cpu_armv4:u_cpu"                                                                                      ;
-+------------------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port                   ; Type   ; Severity ; Details                                                                             ;
-+------------------------+--------+----------+-------------------------------------------------------------------------------------+
-; alu_result_out[31..10] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------------------------+--------+----------+-------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[29].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..61] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[28..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[28].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..60] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[27..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[27].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..59] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[26..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[26].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..58] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[25..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[25].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..57] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[24..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[24].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..56] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[23..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[23].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..55] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[22..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[22].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..54] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[21..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[21].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..53] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[20..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[20].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..52] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[19..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[19].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..51] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[18..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[18].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..50] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[17..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[17].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..49] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[16..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[16].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..48] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[15..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[15].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..47] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[14..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[14].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..46] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[13..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[13].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..45] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[12..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[12].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..44] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[11..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[11].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..43] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[10..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[10].u_add_i"               ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..42] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[9..0]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[9].u_add_i"                ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..41] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[8..0]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[8].u_add_i"                ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..40] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[7..0]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[7].u_add_i"                ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..39] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[6..0]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[6].u_add_i"                ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..38] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[5..0]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[5].u_add_i"                ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..37] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[4..0]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[4].u_add_i"                ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..36] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[3..0]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[3].u_add_i"                ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..35] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[2..0]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[2].u_add_i"                ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..34] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[1..0]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[1].u_add_i"                ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; B[63..33] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[0]      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[0].u_add_i"                ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; A         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; B[63..32] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cin       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; Cout      ; Output ; Info     ; Explicitly unconnected                                                              ;
+; Z         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Nf        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; V         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; C         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|restador:u_sub"                                                 ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Bout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core|sumador:u_add" ;
++------+--------+----------+------------------------------------+
+; Port ; Type   ; Severity ; Details                            ;
++------+--------+----------+------------------------------------+
+; Cout ; Output ; Info     ; Explicitly unconnected             ;
++------+--------+----------+------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "alu_core:u_alu_core"                                                                   ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; CIN_BIN ; Input  ; Info     ; Stuck at GND                                                                        ;
+; FLAGS   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +---------------------------------+
@@ -196,73 +1165,79 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
-    Info: Processing started: Mon Nov  3 19:58:13 2025
+    Info: Processing started: Wed Nov  5 23:00:22 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ProyectoFT -c ProyectoFT --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file alu.sv
-    Info (12023): Found entity 1: alu File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/alu.sv Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file regfile.sv
-    Info (12023): Found entity 1: regfile File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/regfile.sv Line: 5
+    Info (12023): Found entity 1: regfile File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/regfile.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file divider.sv
-    Info (12023): Found entity 1: divider File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/divider.sv Line: 6
+    Info (12023): Found entity 1: divider File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/divider.sv Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file control_unit.sv
-    Info (12023): Found entity 1: control_unit File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/control_unit.sv Line: 6
+    Info (12023): Found entity 1: control_unit File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/control_unit.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file cpu_armv4.sv
-    Info (12023): Found entity 1: cpu_armv4 File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 5
+    Info (12023): Found entity 1: cpu_armv4 File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/cpu_armv4.sv Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file rom_program.sv
-    Info (12023): Found entity 1: rom_program File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv Line: 5
+    Info (12023): Found entity 1: rom_program File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/rom_program.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file ram_data.sv
-    Info (12023): Found entity 1: ram_data File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/ram_data.sv Line: 5
+    Info (12023): Found entity 1: ram_data File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/ram_data.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file vga_controller.sv
-    Info (12023): Found entity 1: vga_controller File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/vga_controller.sv Line: 5
+    Info (12023): Found entity 1: vga_controller File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/vga_controller.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file vga_textgen.sv
-    Info (12023): Found entity 1: vga_textgen File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/vga_textgen.sv Line: 5
+    Info (12023): Found entity 1: vga_textgen File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/vga_textgen.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file spi_io.sv
-    Info (12023): Found entity 1: SPI_io File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/SPI_io.sv Line: 1
+    Info (12023): Found entity 1: SPI_io File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SPI_io.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file top_fpga_cpu_test.sv
-    Info (12023): Found entity 1: top_fpga_cpu_test File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/top_fpga_cpu_test.sv Line: 5
+    Info (12023): Found entity 1: top_fpga_cpu_test File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/top_fpga_cpu_test.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file spi_top.sv
-    Info (12023): Found entity 1: SPI_top File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/SPI_top.sv Line: 1
+    Info (12023): Found entity 1: SPI_top File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SPI_top.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file seven_segment_display.sv
-    Info (12023): Found entity 1: seven_segment_display File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/seven_segment_display.sv Line: 1
+    Info (12023): Found entity 1: seven_segment_display File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/seven_segment_display.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file clock_divider.sv
-    Info (12023): Found entity 1: clock_divider File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/clock_divider.sv Line: 5
+    Info (12023): Found entity 1: clock_divider File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/clock_divider.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file tb_cpu_romcheck.sv
-    Info (12023): Found entity 1: tb_cpu_romcheck File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/tb_cpu_romcheck.sv Line: 7
+    Info (12023): Found entity 1: tb_cpu_romcheck File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/tb_cpu_romcheck.sv Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file tb_alu_isolated.sv
-    Info (12023): Found entity 1: tb_alu_isolated File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/tb_alu_isolated.sv Line: 2
-Warning (10236): Verilog HDL Implicit Net warning at cpu_armv4.sv(96): created implicit net for "srcA" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 96
-Warning (10236): Verilog HDL Implicit Net warning at cpu_armv4.sv(97): created implicit net for "srcB" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 97
-Info (12127): Elaborating entity "top_fpga_cpu_test" for the top level hierarchy
-Info (12128): Elaborating entity "clock_divider" for hierarchy "clock_divider:u_div" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/top_fpga_cpu_test.sv Line: 26
-Warning (10230): Verilog HDL assignment warning at clock_divider.sv(17): truncated value with size 32 to match size of target (26) File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/clock_divider.sv Line: 17
-Info (12128): Elaborating entity "cpu_armv4" for hierarchy "cpu_armv4:u_cpu" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/top_fpga_cpu_test.sv Line: 35
-Warning (10036): Verilog HDL or VHDL warning at cpu_armv4.sv(96): object "srcA" assigned a value but never read File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 96
-Warning (10036): Verilog HDL or VHDL warning at cpu_armv4.sv(97): object "srcB" assigned a value but never read File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 97
-Warning (10230): Verilog HDL assignment warning at cpu_armv4.sv(36): truncated value with size 32 to match size of target (8) File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 36
-Warning (10230): Verilog HDL assignment warning at cpu_armv4.sv(96): truncated value with size 4 to match size of target (1) File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 96
-Warning (10230): Verilog HDL assignment warning at cpu_armv4.sv(97): truncated value with size 4 to match size of target (1) File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 97
-Info (12128): Elaborating entity "rom_program" for hierarchy "cpu_armv4:u_cpu|rom_program:u_rom" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 42
-Warning (10850): Verilog HDL warning at rom_program.sv(12): number of words (7) in memory file does not match the number of elements in the address range [0:255] File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv Line: 12
-Warning (10030): Net "memory.data_a" at rom_program.sv(9) has no driver or initial value, using a default initial value '0' File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv Line: 9
-Warning (10030): Net "memory.waddr_a" at rom_program.sv(9) has no driver or initial value, using a default initial value '0' File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv Line: 9
-Warning (10030): Net "memory.we_a" at rom_program.sv(9) has no driver or initial value, using a default initial value '0' File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv Line: 9
-Info (12128): Elaborating entity "control_unit" for hierarchy "cpu_armv4:u_cpu|control_unit:u_ctrl" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 58
-Info (12128): Elaborating entity "regfile" for hierarchy "cpu_armv4:u_cpu|regfile:u_regfile" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 73
-Info (12128): Elaborating entity "alu" for hierarchy "cpu_armv4:u_cpu|alu:u_alu" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 88
-Info (12128): Elaborating entity "ram_data" for hierarchy "cpu_armv4:u_cpu|ram_data:u_ram" File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv Line: 105
-Info (144001): Generated suppressed messages file C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/output_files/ProyectoFT.map.smsg
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 13 warnings
-    Info: Peak virtual memory: 4791 megabytes
-    Info: Processing ended: Mon Nov  3 19:58:21 2025
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:17
+    Info (12023): Found entity 1: tb_alu_isolated File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/tb_alu_isolated.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file sumador.sv
+    Info (12023): Found entity 1: sumador File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/sumador.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file restador.sv
+    Info (12023): Found entity 1: restador File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/restador.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file multiplicador.sv
+    Info (12023): Found entity 1: multiplicador_sumas File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/multiplicador.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file logic_ops.sv
+    Info (12023): Found entity 1: logic_ops File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/logic_ops.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu_core.sv
+    Info (12023): Found entity 1: alu_core File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/alu_core.sv Line: 4
+Info (12127): Elaborating entity "cpu_armv4" for the top level hierarchy
+Info (12128): Elaborating entity "rom_program" for hierarchy "rom_program:u_rom" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/cpu_armv4.sv Line: 36
+Warning (10850): Verilog HDL warning at rom_program.sv(12): number of words (7) in memory file does not match the number of elements in the address range [0:255] File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/rom_program.sv Line: 12
+Warning (10030): Net "memory.data_a" at rom_program.sv(9) has no driver or initial value, using a default initial value '0' File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/rom_program.sv Line: 9
+Warning (10030): Net "memory.waddr_a" at rom_program.sv(9) has no driver or initial value, using a default initial value '0' File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/rom_program.sv Line: 9
+Warning (10030): Net "memory.we_a" at rom_program.sv(9) has no driver or initial value, using a default initial value '0' File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/rom_program.sv Line: 9
+Info (12128): Elaborating entity "control_unit" for hierarchy "control_unit:u_ctrl" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/cpu_armv4.sv Line: 45
+Warning (10036): Verilog HDL or VHDL warning at control_unit.sv(36): object "imm_ext" assigned a value but never read File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/control_unit.sv Line: 36
+Warning (10036): Verilog HDL or VHDL warning at control_unit.sv(78): object "is_B" assigned a value but never read File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/control_unit.sv Line: 78
+Info (12128): Elaborating entity "regfile" for hierarchy "regfile:u_regfile" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/cpu_armv4.sv Line: 55
+Info (12128): Elaborating entity "alu_core" for hierarchy "alu_core:u_alu_core" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/cpu_armv4.sv Line: 68
+Info (12128): Elaborating entity "sumador" for hierarchy "alu_core:u_alu_core|sumador:u_add" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/alu_core.sv Line: 27
+Info (12128): Elaborating entity "restador" for hierarchy "alu_core:u_alu_core|restador:u_sub" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/alu_core.sv Line: 30
+Info (12128): Elaborating entity "multiplicador_sumas" for hierarchy "alu_core:u_alu_core|multiplicador_sumas:u_mul" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/alu_core.sv Line: 34
+Info (12128): Elaborating entity "sumador" for hierarchy "alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[0].u_add_i" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/multiplicador.sv Line: 26
+Info (12128): Elaborating entity "divider" for hierarchy "alu_core:u_alu_core|divider:u_divmod" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/alu_core.sv Line: 44
+Info (12128): Elaborating entity "logic_ops" for hierarchy "alu_core:u_alu_core|logic_ops:u_logic" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/alu_core.sv Line: 48
+Info (12128): Elaborating entity "ram_data" for hierarchy "ram_data:u_ram" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/cpu_armv4.sv Line: 83
+Info (144001): Generated suppressed messages file C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/output_files/ProyectoFT.map.smsg
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 4823 megabytes
+    Info: Processing ended: Wed Nov  5 23:00:29 2025
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:15
 
 
 +--------------------------------------------+
 ; Analysis & Elaboration Suppressed Messages ;
 +--------------------------------------------+
-The suppressed messages can be found in C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/output_files/ProyectoFT.map.smsg.
+The suppressed messages can be found in C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/output_files/ProyectoFT.map.smsg.
 
 

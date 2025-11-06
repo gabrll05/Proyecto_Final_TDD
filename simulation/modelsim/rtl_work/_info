@@ -8,237 +8,315 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/simulation/modelsim
-valu
+Z0 dC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/simulation/modelsim
+valu_core
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1762221532
+Z2 !s110 1762405401
 !i10b 1
-!s100 kdJePk0Hea?>HP@<E2AEF2
+!s100 >PQLjS1P:Ri5aOWT_YYQW1
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IB]MNP`a:[A?9C77NfEzlI2
+I2kGFMYaz`4g=[NRzZ4:MP0
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
-w1762209058
-8C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/alu.sv
-FC:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/alu.sv
-!i122 0
-L0 6 75
+w1762404861
+8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/alu_core.sv
+FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/alu_core.sv
+!i122 9
+L0 4 125
 Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1762221532.000000
-!s107 C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/alu.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD|C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/alu.sv|
+Z6 !s108 1762405401.000000
+!s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/alu_core.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/alu_core.sv|
 !i113 1
 Z7 o-sv -work work
-Z8 !s92 -sv -work work {+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD}
+Z8 !s92 -sv -work work +incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD
 Z9 tCvgOpt 0
-vclock_divider
-R1
-Z10 !s110 1762221533
-!i10b 1
-!s100 U>C1k7j5DoWeXDg;kCl2n2
-R3
-IHLU74lUcJDQc2=TiUY=CA3
-R4
-S1
-R0
-w1762197595
-8C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/clock_divider.sv
-FC:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/clock_divider.sv
-!i122 6
-L0 5 17
-R5
-r1
-!s85 0
-31
-Z11 !s108 1762221533.000000
-!s107 C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/clock_divider.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD|C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/clock_divider.sv|
-!i113 1
-R7
-R8
-R9
 vcontrol_unit
 R1
-R2
+Z10 !s110 1762405400
 !i10b 1
-!s100 0C>?>4?:cVBGSQK7T6e:T2
+!s100 Q_3>[5jZ<A3=K7egTY>_i0
 R3
-I2izjaShkkDj_>glJXXANL3
+IhcPnMAbWO4`PbESFH[A5@0
 R4
 S1
 R0
-w1762219537
-8C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/control_unit.sv
-FC:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/control_unit.sv
+w1762405221
+8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/control_unit.sv
+FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/control_unit.sv
 !i122 2
-L0 6 97
+L0 5 198
 R5
 r1
 !s85 0
 31
-R6
-!s107 C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/control_unit.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD|C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/control_unit.sv|
+Z11 !s108 1762405400.000000
+!s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/control_unit.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/control_unit.sv|
 !i113 1
 R7
 R8
 R9
 vcpu_armv4
 R1
-R2
+R10
 !i10b 1
-!s100 [TnoD2cXnDHTY4UAM:Rcb2
+!s100 AjNX>`A=EoIViQS_ed0FF3
 R3
-IW6;kUY2l431kO5aXcHDP=1
+IAERd7zJcPmI_8HiCXbi2A2
 R4
 S1
 R0
-w1762221484
-8C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv
-FC:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv
+w1762404851
+8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/cpu_armv4.sv
+FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/cpu_armv4.sv
 !i122 3
-L0 5 103
+L0 4 82
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/cpu_armv4.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/cpu_armv4.sv|
+!i113 1
+R7
+R8
+R9
+vdivider
+R1
+R10
+!i10b 1
+!s100 JjKl1YmNgAF`^Sl27I>id2
+R3
+IH`@1I;4hl2?HCU3dfh?l20
+R4
+S1
+R0
+w1762394280
+8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/divider.sv
+FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/divider.sv
+!i122 1
+L0 2 24
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/divider.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/divider.sv|
+!i113 1
+R7
+R8
+R9
+vlogic_ops
+R1
+R2
+!i10b 1
+!s100 K[g^Gic=:@k5z?;PG1KDo0
+R3
+IeH6Z[1i47fJS@XS]dRK2`2
+R4
+S1
+R0
+w1762393015
+8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/logic_ops.sv
+FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/logic_ops.sv
+!i122 8
+L0 1 23
 R5
 r1
 !s85 0
 31
 R6
-!s107 C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD|C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv|
+!s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/logic_ops.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/logic_ops.sv|
+!i113 1
+R7
+R8
+R9
+vmultiplicador_sumas
+R1
+R2
+!i10b 1
+!s100 ^U6F3k`DJcX<@zO?OgCiC0
+R3
+Ic8PV;CW@8jWn?2WN>TVc93
+R4
+S1
+R0
+w1762392985
+8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/multiplicador.sv
+FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/multiplicador.sv
+!i122 7
+L0 1 31
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/multiplicador.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/multiplicador.sv|
 !i113 1
 R7
 R8
 R9
 vram_data
 R1
-R2
+R10
 !i10b 1
 !s100 K9TOdW@HjGXjjG_[g^mgT3
 R3
-IX@>c8XHlLd90T[`5a>4Ln2
+IEf?mlknL0DbO?bV[cV::f0
 R4
 S1
 R0
-w1762219395
-8C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/ram_data.sv
-FC:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/ram_data.sv
+w1762404300
+8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/ram_data.sv
+FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/ram_data.sv
 !i122 4
 L0 5 22
 R5
 r1
 !s85 0
 31
-R6
-!s107 C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/ram_data.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD|C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/ram_data.sv|
+R11
+!s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/ram_data.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/ram_data.sv|
 !i113 1
 R7
 R8
 R9
 vregfile
 R1
-R2
+R10
 !i10b 1
 !s100 =>3Kh:M<WlgWABTP7[CcO2
 R3
-IM]cXIN:lEiXN>Z^PKUMMQ3
+IJb;8kk<K3KNOk64a^R>lE3
 R4
 S1
 R0
-w1762219400
-8C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/regfile.sv
-FC:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/regfile.sv
-!i122 1
+Z12 w1762391666
+8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/regfile.sv
+FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/regfile.sv
+!i122 0
 L0 5 31
 R5
 r1
 !s85 0
 31
+R11
+!s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/regfile.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/regfile.sv|
+!i113 1
+R7
+R8
+R9
+vrestador
+R1
+R2
+!i10b 1
+!s100 z_J]4_hB1]4RKf_b79gAQ0
+R3
+ImeJn;Jh56mccLbZYAEW7>3
+R4
+S1
+R0
+w1762392945
+8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/restador.sv
+FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/restador.sv
+!i122 6
+L0 1 34
+R5
+r1
+!s85 0
+31
 R6
-!s107 C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/regfile.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD|C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/regfile.sv|
+!s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/restador.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/restador.sv|
 !i113 1
 R7
 R8
 R9
 vrom_program
 R1
-R10
+R2
 !i10b 1
 !s100 ghj]lcSIknRaDBgh@5HoV0
 R3
-I>BNF22if=kdE:f01ha?H?0
+IK:ILhkdJzFmEJ]E3eJBL40
 R4
 S1
 R0
-w1762218441
-8C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv
-FC:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv
-!i122 7
+R12
+8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/rom_program.sv
+FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/rom_program.sv
+!i122 10
 L0 5 13
 R5
 r1
 !s85 0
 31
+R6
+!s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/rom_program.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/rom_program.sv|
+!i113 1
+R7
+R8
+R9
+vsumador
+R1
+R2
+!i10b 1
+!s100 CD4gi3Z]5Y05GjeKIk9ZB0
+R3
+IF:i56FoZQ?JKkj:R>j>Qn3
+R4
+S1
+R0
+w1762392896
+8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/sumador.sv
+FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/sumador.sv
+!i122 5
+L0 1 32
+R5
+r1
+!s85 0
+31
 R11
-!s107 C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD|C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv|
+!s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/sumador.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/sumador.sv|
 !i113 1
 R7
 R8
 R9
 vtb_cpu_romcheck
 R1
-R10
+!s110 1762405402
 !i10b 1
 !s100 lOS[PfX3VGe3WYU=QR[TN2
 R3
-ILH8n3]@J9RehlPTgCAzk^2
+I;[Z0CHcIUHm0iX_AWE:Bh0
 R4
 S1
 R0
-w1762219416
-8C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/tb_cpu_romcheck.sv
-FC:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/tb_cpu_romcheck.sv
-!i122 8
+w1762391667
+8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/tb_cpu_romcheck.sv
+FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/tb_cpu_romcheck.sv
+!i122 11
 L0 7 52
 R5
 r1
 !s85 0
 31
-R11
-!s107 C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/tb_cpu_romcheck.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD|C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/tb_cpu_romcheck.sv|
-!i113 1
-R7
-R8
-R9
-vtop_fpga_cpu_test
-R1
-R10
-!i10b 1
-!s100 Va;c7iaOz2[70DJaPJ>K:1
-R3
-Ii1<@^UaNz0MkD_Z>9R7Lg1
-R4
-S1
-R0
-w1762197605
-8C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/top_fpga_cpu_test.sv
-FC:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/top_fpga_cpu_test.sv
-!i122 5
-L0 5 37
-R5
-r1
-!s85 0
-31
-R11
-!s107 C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/top_fpga_cpu_test.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD|C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/top_fpga_cpu_test.sv|
+R6
+!s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/tb_cpu_romcheck.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/tb_cpu_romcheck.sv|
 !i113 1
 R7
 R8

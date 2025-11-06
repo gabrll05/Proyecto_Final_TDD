@@ -1,7 +1,7 @@
-Analysis & Elaboration Status : Successful - Mon Nov  3 19:58:21 2025
+Analysis & Elaboration Status : Successful - Wed Nov  5 23:00:29 2025
 Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 Revision Name : ProyectoFT
-Top-level Entity Name : top_fpga_cpu_test
+Top-level Entity Name : cpu_armv4
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A until Partition Merge
 Total registers : N/A until Partition Merge
