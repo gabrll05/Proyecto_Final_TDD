@@ -1,5 +1,5 @@
 // ============================================================
-// control_unit.sv  (con a_zero_sel, b_imm_sel, wb_sel_mem + DEBUG)
+// control_unit.sv  (a_zero_sel, b_imm_sel, wb_sel_mem + FIX LDR/STR + BRANCH)
 // ============================================================
 
 module control_unit (
@@ -10,36 +10,46 @@ module control_unit (
     // Control hacia ALU / Regfile / RAM / PC
     output logic [3:0]  alu_sel,
     output logic        reg_wr_en,
-    output logic [3:0]  reg_rd_a,
-    output logic [3:0]  reg_rd_b,
-    output logic [3:0]  reg_wr,
+    output logic [3:0]  reg_rd_a,   // Rn por defecto; en STR usa Rn (addr)
+    output logic [3:0]  reg_rd_b,   // Rm por defecto; en STR se fuerza a Rd (dato)
+    output logic [3:0]  reg_wr,     // Rd
     output logic        pc_en,
     output logic        ram_we,
 
-    // NUEVOS: muxes de operandos y de writeback
-    output logic        a_zero_sel,   // 1 -> A = 0
-    output logic        b_imm_sel,    // 1 -> B = imm_ext
-    output logic        wb_sel_mem    // 1 -> writeback desde RAM
+    // Muxes de operandos y de writeback
+    output logic        a_zero_sel,   // 1 -> A = 0 (MOVI)
+    output logic        b_imm_sel,    // 1 -> B = imm_ext (MOVI)
+    output logic        wb_sel_mem,   // 1 -> writeback desde RAM (LDR)
+
+    // --- NUEVO: salto/branch ---
+    output logic        branch_en,    // 1 -> usar PC + 1 + branch_imm
+    output logic [31:0] branch_imm    // desplazamiento firmado (sign-extend 24b)
 );
 
-    // ============================================================
-    // Extracción de campos de la instrucción (formato mínimo usado)
-    // ============================================================
-    logic [3:0] opcode;
-    assign opcode   = instr[24:21];   // opcode reducido
-    assign reg_rd_a = instr[19:16];   // Rn
-    assign reg_rd_b = instr[3:0];     // Rm
-    assign reg_wr   = instr[15:12];   // Rd
+    // ------------------ Campos ARM-like ------------------
+    logic [3:0] Rn, Rd, Rm;
+    assign Rn = instr[19:16];
+    assign Rd = instr[15:12];
+    assign Rm = instr[3:0];
 
-    // Inmediato (como lo usa tu CPU)
+    logic [1:0] cls;       // clase
+    logic       bitI;      // inmediato DP/mem
+    logic       bitL;      // 1=LDR, 0=STR
+    assign cls  = instr[27:26];
+    assign bitI = instr[25];
+    assign bitL = instr[20];
+
+    // Inmediatos
     logic [7:0]  imm8;
     logic [31:0] imm_ext;
     assign imm8    = instr[7:0];
     assign imm_ext = {24'b0, imm8};
 
-    // ============================================================
-    // Códigos de operación para la ALU (igual que alu_core)
-    // ============================================================
+    // --- NUEVO: inmediato de branch (24 bits, firmado) ---
+    logic [23:0] imm24;
+    assign imm24 = instr[23:0];
+
+    // ------------------ ALU ops ------------------
     localparam logic [3:0]
         OP_NOP = 4'd0,
         OP_ADD = 4'd1,
@@ -53,9 +63,7 @@ module control_unit (
         OP_SLL = 4'd9,
         OP_SRL = 4'd10;
 
-    // ============================================================
-    // Estados
-    // ============================================================
+    // ------------------ FSM ------------------
     typedef enum logic [1:0] {FETCH, DECODE, EXECUTE, WRITEBACK} state_t;
     state_t state, next_state;
 
@@ -74,22 +82,33 @@ module control_unit (
         endcase
     end
 
-    // Clasificación de instrucciones (según los códigos que usas)
+    // ------------------ Decodificación ------------------
+    logic is_DP, is_MEM, is_BR;
+    assign is_DP  = (cls == 2'b00);
+    assign is_MEM = (cls == 2'b01);
+    assign is_BR  = (instr[27:25] == 3'b101);  // B / BL clase
+
     logic is_ADD, is_SUB, is_MOVI, is_STR, is_LDR, is_B;
+    assign is_ADD  = is_DP  && (instr[24:21] == 4'b0100);
+    assign is_SUB  = is_DP  && (instr[24:21] == 4'b0010);
+    assign is_MOVI = is_DP  && (instr[24:21] == 4'b1101) && bitI; // MOV #imm
+    assign is_STR  = is_MEM && (bitL == 1'b0);
+    assign is_LDR  = is_MEM && (bitL == 1'b1);
+    assign is_B    = is_BR;  // salto incondicional relativo
+
+    // ------------------ Direcciones de regfile ------------------
     always_comb begin
-        is_ADD  = (opcode == 4'b0100);
-        is_SUB  = (opcode == 4'b0010);
-        is_MOVI = (opcode == 4'b1101); // MOV #imm
-        is_STR  = (opcode == 4'b1100);
-        is_LDR  = (opcode == 4'b0101);
-        is_B    = (opcode == 4'b1010);
+        reg_rd_a = Rn;
+        reg_rd_b = Rm;
+        reg_wr   = Rd;
+        if (is_STR) begin
+            reg_rd_b = Rd; // dato a RAM = Rd
+        end
     end
 
-    // ============================================================
-    // Señales de control por defecto + decodificación
-    // ============================================================
+    // ------------------ Señales de control ------------------
     always_comb begin
-        // Defaults
+        // defaults
         alu_sel    = OP_NOP;
         reg_wr_en  = 1'b0;
         pc_en      = 1'b0;
@@ -99,49 +118,52 @@ module control_unit (
         b_imm_sel  = 1'b0;
         wb_sel_mem = 1'b0;
 
-        // Selección de operación ALU (independiente del estado)
+        branch_en  = 1'b0;
+        branch_imm = 32'd0;
+
+        // ALU op
         if (is_ADD)       alu_sel = OP_ADD;
         else if (is_SUB)  alu_sel = OP_SUB;
-        else if (is_MOVI) alu_sel = OP_ADD; // 0 + imm
+        else if (is_MOVI) alu_sel = OP_ADD; // MOVI: 0 + imm
 
-        // MOV #imm: operandos especiales
+        // operandos MOVI
         if (is_MOVI) begin
             a_zero_sel = 1'b1; // A=0
-            b_imm_sel  = 1'b1; // B=imm
+            b_imm_sel  = 1'b1; // B=imm (lo toma el datapath)
         end
 
-        // LDR: writeback desde memoria
+        // writeback desde RAM en LDR
         if (is_LDR) begin
             wb_sel_mem = 1'b1;
         end
 
-        // Control dependiente del estado
         unique case (state)
-            FETCH: begin
-                // nada especial
-            end
-
-            DECODE: begin
-                // típicamente nada, ya decodificamos arriba
-            end
-
+            FETCH: begin end
+            DECODE: begin end
             EXECUTE: begin
-                // STR escribe a memoria en este “ciclo”
-                if (is_STR)
-                    ram_we = 1'b1;
+                if (is_STR) ram_we = 1'b1; // escribir memoria aquí
             end
-
             WRITEBACK: begin
-                // Writeback para ADD/SUB/MOVI/LDR
+                // ADD/SUB/MOVI hacen writeback desde ALU,
+                // LDR hace writeback desde memoria
                 reg_wr_en = (is_ADD | is_SUB | is_MOVI | is_LDR);
-                pc_en     = 1'b1; // incremento del PC (secuencial)
+
+                // PC update:
+                pc_en = 1'b1; // siempre avanzamos PC en WRITEBACK
+
+                // --- NUEVO: salto relativo ---
+                if (is_B) begin
+                    branch_en  = 1'b1;
+                    // Sign-extend de imm24 (word offset, SIN shift):
+                    branch_imm = {{8{imm24[23]}}, imm24};
+                    // El PC debe hacer: next_pc = pc + 32'd1 + branch_imm
+                end
             end
         endcase
     end
 
+// synthesis translate_off
 `ifndef SYNTHESIS
-    // ================== DEBUG / PRINTS (solo simulación) ==================
-    // Función: nombre del estado
     function automatic string state_name(state_t s);
         case (s)
             FETCH:     return "FETCH";
@@ -152,20 +174,6 @@ module control_unit (
         endcase
     endfunction
 
-    // Función: mnemónico de instrucción (a partir de opcode)
-    function automatic string instr_name(logic [3:0] op);
-        case (op)
-            4'b0100: return "ADD";
-            4'b0010: return "SUB";
-            4'b1101: return "MOVI";
-            4'b1100: return "STR";
-            4'b0101: return "LDR";
-            4'b1010: return "B";
-            default: return "UNK";
-        endcase
-    endfunction
-
-    // Función: nombre del alu_sel
     function automatic string aluop_name(logic [3:0] op);
         case (op)
             OP_NOP: return "NOP";
@@ -183,20 +191,20 @@ module control_unit (
         endcase
     endfunction
 
-    // Imprime UNA línea por instrucción al entrar a WRITEBACK
-    // (momento en que se decide writeback/pc_en/ram_we etc.)
+    // Log solo para simulación
     always_ff @(posedge clk) begin
         if (!reset && next_state == WRITEBACK) begin
             $display(
-                "CU@%0t | instr=0x%08h opcode=0x%1h(%s) | alu_sel=%s | Rn=%0d Rm=%0d Rd=%0d | imm8=%0d(0x%02h) imm_ext=%0d | ctrl: wb_en=%0b wb_sel_mem=%0b ram_we=%0b pc_en=%0b a_zero=%0b b_imm=%0b | state=%s",
-                $time, instr, opcode, instr_name(opcode), aluop_name(alu_sel),
-                reg_rd_a, reg_rd_b, reg_wr,
-                imm8, imm8, imm_ext,
+                "CU@%0t | instr=0x%08h cls=%0b op[24:21]=0x%1h | Rn=%0d Rm=%0d Rd=%0d | wb_en=%0b wb_sel_mem=%0b ram_we=%0b pc_en=%0b a_zero=%0b b_imm=%0b branch_en=%0b branch_imm=%0d | state=%s | alu=%s",
+                $time, instr, cls, instr[24:21],
+                Rn, Rm, Rd,
                 reg_wr_en, wb_sel_mem, ram_we, pc_en, a_zero_sel, b_imm_sel,
-                state_name(next_state)
+                branch_en, branch_imm,
+                state_name(next_state), aluop_name(alu_sel)
             );
         end
     end
 `endif
+// synthesis translate_on
 
 endmodule
