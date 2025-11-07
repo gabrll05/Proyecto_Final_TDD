@@ -1,80 +1,66 @@
-// ============================================================
-// alu.sv
-// Unidad Aritmético-Lógica (ALU) con soporte inmediato y debug
-// ============================================================
-
+// ---------------------------------------------
+// ALU única (nombre: alu) con NZCV internos
+// ---------------------------------------------
 module alu (
-    input  logic        clk,
-    input  logic        reset,
-    input  logic [31:0] a,          // operando A (desde regfile)
-    input  logic [31:0] b,          // operando B (desde regfile)
-    input  logic [7:0]  imm,        // operando inmediato (desde instr[7:0])
-    input  logic [3:0]  instr,      // opcode (desde instr[24:21])
-    input  logic [3:0]  sel,        // selección desde la unidad de control
-    output logic [31:0] result,     // salida del resultado
-    output logic        busy,       // bandera (para DIV)
-    output logic        z_flag, n_flag, c_flag, v_flag
+    input  logic [3:0]  op,        // 1=ADD, 2=SUB, 0=NOP/uops
+    input  logic [31:0] a,
+    input  logic [31:0] b,
+    output logic [31:0] y
 );
+    // Flags internas (la CPU actual no las usa)
+    logic n, z, c, v;
 
-    // Señales internas
-    logic [31:0] res_next;
+    // Señales internas para carry/borrow
+    logic [32:0] sum_ext, diff_ext;
 
-    // ============================================================
-    // Lógica combinacional principal
-    // ============================================================
     always_comb begin
-        busy   = 0;
-        z_flag = 0;
-        n_flag = 0;
-        c_flag = 0;
-        v_flag = 0;
+        // defaults
+        y = 32'd0;
+        c = 1'b0;
+        v = 1'b0;
 
-        case (instr)
-            4'b0100: res_next = a + b;            // ADD
-            4'b0010: res_next = a - b;            // SUB
-            4'b0011: res_next = a * b;            // MUL (no ARM real, solo ejemplo)
-            4'b1101: res_next = {24'b0, imm};     // MOV inmediato ✅
-            4'b0101: begin                        // CMP (setea Z)
-                res_next = (a == b) ? 32'd1 : 32'd0;
-                z_flag   = (a == b);
+        unique case (op)
+            4'd0: begin
+                // NOP/uop para microestados de MEM/branch, etc.
+                y = 32'd0;
+                c = 1'b0;
+                v = 1'b0;
             end
-            4'b0110: begin                        // DIV simple
-                if (b != 0) begin
-                    res_next = a / b;
-                    busy = 0;
-                end else begin
-                    res_next = 32'd0;
-                end
+
+            4'd1: begin // ADD
+                sum_ext = {1'b0, a} + {1'b0, b};
+                y = sum_ext[31:0];
+                c = sum_ext[32];                     // carry out
+                v = (a[31] == b[31]) && (y[31] != a[31]); // overflow (signed)
             end
-            default: res_next = 32'd0;            // NOP
+
+            4'd2: begin // SUB = A - B   (ARM: C = ~borrow)
+                diff_ext = {1'b0, a} + {1'b0, ~b} + 33'd1;
+                y = diff_ext[31:0];
+                c = diff_ext[32];                    // ~borrow
+                v = (a[31] != b[31]) && (y[31] != a[31]);
+            end
+
+            default: begin
+                y = 32'd0;
+                c = 1'b0;
+                v = 1'b0;
+            end
         endcase
+
+        n = y[31];
+        z = (y == 32'd0);
     end
 
-    // ============================================================
-    // Registro del resultado (sincrónico)
-    // ============================================================
-    always_ff @(posedge clk or posedge reset) begin
-        if (reset)
-            result <= 32'b0;
+`ifdef SIM
+    // Mensajes para que tu log quede igual al que vienes usando
+    always_comb begin
+        if (op == 4'd1)
+            $display("ALU: ADD %0d + %0d = %0d @t=%0t", a, b, y, $time);
+        else if (op == 4'd2)
+            $display("ALU: SUB %0d - %0d = %0d @t=%0t", a, b, y, $time);
         else
-            result <= res_next;
+            $display("ALU: OP=%0d A=%0d B=%0d -> Y=%0d @t=%0t", op, a, b, y, $time);
     end
-
-    // ============================================================
-    // Mensajes de depuración (opcional)
-    // ============================================================
-    always_ff @(posedge clk) begin
-        if (!reset) begin
-            case (instr)
-                4'b0100: $display("🧮 ALU: ADD %0d + %0d = %0d @t=%0t", a, b, res_next, $time);
-                4'b0010: $display("➖ ALU: SUB %0d - %0d = %0d @t=%0t", a, b, res_next, $time);
-                4'b0011: $display("✖️  ALU: MUL %0d * %0d = %0d @t=%0t", a, b, res_next, $time);
-                4'b1101: $display("📥 ALU: MOV #%0d → result=%0d @t=%0t", imm, res_next, $time);
-                4'b0101: $display("⚖️  ALU: CMP %0d vs %0d → Z=%b @t=%0t", a, b, z_flag, $time);
-                4'b0110: $display("➗ ALU: DIV %0d / %0d = %0d @t=%0t", a, b, res_next, $time);
-                default: $display("⏸️  ALU: NOP/UNKNOWN opcode=%b @t=%0t", instr, $time);
-            endcase
-        end
-    end
-
+`endif
 endmodule

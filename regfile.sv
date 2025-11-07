@@ -1,6 +1,5 @@
 // ============================================================
-// regfile.sv
-// Banco de registros de 16 x 32 bits
+// regfile.sv  - Banco de registros 16 x 32
 // ============================================================
 module regfile (
     input  logic        clk,
@@ -13,10 +12,6 @@ module regfile (
     input  logic [31:0] wr_data,     // dato a escribir
     input  logic        wr_en        // habilitación de escritura
 );
-
-    // ========================================================
-    // Registros
-    // ========================================================
     logic [31:0] registers [0:15];
 
     // Lecturas combinacionales
@@ -25,11 +20,11 @@ module regfile (
 
     // Escritura síncrona
     always_ff @(posedge clk or posedge reset) begin
-        if (reset)
+        if (reset) begin
             for (int i = 0; i < 16; i++)
-                registers[i] <= 0;
-        else if (wr_en)
+                registers[i] <= 32'd0;
+        end else if (wr_en) begin
             registers[wr_addr] <= wr_data;
+        end
     end
-
 endmodule

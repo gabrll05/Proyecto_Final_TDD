@@ -45,16 +45,19 @@ if {[file exists rtl_work]} {
 vlib rtl_work
 vmap work rtl_work
 
-vlog -sv -work work +incdir+C:/Users/ema08/OneDrive\ -\ Estudiantes\ ITCR/Escritorio/Taller\ de\ diseno/Proyecto_Final_TDD {C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/alu.sv}
-vlog -sv -work work +incdir+C:/Users/ema08/OneDrive\ -\ Estudiantes\ ITCR/Escritorio/Taller\ de\ diseno/Proyecto_Final_TDD {C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/regfile.sv}
-vlog -sv -work work +incdir+C:/Users/ema08/OneDrive\ -\ Estudiantes\ ITCR/Escritorio/Taller\ de\ diseno/Proyecto_Final_TDD {C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/control_unit.sv}
-vlog -sv -work work +incdir+C:/Users/ema08/OneDrive\ -\ Estudiantes\ ITCR/Escritorio/Taller\ de\ diseno/Proyecto_Final_TDD {C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/cpu_armv4.sv}
-vlog -sv -work work +incdir+C:/Users/ema08/OneDrive\ -\ Estudiantes\ ITCR/Escritorio/Taller\ de\ diseno/Proyecto_Final_TDD {C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/ram_data.sv}
-vlog -sv -work work +incdir+C:/Users/ema08/OneDrive\ -\ Estudiantes\ ITCR/Escritorio/Taller\ de\ diseno/Proyecto_Final_TDD {C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/top_fpga_cpu_test.sv}
-vlog -sv -work work +incdir+C:/Users/ema08/OneDrive\ -\ Estudiantes\ ITCR/Escritorio/Taller\ de\ diseno/Proyecto_Final_TDD {C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/clock_divider.sv}
-vlog -sv -work work +incdir+C:/Users/ema08/OneDrive\ -\ Estudiantes\ ITCR/Escritorio/Taller\ de\ diseno/Proyecto_Final_TDD {C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/rom_program.sv}
+vlog -sv -work work +incdir+C:/TallerDigitales/Proyecto_Final_TDD {C:/TallerDigitales/Proyecto_Final_TDD/regfile.sv}
+vlog -sv -work work +incdir+C:/TallerDigitales/Proyecto_Final_TDD {C:/TallerDigitales/Proyecto_Final_TDD/divider.sv}
+vlog -sv -work work +incdir+C:/TallerDigitales/Proyecto_Final_TDD {C:/TallerDigitales/Proyecto_Final_TDD/control_unit.sv}
+vlog -sv -work work +incdir+C:/TallerDigitales/Proyecto_Final_TDD {C:/TallerDigitales/Proyecto_Final_TDD/cpu_armv4.sv}
+vlog -sv -work work +incdir+C:/TallerDigitales/Proyecto_Final_TDD {C:/TallerDigitales/Proyecto_Final_TDD/ram_data.sv}
+vlog -sv -work work +incdir+C:/TallerDigitales/Proyecto_Final_TDD {C:/TallerDigitales/Proyecto_Final_TDD/sumador.sv}
+vlog -sv -work work +incdir+C:/TallerDigitales/Proyecto_Final_TDD {C:/TallerDigitales/Proyecto_Final_TDD/restador.sv}
+vlog -sv -work work +incdir+C:/TallerDigitales/Proyecto_Final_TDD {C:/TallerDigitales/Proyecto_Final_TDD/multiplicador.sv}
+vlog -sv -work work +incdir+C:/TallerDigitales/Proyecto_Final_TDD {C:/TallerDigitales/Proyecto_Final_TDD/logic_ops.sv}
+vlog -sv -work work +incdir+C:/TallerDigitales/Proyecto_Final_TDD {C:/TallerDigitales/Proyecto_Final_TDD/alu_core.sv}
+vlog -sv -work work +incdir+C:/TallerDigitales/Proyecto_Final_TDD {C:/TallerDigitales/Proyecto_Final_TDD/rom_program.sv}
 
-vlog -sv -work work +incdir+C:/Users/ema08/OneDrive\ -\ Estudiantes\ ITCR/Escritorio/Taller\ de\ diseno/Proyecto_Final_TDD {C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/tb_cpu_romcheck.sv}
+vlog -sv -work work +incdir+C:/TallerDigitales/Proyecto_Final_TDD {C:/TallerDigitales/Proyecto_Final_TDD/tb_cpu_romcheck.sv}
 
 vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  tb_cpu_romcheck
 

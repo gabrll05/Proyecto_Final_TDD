@@ -1,2 +1,2 @@
-Warning (10268): Verilog HDL information at divider.sv(29): always construct contains both blocking and non-blocking assignments File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/divider.sv Line: 29
-Info (10281): Verilog HDL Declaration information at divider.sv(15): object "done" differs only in case from object "DONE" in the same scope File: C:/Users/ema08/OneDrive - Estudiantes ITCR/Escritorio/Taller de diseno/Proyecto_Final_TDD/divider.sv Line: 15
+Info (10281): Verilog HDL Declaration information at sumador.sv(13): object "C" differs only in case from object "c" in the same scope File: C:/TallerDigitales/Proyecto_Final_TDD/sumador.sv Line: 13
+Info (10281): Verilog HDL Declaration information at restador.sv(5): object "B" differs only in case from object "b" in the same scope File: C:/TallerDigitales/Proyecto_Final_TDD/restador.sv Line: 5
