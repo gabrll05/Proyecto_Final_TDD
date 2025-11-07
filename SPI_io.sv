@@ -1,81 +1,45 @@
 module SPI_io (
-    input  logic rst,
-    input  logic mosi,
-    input  logic sck,
-    input  logic req,
-    input  logic ss,
-    output logic ack,
-    output logic [3:0] master_data_register
+    input logic rst,
+                mosi,
+                sck,
+                req,
+                ss,
+	output logic 	    ack,
+	output logic [3:0]	master_data_register
 );
-    // ===============================================================
-    // Señales internas
-    // ===============================================================
-    logic [5:0] cs, ns;    // one-hot state register
-    logic [3:0] md, next_md;
+	// Estados FSM 0-5
+	function automatic logic [5:0] one_hot(int index);
+		return (1 << index);
+	endfunction
 
-    // ===============================================================
-    // Codificación one-hot de los estados (S0–S5)
-    // ===============================================================
-    // En diseño estructural no se usa "function", así que usamos
-    // bits individuales con asignaciones directas.
-    localparam [5:0] 
-        S0 = 6'b000001,
-        S1 = 6'b000010,
-        S2 = 6'b000100,
-        S3 = 6'b001000,
-        S4 = 6'b010000,
-        S5 = 6'b100000;
-
-    // ===============================================================
-    // REGISTRO DE ESTADO (flip-flops de la FSM)
-    // ===============================================================
-    always_ff @(posedge sck or negedge rst) begin
-        if (!rst)
-            cs <= S0;
-        else
-            cs <= ns;
-    end
-
-    // ===============================================================
-    // REGISTRO DE DATOS MAESTRO (shift register SPI)
-    // ===============================================================
-    assign next_md = (~rst) ? 4'b0000 :
-                     (~ss)  ? {md[2:0], mosi} :
-                              md;
-
-    always_ff @(posedge sck or negedge rst) begin
-        if (!rst)
-            md <= 4'b0000;
-        else
-            md <= next_md;
-    end
-
-    // ===============================================================
-    // LÓGICA DE PRÓXIMO ESTADO (estructural)
-    // ===============================================================
-    // ns[0] = mosi && (cs[5] || cs[2] || cs[1] || cs[0])
-    // ns[1] = ~mosi && (cs[0] || cs[4] || cs[5])
-    // ns[2] = ~mosi && cs[1]
-    // ns[3] = ~mosi && (cs[2] || cs[3])
-    // ns[4] = mosi && cs[3]
-    // ns[5] = mosi && cs[4]
-    // Reset y request están controlados fuera de esta red (ver más abajo)
-
-    logic nmosi, req_active;
-    assign nmosi = ~mosi;
-    assign req_active = req & rst; // activo cuando rst=1 y req=1
-
-    assign ns[0] = req_active & (mosi & (cs[5] | cs[2] | cs[1] | cs[0]));
-    assign ns[1] = req_active & (nmosi & (cs[0] | cs[4] | cs[5]));
-    assign ns[2] = req_active & (nmosi & cs[1]);
-    assign ns[3] = req_active & (nmosi & (cs[2] | cs[3]));
-    assign ns[4] = req_active & (mosi & cs[3]);
-    assign ns[5] = req_active & (mosi & cs[4]);
-
-    // ===============================================================
-    // SEÑALES DE SALIDA
-    // ===============================================================
-    assign ack = cs[5];                // acknowledge activo en S5
-    assign master_data_register = md;  // datos capturados
-
+	// current-state, next-state, master-data
+	logic [5:0] cs, ns;
+	logic [3:0] md;
+	
+	localparam		S0 = one_hot(0),
+						S1 = one_hot(1),
+						S2 = one_hot(2),
+						S3 = one_hot(3),
+						S4 = one_hot(4),
+						S5 = one_hot(5);
+	
+	always_ff @(posedge sck or negedge rst) begin
+		if (~rst) begin
+			cs <= S0;
+			md <= 4'b0;
+		end
+		else if (~req) cs <= S0;
+		else if (~ss) md <= {md[2:0], mosi};
+		else if (req) cs <= ns;
+	end
+	
+	assign ns[0] = mosi && (cs[5] || cs[2] || cs[1] || cs[0]);
+	assign ns[1] = ~mosi && (cs[0] || cs[4] || cs[5]);
+	assign ns[2] = ~mosi && cs[1];
+	assign ns[3] = ~mosi && (cs[2] || cs[3]);
+	assign ns[4] = mosi && cs[3];
+	assign ns[5] = mosi && cs[4];
+	assign ack = cs[5];
+	assign master_data_register = md;
+	
 endmodule
