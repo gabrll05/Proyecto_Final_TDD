@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ProyectoFT
-Fri Nov 14 02:19:47 2025
+Fri Nov 14 17:36:20 2025
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
@@ -127,13 +127,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Nov 14 02:19:47 2025          ;
+; Analysis & Synthesis Status     ; Successful - Fri Nov 14 17:36:20 2025          ;
 ; Quartus Prime Version           ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
 ; Revision Name                   ; ProyectoFT                                     ;
 ; Top-level Entity Name           ; top_program                                    ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 8526                                           ;
+; Total registers                 ; 8524                                           ;
 ; Total pins                      ; 45                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
@@ -290,24 +290,24 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------------------------+
 ; Resource                                    ; Usage                       ;
 +---------------------------------------------+-----------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 6767                        ;
+; Estimate of Logic utilization (ALMs needed) ; 6766                        ;
 ;                                             ;                             ;
 ; Combinational ALUT usage for logic          ; 6769                        ;
 ;     -- 7 input functions                    ; 16                          ;
 ;     -- 6 input functions                    ; 2946                        ;
-;     -- 5 input functions                    ; 1258                        ;
-;     -- 4 input functions                    ; 1867                        ;
-;     -- <=3 input functions                  ; 682                         ;
+;     -- 5 input functions                    ; 1259                        ;
+;     -- 4 input functions                    ; 1868                        ;
+;     -- <=3 input functions                  ; 680                         ;
 ;                                             ;                             ;
-; Dedicated logic registers                   ; 8526                        ;
+; Dedicated logic registers                   ; 8524                        ;
 ;                                             ;                             ;
 ; I/O pins                                    ; 45                          ;
 ;                                             ;                             ;
 ; Total DSP Blocks                            ; 0                           ;
 ;                                             ;                             ;
 ; Maximum fan-out node                        ; clock_divider:u_div|clk_out ;
-; Maximum fan-out                             ; 8486                        ;
-; Total fan-out                               ; 67006                       ;
+; Maximum fan-out                             ; 8489                        ;
+; Total fan-out                               ; 67005                       ;
 ; Average fan-out                             ; 4.36                        ;
 +---------------------------------------------+-----------------------------+
 
@@ -317,7 +317,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                               ; Entity Name           ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
-; |top_program                                    ; 6769 (8)            ; 8526 (31)                 ; 0                 ; 0          ; 45   ; 0            ; |top_program                                                                                                                                                      ; top_program           ; work         ;
+; |top_program                                    ; 6769 (8)            ; 8524 (29)                 ; 0                 ; 0          ; 45   ; 0            ; |top_program                                                                                                                                                      ; top_program           ; work         ;
 ;    |SPI_io:u_spi|                               ; 8 (8)               ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |top_program|SPI_io:u_spi                                                                                                                                         ; SPI_io                ; work         ;
 ;    |clock_divider:u_div|                        ; 24 (24)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |top_program|clock_divider:u_div                                                                                                                                  ; clock_divider         ; work         ;
 ;    |cpu_armv4:u_cpu|                            ; 6701 (276)          ; 8460 (8)                  ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu                                                                                                                                      ; cpu_armv4             ; work         ;
@@ -674,12 +674,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 8526  ;
+; Total registers                              ; 8524  ;
 ; Number of registers using Synchronous Clear  ; 7169  ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 334   ;
+; Number of registers using Asynchronous Clear ; 332   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 8483  ;
+; Number of registers using Clock Enable       ; 8482  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -1711,11 +1711,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 8526                        ;
-;     CLR               ; 42                          ;
+; arriav_ff             ; 8524                        ;
+;     CLR               ; 41                          ;
 ;     CLR SCLR          ; 1                           ;
 ;     ENA               ; 1024                        ;
-;     ENA CLR           ; 291                         ;
+;     ENA CLR           ; 290                         ;
 ;     ENA SCLR          ; 7168                        ;
 ; arriav_lcell_comb     ; 6775                        ;
 ;     arith             ; 1201                        ;
@@ -1727,11 +1727,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         7 data inputs ; 16                          ;
 ;     normal            ; 5548                        ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 8                           ;
-;         2 data inputs ; 401                         ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 400                         ;
 ;         3 data inputs ; 116                         ;
-;         4 data inputs ; 1867                        ;
-;         5 data inputs ; 208                         ;
+;         4 data inputs ; 1868                        ;
+;         5 data inputs ; 209                         ;
 ;         6 data inputs ; 2946                        ;
 ;     shared            ; 10                          ;
 ;         0 data inputs ; 4                           ;
@@ -1748,7 +1748,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:30     ;
+; Top            ; 00:00:31     ;
 +----------------+--------------+
 
 
@@ -1758,7 +1758,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
-    Info: Processing started: Fri Nov 14 02:19:06 2025
+    Info: Processing started: Fri Nov 14 17:35:34 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ProyectoFT -c ProyectoFT
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1804,12 +1804,12 @@ Info (12021): Found 1 design units, including 1 entities, in source file alu_cor
 Info (12021): Found 1 design units, including 1 entities, in source file top_program.sv
     Info (12023): Found entity 1: top_program File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 1
 Info (12127): Elaborating entity "top_program" for the top level hierarchy
-Info (10264): Verilog HDL Case Statement information at top_program.sv(157): all case item expressions in this case statement are onehot File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 157
+Info (10264): Verilog HDL Case Statement information at top_program.sv(143): all case item expressions in this case statement are onehot File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 143
 Info (12128): Elaborating entity "clock_divider" for hierarchy "clock_divider:u_div" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 34
 Warning (10230): Verilog HDL assignment warning at clock_divider.sv(17): truncated value with size 32 to match size of target (26) File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/clock_divider.sv Line: 17
 Info (12128): Elaborating entity "SPI_io" for hierarchy "SPI_io:u_spi" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 50
 Warning (10230): Verilog HDL assignment warning at alu_core.sv(129): truncated value with size 32 to match size of target (6) File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/alu_core.sv Line: 129
-Info (12128): Elaborating entity "cpu_armv4" for hierarchy "cpu_armv4:u_cpu" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 197
+Info (12128): Elaborating entity "cpu_armv4" for hierarchy "cpu_armv4:u_cpu" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 183
 Info (12128): Elaborating entity "rom_program" for hierarchy "cpu_armv4:u_cpu|rom_program:u_rom" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/cpu_armv4.sv Line: 58
 Warning (10850): Verilog HDL warning at rom_program.sv(12): number of words (17) in memory file does not match the number of elements in the address range [0:255] File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/rom_program.sv Line: 12
 Warning (10030): Net "memory.data_a" at rom_program.sv(9) has no driver or initial value, using a default initial value '0' File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/rom_program.sv Line: 9
@@ -1826,7 +1826,7 @@ Info (12128): Elaborating entity "sumador" for hierarchy "cpu_armv4:u_cpu|alu_co
 Info (12128): Elaborating entity "divider" for hierarchy "cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/alu_core.sv Line: 44
 Info (12128): Elaborating entity "logic_ops" for hierarchy "cpu_armv4:u_cpu|alu_core:u_alu_core|logic_ops:u_logic" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/alu_core.sv Line: 48
 Info (12128): Elaborating entity "ram_data" for hierarchy "cpu_armv4:u_cpu|ram_data:u_ram" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/cpu_armv4.sv Line: 113
-Info (12128): Elaborating entity "seven_segment_display" for hierarchy "seven_segment_display:u_hex_A" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 228
+Info (12128): Elaborating entity "seven_segment_display" for hierarchy "seven_segment_display:u_hex_A" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 214
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276007): RAM logic "cpu_armv4:u_cpu|ram_data:u_ram|mem_array" is uninferred due to asynchronous read logic File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/ram_data.sv Line: 15
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/db/ProyectoFT.ram0_rom_program_aa5684e4.hdl.mif" contains "don't care" values -- overwriting them with 0s
@@ -1870,15 +1870,15 @@ Warning (21074): Design contains 3 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 3
     Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 3
     Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 3
-Info (21057): Implemented 15298 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 15297 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 9 input pins
     Info (21059): Implemented 36 output pins
-    Info (21061): Implemented 15253 logic cells
+    Info (21061): Implemented 15252 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 21 warnings
-    Info: Peak virtual memory: 4995 megabytes
-    Info: Processing ended: Fri Nov 14 02:19:47 2025
-    Info: Elapsed time: 00:00:41
-    Info: Total CPU time (on all processors): 00:00:54
+    Info: Peak virtual memory: 4979 megabytes
+    Info: Processing ended: Fri Nov 14 17:36:20 2025
+    Info: Elapsed time: 00:00:46
+    Info: Total CPU time (on all processors): 00:01:03
 
 
 +------------------------------------------+

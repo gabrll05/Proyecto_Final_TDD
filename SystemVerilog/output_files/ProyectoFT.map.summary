@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Fri Nov 14 02:19:47 2025
+Analysis & Synthesis Status : Successful - Fri Nov 14 17:36:20 2025
 Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 Revision Name : ProyectoFT
 Top-level Entity Name : top_program
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 8526
+Total registers : 8524
 Total pins : 45
 Total virtual pins : 0
 Total block memory bits : 0

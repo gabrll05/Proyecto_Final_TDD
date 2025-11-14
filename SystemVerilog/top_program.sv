@@ -52,46 +52,32 @@ module top_program (
     assign ack = spi_ack_raw;
 
     // ----------------------------------------------------
-    // Dominio rápido (CLOCK_50): latch del dato + toggle
+    // Sincronizar y detectar CAMBIO de dato en dominio clk_cpu
     // ----------------------------------------------------
-    logic [3:0] spi_data_fast;
-    logic       spi_toggle_fast;
-
-    always_ff @(posedge CLOCK_50 or posedge reset) begin
-        if (reset) begin
-            spi_data_fast   <= 4'd0;
-            spi_toggle_fast <= 1'b0;
-        end else begin
-            if (spi_ack_raw) begin
-                spi_data_fast   <= spi_data_raw;
-                spi_toggle_fast <= ~spi_toggle_fast;
-            end
-        end
-    end
-
-    // ----------------------------------------------------
-    // Sincronizar al dominio del CPU (clk_cpu)
-    // ----------------------------------------------------
-    logic       spi_toggle_sync0, spi_toggle_sync1;
-    logic [3:0] spi_data_sync0, spi_data_sync1;
+    logic [3:0] spi_sync1, spi_sync2, spi_last;
+    logic       new_spi_cpu_reg;
+    wire        new_spi_cpu = new_spi_cpu_reg;
 
     always_ff @(posedge clk_cpu or posedge reset) begin
         if (reset) begin
-            spi_toggle_sync0 <= 1'b0;
-            spi_toggle_sync1 <= 1'b0;
-            spi_data_sync0   <= 4'd0;
-            spi_data_sync1   <= 4'd0;
+            spi_sync1      <= 4'd0;
+            spi_sync2      <= 4'd0;
+            spi_last       <= 4'd0;
+            new_spi_cpu_reg <= 1'b0;
         end else begin
-            spi_toggle_sync0 <= spi_toggle_fast;
-            spi_toggle_sync1 <= spi_toggle_sync0;
+            // Doble registro para sincronizar desde dominio SPI (sck)
+            spi_sync1 <= spi_data_raw;
+            spi_sync2 <= spi_sync1;
 
-            spi_data_sync0   <= spi_data_fast;
-            spi_data_sync1   <= spi_data_sync0;
+            // Detectar cambio de valor estable
+            if (spi_sync2 != spi_last) begin
+                spi_last        <= spi_sync2;
+                new_spi_cpu_reg <= 1'b1;   // pulso de 1 ciclo
+            end else begin
+                new_spi_cpu_reg <= 1'b0;
+            end
         end
     end
-
-    // Pulso cuando llega un nuevo dato SPI visto por el CPU
-    wire new_spi_cpu = spi_toggle_sync0 ^ spi_toggle_sync1;
 
     // ----------------------------------------------------
     // Lógica para latch de A y saber que ya tenemos SPI
@@ -107,7 +93,7 @@ module top_program (
         end else begin
             if (new_spi_cpu) begin
                 got_spi <= 1'b1;
-                A_VAL   <= spi_data_sync1;   // A = lo que llegó por SPI
+                A_VAL   <= spi_sync2;   // A = lo que llegó por SPI
             end
         end
     end
@@ -159,7 +145,7 @@ module top_program (
                 // Escribimos A en MEM[10]
                 ext_we_sig    = 1'b1;
                 ext_addr_sig  = 8'd10;
-                ext_wdata_sig = {28'd0, spi_data_sync1};
+                ext_wdata_sig = {28'd0, spi_sync2};
             end
             LOAD_B: begin
                 // Escribimos B = 2 en MEM[11]
