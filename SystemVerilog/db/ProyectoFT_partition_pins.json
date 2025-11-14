@@ -8,47 +8,115 @@
 					"strict" : false
 				},
 				{
-					"name" : "master_data_reg[0]",
+					"name" : "HEX0[0]",
 					"strict" : false
 				},
 				{
-					"name" : "master_data_reg[1]",
+					"name" : "HEX0[1]",
 					"strict" : false
 				},
 				{
-					"name" : "master_data_reg[2]",
+					"name" : "HEX0[2]",
 					"strict" : false
 				},
 				{
-					"name" : "master_data_reg[3]",
+					"name" : "HEX0[3]",
 					"strict" : false
 				},
 				{
-					"name" : "sev_seg_md[0]",
+					"name" : "HEX0[4]",
 					"strict" : false
 				},
 				{
-					"name" : "sev_seg_md[1]",
+					"name" : "HEX0[5]",
 					"strict" : false
 				},
 				{
-					"name" : "sev_seg_md[2]",
+					"name" : "HEX0[6]",
 					"strict" : false
 				},
 				{
-					"name" : "sev_seg_md[3]",
+					"name" : "HEX2[0]",
 					"strict" : false
 				},
 				{
-					"name" : "sev_seg_md[4]",
+					"name" : "HEX2[1]",
 					"strict" : false
 				},
 				{
-					"name" : "sev_seg_md[5]",
+					"name" : "HEX2[2]",
 					"strict" : false
 				},
 				{
-					"name" : "sev_seg_md[6]",
+					"name" : "HEX2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX3[0]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX3[1]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX3[2]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX3[3]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX3[4]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX3[5]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX3[6]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX4[0]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX4[1]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX4[2]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX4[3]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX4[4]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX4[5]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX4[6]",
 					"strict" : false
 				},
 				{
@@ -64,11 +132,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "rst",
+					"name" : "KEY[0]",
 					"strict" : false
 				},
 				{
 					"name" : "ss",
+					"strict" : false
+				},
+				{
+					"name" : "CLOCK_50",
 					"strict" : false
 				}
 			]

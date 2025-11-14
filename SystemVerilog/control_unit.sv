@@ -1,5 +1,5 @@
 // ============================================================
-// control_unit.sv  (a_zero_sel, b_imm_sel, wb_sel_mem + FIX LDR/STR + BRANCH)
+// control_unit.sv  (a_zero_sel, b_imm_sel, wb_sel_mem + LDR/STR + BRANCH + MUL/DIV)
 // ============================================================
 
 module control_unit (
@@ -21,7 +21,7 @@ module control_unit (
     output logic        b_imm_sel,    // 1 -> B = imm_ext (MOVI)
     output logic        wb_sel_mem,   // 1 -> writeback desde RAM (LDR)
 
-    // --- NUEVO: salto/branch ---
+    // Salto/branch
     output logic        branch_en,    // 1 -> usar PC + 1 + branch_imm
     output logic [31:0] branch_imm    // desplazamiento firmado (sign-extend 24b)
 );
@@ -45,7 +45,7 @@ module control_unit (
     assign imm8    = instr[7:0];
     assign imm_ext = {24'b0, imm8};
 
-    // --- NUEVO: inmediato de branch (24 bits, firmado) ---
+    // Branch imm (24 bits, firmado)
     logic [23:0] imm24;
     assign imm24 = instr[23:0];
 
@@ -56,7 +56,7 @@ module control_unit (
         OP_SUB = 4'd2,
         OP_MUL = 4'd3,
         OP_DIV = 4'd4,
-        OP_MOD = 4'd5,
+        OP_MOD = 4'd5,  // disponible si tu ALU lo soporta
         OP_AND = 4'd6,
         OP_OR  = 4'd7,
         OP_XOR = 4'd8,
@@ -86,23 +86,26 @@ module control_unit (
     logic is_DP, is_MEM, is_BR;
     assign is_DP  = (cls == 2'b00);
     assign is_MEM = (cls == 2'b01);
-    assign is_BR  = (instr[27:25] == 3'b101);  // B / BL clase
+    assign is_BR  = (instr[27:25] == 3'b101);  // B/BL
 
-    logic is_ADD, is_SUB, is_MOVI, is_STR, is_LDR, is_B;
+    logic is_ADD, is_SUB, is_MUL, is_DIV, is_MOVI, is_STR, is_LDR, is_B;
     assign is_ADD  = is_DP  && (instr[24:21] == 4'b0100);
     assign is_SUB  = is_DP  && (instr[24:21] == 4'b0010);
-    assign is_MOVI = is_DP  && (instr[24:21] == 4'b1101) && bitI; // MOV #imm
+    assign is_MUL  = is_DP  && (instr[24:21] == 4'b1001);
+    assign is_DIV  = is_DP  && (instr[24:21] == 4'b1010);
+    assign is_MOVI = is_DP  && (instr[24:21] == 4'b1101) && bitI;   // MOV #imm
     assign is_STR  = is_MEM && (bitL == 1'b0);
     assign is_LDR  = is_MEM && (bitL == 1'b1);
-    assign is_B    = is_BR;  // salto incondicional relativo
+    assign is_B    = is_BR;
 
     // ------------------ Direcciones de regfile ------------------
     always_comb begin
-        reg_rd_a = Rn;
-        reg_rd_b = Rm;
-        reg_wr   = Rd;
+        reg_rd_a = Rn;    // por defecto, fuente A = Rn (también base addr en mem)
+        reg_rd_b = Rm;    // por defecto, fuente B = Rm
+        reg_wr   = Rd;    // destino = Rd
         if (is_STR) begin
-            reg_rd_b = Rd; // dato a RAM = Rd
+            // En STR el dato a RAM viene de Rd (como ya usas en el datapath)
+            reg_rd_b = Rd;
         end
     end
 
@@ -121,47 +124,52 @@ module control_unit (
         branch_en  = 1'b0;
         branch_imm = 32'd0;
 
-        // ALU op
-        if (is_ADD)       alu_sel = OP_ADD;
+        // Selección de ALU
+        if      (is_ADD)  alu_sel = OP_ADD;
         else if (is_SUB)  alu_sel = OP_SUB;
+        else if (is_MUL)  alu_sel = OP_MUL;
+        else if (is_DIV)  alu_sel = OP_DIV;
         else if (is_MOVI) alu_sel = OP_ADD; // MOVI: 0 + imm
 
-        // operandos MOVI
+        // MOV inmediato: A=0, B=imm
         if (is_MOVI) begin
-            a_zero_sel = 1'b1; // A=0
-            b_imm_sel  = 1'b1; // B=imm (lo toma el datapath)
+            a_zero_sel = 1'b1;
+            b_imm_sel  = 1'b1;
         end
 
-        // writeback desde RAM en LDR
+        // LDR: writeback desde memoria
         if (is_LDR) begin
             wb_sel_mem = 1'b1;
         end
 
         unique case (state)
-            FETCH: begin end
-            DECODE: begin end
+            FETCH: begin
+                // No control aún; PC se actualiza en WRITEBACK
+            end
+            DECODE: begin
+                // Nada extra
+            end
             EXECUTE: begin
-                if (is_STR) ram_we = 1'b1; // escribir memoria aquí
+                // STR escribe memoria en EXECUTE (tu flujo actual)
+                if (is_STR) ram_we = 1'b1;
             end
             WRITEBACK: begin
-                // ADD/SUB/MOVI hacen writeback desde ALU,
-                // LDR hace writeback desde memoria
-                reg_wr_en = (is_ADD | is_SUB | is_MOVI | is_LDR);
+                // DP que escriben registro + MOVI + LDR
+                reg_wr_en = (is_ADD | is_SUB | is_MUL | is_DIV | is_MOVI | is_LDR);
 
-                // PC update:
-                pc_en = 1'b1; // siempre avanzamos PC en WRITEBACK
+                // PC update cada instrucción
+                pc_en = 1'b1;
 
-                // --- NUEVO: salto relativo ---
+                // Branch relativo (pc_next = pc + 1 + branch_imm)
                 if (is_B) begin
                     branch_en  = 1'b1;
-                    // Sign-extend de imm24 (word offset, SIN shift):
-                    branch_imm = {{8{imm24[23]}}, imm24};
-                    // El PC debe hacer: next_pc = pc + 32'd1 + branch_imm
+                    branch_imm = {{8{imm24[23]}}, imm24}; // sign-extend 24b
                 end
             end
         endcase
     end
 
+// ------------------ Logs de simulación ------------------
 // synthesis translate_off
 `ifndef SYNTHESIS
     function automatic string state_name(state_t s);
@@ -191,16 +199,15 @@ module control_unit (
         endcase
     endfunction
 
-    // Log solo para simulación
     always_ff @(posedge clk) begin
-        if (!reset && next_state == WRITEBACK) begin
+        if (!reset && (state==EXECUTE || state==WRITEBACK)) begin
             $display(
                 "CU@%0t | instr=0x%08h cls=%0b op[24:21]=0x%1h | Rn=%0d Rm=%0d Rd=%0d | wb_en=%0b wb_sel_mem=%0b ram_we=%0b pc_en=%0b a_zero=%0b b_imm=%0b branch_en=%0b branch_imm=%0d | state=%s | alu=%s",
                 $time, instr, cls, instr[24:21],
                 Rn, Rm, Rd,
                 reg_wr_en, wb_sel_mem, ram_we, pc_en, a_zero_sel, b_imm_sel,
                 branch_en, branch_imm,
-                state_name(next_state), aluop_name(alu_sel)
+                state_name(state), aluop_name(alu_sel)
             );
         end
     end

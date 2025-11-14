@@ -1,5 +1,11 @@
 
-State Machine - |cpu_armv4|control_unit:u_ctrl|state
+State Machine - |top_program|load_state
+Name load_state.LOAD_IDLE load_state.LOAD_B load_state.LOAD_A 
+load_state.LOAD_IDLE 0 0 0 
+load_state.LOAD_A 1 0 1 
+load_state.LOAD_B 1 1 0 
+
+State Machine - |top_program|cpu_armv4:u_cpu|control_unit:u_ctrl|state
 Name state.WRITEBACK state.EXECUTE state.DECODE state.FETCH 
 state.FETCH 0 0 0 0 
 state.DECODE 0 0 1 1 

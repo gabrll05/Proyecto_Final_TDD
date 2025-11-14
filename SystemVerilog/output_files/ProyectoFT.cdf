@@ -6,7 +6,7 @@ JedecChain;
 	P ActionCode(Ign)
 		Device PartName(5CSXFC6D6) MfrSpec(OpMask(0));
 	P ActionCode(Cfg)
-		Device PartName(5CSXFC6D6F31) Path("C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/output_files/") File("ProyectoFT.sof") MfrSpec(OpMask(1));
+		Device PartName(5CSXFC6D6F31) Path("C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/output_files/") File("ProyectoFT.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

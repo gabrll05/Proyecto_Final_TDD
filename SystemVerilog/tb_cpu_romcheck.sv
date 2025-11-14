@@ -1,39 +1,65 @@
 // ============================================================
-// tb_cpu_romcheck.sv
-// Testbench con logs de BRANCH, STR, LDR y writeback (sin emojis)
+// tb_cpu_param_plusargs.sv  (ACTUALIZADO PARA cpu_armv4 con ext_*)
+// Testbench: A y B parametrizables vía +A=<int> +B=<int>
 // ============================================================
+
+// synthesis translate_off
 `timescale 1ns/1ps
 
 module tb_cpu_romcheck;
 
-    logic clk;
-    logic reset;
+    // ---------------- Señales TB ----------------
+    logic        clk;
+    logic        reset;
     logic [31:0] alu_result_out;
 
+    // Valores A y B (defaults)
+    integer A = 4;
+    integer B = 2;
+
+    // --------------- DUT: cpu_armv4 ---------------
+    // Nota: ahora cpu_armv4 tiene puertos ext_we, ext_addr, ext_wdata
     cpu_armv4 uut (
-        .clk(clk),
-        .reset(reset),
+        .clk        (clk),
+        .reset      (reset),
+        .ext_we     (1'b0),          // en este TB no usamos acceso externo
+        .ext_addr   (8'd0),
+        .ext_wdata  (32'd0),
         .alu_result_out(alu_result_out)
     );
 
-    // Reloj: periodo 10 us
+    // --------------- Reloj: periodo 10 us ---------------
     initial clk = 0;
     always #5000 clk = ~clk;
 
-    // Secuencia principal
+    // --------------- Secuencia principal ---------------
     initial begin
         $display("==============================================");
         $display("INICIO DE SIMULACION - PRUEBA ROM + CPU + RAM");
         $display("==============================================\n");
 
+        // Lee plusargs si vienen: +A=<int> +B=<int>
+        if ($value$plusargs("A=%d", A)) $display("[TB] A pasado por plusargs: %0d", A);
+        if ($value$plusargs("B=%d", B)) $display("[TB] B pasado por plusargs: %0d", B);
+
+        $display("[TB] Parametros efectivos: A=%0d, B=%0d (MEM[10]=A, MEM[11]=B, resultado en MEM[12] y r3)", A, B);
+
+        // Reset y precarga de RAM ANTES de soltar reset
         reset = 1;
+
+        // RAM interna del CPU: uut.u_ram.mem_array
+        uut.u_ram.mem_array[10] = A;        // A
+        uut.u_ram.mem_array[11] = B;        // B
+        uut.u_ram.mem_array[12] = 32'h0;    // limpia celda de salida
+
+        // Mantener reset por 20 us
         #20000;
         reset = 0;
 
-        // Ejecutar un tiempo suficiente (400 ciclos)
+        // Ejecutar ~400 ciclos (4 ms a 10us/ciclo)
         #4000000;
 
-        // Mostrar estado final de registros y memoria
+        // --------- Estado final ----------
         $display("\n--------------------------------");
         $display("ESTADO FINAL DE REGISTROS (r0..r7)");
         $display("--------------------------------");
@@ -42,9 +68,9 @@ module tb_cpu_romcheck;
         end
 
         $display("\n--------------------------------");
-        $display("ESTADO FINAL DE LA MEMORIA");
+        $display("ESTADO FINAL DE LA MEMORIA (0..15)");
         $display("--------------------------------");
-        for (int i = 0; i < 8; i++) begin
+        for (int i = 0; i < 16; i++) begin
             if (uut.u_ram.mem_array[i] !== 32'hxxxxxxxx)
                 $display("MEM[%0d] = %08h", i, uut.u_ram.mem_array[i]);
         end
@@ -53,34 +79,34 @@ module tb_cpu_romcheck;
         $stop;
     end
 
-    // Monitoreo general por instrucción (mientras PC < 20)
+    // --------- Monitoreo por instrucción (mientras PC < 20) ---------
     always @(posedge clk) begin
         if (!reset && (^uut.instr !== 1'bx) && uut.pc < 8'd20) begin
             $display("t=%0t | PC=%0d | Instr=%08h | ALU=%0d | WR_en=%b Rd=%0d | wb_mem=%b | ram_we=%b",
                      $time, uut.pc, uut.instr, uut.alu_result_out,
-                     uut.reg_wr_en, uut.reg_wr, uut.wb_sel_mem, uut.ram_we);
+                     uut.reg_wr_en, uut.reg_wr, uut.wb_sel_mem, uut.ram_we_internal);
         end
     end
 
-    // Evento STR: escribir RAM (usa señales ya cableadas en cpu_armv4)
+    // --------- Evento STR: escritura a RAM ---------
     always @(posedge clk) begin
-        if (!reset && uut.ram_we) begin
-            $display("  STR  @t=%0t | addr=%0d (0x%02h) <= data=%08h  (Rn=regA, dato=regB=Rd)",
-                     $time, uut.ram_addr, uut.ram_addr, uut.ram_data_in);
+        if (!reset && uut.ram_we_internal) begin
+            $display("  STR  @t=%0t | addr=%0d (0x%02h) <= data=%08h",
+                     $time,
+                     uut.ram_addr_internal, uut.ram_addr_internal,
+                     uut.ram_data_in_internal);
         end
     end
 
-    // Evento LDR: writeback desde RAM
+    // --------- Evento LDR: writeback desde RAM ---------
     always @(posedge clk) begin
         if (!reset && uut.wb_sel_mem && uut.reg_wr_en) begin
-            // wb_data es jerárquico en cpu_armv4
             $display("  LDR  @t=%0t | Rd=r%0d <= MEM[addr=%0d] = %08h",
-                     $time, uut.reg_wr, uut.ram_addr, uut.ram_data_out);
+                     $time, uut.reg_wr, uut.ram_addr_internal, uut.ram_data_out);
         end
     end
 
-    // Evento BRANCH: mostrar salto relativo y next PC que aplicará el datapath
-    // Requiere que la control_unit exponga branch_en/branch_imm y el PC se calcule como en cpu_armv4.
+    // --------- Evento BRANCH: salto relativo ---------
     always @(posedge clk) begin
         if (!reset && uut.u_ctrl.branch_en) begin
             logic [31:0] next_pc_full;
@@ -92,3 +118,4 @@ module tb_cpu_romcheck;
     end
 
 endmodule
+// synthesis translate_on

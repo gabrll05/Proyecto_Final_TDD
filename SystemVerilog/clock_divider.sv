@@ -15,7 +15,7 @@ module clock_divider(
             clk_out <= 0;
         end else begin
             counter <= counter + 1;
-            clk_out <= counter[25];   // divide entre ~33 millones
+            clk_out <= counter[23];   // divide entre ~33 millones
         end
     end
 endmodule

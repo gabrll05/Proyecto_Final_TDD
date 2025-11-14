@@ -1,0 +1,89 @@
+// ============================================================
+// top_program.sv
+// TOP que ejecuta el programa de la ROM y muestra:
+//  HEX0 = A (MEM[10])
+//  HEX1 = B (MEM[11])
+//  HEX2 = A+B
+//  HEX3 = A-B
+//  HEX4 = A*B
+//  HEX5 = A/B
+// ============================================================
+
+module top_program (
+    input  logic clk,
+    input  logic reset,
+
+    output logic [6:0] HEX0,
+    output logic [6:0] HEX1,
+    output logic [6:0] HEX2,
+    output logic [6:0] HEX3,
+    output logic [6:0] HEX4,
+    output logic [6:0] HEX5
+);
+
+    // ==========================================
+    // 1) Instanciar CPU
+    // ==========================================
+    logic [31:0] alu_result_out;
+
+    cpu_armv4 u_cpu (
+        .clk(clk),
+        .reset(reset),
+
+        // NO usar interfaz externa
+        .ext_we(1'b0),
+        .ext_addr(8'd0),
+        .ext_wdata(32'd0),
+
+        .alu_result_out(alu_result_out)
+    );
+
+    // ==========================================
+    // 2) Leer valores desde la RAM del CPU
+    // ==========================================
+    logic [31:0] A, B, SUM, SUB, MUL, DIV;
+
+    always_comb begin
+        A   = u_cpu.u_ram.mem_array[10];  // A
+        B   = u_cpu.u_ram.mem_array[11];  // B
+        SUM = u_cpu.u_ram.mem_array[12];  // A+B
+        SUB = u_cpu.u_ram.mem_array[13];  // A-B
+        MUL = u_cpu.u_ram.mem_array[14];  // A*B
+        DIV = u_cpu.u_ram.mem_array[15];  // A/B
+    end
+
+    // ==========================================
+    // 3) Decodificador 7 segmentos
+    // ==========================================
+    function automatic [6:0] to7seg(input [3:0] hex);
+        case(hex)
+            4'h0: to7seg = 7'b1000000;
+            4'h1: to7seg = 7'b1111001;
+            4'h2: to7seg = 7'b0100100;
+            4'h3: to7seg = 7'b0110000;
+            4'h4: to7seg = 7'b0011001;
+            4'h5: to7seg = 7'b0010010;
+            4'h6: to7seg = 7'b0000010;
+            4'h7: to7seg = 7'b1111000;
+            4'h8: to7seg = 7'b0000000;
+            4'h9: to7seg = 7'b0010000;
+            4'hA: to7seg = 7'b0001000;
+            4'hB: to7seg = 7'b0000011;
+            4'hC: to7seg = 7'b1000110;
+            4'hD: to7seg = 7'b0100001;
+            4'hE: to7seg = 7'b0000110;
+            4'hF: to7seg = 7'b0001110;
+        endcase
+    endfunction
+
+    // ==========================================
+    // 4) Mostrar en HEX0–HEX5
+    // ==========================================
+    assign HEX0 = to7seg(A[3:0]);
+    assign HEX1 = to7seg(B[3:0]);
+    assign HEX2 = to7seg(SUM[3:0]);
+    assign HEX3 = to7seg(SUB[3:0]);
+    assign HEX4 = to7seg(MUL[3:0]);
+    assign HEX5 = to7seg(DIV[3:0]);
+
+endmodule
