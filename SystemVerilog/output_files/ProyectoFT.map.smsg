@@ -1,2 +1,3 @@
 Info (10281): Verilog HDL Declaration information at sumador.sv(13): object "C" differs only in case from object "c" in the same scope File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/sumador.sv Line: 13
 Info (10281): Verilog HDL Declaration information at restador.sv(5): object "B" differs only in case from object "b" in the same scope File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/restador.sv Line: 5
+Info (10281): Verilog HDL Declaration information at top_program.sv(25): object "VGA_B" differs only in case from object "vga_B" in the same scope File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 25

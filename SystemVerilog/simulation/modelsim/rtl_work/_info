@@ -11,7 +11,7 @@ cModel Technology
 Z0 dC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/simulation/modelsim
 valu_core
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1763082183
+Z2 !s110 1763180149
 !i10b 1
 !s100 >PQLjS1P:Ri5aOWT_YYQW1
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -22,22 +22,48 @@ R0
 w1762404861
 8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/alu_core.sv
 FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/alu_core.sv
-!i122 9
+!i122 12
 L0 4 125
 Z5 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z6 !s108 1763082183.000000
+Z6 !s108 1763180149.000000
 !s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/alu_core.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/alu_core.sv|
 !i113 1
 Z7 o-sv -work work
 Z8 !s92 -sv -work work +incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog
 Z9 tCvgOpt 0
+vclock_divider
+R1
+Z10 !s110 1763180148
+!i10b 1
+!s100 e17i^FzMBNB[__116bgOY1
+R3
+IA@2b<W>g5H4Z6JFS@49B33
+R4
+S1
+R0
+w1763091268
+8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/clock_divider.sv
+FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/clock_divider.sv
+!i122 7
+L0 5 17
+R5
+r1
+!s85 0
+31
+Z11 !s108 1763180148.000000
+!s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/clock_divider.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/clock_divider.sv|
+!i113 1
+R7
+R8
+R9
 vcontrol_unit
 R1
-Z10 !s110 1763082182
+Z12 !s110 1763180147
 !i10b 1
 !s100 c21E_7B=im<c:f9jkzEM13
 R3
@@ -54,7 +80,7 @@ R5
 r1
 !s85 0
 31
-Z11 !s108 1763082182.000000
+Z13 !s108 1763180147.000000
 !s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/control_unit.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/control_unit.sv|
 !i113 1
@@ -63,24 +89,24 @@ R8
 R9
 vcpu_armv4
 R1
-R10
+R12
 !i10b 1
-!s100 i6b;VYUleYE<B6jR7`;E;1
+!s100 MDaBE?WNVokCnLUg;73=J3
 R3
-IU8eSNFmmB3MG5o_[^K@bg3
+I0S<H6:;1^UcM3La`zGS?D1
 R4
 S1
 R0
-w1763078015
+w1763089764
 8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/cpu_armv4.sv
 FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/cpu_armv4.sv
 !i122 3
-L0 4 110
+L0 4 112
 R5
 r1
 !s85 0
 31
-R11
+R13
 !s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/cpu_armv4.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/cpu_armv4.sv|
 !i113 1
@@ -89,7 +115,7 @@ R8
 R9
 vdivider
 R1
-R10
+R12
 !i10b 1
 !s100 JjKl1YmNgAF`^Sl27I>id2
 R3
@@ -106,7 +132,7 @@ R5
 r1
 !s85 0
 31
-R11
+R13
 !s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/divider.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/divider.sv|
 !i113 1
@@ -126,7 +152,7 @@ R0
 w1762393015
 8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/logic_ops.sv
 FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/logic_ops.sv
-!i122 8
+!i122 11
 L0 1 23
 R5
 r1
@@ -152,13 +178,13 @@ R0
 w1762392985
 8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/multiplicador.sv
 FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/multiplicador.sv
-!i122 7
+!i122 10
 L0 1 31
 R5
 r1
 !s85 0
 31
-R6
+R11
 !s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/multiplicador.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/multiplicador.sv|
 !i113 1
@@ -167,7 +193,7 @@ R8
 R9
 vram_data
 R1
-R2
+R10
 !i10b 1
 !s100 K9TOdW@HjGXjjG_[g^mgT3
 R3
@@ -184,7 +210,7 @@ R5
 r1
 !s85 0
 31
-R6
+R11
 !s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/ram_data.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/ram_data.sv|
 !i113 1
@@ -193,7 +219,7 @@ R8
 R9
 vregfile
 R1
-R10
+R12
 !i10b 1
 !s100 C4i@^M3>a7NT<YDD2m]R^3
 R3
@@ -201,7 +227,7 @@ I<1G[9Jmg?8EdSWQE41UY=3
 R4
 S1
 R0
-Z12 w1762989441
+Z14 w1762989441
 8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/regfile.sv
 FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/regfile.sv
 !i122 0
@@ -210,7 +236,7 @@ R5
 r1
 !s85 0
 31
-R11
+R13
 !s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/regfile.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/regfile.sv|
 !i113 1
@@ -219,7 +245,7 @@ R8
 R9
 vrestador
 R1
-R2
+R10
 !i10b 1
 !s100 z_J]4_hB1]4RKf_b79gAQ0
 R3
@@ -230,13 +256,13 @@ R0
 w1762392945
 8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/restador.sv
 FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/restador.sv
-!i122 6
+!i122 9
 L0 1 34
 R5
 r1
 !s85 0
 31
-R6
+R11
 !s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/restador.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/restador.sv|
 !i113 1
@@ -253,10 +279,10 @@ I`1JoY56^C?`aLT2<lX9bl2
 R4
 S1
 R0
-R12
+R14
 8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/rom_program.sv
 FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/rom_program.sv
-!i122 10
+!i122 14
 L0 5 13
 R5
 r1
@@ -269,9 +295,62 @@ R6
 R7
 R8
 R9
+vseven_segment_display
+R1
+R10
+!i10b 1
+!s100 o88l<dIcJ3]D5Y5Rzj@M82
+R3
+I=AoghHAX5UKSYZ]9E8aE51
+R4
+S1
+R0
+w1762391666
+8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/seven_segment_display.sv
+FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/seven_segment_display.sv
+!i122 6
+L0 1 27
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/seven_segment_display.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/seven_segment_display.sv|
+!i113 1
+R7
+R8
+R9
+vSPI_io
+R1
+R10
+!i10b 1
+!s100 e8h[5Z]GdXdjY_[mk4jaj0
+R3
+I@oo@;:3mC:LIzH[mH<Z[O3
+R4
+S1
+R0
+w1762529835
+8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/SPI_io.sv
+FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/SPI_io.sv
+!i122 5
+L0 1 45
+R5
+r1
+!s85 0
+31
+R11
+!s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/SPI_io.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/SPI_io.sv|
+!i113 1
+R7
+R8
+R9
+n@s@p@i_io
 vsumador
 R1
-R2
+R10
 !i10b 1
 !s100 CD4gi3Z]5Y05GjeKIk9ZB0
 R3
@@ -282,41 +361,67 @@ R0
 w1762392896
 8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/sumador.sv
 FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/sumador.sv
-!i122 5
+!i122 8
 L0 1 32
 R5
 r1
 !s85 0
 31
-R6
+R11
 !s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/sumador.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/sumador.sv|
 !i113 1
 R7
 R8
 R9
-vtb_cpu_romcheck
+vtb_top_program
 R1
 R2
 !i10b 1
-!s100 >gi8?Q:nL<GPZ_A2cQh1J2
+!s100 GIe`Akj9Aae7Xjk=Kec>H0
 R3
-I2YoJFVz7foNmA_OSHAUg93
+Im0KeT43l]>j5IjLeH3hWA0
 R4
 S1
 R0
-w1763082142
-8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/tb_cpu_romcheck.sv
-FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/tb_cpu_romcheck.sv
-!i122 11
-L0 9 112
+w1763179830
+8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/tb_top_program.sv
+FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/tb_top_program.sv
+!i122 15
+L0 3 167
 R5
 r1
 !s85 0
 31
 R6
-!s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/tb_cpu_romcheck.sv|
-!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/tb_cpu_romcheck.sv|
+!s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/tb_top_program.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/tb_top_program.sv|
+!i113 1
+R7
+R8
+R9
+vtop_program
+R1
+R2
+!i10b 1
+!s100 <R0CHQagn@^J;EXAk`H4h1
+R3
+IagJ@D[L`hgDlJzB^bkK`42
+R4
+S1
+R0
+w1763179055
+8C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv
+FC:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv
+!i122 13
+L0 1 319
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog|C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv|
 !i113 1
 R7
 R8

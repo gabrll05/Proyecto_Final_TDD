@@ -50,16 +50,20 @@ vlog -sv -work work +incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TD
 vlog -sv -work work +incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog {C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/control_unit.sv}
 vlog -sv -work work +incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog {C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/cpu_armv4.sv}
 vlog -sv -work work +incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog {C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/ram_data.sv}
+vlog -sv -work work +incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog {C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/SPI_io.sv}
+vlog -sv -work work +incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog {C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/seven_segment_display.sv}
+vlog -sv -work work +incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog {C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/clock_divider.sv}
 vlog -sv -work work +incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog {C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/sumador.sv}
 vlog -sv -work work +incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog {C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/restador.sv}
 vlog -sv -work work +incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog {C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/multiplicador.sv}
 vlog -sv -work work +incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog {C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/logic_ops.sv}
 vlog -sv -work work +incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog {C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/alu_core.sv}
+vlog -sv -work work +incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog {C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv}
 vlog -sv -work work +incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog {C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/rom_program.sv}
 
-vlog -sv -work work +incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog {C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/tb_cpu_romcheck.sv}
+vlog -sv -work work +incdir+C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog {C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/tb_top_program.sv}
 
-vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  tb_cpu_romcheck
+vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work -voptargs="+acc"  tb_top_program
 
 add wave *
 view structure

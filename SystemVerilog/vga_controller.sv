@@ -1,7 +1,3 @@
-// ============================================================
-// vga_controller.sv
-// Genera señales VGA 640x480@60Hz (25 MHz pixel clock)
-// ============================================================
 module vga_controller (
     input  logic clk_25MHz,       // reloj de píxel
     input  logic reset,

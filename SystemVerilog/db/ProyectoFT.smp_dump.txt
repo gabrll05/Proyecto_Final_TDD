@@ -5,6 +5,12 @@ load_state.LOAD_IDLE 0 0 0
 load_state.LOAD_A 1 0 1 
 load_state.LOAD_B 1 1 0 
 
+State Machine - |top_program|in_state
+Name in_state.IN_WAIT_A in_state.IN_WAIT_B in_state.IN_WAIT_OP 
+in_state.IN_WAIT_A 0 0 0 
+in_state.IN_WAIT_OP 1 0 1 
+in_state.IN_WAIT_B 1 1 0 
+
 State Machine - |top_program|cpu_armv4:u_cpu|control_unit:u_ctrl|state
 Name state.WRITEBACK state.EXECUTE state.DECODE state.FETCH 
 state.FETCH 0 0 0 0 

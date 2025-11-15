@@ -1,17 +1,17 @@
-Fitter Status : Successful - Fri Nov 14 17:40:32 2025
+Fitter Status : Successful - Sat Nov 15 01:23:01 2025
 Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 Revision Name : ProyectoFT
 Top-level Entity Name : top_program
 Family : Cyclone V
 Device : 5CSXFC6D6F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 5,981 / 41,910 ( 14 % )
-Total registers : 8563
-Total pins : 45 / 499 ( 9 % )
+Logic utilization (in ALMs) : 6,052 / 41,910 ( 14 % )
+Total registers : 8607
+Total pins : 59 / 499 ( 12 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 5,662,720 ( 0 % )
 Total RAM Blocks : 0 / 553 ( 0 % )
-Total DSP Blocks : 0 / 112 ( 0 % )
+Total DSP Blocks : 1 / 112 ( < 1 % )
 Total HSSI RX PCSs : 0 / 9 ( 0 % )
 Total HSSI PMA RX Deserializers : 0 / 9 ( 0 % )
 Total HSSI TX PCSs : 0 / 9 ( 0 % )

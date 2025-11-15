@@ -1,3 +1,6 @@
+// ============================================================
+// top_program.sv  (SPI + CPU ARM + 7 segmentos + VGA barras)
+// ============================================================
 module top_program (
     input  logic        CLOCK_50,
     input  logic [3:0]  KEY,      // KEY[0] = reset activo en bajo
@@ -14,7 +17,14 @@ module top_program (
     output logic [6:0]  HEX1,
     output logic [6:0]  HEX2,
     output logic [6:0]  HEX3,
-    output logic [6:0]  HEX4
+    output logic [6:0]  HEX4,
+
+    // === VGA ===
+    output logic [3:0]  VGA_R,
+    output logic [3:0]  VGA_G,
+    output logic [3:0]  VGA_B,
+    output logic        VGA_HS,
+    output logic        VGA_VS
 );
     // ----------------------------------------------------
     // Reset global y reloj lento del CPU
@@ -34,7 +44,7 @@ module top_program (
     );
 
     // ----------------------------------------------------
-    // SPI: recibe un número de 4 bits
+    // SPI: recibe un nibble (4 bits) + ACK de handshake
     // ----------------------------------------------------
     logic [3:0] spi_data_raw;
     logic       spi_ack_raw;
@@ -49,57 +59,129 @@ module top_program (
         .master_data_register (spi_data_raw)
     );
 
+    // ACK sólo lo reenviamos al Arduino (para el handshake)
     assign ack = spi_ack_raw;
 
     // ----------------------------------------------------
-    // Sincronizar y detectar CAMBIO de dato en dominio clk_cpu
+    // Dominio rápido (CLOCK_50): detectar fin de nibble
+    // usando flanco de subida de SS
     // ----------------------------------------------------
-    logic [3:0] spi_sync1, spi_sync2, spi_last;
-    logic       new_spi_cpu_reg;
-    wire        new_spi_cpu = new_spi_cpu_reg;
+    logic       ss_sync0, ss_sync1, ss_prev;
+    logic       ss_rise;
+    logic [3:0] spi_data_fast;
+
+    always_ff @(posedge CLOCK_50 or posedge reset) begin
+        if (reset) begin
+            ss_sync0      <= 1'b1;
+            ss_sync1      <= 1'b1;
+            ss_prev       <= 1'b1;
+            ss_rise       <= 1'b0;
+            spi_data_fast <= 4'd0;
+        end else begin
+            // Sincronizar SS al reloj de 50 MHz
+            ss_sync0 <= ss;
+            ss_sync1 <= ss_sync0;
+
+            // Detectar flanco de subida de SS (0 -> 1)
+            ss_rise <= ss_sync1 & ~ss_prev;
+            ss_prev <= ss_sync1;
+
+            if (ss_rise) begin
+                // Cuando SS sube, el nibble ya fue shift-eado en md
+                spi_data_fast <= spi_data_raw;
+            end
+        end
+    end
+
+    // ----------------------------------------------------
+    // Sincronizar nibble al dominio del CPU (clk_cpu)
+    // y detectar CAMBIO de nibble (nuevo dato)
+    // ----------------------------------------------------
+    logic [3:0] nibble_sync0, nibble_sync1, nibble_last;
+    logic       new_word_cpu;
 
     always_ff @(posedge clk_cpu or posedge reset) begin
         if (reset) begin
-            spi_sync1      <= 4'd0;
-            spi_sync2      <= 4'd0;
-            spi_last       <= 4'd0;
-            new_spi_cpu_reg <= 1'b0;
+            nibble_sync0 <= 4'd0;
+            nibble_sync1 <= 4'd0;
+            nibble_last  <= 4'd0;
+            new_word_cpu <= 1'b0;
         end else begin
-            // Doble registro para sincronizar desde dominio SPI (sck)
-            spi_sync1 <= spi_data_raw;
-            spi_sync2 <= spi_sync1;
+            // doble sincronización del dato desde el dominio de CLOCK_50
+            nibble_sync0 <= spi_data_fast;
+            nibble_sync1 <= nibble_sync0;
 
-            // Detectar cambio de valor estable
-            if (spi_sync2 != spi_last) begin
-                spi_last        <= spi_sync2;
-                new_spi_cpu_reg <= 1'b1;   // pulso de 1 ciclo
+            // si cambió el nibble estable → nuevo "word" recibido
+            if (nibble_sync1 != nibble_last) begin
+                nibble_last  <= nibble_sync1;
+                new_word_cpu <= 1'b1;   // pulso de 1 ciclo
             end else begin
-                new_spi_cpu_reg <= 1'b0;
+                new_word_cpu <= 1'b0;
             end
         end
     end
 
     // ----------------------------------------------------
-    // Lógica para latch de A y saber que ya tenemos SPI
+    // FSM de entrada: recibir A, luego op, luego B
     // ----------------------------------------------------
-    logic        got_spi;     // ya recibimos al menos un valor por SPI
-    logic [3:0]  A_VAL;       // valor A visible en HEX
-    localparam logic [3:0] B_VAL = 4'd2;  // B fijo = 2
+    typedef enum logic [1:0] {
+        IN_WAIT_A  = 2'd0,
+        IN_WAIT_OP = 2'd1,
+        IN_WAIT_B  = 2'd2
+    } input_state_t;
+
+    input_state_t in_state;
+    logic         got_cmd;      // al menos un comando completo recibido
+    logic [3:0]   A_VAL;        // operando A
+    logic [3:0]   B_VAL;        // operando B
+    logic [3:0]   op_code;      // 1=+, 2=-, 3=*, 4=/
 
     always_ff @(posedge clk_cpu or posedge reset) begin
         if (reset) begin
-            got_spi <= 1'b0;
-            A_VAL   <= 4'd0;
+            in_state <= IN_WAIT_A;
+            A_VAL    <= 4'd0;
+            B_VAL    <= 4'd0;
+            op_code  <= 4'd0;   // en reset mostrar 0
+            got_cmd  <= 1'b0;
         end else begin
-            if (new_spi_cpu) begin
-                got_spi <= 1'b1;
-                A_VAL   <= spi_sync2;   // A = lo que llegó por SPI
+            if (new_word_cpu) begin
+                case (in_state)
+                    IN_WAIT_A: begin
+                        A_VAL    <= nibble_last;      // primer nibble → A
+                        in_state <= IN_WAIT_OP;
+                    end
+                    IN_WAIT_OP: begin
+                        op_code  <= nibble_last;      // segundo nibble → op_code
+                        in_state <= IN_WAIT_B;
+                    end
+                    IN_WAIT_B: begin
+                        B_VAL    <= nibble_last;      // tercer nibble → B
+                        in_state <= IN_WAIT_A;
+                        got_cmd  <= 1'b1;             // ya tenemos A, op, B
+                    end
+                    default: in_state <= IN_WAIT_A;
+                endcase
             end
         end
     end
 
+    // Pulso para iniciar carga en RAM cuando terminamos de recibir B
+    logic cmd_start_reg;
+    wire  cmd_start = cmd_start_reg;
+
+    always_ff @(posedge clk_cpu or posedge reset) begin
+        if (reset) begin
+            cmd_start_reg <= 1'b0;
+        end else begin
+            if (new_word_cpu && (in_state == IN_WAIT_B))
+                cmd_start_reg <= 1'b1;
+            else
+                cmd_start_reg <= 1'b0;
+        end
+    end
+
     // ----------------------------------------------------
-    // Pequeño FSM para escribir A y B en la RAM interna
+    // FSM para escribir A y B en la RAM interna del CPU
     // ----------------------------------------------------
     typedef enum logic [1:0] {
         LOAD_IDLE = 2'd0,
@@ -115,7 +197,7 @@ module top_program (
         end else begin
             case (load_state)
                 LOAD_IDLE: begin
-                    if (new_spi_cpu)
+                    if (cmd_start)
                         load_state <= LOAD_A;   // empieza secuencia de carga
                 end
                 LOAD_A: begin
@@ -145,13 +227,13 @@ module top_program (
                 // Escribimos A en MEM[10]
                 ext_we_sig    = 1'b1;
                 ext_addr_sig  = 8'd10;
-                ext_wdata_sig = {28'd0, spi_sync2};
+                ext_wdata_sig = {28'd0, A_VAL};
             end
             LOAD_B: begin
-                // Escribimos B = 2 en MEM[11]
+                // Escribimos B en MEM[11]
                 ext_we_sig    = 1'b1;
                 ext_addr_sig  = 8'd11;
-                ext_wdata_sig = 32'd2;
+                ext_wdata_sig = {28'd0, B_VAL};
             end
             default: ; // nada
         endcase
@@ -159,10 +241,10 @@ module top_program (
 
     // CPU en reset mientras:
     //  - haya reset global
-    //  - aún no haya llegado ningún valor SPI (got_spi=0)
+    //  - aún no haya llegado ningún comando completo (got_cmd=0)
     //  - estemos en la secuencia de carga (LOAD_A o LOAD_B)
     logic cpu_reset;
-    assign cpu_reset = reset | (~got_spi) | (load_state != LOAD_IDLE);
+    assign cpu_reset = reset | (~got_cmd) | (load_state != LOAD_IDLE);
 
     // ----------------------------------------------------
     // CPU ARM + interfaz externa a RAM
@@ -183,51 +265,54 @@ module top_program (
     );
 
     // ----------------------------------------------------
-    // Captura de resultados de operaciones
-    //  PC = 5 -> ADD r2 = A + B
-    //  PC = 6 -> SUB r3 = A - B
+    // Captura de RESULTADO: ahora SIEMPRE tomamos la suma
+    // cuando el PC pasa por la instrucción de ADD (PC=5)
+    // (las otras operaciones igual se ejecutan en el CPU)
     // ----------------------------------------------------
-    logic [3:0] sum_res_nib;
-    logic [3:0] sub_res_nib;
+    logic [3:0] result_nib;
 
     always_ff @(posedge clk_cpu or posedge cpu_reset) begin
         if (cpu_reset) begin
-            sum_res_nib <= 4'd0;
-            sub_res_nib <= 4'd0;
+            result_nib <= 4'd0;
         end else begin
-            case (pc_dbg)
-                8'd5: sum_res_nib <= alu_result_out[3:0]; // ADD A+B
-                8'd6: sub_res_nib <= alu_result_out[3:0]; // SUB A-B
-                default: ; // mantiene valor anterior
-            endcase
+            if (pc_dbg == 8'd5) begin
+                // instrucción de suma en el programa
+                result_nib <= alu_result_out[3:0];
+            end
+            // en cualquier otro PC, mantenemos el valor anterior
         end
     end
 
     // ----------------------------------------------------
     // Displays 7 segmentos
+    //  HEX0 -> A
+    //  HEX1 -> B
+    //  HEX2 -> resultado de la suma
+    //  HEX3 -> código de operación (1=+,2=-,3=*,4=/)
+    //  HEX4 -> nibble actual de la ALU (debug)
     // ----------------------------------------------------
 
-    // HEX0: valor A (desde SPI)
+    // HEX0: valor A
     seven_segment_display u_hex_A (
         .sev_seg_in (A_VAL),
         .sev_seg_out(HEX0)
     );
 
-    // HEX1: B fijo = 2
+    // HEX1: valor B
     seven_segment_display u_hex_B (
         .sev_seg_in (B_VAL),
         .sev_seg_out(HEX1)
     );
 
-    // HEX2: resultado de la suma A+B
-    seven_segment_display u_hex_SUM (
-        .sev_seg_in (sum_res_nib),
+    // HEX2: resultado de la operación de este comando (suma)
+    seven_segment_display u_hex_RES (
+        .sev_seg_in (result_nib),
         .sev_seg_out(HEX2)
     );
 
-    // HEX3: resultado de la resta A-B
-    seven_segment_display u_hex_SUB (
-        .sev_seg_in (sub_res_nib),
+    // HEX3: código de la operación (1=+,2=-,3=*,4=/)
+    seven_segment_display u_hex_OP (
+        .sev_seg_in (op_code),
         .sev_seg_out(HEX3)
     );
 
@@ -236,5 +321,76 @@ module top_program (
         .sev_seg_in (alu_result_out[3:0]),
         .sev_seg_out(HEX4)
     );
+
+    // ====================================================
+    //                  BLOQUE VGA
+    // ====================================================
+
+    // Reloj de píxel 25 MHz (divisor /2 del CLOCK_50)
+    logic clk_pix;
+
+    always_ff @(posedge CLOCK_50 or posedge reset) begin
+        if (reset)
+            clk_pix <= 1'b0;
+        else
+            clk_pix <= ~clk_pix;
+    end
+
+    // Señales VGA de posición y sincronía
+    logic [9:0] vga_x, vga_y;
+    logic       vga_visible;
+
+    vga_controller u_vga_ctrl (
+        .clk_25MHz (clk_pix),
+        .reset     (reset),
+        .x         (vga_x),
+        .y         (vga_y),
+        .hsync     (VGA_HS),
+        .vsync     (VGA_VS),
+        .visible   (vga_visible)
+    );
+
+    // Valores para el módulo de texto/barras (8 bits)
+    logic [7:0] vga_A;
+    logic [7:0] vga_B;
+    logic [7:0] vga_sum;
+    logic [7:0] vga_sub;
+    logic [7:0] vga_mul;
+    logic [7:0] vga_div;
+
+    // Expandimos el nibble (0–15) a 8 bits
+    assign vga_A = {4'd0, A_VAL};
+    assign vga_B = {4'd0, B_VAL};
+
+    // Operaciones directas para la visualización VGA
+    assign vga_sum = vga_A + vga_B;
+    assign vga_sub = vga_A - vga_B;
+    assign vga_mul = vga_A * vga_B;
+    assign vga_div = (vga_B != 8'd0) ? (vga_A / vga_B) : 8'd0;
+
+    // Colores VGA
+    logic [3:0] vga_r_int, vga_g_int, vga_b_int;
+
+    vga_textgen u_vga_text (
+        .x        (vga_x),
+        .y        (vga_y),
+        .visible  (vga_visible),
+
+        .opA      (vga_A),
+        .opB      (vga_B),
+        .sum_res  (vga_sum),
+        .sub_res  (vga_sub),
+        .mul_res  (vga_mul),
+        .div_res  (vga_div),
+
+        .vga_r    (vga_r_int),
+        .vga_g    (vga_g_int),
+        .vga_b    (vga_b_int)
+    );
+
+    // Conexión a los pines físicos
+    assign VGA_R = vga_r_int;
+    assign VGA_G = vga_g_int;
+    assign VGA_B = vga_b_int;
 
 endmodule
