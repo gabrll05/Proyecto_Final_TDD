@@ -1,6 +1,3 @@
-// ============================================================
-// top_program.sv  (SPI + CPU ARM + 7 segmentos + VGA barras)
-// ============================================================
 module top_program (
     input  logic        CLOCK_50,
     input  logic [3:0]  KEY,      // KEY[0] = reset activo en bajo
@@ -19,12 +16,15 @@ module top_program (
     output logic [6:0]  HEX3,
     output logic [6:0]  HEX4,
 
-    // === VGA ===
-    output logic [3:0]  VGA_R,
-    output logic [3:0]  VGA_G,
-    output logic [3:0]  VGA_B,
+    // === Salidas VGA ===
     output logic        VGA_HS,
-    output logic        VGA_VS
+    output logic        VGA_VS,
+    output logic [7:0]  VGA_R,
+    output logic [7:0]  VGA_G,
+    output logic [7:0]  VGA_B,
+    output logic        VGA_CLK,
+    output logic        VGA_BLANK_N,
+    output logic        VGA_SYNC_N
 );
     // ----------------------------------------------------
     // Reset global y reloj lento del CPU
@@ -265,21 +265,28 @@ module top_program (
     );
 
     // ----------------------------------------------------
-    // Captura de RESULTADO: ahora SIEMPRE tomamos la suma
-    // cuando el PC pasa por la instrucción de ADD (PC=5)
-    // (las otras operaciones igual se ejecutan en el CPU)
+    // Captura de RESULTADOS (ADD, SUB, MUL, DIV)
+    //  PC = 5 -> ADD r2 = A + B
+    //  PC = 6 -> SUB r3 = A - B
+    //  PC = 7 -> MUL r4 = A * B
+    //  PC = 8 -> DIV r5 = A / B
     // ----------------------------------------------------
-    logic [3:0] result_nib;
+    logic [3:0] sum_nib, sub_nib, mul_nib, div_nib;
 
     always_ff @(posedge clk_cpu or posedge cpu_reset) begin
         if (cpu_reset) begin
-            result_nib <= 4'd0;
+            sum_nib <= 4'd0;
+            sub_nib <= 4'd0;
+            mul_nib <= 4'd0;
+            div_nib <= 4'd0;
         end else begin
-            if (pc_dbg == 8'd5) begin
-                // instrucción de suma en el programa
-                result_nib <= alu_result_out[3:0];
-            end
-            // en cualquier otro PC, mantenemos el valor anterior
+            case (pc_dbg)
+                8'd5: sum_nib <= alu_result_out[3:0]; // suma
+                8'd6: sub_nib <= alu_result_out[3:0]; // resta
+                8'd7: mul_nib <= alu_result_out[3:0]; // mul
+                8'd8: div_nib <= alu_result_out[3:0]; // div
+                default: ; // mantiene valores
+            endcase
         end
     end
 
@@ -288,8 +295,8 @@ module top_program (
     //  HEX0 -> A
     //  HEX1 -> B
     //  HEX2 -> resultado de la suma
-    //  HEX3 -> código de operación (1=+,2=-,3=*,4=/)
-    //  HEX4 -> nibble actual de la ALU (debug)
+    //  HEX3 -> código de operación
+    //  HEX4 -> nibble actual de la ALU (carrusel del programa)
     // ----------------------------------------------------
 
     // HEX0: valor A
@@ -304,9 +311,9 @@ module top_program (
         .sev_seg_out(HEX1)
     );
 
-    // HEX2: resultado de la operación de este comando (suma)
+    // HEX2: suma
     seven_segment_display u_hex_RES (
-        .sev_seg_in (result_nib),
+        .sev_seg_in (sum_nib),
         .sev_seg_out(HEX2)
     );
 
@@ -322,75 +329,100 @@ module top_program (
         .sev_seg_out(HEX4)
     );
 
-    // ====================================================
-    //                  BLOQUE VGA
-    // ====================================================
-
-    // Reloj de píxel 25 MHz (divisor /2 del CLOCK_50)
+    // ----------------------------------------------------
+    // VGA: clock de píxel + reset de dominio VGA
+    // ----------------------------------------------------
     logic clk_pix;
-
     always_ff @(posedge CLOCK_50 or posedge reset) begin
-        if (reset)
-            clk_pix <= 1'b0;
-        else
-            clk_pix <= ~clk_pix;
+        if (reset) clk_pix <= 1'b0;
+        else       clk_pix <= ~clk_pix;   // ~25 MHz
     end
 
-    // Señales VGA de posición y sincronía
-    logic [9:0] vga_x, vga_y;
-    logic       vga_visible;
+    assign VGA_CLK     = clk_pix;
+    assign VGA_BLANK_N = 1'b1; // siempre activo
+    assign VGA_SYNC_N  = 1'b0; // no se usa en monitores modernos
 
-    vga_controller u_vga_ctrl (
-        .clk_25MHz (clk_pix),
-        .reset     (reset),
-        .x         (vga_x),
-        .y         (vga_y),
-        .hsync     (VGA_HS),
-        .vsync     (VGA_VS),
-        .visible   (vga_visible)
+    // Reset sincronizado al dominio de píxel
+    logic r1, r2;
+    always_ff @(posedge clk_pix or negedge rst_n) begin
+        if (!rst_n) begin
+            r1 <= 1'b1;
+            r2 <= 1'b1;
+        end else begin
+            r1 <= 1'b0;
+            r2 <= r1;
+        end
+    end
+    wire rst_pix = r2;
+
+    // ----------------------------------------------------
+    // Instancia de vga_controller (timing) + UI
+    // ----------------------------------------------------
+    logic       video_on;
+    logic [11:0] vx, vy;
+    logic        hs_int, vs_int;
+
+    vga_controller #(
+        .H_ACTIVE(640), .V_ACTIVE(480),
+        .H_FP(16), .H_SYNC(96), .H_BP(48),
+        .V_FP(10), .V_SYNC(2),  .V_BP(33),
+        .HS_POL(1'b0), .VS_POL(1'b0)
+    ) u_vga (
+        .clk_pix (clk_pix),
+        .rst     (rst_pix),
+        .hsync   (hs_int),
+        .vsync   (vs_int),
+        .video_on(video_on),
+        .x       (vx),
+        .y       (vy)
     );
 
-    // Valores para el módulo de texto/barras (8 bits)
-    logic [7:0] vga_A;
-    logic [7:0] vga_B;
-    logic [7:0] vga_sum;
-    logic [7:0] vga_sub;
-    logic [7:0] vga_mul;
-    logic [7:0] vga_div;
+    // Registrar HS/VS para salida
+    always_ff @(posedge clk_pix or negedge rst_n) begin
+        if (!rst_n) begin
+            VGA_HS <= 1'b1;
+            VGA_VS <= 1'b1;
+        end else begin
+            VGA_HS <= hs_int;
+            VGA_VS <= vs_int;
+        end
+    end
 
-    // Expandimos el nibble (0–15) a 8 bits
-    assign vga_A = {4'd0, A_VAL};
-    assign vga_B = {4'd0, B_VAL};
+    // UI de calculadora
+    logic [7:0] ui_r, ui_g, ui_b;
 
-    // Operaciones directas para la visualización VGA
-    assign vga_sum = vga_A + vga_B;
-    assign vga_sub = vga_A - vga_B;
-    assign vga_mul = vga_A * vga_B;
-    assign vga_div = (vga_B != 8'd0) ? (vga_A / vga_B) : 8'd0;
+    vga_calc_ui u_vga_calc_ui (
+        .x       (vx),
+        .y       (vy),
+        .video_on(video_on),
 
-    // Colores VGA
-    logic [3:0] vga_r_int, vga_g_int, vga_b_int;
+        .A_nib   (A_VAL),
+        .B_nib   (B_VAL),
+        .sum_nib (sum_nib),
+        .sub_nib (sub_nib),
+        .mul_nib (mul_nib),
+        .div_nib (div_nib),
 
-    vga_textgen u_vga_text (
-        .x        (vga_x),
-        .y        (vga_y),
-        .visible  (vga_visible),
-
-        .opA      (vga_A),
-        .opB      (vga_B),
-        .sum_res  (vga_sum),
-        .sub_res  (vga_sub),
-        .mul_res  (vga_mul),
-        .div_res  (vga_div),
-
-        .vga_r    (vga_r_int),
-        .vga_g    (vga_g_int),
-        .vga_b    (vga_b_int)
+        .vga_r   (ui_r),
+        .vga_g   (ui_g),
+        .vga_b   (ui_b)
     );
 
-    // Conexión a los pines físicos
-    assign VGA_R = vga_r_int;
-    assign VGA_G = vga_g_int;
-    assign VGA_B = vga_b_int;
+    // Registro de color de salida
+    always_ff @(posedge clk_pix or negedge rst_n) begin
+        if (!rst_n) begin
+            VGA_R <= 8'h00;
+            VGA_G <= 8'h00;
+            VGA_B <= 8'h00;
+        end else if (video_on) begin
+            VGA_R <= ui_r;
+            VGA_G <= ui_g;
+            VGA_B <= ui_b;
+        end else begin
+            VGA_R <= 8'h00;
+            VGA_G <= 8'h00;
+            VGA_B <= 8'h00;
+        end
+    end
 
 endmodule

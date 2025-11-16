@@ -1,169 +1,444 @@
-`timescale 1ns/1ps
+module top_program (
+    input  logic        CLOCK_50,
+    input  logic [3:0]  KEY,      // KEY[0] = reset activo en bajo
 
-module tb_top_program;
+    // === Pines SPI ===
+    input  logic        mosi,
+    input  logic        sck,
+    input  logic        ss,
+    input  logic        req,
+    output logic        ack,
 
-    // Señales del top
-    logic        CLOCK_50;
-    logic [3:0]  KEY;
-    logic        mosi, sck, ss, req;
-    logic        ack;
-    logic [6:0]  HEX0, HEX1, HEX2, HEX3, HEX4;
+    // === Displays 7 segmentos (DE10 tiene 5) ===
+    output logic [6:0]  HEX0,
+    output logic [6:0]  HEX1,
+    output logic [6:0]  HEX2,
+    output logic [6:0]  HEX3,
+    output logic [6:0]  HEX4,
 
-    // Instancia del DUT
-    top_program dut (
-        .CLOCK_50 (CLOCK_50),
-        .KEY      (KEY),
-        .mosi     (mosi),
-        .sck      (sck),
-        .ss       (ss),
-        .req      (req),
-        .ack      (ack),
-        .HEX0     (HEX0),
-        .HEX1     (HEX1),
-        .HEX2     (HEX2),
-        .HEX3     (HEX3),
-        .HEX4     (HEX4)
+    // === Señales VGA ===
+    output logic        VGA_HS,
+    output logic        VGA_VS,
+    output logic [7:0]  VGA_R,
+    output logic [7:0]  VGA_G,
+    output logic [7:0]  VGA_B,
+    output logic        VGA_CLK,
+    output logic        VGA_BLANK_N,
+    output logic        VGA_SYNC_N
+);
+    // ----------------------------------------------------
+    // Reset global y reloj lento del CPU
+    // ----------------------------------------------------
+    logic clk_cpu;
+    logic rst_n;   // del botón, activo en bajo
+    logic reset;   // interno, activo en alto
+
+    assign rst_n = KEY[0];   // KEY[0]=0 → reset apretado
+    assign reset = ~rst_n;   // reset interno alto cuando KEY[0]=0
+
+    // Divisor de reloj (CPU más lento para poder ver en hex)
+    clock_divider u_div (
+        .clk_in (CLOCK_50),
+        .rst_n  (rst_n),     // reset activo en bajo
+        .clk_out(clk_cpu)
     );
 
-    // =====================================================
-    // 1) Reloj principal
-    // =====================================================
-    initial begin
-        CLOCK_50 = 0;
-        forever #10 CLOCK_50 = ~CLOCK_50;  // periodo 20ns
-    end
+    // ----------------------------------------------------
+    // SPI: recibe un nibble (4 bits) + ACK de handshake
+    // ----------------------------------------------------
+    logic [3:0] spi_data_raw;
+    logic       spi_ack_raw;
 
-    // =====================================================
-    // 2) FORZAR clk_cpu = CLOCK_50 en simulación
-    //    (para no esperar el divisor gigante)
-    // =====================================================
-    initial begin
-        // Esperamos a que el diseño esté inicializado
-        #1;
-        force dut.clk_cpu = CLOCK_50;
-    end
+    SPI_io u_spi (
+        .rst                  (rst_n),          // rst_n activo en bajo
+        .mosi                 (mosi),
+        .sck                  (sck),
+        .req                  (req),
+        .ss                   (ss),
+        .ack                  (spi_ack_raw),
+        .master_data_register (spi_data_raw)
+    );
 
-    // =====================================================
-    // 3) Reset y señales iniciales
-    // =====================================================
-    initial begin
-        // Reset activo en bajo: KEY[0] = 0
-        KEY        = 4'b0000;
-        mosi       = 1'b0;
-        sck        = 1'b0;
-        ss         = 1'b1;   // SS inactivo (alto)
-        req        = 1'b0;
+    // ACK sólo lo reenviamos al Arduino (para el handshake)
+    assign ack = spi_ack_raw;
 
-        // Mantener reset un rato
-        #100;
-        KEY[0] = 1'b1;   // quitar reset
-        req    = 1'b1;   // sesión "activa" para el SPI_io
-    end
+    // ----------------------------------------------------
+    // Dominio rápido (CLOCK_50): detectar fin de nibble
+    // usando flanco de subida de SS
+    // ----------------------------------------------------
+    logic       ss_sync0, ss_sync1, ss_prev;
+    logic       ss_rise;
+    logic [3:0] spi_data_fast;
 
-    // =====================================================
-    // 4) Tarea: enviar un nibble por SPI (similar al Arduino)
-    //     - MSB primero
-    //     - ss=0 durante el envío
-    //     - sck sube y baja en cada bit
-    // =====================================================
-    task automatic send_nibble(input [3:0] val);
-        integer i;
-        begin
-            ss = 1'b0;   // activar esclavo
-            #20;
-            for (i = 3; i >= 0; i = i - 1) begin
-                mosi = val[i];
-                #5;
-                sck = 1'b1;
-                #10;
-                sck = 1'b0;
-                #5;
+    always_ff @(posedge CLOCK_50 or posedge reset) begin
+        if (reset) begin
+            ss_sync0      <= 1'b1;
+            ss_sync1      <= 1'b1;
+            ss_prev       <= 1'b1;
+            ss_rise       <= 1'b0;
+            spi_data_fast <= 4'd0;
+        end else begin
+            // Sincronizar SS al reloj de 50 MHz
+            ss_sync0 <= ss;
+            ss_sync1 <= ss_sync0;
+
+            // Detectar flanco de subida de SS (0 -> 1)
+            ss_rise <= ss_sync1 & ~ss_prev;
+            ss_prev <= ss_sync1;
+
+            if (ss_rise) begin
+                // Cuando SS sube, el nibble ya fue shift-eado en md
+                spi_data_fast <= spi_data_raw;
             end
-            ss = 1'b1;   // desactivar esclavo → flanco de subida de SS
-            #40;         // pequeño tiempo entre nibbles
         end
-    endtask
+    end
 
-    // =====================================================
-    // 5) Tarea: enviar expresión A op B
-    //    op_code:
-    //      1 = '+'
-    //      2 = '-'
-    //      3 = '*'
-    //      4 = '/'
-    // =====================================================
-    task automatic send_expr(input [3:0] A, input [3:0] op, input [3:0] B);
-        begin
-            $display("\n=== Enviando expresión: A=%0d, op=%0d, B=%0d @t=%0t ===",
-                     A, op, B, $time);
-            send_nibble(A);
-            send_nibble(op);
-            send_nibble(B);
+    // ----------------------------------------------------
+    // Sincronizar nibble al dominio del CPU (clk_cpu)
+    // y detectar CAMBIO de nibble (nuevo dato)
+    // ----------------------------------------------------
+    logic [3:0] nibble_sync0, nibble_sync1, nibble_last;
+    logic       new_word_cpu;
+
+    always_ff @(posedge clk_cpu or posedge reset) begin
+        if (reset) begin
+            nibble_sync0 <= 4'd0;
+            nibble_sync1 <= 4'd0;
+            nibble_last  <= 4'd0;
+            new_word_cpu <= 1'b0;
+        end else begin
+            // doble sincronización del dato desde el dominio de CLOCK_50
+            nibble_sync0 <= spi_data_fast;
+            nibble_sync1 <= nibble_sync0;
+
+            // si cambió el nibble estable → nuevo "word" recibido
+            if (nibble_sync1 != nibble_last) begin
+                nibble_last  <= nibble_sync1;
+                new_word_cpu <= 1'b1;   // pulso de 1 ciclo
+            end else begin
+                new_word_cpu <= 1'b0;
+            end
         end
-    endtask
-
-    // =====================================================
-    // 6) Secuencia de prueba
-    // =====================================================
-    initial begin
-        // Esperar a que salga de reset y se estabilice
-        #500;
-
-        // Enviar 5 + 2  (op_code=1)
-        send_expr(4'd5, 4'd1, 4'd2);
-
-        // Dar tiempo para que el CPU ejecute el programa
-        // (PC recorra 0..N, llegue a las instrucciones de suma/resta)
-        #5000;
-
-        // Enviar 8 - 3  (op_code=2)
-        send_expr(4'd8, 4'd2, 4'd3);
-
-        #5000;
-
-        // Enviar 4 * 3  (op_code=3)
-        send_expr(4'd4, 4'd3, 4'd3);
-
-        #5000;
-
-        // Enviar 8 / 2  (op_code=4)
-        send_expr(4'd8, 4'd4, 4'd2);
-
-        #10000;
-
-        $display("\n=== FIN DE SIMULACIÓN ===");
-        $finish;
     end
 
-    // =====================================================
-    // 7) Monitor de debug en cada flanco de clk_cpu
-    //    Mostramos:
-    //      - PC
-    //      - A_VAL, B_VAL, op_code
-    //      - alu_result_out
-    //      - result_nib
-    //      - got_cmd, in_state, load_state
-    // =====================================================
-    always @(posedge dut.clk_cpu) begin
-        $display("t=%0t | PC=%0d | A=%0d B=%0d op=%0d | ALU=%h | RES_NIB=%0d | got_cmd=%b | in_state=%0d | load_state=%0d",
-                 $time,
-                 dut.pc_dbg,
-                 dut.A_VAL,
-                 dut.B_VAL,
-                 dut.op_code,
-                 dut.alu_result_out,
-                 dut.result_nib,
-                 dut.got_cmd,
-                 dut.in_state,
-                 dut.load_state);
+    // ----------------------------------------------------
+    // FSM de entrada: recibir A, luego op, luego B
+    // ----------------------------------------------------
+    typedef enum logic [1:0] {
+        IN_WAIT_A  = 2'd0,
+        IN_WAIT_OP = 2'd1,
+        IN_WAIT_B  = 2'd2
+    } input_state_t;
+
+    input_state_t in_state;
+    logic         got_cmd;      // al menos un comando completo recibido
+    logic [3:0]   A_VAL;        // operando A
+    logic [3:0]   B_VAL;        // operando B
+    logic [3:0]   op_code;      // 1=+, 2=-, 3=*, 4=/
+
+    always_ff @(posedge clk_cpu or posedge reset) begin
+        if (reset) begin
+            in_state <= IN_WAIT_A;
+            A_VAL    <= 4'd0;
+            B_VAL    <= 4'd0;
+            op_code  <= 4'd0;   // en reset mostrar 0
+            got_cmd  <= 1'b0;
+        end else begin
+            if (new_word_cpu) begin
+                case (in_state)
+                    IN_WAIT_A: begin
+                        A_VAL    <= nibble_last;      // primer nibble → A
+                        in_state <= IN_WAIT_OP;
+                    end
+                    IN_WAIT_OP: begin
+                        op_code  <= nibble_last;      // segundo nibble → op_code
+                        in_state <= IN_WAIT_B;
+                    end
+                    IN_WAIT_B: begin
+                        B_VAL    <= nibble_last;      // tercer nibble → B
+                        in_state <= IN_WAIT_A;
+                        got_cmd  <= 1'b1;             // ya tenemos A, op, B
+                    end
+                    default: in_state <= IN_WAIT_A;
+                endcase
+            end
+        end
     end
 
-    // =====================================================
-    // 8) (Opcional) monitor de los HEX para ver qué se ve
-    // =====================================================
-    always @(posedge dut.clk_cpu) begin
-        $display("   HEX0(A)=%b HEX1(B)=%b HEX2(RES)=%b HEX3(OP)=%b HEX4(ALU)=%b",
-                 HEX0, HEX1, HEX2, HEX3, HEX4);
+    // Pulso para iniciar carga en RAM cuando terminamos de recibir B
+    logic cmd_start_reg;
+    wire  cmd_start = cmd_start_reg;
+
+    always_ff @(posedge clk_cpu or posedge reset) begin
+        if (reset) begin
+            cmd_start_reg <= 1'b0;
+        end else begin
+            if (new_word_cpu && (in_state == IN_WAIT_B))
+                cmd_start_reg <= 1'b1;
+            else
+                cmd_start_reg <= 1'b0;
+        end
     end
+
+    // ----------------------------------------------------
+    // FSM para escribir A y B en la RAM interna del CPU
+    // ----------------------------------------------------
+    typedef enum logic [1:0] {
+        LOAD_IDLE = 2'd0,
+        LOAD_A    = 2'd1,
+        LOAD_B    = 2'd2
+    } load_state_t;
+
+    load_state_t load_state;
+
+    always_ff @(posedge clk_cpu or posedge reset) begin
+        if (reset) begin
+            load_state <= LOAD_IDLE;
+        end else begin
+            case (load_state)
+                LOAD_IDLE: begin
+                    if (cmd_start)
+                        load_state <= LOAD_A;   // empieza secuencia de carga
+                end
+                LOAD_A: begin
+                    load_state <= LOAD_B;       // siguiente ciclo: cargar B
+                end
+                LOAD_B: begin
+                    load_state <= LOAD_IDLE;    // termina carga, luego CPU corre
+                end
+                default: load_state <= LOAD_IDLE;
+            endcase
+        end
+    end
+
+    // Señales de escritura externa a la RAM del CPU
+    logic        ext_we_sig;
+    logic [7:0]  ext_addr_sig;
+    logic [31:0] ext_wdata_sig;
+
+    always_comb begin
+        // valores por defecto (no escribir)
+        ext_we_sig    = 1'b0;
+        ext_addr_sig  = 8'd0;
+        ext_wdata_sig = 32'd0;
+
+        case (load_state)
+            LOAD_A: begin
+                // Escribimos A en MEM[10]
+                ext_we_sig    = 1'b1;
+                ext_addr_sig  = 8'd10;
+                ext_wdata_sig = {28'd0, A_VAL};
+            end
+            LOAD_B: begin
+                // Escribimos B en MEM[11]
+                ext_we_sig    = 1'b1;
+                ext_addr_sig  = 8'd11;
+                ext_wdata_sig = {28'd0, B_VAL};
+            end
+            default: ; // nada
+        endcase
+    end
+
+    // CPU en reset mientras:
+    //  - haya reset global
+    //  - aún no haya llegado ningún comando completo (got_cmd=0)
+    //  - estemos en la secuencia de carga (LOAD_A o LOAD_B)
+    logic cpu_reset;
+    assign cpu_reset = reset | (~got_cmd) | (load_state != LOAD_IDLE);
+
+    // ----------------------------------------------------
+    // CPU ARM + interfaz externa a RAM
+    // ----------------------------------------------------
+    logic [31:0] alu_result_out;
+    logic [7:0]  pc_dbg;
+
+    cpu_armv4 u_cpu (
+        .clk           (clk_cpu),
+        .reset         (cpu_reset),
+
+        .ext_we        (ext_we_sig),
+        .ext_addr      (ext_addr_sig),
+        .ext_wdata     (ext_wdata_sig),
+
+        .alu_result_out(alu_result_out),
+        .pc_out        (pc_dbg)
+    );
+
+    // ----------------------------------------------------
+    // Captura de RESULTADOS por operación
+    //  PC = 5 -> ADD r2 = A + B  (op_code=1)
+    //  PC = 6 -> SUB r3 = A - B  (op_code=2)
+    //  PC = 7 -> MUL r4 = A * B  (op_code=3)
+    //  PC = 8 -> DIV r5 = A / B  (op_code=4)
+    // ----------------------------------------------------
+    logic [3:0] result_nib;   // para HEX2 (sólo suma, como antes)
+    logic [3:0] sum_nib;
+    logic [3:0] sub_nib;
+    logic [3:0] mul_nib;
+    logic [3:0] div_nib;
+
+    // Mantenemos result_nib como “resultado de la operación elegida”
+    always_ff @(posedge clk_cpu or posedge cpu_reset) begin
+        if (cpu_reset) begin
+            result_nib <= 4'd0;
+        end else begin
+            case (pc_dbg)
+                8'd5: if (op_code == 4'h1) result_nib <= alu_result_out[3:0]; // suma
+                8'd6: if (op_code == 4'h2) result_nib <= alu_result_out[3:0]; // resta
+                8'd7: if (op_code == 4'h3) result_nib <= alu_result_out[3:0]; // mul
+                8'd8: if (op_code == 4'h4) result_nib <= alu_result_out[3:0]; // div
+                default: ; // mantiene
+            endcase
+        end
+    end
+
+    // Capturamos SIEMPRE los resultados individuales para VGA
+    always_ff @(posedge clk_cpu or posedge cpu_reset) begin
+        if (cpu_reset) begin
+            sum_nib <= 4'd0;
+            sub_nib <= 4'd0;
+            mul_nib <= 4'd0;
+            div_nib <= 4'd0;
+        end else begin
+            case (pc_dbg)
+                8'd5: sum_nib <= alu_result_out[3:0];
+                8'd6: sub_nib <= alu_result_out[3:0];
+                8'd7: mul_nib <= alu_result_out[3:0];
+                8'd8: div_nib <= alu_result_out[3:0];
+                default: ; // mantiene
+            endcase
+        end
+    end
+
+    // ----------------------------------------------------
+    // Displays 7 segmentos
+    //  HEX0 -> A
+    //  HEX1 -> B
+    //  HEX2 -> resultado seleccionado (según op_code)
+    //  HEX3 -> código de operación
+    //  HEX4 -> nibble actual de la ALU (debug)
+    // ----------------------------------------------------
+
+    // HEX0: valor A
+    seven_segment_display u_hex_A (
+        .sev_seg_in (A_VAL),
+        .sev_seg_out(HEX0)
+    );
+
+    // HEX1: valor B
+    seven_segment_display u_hex_B (
+        .sev_seg_in (B_VAL),
+        .sev_seg_out(HEX1)
+    );
+
+    // HEX2: resultado de la operación de este comando
+    seven_segment_display u_hex_RES (
+        .sev_seg_in (result_nib),
+        .sev_seg_out(HEX2)
+    );
+
+    // HEX3: código de la operación (1=+,2=-,3=*,4=/)
+    seven_segment_display u_hex_OP (
+        .sev_seg_in (op_code),
+        .sev_seg_out(HEX3)
+    );
+
+    // HEX4: nibble actual de la ALU (carrusel del programa)
+    seven_segment_display u_hex_ALU (
+        .sev_seg_in (alu_result_out[3:0]),
+        .sev_seg_out(HEX4)
+    );
+
+    // ----------------------------------------------------
+    // VGA: interfaz de calculadora en pantalla
+    // ----------------------------------------------------
+
+    // Pixel clock 25 MHz (divide 50 MHz entre 2)
+    logic clk_pix;
+    always_ff @(posedge CLOCK_50 or negedge rst_n) begin
+        if (!rst_n)
+            clk_pix <= 1'b0;
+        else
+            clk_pix <= ~clk_pix;
+    end
+
+    assign VGA_CLK     = clk_pix;
+    assign VGA_BLANK_N = 1'b1; // siempre activo
+    assign VGA_SYNC_N  = 1'b0; // no usado en la mayoría de monitores VGA
+
+    // Sincronización de reset al dominio de pixel
+    logic rst1_pix, rst2_pix;
+    always_ff @(posedge clk_pix or negedge rst_n) begin
+        if (!rst_n) begin
+            rst1_pix <= 1'b1;
+            rst2_pix <= 1'b1;
+        end else begin
+            rst1_pix <= 1'b0;
+            rst2_pix <= rst1_pix;
+        end
+    end
+    wire rst_pix = rst2_pix;
+
+    // Señales para timing + UI
+    logic        video_on;
+    logic [11:0] vga_x, vga_y;
+    logic [7:0]  ui_r, ui_g, ui_b;
+    logic        hs_int, vs_int;
+
+    // Controlador VGA (timing + blanking)
+    vga_controller #(
+        .H_ACTIVE(640), .V_ACTIVE(480),
+        .H_FP(16), .H_SYNC(96), .H_BP(48),
+        .V_FP(10), .V_SYNC(2),  .V_BP(33),
+        .HS_POL(1'b0), .VS_POL(1'b0),
+        .N_COLOR_BITS(8),
+        .USE_TEST_PATTERN(1'b0)      // usamos imagen de calculadora, no patrón
+    ) u_vga (
+        .clk_pix (clk_pix),
+        .rst     (rst_pix),
+
+        .rgb_in_r(ui_r),
+        .rgb_in_g(ui_g),
+        .rgb_in_b(ui_b),
+
+        .hsync   (hs_int),
+        .vsync   (vs_int),
+        .vga_r   (VGA_R),
+        .vga_g   (VGA_G),
+        .vga_b   (VGA_B),
+
+        .video_on(video_on),
+        .x       (vga_x),
+        .y       (vga_y)
+    );
+
+    // Registro hs/vs a las salidas físicas
+    always_ff @(posedge clk_pix or negedge rst_n) begin
+        if (!rst_n) begin
+            VGA_HS <= 1'b1;
+            VGA_VS <= 1'b1;
+        end else begin
+            VGA_HS <= hs_int;
+            VGA_VS <= vs_int;
+        end
+    end
+
+    // UI de calculadora: A, B, +, -, *, / con su valor debajo
+    vga_calc_ui u_vga_calc_ui (
+        .x       (vga_x),
+        .y       (vga_y),
+        .video_on(video_on),
+
+        .A_nib   (A_VAL),
+        .B_nib   (B_VAL),
+        .sum_nib (sum_nib),
+        .sub_nib (sub_nib),
+        .mul_nib (mul_nib),
+        .div_nib (div_nib),
+
+        .vga_r   (ui_r),
+        .vga_g   (ui_g),
+        .vga_b   (ui_b)
+    );
 
 endmodule

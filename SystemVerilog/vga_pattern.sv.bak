@@ -1,0 +1,56 @@
+// ============================================================
+// vga_pattern.sv
+// Genera barras de colores para probar la salida VGA
+// ============================================================
+module vga_pattern (
+    input  logic [9:0] x,
+    input  logic [9:0] y,
+    input  logic       video_on,
+
+    output logic [3:0] vga_r,
+    output logic [3:0] vga_g,
+    output logic [3:0] vga_b
+);
+
+    always_comb begin
+        // Por defecto, negro
+        vga_r = 4'h0;
+        vga_g = 4'h0;
+        vga_b = 4'h0;
+
+        if (video_on) begin
+            // Dividimos el ancho 640 en 8 barras de 80 píxeles
+            if (x < 10'd80) begin
+                // Rojo
+                vga_r = 4'hF; vga_g = 4'h0; vga_b = 4'h0;
+            end else if (x < 10'd160) begin
+                // Verde
+                vga_r = 4'h0; vga_g = 4'hF; vga_b = 4'h0;
+            end else if (x < 10'd240) begin
+                // Azul
+                vga_r = 4'h0; vga_g = 4'h0; vga_b = 4'hF;
+            end else if (x < 10'd320) begin
+                // Amarillo
+                vga_r = 4'hF; vga_g = 4'hF; vga_b = 4'h0;
+            end else if (x < 10'd400) begin
+                // Cian
+                vga_r = 4'h0; vga_g = 4'hF; vga_b = 4'hF;
+            end else if (x < 10'd480) begin
+                // Magenta
+                vga_r = 4'hF; vga_g = 4'h0; vga_b = 4'hF;
+            end else if (x < 10'd560) begin
+                // Blanco
+                vga_r = 4'hF; vga_g = 4'hF; vga_b = 4'hF;
+            end else begin
+                // Gris
+                vga_r = 4'h8; vga_g = 4'h8; vga_b = 4'h8;
+            end
+
+            // Opcional: banda negra arriba/abajo para enmarcar
+            if (y < 10'd20 || y > 10'd460) begin
+                vga_r = 4'h0; vga_g = 4'h0; vga_b = 4'h0;
+            end
+        end
+    end
+
+endmodule

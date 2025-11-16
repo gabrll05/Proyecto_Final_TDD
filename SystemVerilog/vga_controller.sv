@@ -1,48 +1,44 @@
-module vga_controller (
-    input  logic clk_25MHz,       // reloj de píxel
-    input  logic reset,
-    output logic [9:0] x,         // coordenada horizontal
-    output logic [9:0] y,         // coordenada vertical
-    output logic hsync, vsync,
-    output logic visible          // 1 cuando (x,y) está dentro de pantalla
+// ============================================================
+// vga_controller.sv
+// Wrapper de timing VGA 640x480@60Hz (25 MHz pixel clock aprox)
+// Solo genera hsync, vsync, video_on, x, y
+// ============================================================
+module vga_controller #(
+    parameter int H_ACTIVE = 640,
+    parameter int V_ACTIVE = 480,
+    parameter int H_FP  = 16,
+    parameter int H_SYNC= 96,
+    parameter int H_BP  = 48,
+    parameter int V_FP  = 10,
+    parameter int V_SYNC= 2,
+    parameter int V_BP  = 33,
+    parameter bit HS_POL= 1'b0,
+    parameter bit VS_POL= 1'b0
+)(
+    input  logic        clk_pix,
+    input  logic        rst,
+    output logic        hsync,
+    output logic        vsync,
+    output logic        video_on,
+    output logic [11:0] x,
+    output logic [11:0] y
 );
 
-    // Parámetros VGA 640x480 @60Hz
-    parameter H_VISIBLE = 640;
-    parameter H_FRONT   = 16;
-    parameter H_SYNC    = 96;
-    parameter H_BACK    = 48;
-    parameter H_TOTAL   = 800;
-
-    parameter V_VISIBLE = 480;
-    parameter V_FRONT   = 10;
-    parameter V_SYNC    = 2;
-    parameter V_BACK    = 33;
-    parameter V_TOTAL   = 525;
-
-    // Contadores horizontales y verticales
-    always_ff @(posedge clk_25MHz or posedge reset) begin
-        if (reset) begin
-            x <= 0;
-            y <= 0;
-        end else begin
-            if (x == H_TOTAL - 1) begin
-                x <= 0;
-                if (y == V_TOTAL - 1)
-                    y <= 0;
-                else
-                    y <= y + 1;
-            end else begin
-                x <= x + 1;
-            end
-        end
-    end
-
-    // Sincronización H y V
-    assign hsync   = ~((x >= (H_VISIBLE + H_FRONT)) && (x < (H_VISIBLE + H_FRONT + H_SYNC)));
-    assign vsync   = ~((y >= (V_VISIBLE + V_FRONT)) && (y < (V_VISIBLE + V_FRONT + V_SYNC)));
-
-    // Zona visible
-    assign visible = (x < H_VISIBLE) && (y < V_VISIBLE);
+    vga_timing #(
+        .H_ACTIVE(H_ACTIVE), .V_ACTIVE(V_ACTIVE),
+        .H_FP(H_FP), .H_SYNC(H_SYNC), .H_BP(H_BP),
+        .V_FP(V_FP), .V_SYNC(V_SYNC), .V_BP(V_BP),
+        .HS_POL(HS_POL), .VS_POL(VS_POL)
+    ) u_timing (
+        .clk_pix (clk_pix),
+        .rst     (rst),
+        .hsync   (hsync),
+        .vsync   (vsync),
+        .video_on(video_on),
+        .x       (x),
+        .y       (y),
+        .line_tick(),
+        .frame_tick()
+    );
 
 endmodule

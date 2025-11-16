@@ -1,126 +1,107 @@
 // ============================================================
 // vga_calc_bars.sv
-// Dibuja barras horizontales con A, B, SUMA, RESTA, MUL, DIV
-// sobre las señales de timing generadas por vga_timing
+// 6 barras verticales con intensidad según A, B, SUM, SUB, MUL, DIV
+//  Barra 0: A      (rojo)
+//  Barra 1: B      (verde)
+//  Barra 2: SUMA   (blanco)
+//  Barra 3: RESTA  (cian)
+//  Barra 4: MULT   (magenta)
+//  Barra 5: DIV    (amarillo)
 // ============================================================
+
 module vga_calc_bars (
-    input  logic        clk_pix,    // reloj de píxel (25 MHz ideal)
-    input  logic        reset,
+    input  logic        clk_pix,
+    input  logic        rst,         // activo en alto
+    input  logic        video_on,
+    input  logic [11:0] x,
+    input  logic [11:0] y,   // y no lo usamos por ahora
 
-    // Valores de la calculadora (solo usamos nibble bajo)
-    input  logic [3:0]  val_A,
-    input  logic [3:0]  val_B,
-    input  logic [3:0]  val_SUM,
-    input  logic [3:0]  val_RES,
-    input  logic [3:0]  val_MUL,
-    input  logic [3:0]  val_DIV,
+    input  logic [3:0]  A_val,
+    input  logic [3:0]  B_val,
+    input  logic [3:0]  SUM_val,
+    input  logic [3:0]  SUB_val,
+    input  logic [3:0]  MUL_val,
+    input  logic [3:0]  DIV_val,
 
-    // Salida VGA
-    output logic [3:0]  vga_r,
-    output logic [3:0]  vga_g,
-    output logic [3:0]  vga_b,
-    output logic        vga_hs,
-    output logic        vga_vs
+    output logic [7:0]  vga_r,
+    output logic [7:0]  vga_g,
+    output logic [7:0]  vga_b
 );
+    localparam int H_ACTIVE  = 640;
+    localparam int NUM_BARS  = 6;
+    localparam int BAR_WIDTH = H_ACTIVE / NUM_BARS;
 
-    // --------------------------------------------------------
-    // 1) Timing VGA (usamos tu vga_timing.sv que ya funciona)
-    // --------------------------------------------------------
-    logic [9:0] x, y;
-    logic       video_on;
-    logic       line_tick, frame_tick; // no los usamos, pero salen del timing
-
-    vga_timing u_vga_timing (
-        .clk_pix   (clk_pix),
-        .rst       (reset),
-        .x         (x),
-        .y         (y),
-        .hsync     (vga_hs),
-        .vsync     (vga_vs),
-        .video_on  (video_on),
-        .line_tick (line_tick),
-        .frame_tick(frame_tick)
-    );
-
-    // --------------------------------------------------------
-    // 2) Generador de barras a partir de los valores
-    //    Cada barra ocupa ~80 pixeles verticales
-    //    y su largo es valor * 32 (máx 15*32 = 480 < 640)
-    // --------------------------------------------------------
-    logic [9:0] bar_width;
-    logic [3:0] r, g, b;
+    logic [7:0] r_next, g_next, b_next;
+    logic [3:0] val_sel;
+    logic [2:0] bar_index;
+    logic [7:0] intensity;
 
     always_comb begin
-        // Fondo negro por defecto
-        r = 4'd0;
-        g = 4'd0;
-        b = 4'd0;
+        // Valores por defecto para evitar latches
+        r_next    = 8'h00;
+        g_next    = 8'h00;
+        b_next    = 8'h00;
+        val_sel   = 4'd0;
+        bar_index = 3'd0;
+        intensity = 8'd0;
 
         if (video_on) begin
-            // Fondo gris muy oscuro para distinguir que hay señal
-            r = 4'd1;
-            g = 4'd1;
-            b = 4'd1;
+            // Seleccionar barra según x
+            if      (x < BAR_WIDTH*1) bar_index = 3'd0;  // A
+            else if (x < BAR_WIDTH*2) bar_index = 3'd1;  // B
+            else if (x < BAR_WIDTH*3) bar_index = 3'd2;  // SUMA
+            else if (x < BAR_WIDTH*4) bar_index = 3'd3;  // RESTA
+            else if (x < BAR_WIDTH*5) bar_index = 3'd4;  // MUL
+            else                      bar_index = 3'd5;  // DIV
 
-            // A: y =   0 ..  79
-            if (y < 10'd80) begin
-                bar_width = {val_A, 5'd0}; // val_A * 32
-                if (x < bar_width) begin
-                    r = 4'd0;
-                    g = 4'd15; // verde brillante
-                    b = 4'd0;
+            // Seleccionar valor de cada barra
+            unique case (bar_index)
+                3'd0: val_sel = A_val;
+                3'd1: val_sel = B_val;
+                3'd2: val_sel = SUM_val;
+                3'd3: val_sel = SUB_val;
+                3'd4: val_sel = MUL_val;
+                default: val_sel = DIV_val;
+            endcase
+
+            // Mapear nibble (0-15) a intensidad 8 bits (00/11/22/.../FF)
+            intensity = {val_sel, val_sel};
+
+            // Colores según barra
+            unique case (bar_index)
+                3'd0: begin // A: rojo
+                    r_next = intensity; g_next = 8'h00;      b_next = 8'h00;
                 end
-            end
-            // B: y =  80 .. 159
-            else if (y < 10'd160) begin
-                bar_width = {val_B, 5'd0};
-                if (x < bar_width) begin
-                    r = 4'd0;
-                    g = 4'd0;
-                    b = 4'd15; // azul
+                3'd1: begin // B: verde
+                    r_next = 8'h00;      g_next = intensity; b_next = 8'h00;
                 end
-            end
-            // SUMA: y = 160 .. 239
-            else if (y < 10'd240) begin
-                bar_width = {val_SUM, 5'd0};
-                if (x < bar_width) begin
-                    r = 4'd15; // rojo
-                    g = 4'd15; // + verde = amarillo
-                    b = 4'd0;
+                3'd2: begin // SUMA: blanco
+                    r_next = intensity; g_next = intensity; b_next = intensity;
                 end
-            end
-            // RESTA: y = 240 .. 319
-            else if (y < 10'd320) begin
-                bar_width = {val_RES, 5'd0};
-                if (x < bar_width) begin
-                    r = 4'd15; // rojo
-                    g = 4'd0;
-                    b = 4'd15; // magenta
+                3'd3: begin // RESTA: cian
+                    r_next = 8'h00;      g_next = intensity; b_next = intensity;
                 end
-            end
-            // MUL: y = 320 .. 399
-            else if (y < 10'd400) begin
-                bar_width = {val_MUL, 5'd0};
-                if (x < bar_width) begin
-                    r = 4'd0;
-                    g = 4'd15; // verde
-                    b = 4'd15; // cyan
+                3'd4: begin // MUL: magenta
+                    r_next = intensity; g_next = 8'h00;      b_next = intensity;
                 end
-            end
-            // DIV: y = 400 .. 479
-            else if (y < 10'd480) begin
-                bar_width = {val_DIV, 5'd0};
-                if (x < bar_width) begin
-                    r = 4'd15; // blanco (r=g=b)
-                    g = 4'd15;
-                    b = 4'd15;
+                default: begin // DIV: amarillo
+                    r_next = intensity; g_next = intensity; b_next = 8'h00;
                 end
-            end
+            endcase
         end
     end
 
-    assign vga_r = r;
-    assign vga_g = g;
-    assign vga_b = b;
+    // Registramos para que la imagen sea estable
+    always_ff @(posedge clk_pix) begin
+        if (rst) begin
+            vga_r <= 8'h00;
+            vga_g <= 8'h00;
+            vga_b <= 8'h00;
+        end else begin
+            vga_r <= r_next;
+            vga_g <= g_next;
+            vga_b <= b_next;
+        end
+    end
 
 endmodule

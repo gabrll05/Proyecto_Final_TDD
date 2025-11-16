@@ -1,0 +1,28 @@
+module vga_colorbars (
+    input  logic [9:0] x,
+    input  logic [9:0] y,
+    input  logic visible,
+    output logic [3:0] vga_r,
+    output logic [3:0] vga_g,
+    output logic [3:0] vga_b
+);
+
+    always_comb begin
+        if (!visible) begin
+            vga_r = 0;
+            vga_g = 0;
+            vga_b = 0;
+        end else begin
+            case (x[9:6])       // divide la pantalla en 16 barras
+                4'h0: begin vga_r=4'hF; vga_g=0;     vga_b=0;     end // Rojo
+                4'h1: begin vga_r=0;     vga_g=4'hF; vga_b=0;     end // Verde
+                4'h2: begin vga_r=0;     vga_g=0;     vga_b=4'hF; end // Azul
+                4'h3: begin vga_r=4'hF; vga_g=4'hF; vga_b=0;     end // Amarillo
+                4'h4: begin vga_r=4'hF; vga_g=0;     vga_b=4'hF; end // Magenta
+                4'h5: begin vga_r=0;     vga_g=4'hF; vga_b=4'hF; end // Cyan
+                4'h6: begin vga_r=4'hF; vga_g=4'hF; vga_b=4'hF; end // Blanco
+                default: begin vga_r=x[9:6]; vga_g=x[9:6]; vga_b=x[9:6]; end
+            endcase
+        end
+    end
+endmodule

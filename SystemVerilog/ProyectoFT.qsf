@@ -65,7 +65,6 @@ set_global_assignment -name SYSTEMVERILOG_FILE cpu_armv4.sv
 set_global_assignment -name SYSTEMVERILOG_FILE rom_program.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ram_data.sv
 set_global_assignment -name SYSTEMVERILOG_FILE vga_controller.sv
-set_global_assignment -name SYSTEMVERILOG_FILE vga_textgen.sv
 set_global_assignment -name SYSTEMVERILOG_FILE SPI_io.sv
 set_global_assignment -name SYSTEMVERILOG_FILE top_fpga_cpu_test.sv
 set_global_assignment -name SYSTEMVERILOG_FILE SPI_top.sv
@@ -87,15 +86,7 @@ set_global_assignment -name SYSTEMVERILOG_FILE restador.sv
 set_global_assignment -name SYSTEMVERILOG_FILE multiplicador.sv
 set_global_assignment -name SYSTEMVERILOG_FILE logic_ops.sv
 set_global_assignment -name SYSTEMVERILOG_FILE alu_core.sv
-set_location_assignment PIN_AA24 -to master_data_reg[0]
-set_location_assignment PIN_AB23 -to master_data_reg[1]
-set_location_assignment PIN_AC23 -to master_data_reg[2]
-set_location_assignment PIN_AD24 -to master_data_reg[3]
 set_global_assignment -name SYSTEMVERILOG_FILE top_program.sv
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ack
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sck
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to req
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to mosi
 set_location_assignment PIN_W17 -to HEX0[6]
 set_location_assignment PIN_V18 -to HEX0[5]
 set_location_assignment PIN_AG17 -to HEX0[4]
@@ -136,10 +127,6 @@ set_location_assignment PIN_AJ4 -to KEY[3]
 set_location_assignment PIN_AK4 -to KEY[2]
 set_location_assignment PIN_AA14 -to KEY[1]
 set_location_assignment PIN_AA15 -to KEY[0]
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name SYSTEMVERILOG_FILE tb_top_program.sv
 set_global_assignment -name EDA_TEST_BENCH_NAME tb_top_program -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id tb_top_program
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME tb_top_program -section_id tb_top_program
@@ -159,5 +146,91 @@ set_location_assignment PIN_AJ27 -to VGA_R[3]
 set_location_assignment PIN_AK27 -to VGA_R[2]
 set_location_assignment PIN_AK28 -to VGA_R[1]
 set_location_assignment PIN_AK29 -to VGA_R[0]
+set_global_assignment -name SYSTEMVERILOG_FILE top_vga_test.sv
+set_location_assignment PIN_AK16 -to VGA_B[7]
+set_location_assignment PIN_AJ16 -to VGA_B[6]
+set_location_assignment PIN_AJ17 -to VGA_B[5]
+set_location_assignment PIN_AH19 -to VGA_B[4]
+set_location_assignment PIN_AK22 -to VGA_BLANK_N
+set_location_assignment PIN_AK21 -to VGA_CLK
+set_location_assignment PIN_AH23 -to VGA_G[7]
+set_location_assignment PIN_AK23 -to VGA_G[6]
+set_location_assignment PIN_AH24 -to VGA_G[5]
+set_location_assignment PIN_AJ24 -to VGA_G[4]
+set_location_assignment PIN_AJ26 -to VGA_R[7]
+set_location_assignment PIN_AG26 -to VGA_R[6]
+set_location_assignment PIN_AF26 -to VGA_R[5]
+set_location_assignment PIN_AH27 -to VGA_R[4]
+set_global_assignment -name SYSTEMVERILOG_FILE vga_colorbars.sv
+set_global_assignment -name SYSTEMVERILOG_FILE vga_timing.sv
+set_location_assignment PIN_AJ22 -to VGA_SYNC_N
 set_global_assignment -name SYSTEMVERILOG_FILE vga_calc_bars.sv
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ack
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to sck
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to req
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to mosi
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_HS
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_VS
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_BLANK_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_CLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_SYNC_N
+set_global_assignment -name SYSTEMVERILOG_FILE vga_calc_ui.sv
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
