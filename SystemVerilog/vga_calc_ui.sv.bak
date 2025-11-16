@@ -1,0 +1,272 @@
+// ============================================================
+// vga_calc_ui.sv
+// UI simple de calculadora en VGA:
+//  - Fondo blanco
+//  - Fila de labels: A, B, +, -, *, /
+//  - Debajo: valor de A, B, suma, resta, mul, div (nibbles hex) en dígitos grandes
+// ============================================================
+
+module vga_calc_ui (
+    input  logic [11:0] x,
+    input  logic [11:0] y,
+    input  logic        video_on,
+
+    input  logic [3:0]  A_nib,
+    input  logic [3:0]  B_nib,
+    input  logic [3:0]  sum_nib,
+    input  logic [3:0]  sub_nib,
+    input  logic [3:0]  mul_nib,
+    input  logic [3:0]  div_nib,
+
+    output logic [7:0]  vga_r,
+    output logic [7:0]  vga_g,
+    output logic [7:0]  vga_b
+);
+
+    // --------------------------
+    // Helpers
+    // --------------------------
+    function automatic bit in_rect(
+        input logic [11:0] px,
+        input logic [11:0] py,
+        input int          x0,
+        input int          x1,
+        input int          y0,
+        input int          y1
+    );
+        return (px >= x0 && px < x1 && py >= y0 && py < y1);
+    endfunction
+
+    // Mapa de 7 segmentos: [6]=a,[5]=b,[4]=c,[3]=d,[2]=e,[1]=f,[0]=g
+    function automatic logic [6:0] hex_to_segs(input logic [3:0] v);
+        case (v)
+            4'h0: hex_to_segs = 7'b1111110;
+            4'h1: hex_to_segs = 7'b0110000;
+            4'h2: hex_to_segs = 7'b1101101;
+            4'h3: hex_to_segs = 7'b1111001;
+            4'h4: hex_to_segs = 7'b0110011;
+            4'h5: hex_to_segs = 7'b1011011;
+            4'h6: hex_to_segs = 7'b1011111;
+            4'h7: hex_to_segs = 7'b1110000;
+            4'h8: hex_to_segs = 7'b1111111;
+            4'h9: hex_to_segs = 7'b1111011;
+            4'hA: hex_to_segs = 7'b1110111; // A
+            4'hB: hex_to_segs = 7'b0011111; // b
+            4'hC: hex_to_segs = 7'b1001110; // C
+            4'hD: hex_to_segs = 7'b0111101; // d
+            4'hE: hex_to_segs = 7'b1001111; // E
+            4'hF: hex_to_segs = 7'b1000111; // F
+            default: hex_to_segs = 7'b0000001; // guión
+        endcase
+    endfunction
+
+    // ¿Pixel dentro del dígito 7-seg en (dx,dy)?
+    function automatic bit digit_pixel(
+        input logic [11:0] px,
+        input logic [11:0] py,
+        input int          dx,
+        input int          dy,
+        input logic [6:0]  segs
+    );
+        // tamaño del dígito
+        int W = 40;
+        int H = 70;
+        int TH = 6; // grosor de segmento
+
+        bit hit = 1'b0;
+
+        // Coordenadas relativas
+        int rx = px - dx;
+        int ry = py - dy;
+
+        // Segmentos horizontales
+        if (segs[6]) begin // a - arriba
+            if (in_rect(px, py, dx+8, dx+W-8, dy, dy+TH))
+                hit = 1'b1;
+        end
+        if (segs[3]) begin // d - medio
+            int my0 = dy + (H/2) - (TH/2);
+            int my1 = my0 + TH;
+            if (in_rect(px, py, dx+8, dx+W-8, my0, my1))
+                hit = 1'b1;
+        end
+        if (segs[0]) begin // g - abajo
+            if (in_rect(px, py, dx+8, dx+W-8, dy+H-TH, dy+H))
+                hit = 1'b1;
+        end
+
+        // Segmentos verticales
+        if (segs[5]) begin // b - arriba derecha
+            if (in_rect(px, py, dx+W-TH, dx+W, dy+TH, dy+H/2))
+                hit = 1'b1;
+        end
+        if (segs[4]) begin // c - abajo derecha
+            if (in_rect(px, py, dx+W-TH, dx+W, dy+H/2, dy+H-TH))
+                hit = 1'b1;
+        end
+        if (segs[1]) begin // f - arriba izquierda
+            if (in_rect(px, py, dx, dx+TH, dy+TH, dy+H/2))
+                hit = 1'b1;
+        end
+        if (segs[2]) begin // e - abajo izquierda
+            if (in_rect(px, py, dx, dx+TH, dy+H/2, dy+H-TH))
+                hit = 1'b1;
+        end
+
+        return hit;
+    endfunction
+
+    // --------------------------
+    // Layout de la UI
+    // --------------------------
+    // columnas para A, B, +, -, *, /
+    localparam int COL0_X = 40;
+    localparam int COL1_X = 140;
+    localparam int COL2_X = 240;
+    localparam int COL3_X = 340;
+    localparam int COL4_X = 440;
+    localparam int COL5_X = 540;
+
+    localparam int LABEL_Y = 120; // fila de símbolos
+    localparam int DIGIT_Y = 200; // fila de dígitos grandes
+
+    always_comb begin
+        // Fondo por defecto
+        if (!video_on) begin
+            vga_r = 8'h00;
+            vga_g = 8'h00;
+            vga_b = 8'h00;
+        end else begin
+            // Fondo blanco
+            vga_r = 8'hFF;
+            vga_g = 8'hFF;
+            vga_b = 8'hFF;
+
+            // Flag para saber si ya dibujamos algo encima
+            bit drawn;
+            drawn = 1'b0;
+
+            // ------------------------------------------------
+            // Zona de título "Calculadora" (franja superior)
+            // ------------------------------------------------
+            if (in_rect(x, y, 0, 640, 20, 70)) begin
+                vga_r = 8'hE0;
+                vga_g = 8'hE0;
+                vga_b = 8'hE0;
+                drawn = 1'b1;
+            end
+
+            // ------------------------------------------------
+            // Labels A y B como dígitos tipo 7-seg (A=0xA, B=0xB)
+            // ------------------------------------------------
+            if (!drawn) begin
+                logic [6:0] seg_A_lbl = hex_to_segs(4'hA);
+                logic [6:0] seg_B_lbl = hex_to_segs(4'hB);
+
+                if (digit_pixel(x, y, COL0_X, LABEL_Y, seg_A_lbl) ||
+                    digit_pixel(x, y, COL1_X, LABEL_Y, seg_B_lbl)) begin
+                    vga_r = 8'h00;
+                    vga_g = 8'h00;
+                    vga_b = 8'h00;
+                    drawn = 1'b1;
+                end
+            end
+
+            // ------------------------------------------------
+            // Labels operadores: +, -, *, /
+            // ------------------------------------------------
+            if (!drawn) begin
+                int cx_plus, cx_minus, cx_mul, cx_div;
+                int cy_ops;
+
+                cx_plus  = COL2_X + 20; // centro aproximado de la "celda"
+                cx_minus = COL3_X + 20;
+                cx_mul   = COL4_X + 20;
+                cx_div   = COL5_X + 20;
+                cy_ops   = LABEL_Y + 25;
+
+                // "+"
+                if (!drawn) begin
+                    if (in_rect(x, y, cx_plus-2, cx_plus+2, cy_ops-15, cy_ops+15) || // vertical
+                        in_rect(x, y, cx_plus-12, cx_plus+12, cy_ops-2,  cy_ops+2)) begin // horizontal
+                        vga_r = 8'h00;
+                        vga_g = 8'h00;
+                        vga_b = 8'h00;
+                        drawn = 1'b1;
+                    end
+                end
+
+                // "-"
+                if (!drawn) begin
+                    if (in_rect(x, y, cx_minus-12, cx_minus+12, cy_ops-2, cy_ops+2)) begin
+                        vga_r = 8'h00;
+                        vga_g = 8'h00;
+                        vga_b = 8'h00;
+                        drawn = 1'b1;
+                    end
+                end
+
+                // "*": cruz + diagonales
+                if (!drawn) begin
+                    int dx = x - cx_mul;
+                    int dy = y - cy_ops;
+                    bit is_plus_seg;
+                    bit is_diag_seg;
+
+                    is_plus_seg = in_rect(x, y, cx_mul-2, cx_mul+2, cy_ops-15, cy_ops+15) ||
+                                  in_rect(x, y, cx_mul-15, cx_mul+15, cy_ops-2, cy_ops+2);
+
+                    is_diag_seg = ((dy + dx) > -3 && (dy + dx) < 3 && dy > -15 && dy < 15) ||
+                                  ((dy - dx) > -3 && (dy - dx) < 3 && dy > -15 && dy < 15);
+
+                    if (is_plus_seg || is_diag_seg) begin
+                        vga_r = 8'h00;
+                        vga_g = 8'h00;
+                        vga_b = 8'h00;
+                        drawn = 1'b1;
+                    end
+                end
+
+                // "/": diagonal
+                if (!drawn) begin
+                    int dx2 = x - cx_div;
+                    int dy2 = y - cy_ops;
+                    if ((dy2 + dx2) > -3 && (dy2 + dx2) < 3 && dy2 > -20 && dy2 < 20) begin
+                        vga_r = 8'h00;
+                        vga_g = 8'h00;
+                        vga_b = 8'h00;
+                        drawn = 1'b1;
+                    end
+                end
+            end
+
+            // ------------------------------------------------
+            // Dígitos grandes debajo de cada símbolo:
+            // A, B, suma, resta, mul, div
+            // ------------------------------------------------
+            if (!drawn) begin
+                logic [6:0] segA    = hex_to_segs(A_nib);
+                logic [6:0] segB    = hex_to_segs(B_nib);
+                logic [6:0] segSUM  = hex_to_segs(sum_nib);
+                logic [6:0] segSUB  = hex_to_segs(sub_nib);
+                logic [6:0] segMUL  = hex_to_segs(mul_nib);
+                logic [6:0] segDIV  = hex_to_segs(div_nib);
+
+                if (digit_pixel(x, y, COL0_X, DIGIT_Y, segA)    ||
+                    digit_pixel(x, y, COL1_X, DIGIT_Y, segB)    ||
+                    digit_pixel(x, y, COL2_X, DIGIT_Y, segSUM)  ||
+                    digit_pixel(x, y, COL3_X, DIGIT_Y, segSUB)  ||
+                    digit_pixel(x, y, COL4_X, DIGIT_Y, segMUL)  ||
+                    digit_pixel(x, y, COL5_X, DIGIT_Y, segDIV)) begin
+                    vga_r = 8'h00;
+                    vga_g = 8'h00;
+                    vga_b = 8'h00;
+                    drawn = 1'b1;
+                end
+            end
+
+            // Si no se dibujó nada especial, se queda el fondo blanco
+        end
+    end
+
+endmodule

@@ -1,0 +1,70 @@
+// ============================================================
+// top_vga_test.sv
+// Top sencillo SOLO VGA para probar la pantalla en la DE10
+// Muestra barras de colores verticales
+// ============================================================
+module top_vga_test (
+    input  logic        CLOCK_50,   // reloj de 50 MHz de la DE10
+    input  logic [3:0]  KEY,        // KEY[0] = reset activo en bajo
+
+    output logic        VGA_HS,
+    output logic        VGA_VS,
+    output logic [3:0]  VGA_R,
+    output logic [3:0]  VGA_G,
+    output logic [3:0]  VGA_B
+);
+
+    // --------------------------------------------------------
+    // Reset
+    // --------------------------------------------------------
+    logic rst_n;
+    logic reset;
+
+    assign rst_n = KEY[0];   // botón
+    assign reset = ~rst_n;   // interno activo en alto
+
+    // --------------------------------------------------------
+    // Clock de píxel ~25 MHz (divide 50 MHz entre 2)
+    // --------------------------------------------------------
+    logic clk_pix;
+
+    always_ff @(posedge CLOCK_50 or posedge reset) begin
+        if (reset)
+            clk_pix <= 1'b0;
+        else
+            clk_pix <= ~clk_pix;
+    end
+
+    // --------------------------------------------------------
+    // Generación de coordenadas VGA
+    // --------------------------------------------------------
+    logic [9:0] x, y;
+    logic       video_on;
+    logic       hsync, vsync;
+
+    vga_timing u_vga_timing (
+        .clk      (clk_pix),
+        .reset    (reset),
+        .x        (x),
+        .y        (y),
+        .hsync    (hsync),
+        .vsync    (vsync),
+        .video_on (video_on)
+    );
+
+    assign VGA_HS = hsync;
+    assign VGA_VS = vsync;
+
+    // --------------------------------------------------------
+    // Patrón de colores
+    // --------------------------------------------------------
+    vga_pattern u_vga_pattern (
+        .x        (x),
+        .y        (y),
+        .video_on (video_on),
+        .vga_r    (VGA_R),
+        .vga_g    (VGA_G),
+        .vga_b    (VGA_B)
+    );
+
+endmodule
