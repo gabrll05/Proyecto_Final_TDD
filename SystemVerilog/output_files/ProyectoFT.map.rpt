@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ProyectoFT
-Sat Nov 15 19:51:05 2025
+Sat Nov 15 21:23:44 2025
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
@@ -63,47 +63,48 @@ Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
  55. Parameter Settings for Inferred Entity Instance: cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod|lpm_divide:Div0
  56. Parameter Settings for Inferred Entity Instance: cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod|lpm_divide:Mod0
  57. Port Connectivity Checks: "vga_controller:u_vga|vga_timing:u_timing"
- 58. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod"
- 59. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[31].u_add_i"
- 60. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[30].u_add_i"
- 61. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[29].u_add_i"
- 62. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[28].u_add_i"
- 63. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[27].u_add_i"
- 64. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[26].u_add_i"
- 65. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[25].u_add_i"
- 66. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[24].u_add_i"
- 67. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[23].u_add_i"
- 68. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[22].u_add_i"
- 69. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[21].u_add_i"
- 70. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[20].u_add_i"
- 71. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[19].u_add_i"
- 72. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[18].u_add_i"
- 73. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[17].u_add_i"
- 74. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[16].u_add_i"
- 75. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[15].u_add_i"
- 76. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[14].u_add_i"
- 77. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[13].u_add_i"
- 78. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[12].u_add_i"
- 79. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[11].u_add_i"
- 80. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[10].u_add_i"
- 81. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[9].u_add_i"
- 82. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[8].u_add_i"
- 83. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[7].u_add_i"
- 84. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[6].u_add_i"
- 85. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[5].u_add_i"
- 86. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[4].u_add_i"
- 87. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[3].u_add_i"
- 88. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[2].u_add_i"
- 89. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[1].u_add_i"
- 90. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[0].u_add_i"
- 91. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|restador:u_sub"
- 92. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|sumador:u_add"
- 93. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core"
- 94. Port Connectivity Checks: "cpu_armv4:u_cpu"
- 95. Post-Synthesis Netlist Statistics for Top Partition
- 96. Elapsed Time Per Partition
- 97. Analysis & Synthesis Messages
- 98. Analysis & Synthesis Suppressed Messages
+ 58. Port Connectivity Checks: "seven_segment_display:u_hex_OP"
+ 59. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod"
+ 60. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[31].u_add_i"
+ 61. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[30].u_add_i"
+ 62. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[29].u_add_i"
+ 63. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[28].u_add_i"
+ 64. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[27].u_add_i"
+ 65. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[26].u_add_i"
+ 66. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[25].u_add_i"
+ 67. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[24].u_add_i"
+ 68. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[23].u_add_i"
+ 69. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[22].u_add_i"
+ 70. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[21].u_add_i"
+ 71. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[20].u_add_i"
+ 72. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[19].u_add_i"
+ 73. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[18].u_add_i"
+ 74. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[17].u_add_i"
+ 75. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[16].u_add_i"
+ 76. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[15].u_add_i"
+ 77. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[14].u_add_i"
+ 78. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[13].u_add_i"
+ 79. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[12].u_add_i"
+ 80. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[11].u_add_i"
+ 81. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[10].u_add_i"
+ 82. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[9].u_add_i"
+ 83. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[8].u_add_i"
+ 84. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[7].u_add_i"
+ 85. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[6].u_add_i"
+ 86. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[5].u_add_i"
+ 87. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[4].u_add_i"
+ 88. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[3].u_add_i"
+ 89. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[2].u_add_i"
+ 90. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[1].u_add_i"
+ 91. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[0].u_add_i"
+ 92. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|restador:u_sub"
+ 93. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core|sumador:u_add"
+ 94. Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core"
+ 95. Port Connectivity Checks: "cpu_armv4:u_cpu"
+ 96. Post-Synthesis Netlist Statistics for Top Partition
+ 97. Elapsed Time Per Partition
+ 98. Analysis & Synthesis Messages
+ 99. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -130,13 +131,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Nov 15 19:51:05 2025          ;
+; Analysis & Synthesis Status     ; Successful - Sat Nov 15 21:23:43 2025          ;
 ; Quartus Prime Version           ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
 ; Revision Name                   ; ProyectoFT                                     ;
 ; Top-level Entity Name           ; top_program                                    ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 8608                                           ;
+; Total registers                 ; 8602                                           ;
 ; Total pins                      ; 74                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
@@ -296,24 +297,24 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------------------------+
 ; Resource                                    ; Usage                       ;
 +---------------------------------------------+-----------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 6899                        ;
+; Estimate of Logic utilization (ALMs needed) ; 6909                        ;
 ;                                             ;                             ;
-; Combinational ALUT usage for logic          ; 7061                        ;
-;     -- 7 input functions                    ; 16                          ;
+; Combinational ALUT usage for logic          ; 7104                        ;
+;     -- 7 input functions                    ; 15                          ;
 ;     -- 6 input functions                    ; 3021                        ;
-;     -- 5 input functions                    ; 1338                        ;
-;     -- 4 input functions                    ; 1896                        ;
-;     -- <=3 input functions                  ; 790                         ;
+;     -- 5 input functions                    ; 1354                        ;
+;     -- 4 input functions                    ; 1912                        ;
+;     -- <=3 input functions                  ; 802                         ;
 ;                                             ;                             ;
-; Dedicated logic registers                   ; 8608                        ;
+; Dedicated logic registers                   ; 8602                        ;
 ;                                             ;                             ;
 ; I/O pins                                    ; 74                          ;
 ;                                             ;                             ;
 ; Total DSP Blocks                            ; 0                           ;
 ;                                             ;                             ;
 ; Maximum fan-out node                        ; clock_divider:u_div|clk_out ;
-; Maximum fan-out                             ; 8509                        ;
-; Total fan-out                               ; 68556                       ;
+; Maximum fan-out                             ; 8503                        ;
+; Total fan-out                               ; 68688                       ;
 ; Average fan-out                             ; 4.33                        ;
 +---------------------------------------------+-----------------------------+
 
@@ -323,7 +324,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                               ; Entity Name           ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
-; |top_program                                    ; 7061 (24)           ; 8608 (86)                 ; 0                 ; 0          ; 74   ; 0            ; |top_program                                                                                                                                                      ; top_program           ; work         ;
+; |top_program                                    ; 7104 (25)           ; 8602 (80)                 ; 0                 ; 0          ; 74   ; 0            ; |top_program                                                                                                                                                      ; top_program           ; work         ;
 ;    |SPI_io:u_spi|                               ; 8 (8)               ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |top_program|SPI_io:u_spi                                                                                                                                         ; SPI_io                ; work         ;
 ;    |clock_divider:u_div|                        ; 24 (24)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |top_program|clock_divider:u_div                                                                                                                                  ; clock_divider         ; work         ;
 ;    |cpu_armv4:u_cpu|                            ; 6706 (278)          ; 8460 (8)                  ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu                                                                                                                                      ; cpu_armv4             ; work         ;
@@ -377,11 +378,10 @@ https://fpgasoftware.intel.com/eula.
 ;    |seven_segment_display:u_hex_ALU|            ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|seven_segment_display:u_hex_ALU                                                                                                                      ; seven_segment_display ; work         ;
 ;    |seven_segment_display:u_hex_A|              ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|seven_segment_display:u_hex_A                                                                                                                        ; seven_segment_display ; work         ;
 ;    |seven_segment_display:u_hex_B|              ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|seven_segment_display:u_hex_B                                                                                                                        ; seven_segment_display ; work         ;
-;    |seven_segment_display:u_hex_OP|             ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|seven_segment_display:u_hex_OP                                                                                                                       ; seven_segment_display ; work         ;
 ;    |seven_segment_display:u_hex_RES|            ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|seven_segment_display:u_hex_RES                                                                                                                      ; seven_segment_display ; work         ;
-;    |vga_calc_ui:u_vga_calc_ui|                  ; 228 (228)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|vga_calc_ui:u_vga_calc_ui                                                                                                                            ; vga_calc_ui           ; work         ;
-;    |vga_controller:u_vga|                       ; 36 (0)              ; 27 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |top_program|vga_controller:u_vga                                                                                                                                 ; vga_controller        ; work         ;
-;       |vga_timing:u_timing|                     ; 36 (36)             ; 27 (27)                   ; 0                 ; 0          ; 0    ; 0            ; |top_program|vga_controller:u_vga|vga_timing:u_timing                                                                                                             ; vga_timing            ; work         ;
+;    |vga_calc_ui:u_vga_calc_ui|                  ; 275 (275)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|vga_calc_ui:u_vga_calc_ui                                                                                                                            ; vga_calc_ui           ; work         ;
+;    |vga_controller:u_vga|                       ; 38 (0)              ; 27 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |top_program|vga_controller:u_vga                                                                                                                                 ; vga_controller        ; work         ;
+;       |vga_timing:u_timing|                     ; 38 (38)             ; 27 (27)                   ; 0                 ; 0          ; 0    ; 0            ; |top_program|vga_controller:u_vga|vga_timing:u_timing                                                                                                             ; vga_timing            ; work         ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -399,15 +399,14 @@ Encoding Type:  One-Hot
 
 
 Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------------+
-; State Machine - |top_program|in_state                                               ;
-+---------------------+--------------------+--------------------+---------------------+
-; Name                ; in_state.IN_WAIT_A ; in_state.IN_WAIT_B ; in_state.IN_WAIT_OP ;
-+---------------------+--------------------+--------------------+---------------------+
-; in_state.IN_WAIT_A  ; 0                  ; 0                  ; 0                   ;
-; in_state.IN_WAIT_OP ; 1                  ; 0                  ; 1                   ;
-; in_state.IN_WAIT_B  ; 1                  ; 1                  ; 0                   ;
-+---------------------+--------------------+--------------------+---------------------+
++-----------------------------------------+
+; State Machine - |top_program|in_state   ;
++--------------------+--------------------+
+; Name               ; in_state.IN_WAIT_B ;
++--------------------+--------------------+
+; in_state.IN_WAIT_A ; 0                  ;
+; in_state.IN_WAIT_B ; 1                  ;
++--------------------+--------------------+
 
 
 Encoding Type:  One-Hot
@@ -684,10 +683,11 @@ Encoding Type:  One-Hot
 ; cpu_armv4:u_cpu|regfile:u_regfile|registers[12][4]  ; Stuck at GND due to stuck port clock_enable ;
 ; cpu_armv4:u_cpu|regfile:u_regfile|registers[13][4]  ; Stuck at GND due to stuck port clock_enable ;
 ; cpu_armv4:u_cpu|regfile:u_regfile|registers[14][4]  ; Stuck at GND due to stuck port clock_enable ;
+; in_state~6                                          ; Lost fanout                                 ;
 ; cpu_armv4:u_cpu|control_unit:u_ctrl|state~4         ; Lost fanout                                 ;
 ; cpu_armv4:u_cpu|control_unit:u_ctrl|state~5         ; Lost fanout                                 ;
 ; clock_divider:u_div|counter[24,25]                  ; Lost fanout                                 ;
-; Total Number of Removed Registers = 260             ;                                             ;
+; Total Number of Removed Registers = 261             ;                                             ;
 +-----------------------------------------------------+---------------------------------------------+
 
 
@@ -696,12 +696,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 8608  ;
+; Total registers                              ; 8602  ;
 ; Number of registers using Synchronous Clear  ; 7193  ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 389   ;
+; Number of registers using Asynchronous Clear ; 383   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 8517  ;
+; Number of registers using Clock Enable       ; 8510  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -723,19 +723,19 @@ Encoding Type:  One-Hot
 +----------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |top_program|SPI_io:u_spi|cs[4]                             ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |top_program|vga_controller:u_vga|vga_timing:u_timing|x[6]  ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |top_program|vga_controller:u_vga|vga_timing:u_timing|y[11] ;
-; 3:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |top_program|cpu_armv4:u_cpu|alu_A[19]                      ;
-; 16:1               ; 32 bits   ; 320 LEs       ; 192 LEs              ; 128 LEs                ; No         ; |top_program|cpu_armv4:u_cpu|regfile:u_regfile|Mux41        ;
-; 10:1               ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|Mux29      ;
-; 11:1               ; 28 bits   ; 196 LEs       ; 196 LEs              ; 0 LEs                  ; No         ; |top_program|cpu_armv4:u_cpu|wb_data[5]                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |top_program|SPI_io:u_spi|cs[4]                            ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |top_program|vga_controller:u_vga|vga_timing:u_timing|x[4] ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |top_program|vga_controller:u_vga|vga_timing:u_timing|y[7] ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |top_program|cpu_armv4:u_cpu|alu_A[18]                     ;
+; 16:1               ; 32 bits   ; 320 LEs       ; 192 LEs              ; 128 LEs                ; No         ; |top_program|cpu_armv4:u_cpu|regfile:u_regfile|Mux43       ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|Mux28     ;
+; 11:1               ; 28 bits   ; 196 LEs       ; 196 LEs              ; 0 LEs                  ; No         ; |top_program|cpu_armv4:u_cpu|wb_data[7]                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------+
@@ -1210,6 +1210,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; line_tick  ; Output ; Info     ; Explicitly unconnected              ;
 ; frame_tick ; Output ; Info     ; Explicitly unconnected              ;
 +------------+--------+----------+-------------------------------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "seven_segment_display:u_hex_OP" ;
++------------+-------+----------+----------------------------+
+; Port       ; Type  ; Severity ; Details                    ;
++------------+-------+----------+----------------------------+
+; sev_seg_in ; Input ; Info     ; Stuck at GND               ;
++------------+-------+----------+----------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------+
@@ -1778,38 +1787,38 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 8608                        ;
-;     CLR               ; 75                          ;
+; arriav_ff             ; 8602                        ;
+;     CLR               ; 76                          ;
 ;     CLR SCLR          ; 1                           ;
 ;     ENA               ; 1024                        ;
-;     ENA CLR           ; 313                         ;
+;     ENA CLR           ; 306                         ;
 ;     ENA SCLR          ; 7180                        ;
 ;     SCLR              ; 12                          ;
 ;     plain             ; 3                           ;
-; arriav_lcell_comb     ; 7070                        ;
-;     arith             ; 1264                        ;
+; arriav_lcell_comb     ; 7112                        ;
+;     arith             ; 1288                        ;
 ;         0 data inputs ; 120                         ;
-;         1 data inputs ; 79                          ;
-;         2 data inputs ; 15                          ;
+;         1 data inputs ; 89                          ;
+;         2 data inputs ; 29                          ;
 ;         5 data inputs ; 1050                        ;
-;     extend            ; 16                          ;
-;         7 data inputs ; 16                          ;
-;     normal            ; 5752                        ;
+;     extend            ; 15                          ;
+;         7 data inputs ; 15                          ;
+;     normal            ; 5785                        ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 16                          ;
-;         2 data inputs ; 414                         ;
-;         3 data inputs ; 115                         ;
-;         4 data inputs ; 1896                        ;
-;         5 data inputs ; 288                         ;
+;         1 data inputs ; 13                          ;
+;         2 data inputs ; 416                         ;
+;         3 data inputs ; 117                         ;
+;         4 data inputs ; 1912                        ;
+;         5 data inputs ; 304                         ;
 ;         6 data inputs ; 3021                        ;
-;     shared            ; 38                          ;
+;     shared            ; 24                          ;
 ;         0 data inputs ; 4                           ;
-;         2 data inputs ; 28                          ;
+;         2 data inputs ; 14                          ;
 ;         3 data inputs ; 6                           ;
 ; boundary_port         ; 74                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 111.60                      ;
-; Average LUT depth     ; 31.82                       ;
+; Average LUT depth     ; 31.77                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1818,7 +1827,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:21     ;
+; Top            ; 00:00:31     ;
 +----------------+--------------+
 
 
@@ -1828,7 +1837,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
-    Info: Processing started: Sat Nov 15 19:50:34 2025
+    Info: Processing started: Sat Nov 15 21:22:59 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ProyectoFT -c ProyectoFT
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1870,7 +1879,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file logic_o
 Info (12021): Found 1 design units, including 1 entities, in source file alu_core.sv
     Info (12023): Found entity 1: alu_core File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/alu_core.sv Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file top_program.sv
-    Info (12023): Found entity 1: top_program File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 1
+    Info (12023): Found entity 1: top_program File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file top_vga_test.sv
     Info (12023): Found entity 1: top_vga_test File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_vga_test.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file vga_colorbars.sv
@@ -1880,14 +1889,19 @@ Info (12021): Found 1 design units, including 1 entities, in source file vga_tim
 Info (12021): Found 1 design units, including 1 entities, in source file vga_calc_bars.sv
     Info (12023): Found entity 1: vga_calc_bars File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/vga_calc_bars.sv Line: 12
 Info (12021): Found 1 design units, including 1 entities, in source file vga_calc_ui.sv
-    Info (12023): Found entity 1: vga_calc_ui File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/vga_calc_ui.sv Line: 10
+    Info (12023): Found entity 1: vga_calc_ui File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/vga_calc_ui.sv Line: 13
 Info (12127): Elaborating entity "top_program" for the top level hierarchy
-Info (10264): Verilog HDL Case Statement information at top_program.sv(225): all case item expressions in this case statement are onehot File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 225
-Info (12128): Elaborating entity "clock_divider" for hierarchy "clock_divider:u_div" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 44
+Warning (10240): Verilog HDL Always Construct warning at top_program.sv(149): inferring latch(es) for variable "op_code", which holds its previous value in one or more paths through the always construct File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 149
+Info (10264): Verilog HDL Case Statement information at top_program.sv(235): all case item expressions in this case statement are onehot File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 235
+Info (10041): Inferred latch for "op_code[0]" at top_program.sv(149) File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 149
+Info (10041): Inferred latch for "op_code[1]" at top_program.sv(149) File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 149
+Info (10041): Inferred latch for "op_code[2]" at top_program.sv(149) File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 149
+Info (10041): Inferred latch for "op_code[3]" at top_program.sv(149) File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 149
+Info (12128): Elaborating entity "clock_divider" for hierarchy "clock_divider:u_div" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 53
 Warning (10230): Verilog HDL assignment warning at clock_divider.sv(17): truncated value with size 32 to match size of target (26) File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/clock_divider.sv Line: 17
-Info (12128): Elaborating entity "SPI_io" for hierarchy "SPI_io:u_spi" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 60
+Info (12128): Elaborating entity "SPI_io" for hierarchy "SPI_io:u_spi" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 69
 Warning (10230): Verilog HDL assignment warning at alu_core.sv(129): truncated value with size 32 to match size of target (6) File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/alu_core.sv Line: 129
-Info (12128): Elaborating entity "cpu_armv4" for hierarchy "cpu_armv4:u_cpu" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 265
+Info (12128): Elaborating entity "cpu_armv4" for hierarchy "cpu_armv4:u_cpu" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 275
 Info (12128): Elaborating entity "rom_program" for hierarchy "cpu_armv4:u_cpu|rom_program:u_rom" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/cpu_armv4.sv Line: 58
 Warning (10850): Verilog HDL warning at rom_program.sv(12): number of words (17) in memory file does not match the number of elements in the address range [0:255] File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/rom_program.sv Line: 12
 Warning (10030): Net "memory.data_a" at rom_program.sv(9) has no driver or initial value, using a default initial value '0' File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/rom_program.sv Line: 9
@@ -1904,10 +1918,10 @@ Info (12128): Elaborating entity "sumador" for hierarchy "cpu_armv4:u_cpu|alu_co
 Info (12128): Elaborating entity "divider" for hierarchy "cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/alu_core.sv Line: 44
 Info (12128): Elaborating entity "logic_ops" for hierarchy "cpu_armv4:u_cpu|alu_core:u_alu_core|logic_ops:u_logic" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/alu_core.sv Line: 48
 Info (12128): Elaborating entity "ram_data" for hierarchy "cpu_armv4:u_cpu|ram_data:u_ram" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/cpu_armv4.sv Line: 113
-Info (12128): Elaborating entity "seven_segment_display" for hierarchy "seven_segment_display:u_hex_A" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 306
-Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:u_vga" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 378
+Info (12128): Elaborating entity "seven_segment_display" for hierarchy "seven_segment_display:u_hex_A" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 316
+Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:u_vga" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 388
 Info (12128): Elaborating entity "vga_timing" for hierarchy "vga_controller:u_vga|vga_timing:u_timing" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/vga_controller.sv Line: 42
-Info (12128): Elaborating entity "vga_calc_ui" for hierarchy "vga_calc_ui:u_vga_calc_ui" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 409
+Info (12128): Elaborating entity "vga_calc_ui" for hierarchy "vga_calc_ui:u_vga_calc_ui" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 419
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276007): RAM logic "cpu_armv4:u_cpu|ram_data:u_ram|mem_array" is uninferred due to asynchronous read logic File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/ram_data.sv Line: 15
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/db/ProyectoFT.ram0_rom_program_aa5684e4.hdl.mif" contains "don't care" values -- overwriting them with 0s
@@ -1935,26 +1949,33 @@ Info (12133): Instantiated megafunction "cpu_armv4:u_cpu|alu_core:u_alu_core|div
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_65m.tdf
     Info (12023): Found entity 1: lpm_divide_65m File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/db/lpm_divide_65m.tdf Line: 25
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "VGA_BLANK_N" is stuck at VCC File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 26
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 28
+    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 24
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 24
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 24
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 24
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 24
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 24
+    Warning (13410): Pin "HEX3[6]" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 24
+    Warning (13410): Pin "VGA_BLANK_N" is stuck at VCC File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 34
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 36
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (17049): 5 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/output_files/ProyectoFT.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 3
-    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 3
-    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 3
-Info (21057): Implemented 15668 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 11
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 11
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 11
+Info (21057): Implemented 15706 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 9 input pins
     Info (21059): Implemented 65 output pins
-    Info (21061): Implemented 15594 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
-    Info: Peak virtual memory: 4996 megabytes
-    Info: Processing ended: Sat Nov 15 19:51:05 2025
-    Info: Elapsed time: 00:00:31
-    Info: Total CPU time (on all processors): 00:00:43
+    Info (21061): Implemented 15632 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 24 warnings
+    Info: Peak virtual memory: 5008 megabytes
+    Info: Processing ended: Sat Nov 15 21:23:44 2025
+    Info: Elapsed time: 00:00:45
+    Info: Total CPU time (on all processors): 00:00:59
 
 
 +------------------------------------------+

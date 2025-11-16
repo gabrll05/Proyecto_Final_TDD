@@ -1,3 +1,11 @@
+// ============================================================
+// top_program.sv
+// Top del proyecto: SPI -> RAM CPU -> ALU -> VGA Calculadora
+//  - Ahora el SPI SOLO recibe A y B como nibbles (no signo).
+//  - El CPU siempre calcula suma, resta, mul y div con A y B.
+//  - VGA muestra A, B y los resultados.
+// ============================================================
+
 module top_program (
     input  logic        CLOCK_50,
     input  logic [3:0]  KEY,      // KEY[0] = reset activo en bajo
@@ -26,6 +34,7 @@ module top_program (
     output logic        VGA_BLANK_N,
     output logic        VGA_SYNC_N
 );
+
     // ----------------------------------------------------
     // Reset global y reloj lento del CPU
     // ----------------------------------------------------
@@ -122,43 +131,44 @@ module top_program (
     end
 
     // ----------------------------------------------------
-    // FSM de entrada: recibir A, luego op, luego B
+    // FSM de entrada: recibir SOLO A y luego B
+    //    - Primer nibble  -> A_VAL
+    //    - Segundo nibble -> B_VAL, se marca got_cmd
     // ----------------------------------------------------
     typedef enum logic [1:0] {
         IN_WAIT_A  = 2'd0,
-        IN_WAIT_OP = 2'd1,
-        IN_WAIT_B  = 2'd2
+        IN_WAIT_B  = 2'd1
     } input_state_t;
 
     input_state_t in_state;
     logic         got_cmd;      // al menos un comando completo recibido
     logic [3:0]   A_VAL;        // operando A
     logic [3:0]   B_VAL;        // operando B
-    logic [3:0]   op_code;      // 1=+, 2=-, 3=*, 4=/
+    logic [3:0]   op_code;      // ya no viene de SPI, lo dejamos en 0
 
     always_ff @(posedge clk_cpu or posedge reset) begin
         if (reset) begin
             in_state <= IN_WAIT_A;
             A_VAL    <= 4'd0;
             B_VAL    <= 4'd0;
-            op_code  <= 4'd0;   // en reset mostrar 0
+            op_code  <= 4'd0;   // en reset y siempre 0
             got_cmd  <= 1'b0;
         end else begin
             if (new_word_cpu) begin
                 case (in_state)
                     IN_WAIT_A: begin
-                        A_VAL    <= nibble_last;      // primer nibble → A
-                        in_state <= IN_WAIT_OP;
-                    end
-                    IN_WAIT_OP: begin
-                        op_code  <= nibble_last;      // segundo nibble → op_code
+                        // Primer nibble recibido -> A
+                        A_VAL    <= nibble_last;
                         in_state <= IN_WAIT_B;
                     end
+
                     IN_WAIT_B: begin
-                        B_VAL    <= nibble_last;      // tercer nibble → B
+                        // Segundo nibble -> B, ya tenemos comando completo
+                        B_VAL    <= nibble_last;
                         in_state <= IN_WAIT_A;
-                        got_cmd  <= 1'b1;             // ya tenemos A, op, B
+                        got_cmd  <= 1'b1;
                     end
+
                     default: in_state <= IN_WAIT_A;
                 endcase
             end
@@ -295,7 +305,7 @@ module top_program (
     //  HEX0 -> A
     //  HEX1 -> B
     //  HEX2 -> resultado de la suma
-    //  HEX3 -> código de operación
+    //  HEX3 -> código de operación (ahora siempre 0)
     //  HEX4 -> nibble actual de la ALU (carrusel del programa)
     // ----------------------------------------------------
 
@@ -317,7 +327,7 @@ module top_program (
         .sev_seg_out(HEX2)
     );
 
-    // HEX3: código de la operación (1=+,2=-,3=*,4=/)
+    // HEX3: código de la operación (ya no se usa, queda en 0)
     seven_segment_display u_hex_OP (
         .sev_seg_in (op_code),
         .sev_seg_out(HEX3)
