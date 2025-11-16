@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ProyectoFT
-Sat Nov 15 21:23:44 2025
+Sat Nov 15 21:36:20 2025
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
@@ -131,7 +131,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Nov 15 21:23:43 2025          ;
+; Analysis & Synthesis Status     ; Successful - Sat Nov 15 21:36:20 2025          ;
 ; Quartus Prime Version           ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
 ; Revision Name                   ; ProyectoFT                                     ;
 ; Top-level Entity Name           ; top_program                                    ;
@@ -251,7 +251,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
+;     Processor 2            ;   0.3%      ;
 ;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.1%      ;
 +----------------------------+-------------+
@@ -297,14 +297,14 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------------------------+
 ; Resource                                    ; Usage                       ;
 +---------------------------------------------+-----------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 6909                        ;
+; Estimate of Logic utilization (ALMs needed) ; 6901                        ;
 ;                                             ;                             ;
-; Combinational ALUT usage for logic          ; 7104                        ;
-;     -- 7 input functions                    ; 15                          ;
-;     -- 6 input functions                    ; 3021                        ;
-;     -- 5 input functions                    ; 1354                        ;
-;     -- 4 input functions                    ; 1912                        ;
-;     -- <=3 input functions                  ; 802                         ;
+; Combinational ALUT usage for logic          ; 7081                        ;
+;     -- 7 input functions                    ; 18                          ;
+;     -- 6 input functions                    ; 3013                        ;
+;     -- 5 input functions                    ; 1341                        ;
+;     -- 4 input functions                    ; 1898                        ;
+;     -- <=3 input functions                  ; 811                         ;
 ;                                             ;                             ;
 ; Dedicated logic registers                   ; 8602                        ;
 ;                                             ;                             ;
@@ -314,7 +314,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                             ;
 ; Maximum fan-out node                        ; clock_divider:u_div|clk_out ;
 ; Maximum fan-out                             ; 8503                        ;
-; Total fan-out                               ; 68688                       ;
+; Total fan-out                               ; 68567                       ;
 ; Average fan-out                             ; 4.33                        ;
 +---------------------------------------------+-----------------------------+
 
@@ -324,10 +324,10 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                               ; Entity Name           ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
-; |top_program                                    ; 7104 (25)           ; 8602 (80)                 ; 0                 ; 0          ; 74   ; 0            ; |top_program                                                                                                                                                      ; top_program           ; work         ;
+; |top_program                                    ; 7081 (28)           ; 8602 (80)                 ; 0                 ; 0          ; 74   ; 0            ; |top_program                                                                                                                                                      ; top_program           ; work         ;
 ;    |SPI_io:u_spi|                               ; 8 (8)               ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |top_program|SPI_io:u_spi                                                                                                                                         ; SPI_io                ; work         ;
 ;    |clock_divider:u_div|                        ; 24 (24)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |top_program|clock_divider:u_div                                                                                                                                  ; clock_divider         ; work         ;
-;    |cpu_armv4:u_cpu|                            ; 6706 (278)          ; 8460 (8)                  ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu                                                                                                                                      ; cpu_armv4             ; work         ;
+;    |cpu_armv4:u_cpu|                            ; 6706 (277)          ; 8460 (8)                  ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu                                                                                                                                      ; cpu_armv4             ; work         ;
 ;       |alu_core:u_alu_core|                     ; 3223 (23)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core                                                                                                                  ; alu_core              ; work         ;
 ;          |divider:u_divmod|                     ; 2222 (9)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod                                                                                                 ; divider               ; work         ;
 ;             |lpm_divide:Div0|                   ; 1097 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod|lpm_divide:Div0                                                                                 ; lpm_divide            ; work         ;
@@ -372,16 +372,16 @@ https://fpgasoftware.intel.com/eula.
 ;          |restador:u_sub|                       ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|restador:u_sub                                                                                                   ; restador              ; work         ;
 ;          |sumador:u_add|                        ; 29 (29)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|sumador:u_add                                                                                                    ; sumador               ; work         ;
 ;       |control_unit:u_ctrl|                     ; 21 (21)             ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|control_unit:u_ctrl                                                                                                                  ; control_unit          ; work         ;
-;       |ram_data:u_ram|                          ; 3043 (3043)         ; 8192 (8192)               ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|ram_data:u_ram                                                                                                                       ; ram_data              ; work         ;
+;       |ram_data:u_ram|                          ; 3044 (3044)         ; 8192 (8192)               ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|ram_data:u_ram                                                                                                                       ; ram_data              ; work         ;
 ;       |regfile:u_regfile|                       ; 126 (126)           ; 256 (256)                 ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|regfile:u_regfile                                                                                                                    ; regfile               ; work         ;
 ;       |rom_program:u_rom|                       ; 15 (15)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|rom_program:u_rom                                                                                                                    ; rom_program           ; work         ;
 ;    |seven_segment_display:u_hex_ALU|            ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|seven_segment_display:u_hex_ALU                                                                                                                      ; seven_segment_display ; work         ;
 ;    |seven_segment_display:u_hex_A|              ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|seven_segment_display:u_hex_A                                                                                                                        ; seven_segment_display ; work         ;
 ;    |seven_segment_display:u_hex_B|              ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|seven_segment_display:u_hex_B                                                                                                                        ; seven_segment_display ; work         ;
 ;    |seven_segment_display:u_hex_RES|            ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|seven_segment_display:u_hex_RES                                                                                                                      ; seven_segment_display ; work         ;
-;    |vga_calc_ui:u_vga_calc_ui|                  ; 275 (275)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|vga_calc_ui:u_vga_calc_ui                                                                                                                            ; vga_calc_ui           ; work         ;
-;    |vga_controller:u_vga|                       ; 38 (0)              ; 27 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |top_program|vga_controller:u_vga                                                                                                                                 ; vga_controller        ; work         ;
-;       |vga_timing:u_timing|                     ; 38 (38)             ; 27 (27)                   ; 0                 ; 0          ; 0    ; 0            ; |top_program|vga_controller:u_vga|vga_timing:u_timing                                                                                                             ; vga_timing            ; work         ;
+;    |vga_calc_ui:u_vga_calc_ui|                  ; 248 (248)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|vga_calc_ui:u_vga_calc_ui                                                                                                                            ; vga_calc_ui           ; work         ;
+;    |vga_controller:u_vga|                       ; 39 (0)              ; 27 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |top_program|vga_controller:u_vga                                                                                                                                 ; vga_controller        ; work         ;
+;       |vga_timing:u_timing|                     ; 39 (39)             ; 27 (27)                   ; 0                 ; 0          ; 0    ; 0            ; |top_program|vga_controller:u_vga|vga_timing:u_timing                                                                                                             ; vga_timing            ; work         ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -732,9 +732,9 @@ Encoding Type:  One-Hot
 ; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |top_program|vga_controller:u_vga|vga_timing:u_timing|x[4] ;
 ; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |top_program|vga_controller:u_vga|vga_timing:u_timing|y[7] ;
 ; 3:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |top_program|cpu_armv4:u_cpu|alu_A[18]                     ;
-; 16:1               ; 32 bits   ; 320 LEs       ; 192 LEs              ; 128 LEs                ; No         ; |top_program|cpu_armv4:u_cpu|regfile:u_regfile|Mux43       ;
-; 10:1               ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|Mux28     ;
-; 11:1               ; 28 bits   ; 196 LEs       ; 196 LEs              ; 0 LEs                  ; No         ; |top_program|cpu_armv4:u_cpu|wb_data[7]                    ;
+; 16:1               ; 32 bits   ; 320 LEs       ; 192 LEs              ; 128 LEs                ; No         ; |top_program|cpu_armv4:u_cpu|regfile:u_regfile|Mux45       ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|Mux30     ;
+; 11:1               ; 28 bits   ; 196 LEs       ; 196 LEs              ; 0 LEs                  ; No         ; |top_program|cpu_armv4:u_cpu|wb_data[31]                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
 
 
@@ -1795,22 +1795,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA SCLR          ; 7180                        ;
 ;     SCLR              ; 12                          ;
 ;     plain             ; 3                           ;
-; arriav_lcell_comb     ; 7112                        ;
+; arriav_lcell_comb     ; 7089                        ;
 ;     arith             ; 1288                        ;
 ;         0 data inputs ; 120                         ;
 ;         1 data inputs ; 89                          ;
 ;         2 data inputs ; 29                          ;
 ;         5 data inputs ; 1050                        ;
-;     extend            ; 15                          ;
-;         7 data inputs ; 15                          ;
-;     normal            ; 5785                        ;
+;     extend            ; 18                          ;
+;         7 data inputs ; 18                          ;
+;     normal            ; 5759                        ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 13                          ;
 ;         2 data inputs ; 416                         ;
-;         3 data inputs ; 117                         ;
-;         4 data inputs ; 1912                        ;
-;         5 data inputs ; 304                         ;
-;         6 data inputs ; 3021                        ;
+;         3 data inputs ; 126                         ;
+;         4 data inputs ; 1898                        ;
+;         5 data inputs ; 291                         ;
+;         6 data inputs ; 3013                        ;
 ;     shared            ; 24                          ;
 ;         0 data inputs ; 4                           ;
 ;         2 data inputs ; 14                          ;
@@ -1818,7 +1818,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; boundary_port         ; 74                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 111.60                      ;
-; Average LUT depth     ; 31.77                       ;
+; Average LUT depth     ; 31.90                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1827,7 +1827,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:31     ;
+; Top            ; 00:00:32     ;
 +----------------+--------------+
 
 
@@ -1837,7 +1837,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
-    Info: Processing started: Sat Nov 15 21:22:59 2025
+    Info: Processing started: Sat Nov 15 21:35:37 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ProyectoFT -c ProyectoFT
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1967,15 +1967,15 @@ Warning (21074): Design contains 3 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 11
     Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 11
     Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 11
-Info (21057): Implemented 15706 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 15683 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 9 input pins
     Info (21059): Implemented 65 output pins
-    Info (21061): Implemented 15632 logic cells
+    Info (21061): Implemented 15609 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 24 warnings
-    Info: Peak virtual memory: 5008 megabytes
-    Info: Processing ended: Sat Nov 15 21:23:44 2025
-    Info: Elapsed time: 00:00:45
-    Info: Total CPU time (on all processors): 00:00:59
+    Info: Peak virtual memory: 5011 megabytes
+    Info: Processing ended: Sat Nov 15 21:36:20 2025
+    Info: Elapsed time: 00:00:43
+    Info: Total CPU time (on all processors): 00:00:53
 
 
 +------------------------------------------+

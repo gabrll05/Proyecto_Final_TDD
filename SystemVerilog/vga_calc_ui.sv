@@ -1,5 +1,5 @@
 // ============================================================
-// vga_calc_ui.sv  (VERSIÓN VERTICAL, DÍGITOS PEQUEÑOS, A/B FIX)
+// vga_calc_ui.sv  (VERTICAL, DÍGITOS PEQUEÑOS, LABELS A/B CUSTOM)
 // Layout:
 //
 // A : valor
@@ -47,9 +47,6 @@ module vga_calc_ui (
     // --------------------------
     // Variables internas
     // --------------------------
-    logic [6:0] seg_A_lbl;
-    logic [6:0] seg_B_lbl;
-
     logic [6:0] segA;
     logic [6:0] segB;
     logic [6:0] segSUM;
@@ -70,6 +67,10 @@ module vga_calc_ui (
     integer colon_x;
     integer r;
     integer baseY;
+
+    // para dibujar A y B
+    integer ax0, ax1, ay0, ay1, amidY;
+    integer bx0, bx1, by0, by1, bmidY;
 
     // --------------------------
     // Helpers
@@ -92,7 +93,7 @@ module vga_calc_ui (
             4'h1: hex_to_segs = 7'b0110000;
             4'h2: hex_to_segs = 7'b1101101;
             4'h3: hex_to_segs = 7'b1111001;
-            // 4 más "marcado": b, c, f, g encendidos
+            // 4 con b, c, f, g encendidos
             4'h4: hex_to_segs = 7'b0110011;
             4'h5: hex_to_segs = 7'b1011011;
             4'h6: hex_to_segs = 7'b1011111;
@@ -177,9 +178,6 @@ module vga_calc_ui (
         vga_g = 8'h00;
         vga_b = 8'h00;
 
-        seg_A_lbl = 7'd0;
-        seg_B_lbl = 7'd0;
-
         segA   = 7'd0;
         segB   = 7'd0;
         segSUM = 7'd0;
@@ -202,6 +200,9 @@ module vga_calc_ui (
         r       = 0;
         baseY   = 0;
 
+        ax0 = 0; ax1 = 0; ay0 = 0; ay1 = 0; amidY = 0;
+        bx0 = 0; bx1 = 0; by0 = 0; by1 = 0; bmidY = 0;
+
         if (!video_on) begin
             // negro
         end else begin
@@ -217,17 +218,52 @@ module vga_calc_ui (
                 vga_b = 8'hE0;
             end
 
-            // ===== Labels A y B (patrones fijos) =====
-            // A: segmentos a,b,c,e,f,g encendidos, d apagado
-            seg_A_lbl = 7'b1110111;
-            // B: estilo "B" en 7-seg (parte baja algo abierta)
-            seg_B_lbl = 7'b0011111;
+            // ====== LABEL "A" dibujado a mano ======
+            ax0   = LABEL_X;
+            ax1   = LABEL_X + DIGIT_W;
+            ay0   = ROW0_Y;
+            ay1   = ROW0_Y + DIGIT_H;
+            amidY = ay0 + (ay1 - ay0)/2;
 
-            if (digit_pixel(x, y, LABEL_X, ROW0_Y, seg_A_lbl))
-                {vga_r, vga_g, vga_b} = 24'h000000;
+            if ( // dos columnas + barra superior + barra media
+                in_rect(x, y, ax0,         ax0+SEG_TH, ay0+SEG_TH, ay1)       || // izquierda
+                in_rect(x, y, ax1-SEG_TH,  ax1,        ay0+SEG_TH, ay1)       || // derecha
+                in_rect(x, y, ax0+SEG_TH,  ax1-SEG_TH, ay0,         ay0+SEG_TH) || // top
+                in_rect(x, y, ax0+SEG_TH,  ax1-SEG_TH,
+                             amidY-SEG_TH/2, amidY+SEG_TH/2) ) begin           // barra media
+                vga_r = 8'h00;
+                vga_g = 8'h00;
+                vga_b = 8'h00;
+            end
 
-            if (digit_pixel(x, y, LABEL_X, ROW0_Y + ROW_SP, seg_B_lbl))
-                {vga_r, vga_g, vga_b} = 24'h000000;
+            // ====== LABEL "B" dibujado a mano ======
+            bx0   = LABEL_X;
+            bx1   = LABEL_X + DIGIT_W;
+            by0   = ROW0_Y + ROW_SP;
+            by1   = by0 + DIGIT_H;
+            bmidY = by0 + (by1 - by0)/2;
+
+            if (
+                // barra izquierda completa
+                in_rect(x, y, bx0, bx0+SEG_TH, by0, by1) ||
+                // barra superior
+                in_rect(x, y, bx0+SEG_TH, bx1-SEG_TH, by0, by0+SEG_TH) ||
+                // barra media
+                in_rect(x, y, bx0+SEG_TH, bx1-SEG_TH,
+                             bmidY-SEG_TH/2, bmidY+SEG_TH/2) ||
+                // barra inferior
+                in_rect(x, y, bx0+SEG_TH, bx1-SEG_TH, by1-SEG_TH, by1) ||
+                // “panza” superior derecha
+                in_rect(x, y, bx1-SEG_TH, bx1,
+                             by0+SEG_TH, bmidY-SEG_TH/2) ||
+                // “panza” inferior derecha
+                in_rect(x, y, bx1-SEG_TH, bx1,
+                             bmidY+SEG_TH/2, by1-SEG_TH)
+            ) begin
+                vga_r = 8'h00;
+                vga_g = 8'h00;
+                vga_b = 8'h00;
+            end
 
             // ===== Operadores =====
             cx_plus  = LABEL_X + DIGIT_W/2;
