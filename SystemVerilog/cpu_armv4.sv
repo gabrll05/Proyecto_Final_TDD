@@ -1,5 +1,5 @@
 // ============================================================
-// cpu_armv4.sv  (CPU ARMv4 CON INTERFAZ EXTERNA A LA RAM + PC OUT)
+// cpu_armv4.sv  (CPU ARMv4 CON INTERFAZ EXTERNA A LA RAM + PC OUT + FLAGS)
 // ============================================================
 module cpu_armv4 (
     input  logic clk,
@@ -11,7 +11,8 @@ module cpu_armv4 (
     input  logic [31:0] ext_wdata,   // dato externo
 
     output logic [31:0] alu_result_out,
-    output logic [7:0]  pc_out       // <- NUEVO: PC hacia fuera
+    output logic [3:0]  alu_flags_out, // <- NUEVO: flags de la ALU
+    output logic [7:0]  pc_out         // PC hacia fuera
 );
 
     // Señales internas
@@ -86,6 +87,7 @@ module cpu_armv4 (
     assign alu_B   = b_imm_sel  ? imm_ext : regB;
 
     logic [3:0] alu_flags;
+
     alu_core #(.N(32)) u_alu_core (
         .clk(clk), .reset(reset),
         .A(alu_A), .B(alu_B), .CIN_BIN(1'b0),
@@ -93,12 +95,12 @@ module cpu_armv4 (
     );
 
     assign alu_result_out = alu_result;
+    assign alu_flags_out  = alu_flags;  // <- NUEVO
 
     // ========== Writeback ==========
     assign wb_data = wb_sel_mem ? ram_data_out : alu_result;
 
     // ========== RAM INTERNA con multiplexor para acceso externo ==========
-
     assign ram_addr_internal    = regA[7:0];
     assign ram_data_in_internal = regB;
 

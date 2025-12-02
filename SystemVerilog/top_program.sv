@@ -1,11 +1,7 @@
 // ============================================================
 // top_program.sv
 // Top del proyecto: SPI -> RAM CPU -> ALU -> VGA Calculadora
-//  - Ahora el SPI SOLO recibe A y B como nibbles (no signo).
-//  - El CPU siempre calcula suma, resta, mul y div con A y B.
-//  - VGA muestra A, B y los resultados.
 // ============================================================
-
 module top_program (
     input  logic        CLOCK_50,
     input  logic [3:0]  KEY,      // KEY[0] = reset activo en bajo
@@ -73,19 +69,21 @@ module top_program (
 
     // ----------------------------------------------------
     // Dominio rápido (CLOCK_50): detectar fin de nibble
-    // usando flanco de subida de SS
+    // usando flanco de subida de SS + toggle de evento
     // ----------------------------------------------------
     logic       ss_sync0, ss_sync1, ss_prev;
     logic       ss_rise;
     logic [3:0] spi_data_fast;
+    logic       word_toggle_fast;   // toggle que cambia en cada nibble
 
     always_ff @(posedge CLOCK_50 or posedge reset) begin
         if (reset) begin
-            ss_sync0      <= 1'b1;
-            ss_sync1      <= 1'b1;
-            ss_prev       <= 1'b1;
-            ss_rise       <= 1'b0;
-            spi_data_fast <= 4'd0;
+            ss_sync0        <= 1'b1;
+            ss_sync1        <= 1'b1;
+            ss_prev         <= 1'b1;
+            ss_rise         <= 1'b0;
+            spi_data_fast   <= 4'd0;
+            word_toggle_fast<= 1'b0;
         end else begin
             // Sincronizar SS al reloj de 50 MHz
             ss_sync0 <= ss;
@@ -97,33 +95,41 @@ module top_program (
 
             if (ss_rise) begin
                 // Cuando SS sube, el nibble ya fue shift-eado en md
-                spi_data_fast <= spi_data_raw;
+                spi_data_fast    <= spi_data_raw;
+                word_toggle_fast <= ~word_toggle_fast; // evento por nibble
             end
         end
     end
 
     // ----------------------------------------------------
-    // Sincronizar nibble al dominio del CPU (clk_cpu)
-    // y detectar CAMBIO de nibble (nuevo dato)
+    // Sincronizar nibble + toggle al dominio del CPU (clk_cpu)
+    // y detectar NUEVO nibble por cambio de toggle
     // ----------------------------------------------------
     logic [3:0] nibble_sync0, nibble_sync1, nibble_last;
     logic       new_word_cpu;
 
+    logic       toggle_sync0, toggle_sync1, toggle_last;
+
     always_ff @(posedge clk_cpu or posedge reset) begin
         if (reset) begin
-            nibble_sync0 <= 4'd0;
-            nibble_sync1 <= 4'd0;
-            nibble_last  <= 4'd0;
-            new_word_cpu <= 1'b0;
+            nibble_sync0  <= 4'd0;
+            nibble_sync1  <= 4'd0;
+            nibble_last   <= 4'd0;
+            toggle_sync0  <= 1'b0;
+            toggle_sync1  <= 1'b0;
+            toggle_last   <= 1'b0;
+            new_word_cpu  <= 1'b0;
         end else begin
-            // doble sincronización del dato desde el dominio de CLOCK_50
             nibble_sync0 <= spi_data_fast;
             nibble_sync1 <= nibble_sync0;
 
-            // si cambió el nibble estable → nuevo "word" recibido
-            if (nibble_sync1 != nibble_last) begin
+            toggle_sync0 <= word_toggle_fast;
+            toggle_sync1 <= toggle_sync0;
+
+            if (toggle_sync1 != toggle_last) begin
+                toggle_last  <= toggle_sync1;
                 nibble_last  <= nibble_sync1;
-                new_word_cpu <= 1'b1;   // pulso de 1 ciclo
+                new_word_cpu <= 1'b1;   // pulso de 1 ciclo en clk_cpu
             end else begin
                 new_word_cpu <= 1'b0;
             end
@@ -151,19 +157,17 @@ module top_program (
             in_state <= IN_WAIT_A;
             A_VAL    <= 4'd0;
             B_VAL    <= 4'd0;
-            op_code  <= 4'd0;   // en reset y siempre 0
+            op_code  <= 4'd0;
             got_cmd  <= 1'b0;
         end else begin
             if (new_word_cpu) begin
                 case (in_state)
                     IN_WAIT_A: begin
-                        // Primer nibble recibido -> A
                         A_VAL    <= nibble_last;
                         in_state <= IN_WAIT_B;
                     end
 
                     IN_WAIT_B: begin
-                        // Segundo nibble -> B, ya tenemos comando completo
                         B_VAL    <= nibble_last;
                         in_state <= IN_WAIT_A;
                         got_cmd  <= 1'b1;
@@ -208,13 +212,13 @@ module top_program (
             case (load_state)
                 LOAD_IDLE: begin
                     if (cmd_start)
-                        load_state <= LOAD_A;   // empieza secuencia de carga
+                        load_state <= LOAD_A;
                 end
                 LOAD_A: begin
-                    load_state <= LOAD_B;       // siguiente ciclo: cargar B
+                    load_state <= LOAD_B;
                 end
                 LOAD_B: begin
-                    load_state <= LOAD_IDLE;    // termina carga, luego CPU corre
+                    load_state <= LOAD_IDLE;
                 end
                 default: load_state <= LOAD_IDLE;
             endcase
@@ -227,25 +231,22 @@ module top_program (
     logic [31:0] ext_wdata_sig;
 
     always_comb begin
-        // valores por defecto (no escribir)
         ext_we_sig    = 1'b0;
         ext_addr_sig  = 8'd0;
         ext_wdata_sig = 32'd0;
 
         case (load_state)
             LOAD_A: begin
-                // Escribimos A en MEM[10]
                 ext_we_sig    = 1'b1;
                 ext_addr_sig  = 8'd10;
                 ext_wdata_sig = {28'd0, A_VAL};
             end
             LOAD_B: begin
-                // Escribimos B en MEM[11]
                 ext_we_sig    = 1'b1;
                 ext_addr_sig  = 8'd11;
                 ext_wdata_sig = {28'd0, B_VAL};
             end
-            default: ; // nada
+            default: ;
         endcase
     end
 
@@ -260,6 +261,7 @@ module top_program (
     // CPU ARM + interfaz externa a RAM
     // ----------------------------------------------------
     logic [31:0] alu_result_out;
+    logic [3:0]  alu_flags;
     logic [7:0]  pc_dbg;
 
     cpu_armv4 u_cpu (
@@ -271,42 +273,55 @@ module top_program (
         .ext_wdata     (ext_wdata_sig),
 
         .alu_result_out(alu_result_out),
+        .alu_flags_out (alu_flags),   // <- NUEVO
         .pc_out        (pc_dbg)
     );
 
     // ----------------------------------------------------
-    // Captura de RESULTADOS (ADD, SUB, MUL, DIV)
+    // Captura de RESULTADOS (ADD, SUB, MUL, DIV) + FLAGS
     //  PC = 5 -> ADD r2 = A + B
     //  PC = 6 -> SUB r3 = A - B
     //  PC = 7 -> MUL r4 = A * B
     //  PC = 8 -> DIV r5 = A / B
     // ----------------------------------------------------
     logic [3:0] sum_nib, sub_nib, mul_nib, div_nib;
+    logic [3:0] flags_sum, flags_sub, flags_mul, flags_div; // NUEVO
 
     always_ff @(posedge clk_cpu or posedge cpu_reset) begin
         if (cpu_reset) begin
-            sum_nib <= 4'd0;
-            sub_nib <= 4'd0;
-            mul_nib <= 4'd0;
-            div_nib <= 4'd0;
+            sum_nib   <= 4'd0;
+            sub_nib   <= 4'd0;
+            mul_nib   <= 4'd0;
+            div_nib   <= 4'd0;
+            flags_sum <= 4'd0;
+            flags_sub <= 4'd0;
+            flags_mul <= 4'd0;
+            flags_div <= 4'd0;
         end else begin
             case (pc_dbg)
-                8'd5: sum_nib <= alu_result_out[3:0]; // suma
-                8'd6: sub_nib <= alu_result_out[3:0]; // resta
-                8'd7: mul_nib <= alu_result_out[3:0]; // mul
-                8'd8: div_nib <= alu_result_out[3:0]; // div
-                default: ; // mantiene valores
+                8'd5: begin
+                    sum_nib   <= alu_result_out[3:0];
+                    flags_sum <= alu_flags;
+                end
+                8'd6: begin
+                    sub_nib   <= alu_result_out[3:0];
+                    flags_sub <= alu_flags;
+                end
+                8'd7: begin
+                    mul_nib   <= alu_result_out[3:0];
+                    flags_mul <= alu_flags;
+                end
+                8'd8: begin
+                    div_nib   <= alu_result_out[3:0];
+                    flags_div <= alu_flags;
+                end
+                default: ;
             endcase
         end
     end
 
     // ----------------------------------------------------
     // Displays 7 segmentos
-    //  HEX0 -> A
-    //  HEX1 -> B
-    //  HEX2 -> resultado de la suma
-    //  HEX3 -> código de operación (ahora siempre 0)
-    //  HEX4 -> nibble actual de la ALU (carrusel del programa)
     // ----------------------------------------------------
 
     // HEX0: valor A
@@ -349,8 +364,8 @@ module top_program (
     end
 
     assign VGA_CLK     = clk_pix;
-    assign VGA_BLANK_N = 1'b1; // siempre activo
-    assign VGA_SYNC_N  = 1'b0; // no se usa en monitores modernos
+    assign VGA_BLANK_N = 1'b1;
+    assign VGA_SYNC_N  = 1'b0;
 
     // Reset sincronizado al dominio de píxel
     logic r1, r2;
@@ -366,9 +381,9 @@ module top_program (
     wire rst_pix = r2;
 
     // ----------------------------------------------------
-    // Instancia de vga_controller (timing) + UI
+    // VGA controller + UI
     // ----------------------------------------------------
-    logic       video_on;
+    logic        video_on;
     logic [11:0] vx, vy;
     logic        hs_int, vs_int;
 
@@ -387,7 +402,6 @@ module top_program (
         .y       (vy)
     );
 
-    // Registrar HS/VS para salida
     always_ff @(posedge clk_pix or negedge rst_n) begin
         if (!rst_n) begin
             VGA_HS <= 1'b1;
@@ -402,23 +416,27 @@ module top_program (
     logic [7:0] ui_r, ui_g, ui_b;
 
     vga_calc_ui u_vga_calc_ui (
-        .x       (vx),
-        .y       (vy),
-        .video_on(video_on),
+        .x        (vx),
+        .y        (vy),
+        .video_on (video_on),
 
-        .A_nib   (A_VAL),
-        .B_nib   (B_VAL),
-        .sum_nib (sum_nib),
-        .sub_nib (sub_nib),
-        .mul_nib (mul_nib),
-        .div_nib (div_nib),
+        .A_nib    (A_VAL),
+        .B_nib    (B_VAL),
+        .sum_nib  (sum_nib),
+        .sub_nib  (sub_nib),
+        .mul_nib  (mul_nib),
+        .div_nib  (div_nib),
 
-        .vga_r   (ui_r),
-        .vga_g   (ui_g),
-        .vga_b   (ui_b)
+        .flags_sum(flags_sum),  // NUEVOS
+        .flags_sub(flags_sub),
+        .flags_mul(flags_mul),
+        .flags_div(flags_div),
+
+        .vga_r    (ui_r),
+        .vga_g    (ui_g),
+        .vga_b    (ui_b)
     );
 
-    // Registro de color de salida
     always_ff @(posedge clk_pix or negedge rst_n) begin
         if (!rst_n) begin
             VGA_R <= 8'h00;

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for ProyectoFT
-Sat Nov 15 21:36:20 2025
+Tue Dec  2 04:23:26 2025
 Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
@@ -131,13 +131,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Nov 15 21:36:20 2025          ;
+; Analysis & Synthesis Status     ; Successful - Tue Dec  2 04:23:25 2025          ;
 ; Quartus Prime Version           ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
 ; Revision Name                   ; ProyectoFT                                     ;
 ; Top-level Entity Name           ; top_program                                    ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 8602                                           ;
+; Total registers                 ; 8622                                           ;
 ; Total pins                      ; 74                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
@@ -251,7 +251,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.3%      ;
+;     Processor 2            ;   0.1%      ;
 ;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.1%      ;
 +----------------------------+-------------+
@@ -297,25 +297,25 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------------------------+
 ; Resource                                    ; Usage                       ;
 +---------------------------------------------+-----------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 6901                        ;
+; Estimate of Logic utilization (ALMs needed) ; 7188                        ;
 ;                                             ;                             ;
-; Combinational ALUT usage for logic          ; 7081                        ;
-;     -- 7 input functions                    ; 18                          ;
-;     -- 6 input functions                    ; 3013                        ;
-;     -- 5 input functions                    ; 1341                        ;
-;     -- 4 input functions                    ; 1898                        ;
-;     -- <=3 input functions                  ; 811                         ;
+; Combinational ALUT usage for logic          ; 8326                        ;
+;     -- 7 input functions                    ; 30                          ;
+;     -- 6 input functions                    ; 3135                        ;
+;     -- 5 input functions                    ; 1407                        ;
+;     -- 4 input functions                    ; 2781                        ;
+;     -- <=3 input functions                  ; 973                         ;
 ;                                             ;                             ;
-; Dedicated logic registers                   ; 8602                        ;
+; Dedicated logic registers                   ; 8622                        ;
 ;                                             ;                             ;
 ; I/O pins                                    ; 74                          ;
 ;                                             ;                             ;
 ; Total DSP Blocks                            ; 0                           ;
 ;                                             ;                             ;
 ; Maximum fan-out node                        ; clock_divider:u_div|clk_out ;
-; Maximum fan-out                             ; 8503                        ;
-; Total fan-out                               ; 68567                       ;
-; Average fan-out                             ; 4.33                        ;
+; Maximum fan-out                             ; 8522                        ;
+; Total fan-out                               ; 73744                       ;
+; Average fan-out                             ; 4.31                        ;
 +---------------------------------------------+-----------------------------+
 
 
@@ -324,64 +324,66 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                               ; Entity Name           ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
-; |top_program                                    ; 7081 (28)           ; 8602 (80)                 ; 0                 ; 0          ; 74   ; 0            ; |top_program                                                                                                                                                      ; top_program           ; work         ;
+; |top_program                                    ; 8326 (38)           ; 8622 (100)                ; 0                 ; 0          ; 74   ; 0            ; |top_program                                                                                                                                                      ; top_program           ; work         ;
 ;    |SPI_io:u_spi|                               ; 8 (8)               ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |top_program|SPI_io:u_spi                                                                                                                                         ; SPI_io                ; work         ;
 ;    |clock_divider:u_div|                        ; 24 (24)             ; 25 (25)                   ; 0                 ; 0          ; 0    ; 0            ; |top_program|clock_divider:u_div                                                                                                                                  ; clock_divider         ; work         ;
-;    |cpu_armv4:u_cpu|                            ; 6706 (277)          ; 8460 (8)                  ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu                                                                                                                                      ; cpu_armv4             ; work         ;
-;       |alu_core:u_alu_core|                     ; 3223 (23)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core                                                                                                                  ; alu_core              ; work         ;
-;          |divider:u_divmod|                     ; 2222 (9)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod                                                                                                 ; divider               ; work         ;
-;             |lpm_divide:Div0|                   ; 1097 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod|lpm_divide:Div0                                                                                 ; lpm_divide            ; work         ;
-;                |lpm_divide_3dm:auto_generated|  ; 1097 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod|lpm_divide:Div0|lpm_divide_3dm:auto_generated                                                   ; lpm_divide_3dm        ; work         ;
-;                   |sign_div_unsign_9nh:divider| ; 1097 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh   ; work         ;
-;                      |alt_u_div_o2f:divider|    ; 1097 (1097)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f         ; work         ;
-;             |lpm_divide:Mod0|                   ; 1116 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod|lpm_divide:Mod0                                                                                 ; lpm_divide            ; work         ;
-;                |lpm_divide_65m:auto_generated|  ; 1116 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod|lpm_divide:Mod0|lpm_divide_65m:auto_generated                                                   ; lpm_divide_65m        ; work         ;
-;                   |sign_div_unsign_9nh:divider| ; 1116 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod|lpm_divide:Mod0|lpm_divide_65m:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh   ; work         ;
-;                      |alt_u_div_o2f:divider|    ; 1116 (1116)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod|lpm_divide:Mod0|lpm_divide_65m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f         ; work         ;
-;          |multiplicador_sumas:u_mul|            ; 919 (31)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul                                                                                        ; multiplicador_sumas   ; work         ;
-;             |sumador:GEN_MUL[10].u_add_i|       ; 39 (39)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[10].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[11].u_add_i|       ; 38 (38)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[11].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[12].u_add_i|       ; 35 (35)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[12].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[13].u_add_i|       ; 34 (34)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[13].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[14].u_add_i|       ; 31 (31)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[14].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[15].u_add_i|       ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[15].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[16].u_add_i|       ; 27 (27)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[16].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[17].u_add_i|       ; 26 (26)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[17].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[18].u_add_i|       ; 23 (23)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[18].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[19].u_add_i|       ; 22 (22)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[19].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[1].u_add_i|        ; 58 (58)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[1].u_add_i                                                             ; sumador               ; work         ;
-;             |sumador:GEN_MUL[20].u_add_i|       ; 19 (19)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[20].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[21].u_add_i|       ; 18 (18)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[21].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[22].u_add_i|       ; 15 (15)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[22].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[23].u_add_i|       ; 14 (14)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[23].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[24].u_add_i|       ; 11 (11)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[24].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[25].u_add_i|       ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[25].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[26].u_add_i|       ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[26].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[27].u_add_i|       ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[27].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[28].u_add_i|       ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[28].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[29].u_add_i|       ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[29].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[2].u_add_i|        ; 55 (55)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[2].u_add_i                                                             ; sumador               ; work         ;
-;             |sumador:GEN_MUL[31].u_add_i|       ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[31].u_add_i                                                            ; sumador               ; work         ;
-;             |sumador:GEN_MUL[3].u_add_i|        ; 54 (54)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[3].u_add_i                                                             ; sumador               ; work         ;
-;             |sumador:GEN_MUL[4].u_add_i|        ; 51 (51)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[4].u_add_i                                                             ; sumador               ; work         ;
-;             |sumador:GEN_MUL[5].u_add_i|        ; 50 (50)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[5].u_add_i                                                             ; sumador               ; work         ;
-;             |sumador:GEN_MUL[6].u_add_i|        ; 47 (47)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[6].u_add_i                                                             ; sumador               ; work         ;
-;             |sumador:GEN_MUL[7].u_add_i|        ; 46 (46)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[7].u_add_i                                                             ; sumador               ; work         ;
-;             |sumador:GEN_MUL[8].u_add_i|        ; 43 (43)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[8].u_add_i                                                             ; sumador               ; work         ;
-;             |sumador:GEN_MUL[9].u_add_i|        ; 42 (42)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[9].u_add_i                                                             ; sumador               ; work         ;
+;    |cpu_armv4:u_cpu|                            ; 7856 (198)          ; 8460 (8)                  ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu                                                                                                                                      ; cpu_armv4             ; work         ;
+;       |alu_core:u_alu_core|                     ; 4449 (166)          ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core                                                                                                                  ; alu_core              ; work         ;
+;          |divider:u_divmod|                     ; 2233 (20)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod                                                                                                 ; divider               ; work         ;
+;             |lpm_divide:Div0|                   ; 1094 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod|lpm_divide:Div0                                                                                 ; lpm_divide            ; work         ;
+;                |lpm_divide_3dm:auto_generated|  ; 1094 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod|lpm_divide:Div0|lpm_divide_3dm:auto_generated                                                   ; lpm_divide_3dm        ; work         ;
+;                   |sign_div_unsign_9nh:divider| ; 1094 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh   ; work         ;
+;                      |alt_u_div_o2f:divider|    ; 1094 (1094)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f         ; work         ;
+;             |lpm_divide:Mod0|                   ; 1119 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod|lpm_divide:Mod0                                                                                 ; lpm_divide            ; work         ;
+;                |lpm_divide_65m:auto_generated|  ; 1119 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod|lpm_divide:Mod0|lpm_divide_65m:auto_generated                                                   ; lpm_divide_65m        ; work         ;
+;                   |sign_div_unsign_9nh:divider| ; 1119 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod|lpm_divide:Mod0|lpm_divide_65m:auto_generated|sign_div_unsign_9nh:divider                       ; sign_div_unsign_9nh   ; work         ;
+;                      |alt_u_div_o2f:divider|    ; 1119 (1119)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod|lpm_divide:Mod0|lpm_divide_65m:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider ; alt_u_div_o2f         ; work         ;
+;          |logic_ops:u_logic|                    ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|logic_ops:u_logic                                                                                                ; logic_ops             ; work         ;
+;          |multiplicador_sumas:u_mul|            ; 1981 (65)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul                                                                                        ; multiplicador_sumas   ; work         ;
+;             |sumador:GEN_MUL[10].u_add_i|       ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[10].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[11].u_add_i|       ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[11].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[12].u_add_i|       ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[12].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[13].u_add_i|       ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[13].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[14].u_add_i|       ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[14].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[15].u_add_i|       ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[15].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[16].u_add_i|       ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[16].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[17].u_add_i|       ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[17].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[18].u_add_i|       ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[18].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[19].u_add_i|       ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[19].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[1].u_add_i|        ; 62 (62)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[1].u_add_i                                                             ; sumador               ; work         ;
+;             |sumador:GEN_MUL[20].u_add_i|       ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[20].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[21].u_add_i|       ; 63 (63)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[21].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[22].u_add_i|       ; 63 (63)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[22].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[23].u_add_i|       ; 63 (63)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[23].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[24].u_add_i|       ; 62 (62)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[24].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[25].u_add_i|       ; 65 (65)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[25].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[26].u_add_i|       ; 61 (61)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[26].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[27].u_add_i|       ; 60 (60)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[27].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[28].u_add_i|       ; 62 (62)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[28].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[29].u_add_i|       ; 58 (58)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[29].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[2].u_add_i|        ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[2].u_add_i                                                             ; sumador               ; work         ;
+;             |sumador:GEN_MUL[30].u_add_i|       ; 58 (58)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[30].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[31].u_add_i|       ; 23 (23)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[31].u_add_i                                                            ; sumador               ; work         ;
+;             |sumador:GEN_MUL[3].u_add_i|        ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[3].u_add_i                                                             ; sumador               ; work         ;
+;             |sumador:GEN_MUL[4].u_add_i|        ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[4].u_add_i                                                             ; sumador               ; work         ;
+;             |sumador:GEN_MUL[5].u_add_i|        ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[5].u_add_i                                                             ; sumador               ; work         ;
+;             |sumador:GEN_MUL[6].u_add_i|        ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[6].u_add_i                                                             ; sumador               ; work         ;
+;             |sumador:GEN_MUL[7].u_add_i|        ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[7].u_add_i                                                             ; sumador               ; work         ;
+;             |sumador:GEN_MUL[8].u_add_i|        ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[8].u_add_i                                                             ; sumador               ; work         ;
+;             |sumador:GEN_MUL[9].u_add_i|        ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[9].u_add_i                                                             ; sumador               ; work         ;
 ;          |restador:u_sub|                       ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|restador:u_sub                                                                                                   ; restador              ; work         ;
-;          |sumador:u_add|                        ; 29 (29)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|sumador:u_add                                                                                                    ; sumador               ; work         ;
-;       |control_unit:u_ctrl|                     ; 21 (21)             ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|control_unit:u_ctrl                                                                                                                  ; control_unit          ; work         ;
+;          |sumador:u_add|                        ; 33 (33)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|sumador:u_add                                                                                                    ; sumador               ; work         ;
+;       |control_unit:u_ctrl|                     ; 25 (25)             ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|control_unit:u_ctrl                                                                                                                  ; control_unit          ; work         ;
 ;       |ram_data:u_ram|                          ; 3044 (3044)         ; 8192 (8192)               ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|ram_data:u_ram                                                                                                                       ; ram_data              ; work         ;
-;       |regfile:u_regfile|                       ; 126 (126)           ; 256 (256)                 ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|regfile:u_regfile                                                                                                                    ; regfile               ; work         ;
-;       |rom_program:u_rom|                       ; 15 (15)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|rom_program:u_rom                                                                                                                    ; rom_program           ; work         ;
+;       |regfile:u_regfile|                       ; 122 (122)           ; 256 (256)                 ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|regfile:u_regfile                                                                                                                    ; regfile               ; work         ;
+;       |rom_program:u_rom|                       ; 18 (18)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|cpu_armv4:u_cpu|rom_program:u_rom                                                                                                                    ; rom_program           ; work         ;
 ;    |seven_segment_display:u_hex_ALU|            ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|seven_segment_display:u_hex_ALU                                                                                                                      ; seven_segment_display ; work         ;
 ;    |seven_segment_display:u_hex_A|              ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|seven_segment_display:u_hex_A                                                                                                                        ; seven_segment_display ; work         ;
 ;    |seven_segment_display:u_hex_B|              ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|seven_segment_display:u_hex_B                                                                                                                        ; seven_segment_display ; work         ;
 ;    |seven_segment_display:u_hex_RES|            ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|seven_segment_display:u_hex_RES                                                                                                                      ; seven_segment_display ; work         ;
-;    |vga_calc_ui:u_vga_calc_ui|                  ; 248 (248)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|vga_calc_ui:u_vga_calc_ui                                                                                                                            ; vga_calc_ui           ; work         ;
-;    |vga_controller:u_vga|                       ; 39 (0)              ; 27 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |top_program|vga_controller:u_vga                                                                                                                                 ; vga_controller        ; work         ;
-;       |vga_timing:u_timing|                     ; 39 (39)             ; 27 (27)                   ; 0                 ; 0          ; 0    ; 0            ; |top_program|vga_controller:u_vga|vga_timing:u_timing                                                                                                             ; vga_timing            ; work         ;
+;    |vga_calc_ui:u_vga_calc_ui|                  ; 335 (335)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top_program|vga_calc_ui:u_vga_calc_ui                                                                                                                            ; vga_calc_ui           ; work         ;
+;    |vga_controller:u_vga|                       ; 37 (0)              ; 27 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |top_program|vga_controller:u_vga                                                                                                                                 ; vga_controller        ; work         ;
+;       |vga_timing:u_timing|                     ; 37 (37)             ; 27 (27)                   ; 0                 ; 0          ; 0    ; 0            ; |top_program|vga_controller:u_vga|vga_timing:u_timing                                                                                                             ; vga_timing            ; work         ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -696,12 +698,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 8602  ;
+; Total registers                              ; 8622  ;
 ; Number of registers using Synchronous Clear  ; 7193  ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 383   ;
+; Number of registers using Asynchronous Clear ; 403   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 8510  ;
+; Number of registers using Clock Enable       ; 8528  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -728,13 +730,13 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                 ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |top_program|SPI_io:u_spi|cs[4]                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |top_program|vga_controller:u_vga|vga_timing:u_timing|x[4] ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |top_program|SPI_io:u_spi|cs[1]                            ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |top_program|vga_controller:u_vga|vga_timing:u_timing|x[0] ;
 ; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |top_program|vga_controller:u_vga|vga_timing:u_timing|y[7] ;
-; 3:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |top_program|cpu_armv4:u_cpu|alu_A[18]                     ;
-; 16:1               ; 32 bits   ; 320 LEs       ; 192 LEs              ; 128 LEs                ; No         ; |top_program|cpu_armv4:u_cpu|regfile:u_regfile|Mux45       ;
-; 10:1               ; 3 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|Mux30     ;
-; 11:1               ; 28 bits   ; 196 LEs       ; 196 LEs              ; 0 LEs                  ; No         ; |top_program|cpu_armv4:u_cpu|wb_data[31]                   ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |top_program|cpu_armv4:u_cpu|alu_A[13]                     ;
+; 8:1                ; 5 bits    ; 25 LEs        ; 25 LEs               ; 0 LEs                  ; No         ; |top_program|cpu_armv4:u_cpu|alu_core:u_alu_core|Mux29     ;
+; 9:1                ; 27 bits   ; 162 LEs       ; 162 LEs              ; 0 LEs                  ; No         ; |top_program|cpu_armv4:u_cpu|wb_data[19]                   ;
+; 16:1               ; 32 bits   ; 320 LEs       ; 192 LEs              ; 128 LEs                ; No         ; |top_program|cpu_armv4:u_cpu|regfile:u_regfile|Mux52       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
 
 
@@ -1760,14 +1762,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+----------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core"                                                   ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                             ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; CIN_BIN ; Input  ; Info     ; Stuck at GND                                                                        ;
-; FLAGS   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
++-----------------------------------------------------------------+
+; Port Connectivity Checks: "cpu_armv4:u_cpu|alu_core:u_alu_core" ;
++---------+-------+----------+------------------------------------+
+; Port    ; Type  ; Severity ; Details                            ;
++---------+-------+----------+------------------------------------+
+; CIN_BIN ; Input ; Info     ; Stuck at GND                       ;
++---------+-------+----------+------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------+
@@ -1787,38 +1788,38 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 8602                        ;
-;     CLR               ; 76                          ;
+; arriav_ff             ; 8622                        ;
+;     CLR               ; 78                          ;
 ;     CLR SCLR          ; 1                           ;
 ;     ENA               ; 1024                        ;
-;     ENA CLR           ; 306                         ;
+;     ENA CLR           ; 324                         ;
 ;     ENA SCLR          ; 7180                        ;
 ;     SCLR              ; 12                          ;
 ;     plain             ; 3                           ;
-; arriav_lcell_comb     ; 7089                        ;
+; arriav_lcell_comb     ; 8334                        ;
 ;     arith             ; 1288                        ;
 ;         0 data inputs ; 120                         ;
 ;         1 data inputs ; 89                          ;
 ;         2 data inputs ; 29                          ;
 ;         5 data inputs ; 1050                        ;
-;     extend            ; 18                          ;
-;         7 data inputs ; 18                          ;
-;     normal            ; 5759                        ;
+;     extend            ; 30                          ;
+;         7 data inputs ; 30                          ;
+;     normal            ; 6992                        ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 13                          ;
-;         2 data inputs ; 416                         ;
-;         3 data inputs ; 126                         ;
-;         4 data inputs ; 1898                        ;
-;         5 data inputs ; 291                         ;
-;         6 data inputs ; 3013                        ;
+;         1 data inputs ; 14                          ;
+;         2 data inputs ; 479                         ;
+;         3 data inputs ; 224                         ;
+;         4 data inputs ; 2781                        ;
+;         5 data inputs ; 357                         ;
+;         6 data inputs ; 3135                        ;
 ;     shared            ; 24                          ;
 ;         0 data inputs ; 4                           ;
 ;         2 data inputs ; 14                          ;
 ;         3 data inputs ; 6                           ;
 ; boundary_port         ; 74                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 111.60                      ;
-; Average LUT depth     ; 31.90                       ;
+; Max LUT depth         ; 113.60                      ;
+; Average LUT depth     ; 36.37                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1827,7 +1828,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:32     ;
+; Top            ; 00:00:40     ;
 +----------------+--------------+
 
 
@@ -1837,7 +1838,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
-    Info: Processing started: Sat Nov 15 21:35:37 2025
+    Info: Processing started: Tue Dec  2 04:22:35 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ProyectoFT -c ProyectoFT
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -1879,7 +1880,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file logic_o
 Info (12021): Found 1 design units, including 1 entities, in source file alu_core.sv
     Info (12023): Found entity 1: alu_core File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/alu_core.sv Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file top_program.sv
-    Info (12023): Found entity 1: top_program File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 9
+    Info (12023): Found entity 1: top_program File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file top_vga_test.sv
     Info (12023): Found entity 1: top_vga_test File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_vga_test.sv Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file vga_colorbars.sv
@@ -1889,39 +1890,39 @@ Info (12021): Found 1 design units, including 1 entities, in source file vga_tim
 Info (12021): Found 1 design units, including 1 entities, in source file vga_calc_bars.sv
     Info (12023): Found entity 1: vga_calc_bars File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/vga_calc_bars.sv Line: 12
 Info (12021): Found 1 design units, including 1 entities, in source file vga_calc_ui.sv
-    Info (12023): Found entity 1: vga_calc_ui File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/vga_calc_ui.sv Line: 13
+    Info (12023): Found entity 1: vga_calc_ui File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/vga_calc_ui.sv Line: 16
 Info (12127): Elaborating entity "top_program" for the top level hierarchy
-Warning (10240): Verilog HDL Always Construct warning at top_program.sv(149): inferring latch(es) for variable "op_code", which holds its previous value in one or more paths through the always construct File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 149
-Info (10264): Verilog HDL Case Statement information at top_program.sv(235): all case item expressions in this case statement are onehot File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 235
-Info (10041): Inferred latch for "op_code[0]" at top_program.sv(149) File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 149
-Info (10041): Inferred latch for "op_code[1]" at top_program.sv(149) File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 149
-Info (10041): Inferred latch for "op_code[2]" at top_program.sv(149) File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 149
-Info (10041): Inferred latch for "op_code[3]" at top_program.sv(149) File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 149
-Info (12128): Elaborating entity "clock_divider" for hierarchy "clock_divider:u_div" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 53
+Warning (10240): Verilog HDL Always Construct warning at top_program.sv(155): inferring latch(es) for variable "op_code", which holds its previous value in one or more paths through the always construct File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 155
+Info (10264): Verilog HDL Case Statement information at top_program.sv(238): all case item expressions in this case statement are onehot File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 238
+Info (10041): Inferred latch for "op_code[0]" at top_program.sv(155) File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 155
+Info (10041): Inferred latch for "op_code[1]" at top_program.sv(155) File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 155
+Info (10041): Inferred latch for "op_code[2]" at top_program.sv(155) File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 155
+Info (10041): Inferred latch for "op_code[3]" at top_program.sv(155) File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 155
+Info (12128): Elaborating entity "clock_divider" for hierarchy "clock_divider:u_div" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 49
 Warning (10230): Verilog HDL assignment warning at clock_divider.sv(17): truncated value with size 32 to match size of target (26) File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/clock_divider.sv Line: 17
-Info (12128): Elaborating entity "SPI_io" for hierarchy "SPI_io:u_spi" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 69
+Info (12128): Elaborating entity "SPI_io" for hierarchy "SPI_io:u_spi" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 65
 Warning (10230): Verilog HDL assignment warning at alu_core.sv(129): truncated value with size 32 to match size of target (6) File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/alu_core.sv Line: 129
-Info (12128): Elaborating entity "cpu_armv4" for hierarchy "cpu_armv4:u_cpu" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 275
-Info (12128): Elaborating entity "rom_program" for hierarchy "cpu_armv4:u_cpu|rom_program:u_rom" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/cpu_armv4.sv Line: 58
+Info (12128): Elaborating entity "cpu_armv4" for hierarchy "cpu_armv4:u_cpu" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 278
+Info (12128): Elaborating entity "rom_program" for hierarchy "cpu_armv4:u_cpu|rom_program:u_rom" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/cpu_armv4.sv Line: 59
 Warning (10850): Verilog HDL warning at rom_program.sv(12): number of words (17) in memory file does not match the number of elements in the address range [0:255] File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/rom_program.sv Line: 12
 Warning (10030): Net "memory.data_a" at rom_program.sv(9) has no driver or initial value, using a default initial value '0' File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/rom_program.sv Line: 9
 Warning (10030): Net "memory.waddr_a" at rom_program.sv(9) has no driver or initial value, using a default initial value '0' File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/rom_program.sv Line: 9
 Warning (10030): Net "memory.we_a" at rom_program.sv(9) has no driver or initial value, using a default initial value '0' File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/rom_program.sv Line: 9
-Info (12128): Elaborating entity "control_unit" for hierarchy "cpu_armv4:u_cpu|control_unit:u_ctrl" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/cpu_armv4.sv Line: 71
+Info (12128): Elaborating entity "control_unit" for hierarchy "cpu_armv4:u_cpu|control_unit:u_ctrl" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/cpu_armv4.sv Line: 72
 Warning (10036): Verilog HDL or VHDL warning at control_unit.sv(44): object "imm_ext" assigned a value but never read File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/control_unit.sv Line: 44
-Info (12128): Elaborating entity "regfile" for hierarchy "cpu_armv4:u_cpu|regfile:u_regfile" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/cpu_armv4.sv Line: 81
-Info (12128): Elaborating entity "alu_core" for hierarchy "cpu_armv4:u_cpu|alu_core:u_alu_core" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/cpu_armv4.sv Line: 93
+Info (12128): Elaborating entity "regfile" for hierarchy "cpu_armv4:u_cpu|regfile:u_regfile" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/cpu_armv4.sv Line: 82
+Info (12128): Elaborating entity "alu_core" for hierarchy "cpu_armv4:u_cpu|alu_core:u_alu_core" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/cpu_armv4.sv Line: 95
 Info (12128): Elaborating entity "sumador" for hierarchy "cpu_armv4:u_cpu|alu_core:u_alu_core|sumador:u_add" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/alu_core.sv Line: 27
 Info (12128): Elaborating entity "restador" for hierarchy "cpu_armv4:u_cpu|alu_core:u_alu_core|restador:u_sub" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/alu_core.sv Line: 30
 Info (12128): Elaborating entity "multiplicador_sumas" for hierarchy "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/alu_core.sv Line: 34
 Info (12128): Elaborating entity "sumador" for hierarchy "cpu_armv4:u_cpu|alu_core:u_alu_core|multiplicador_sumas:u_mul|sumador:GEN_MUL[0].u_add_i" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/multiplicador.sv Line: 26
 Info (12128): Elaborating entity "divider" for hierarchy "cpu_armv4:u_cpu|alu_core:u_alu_core|divider:u_divmod" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/alu_core.sv Line: 44
 Info (12128): Elaborating entity "logic_ops" for hierarchy "cpu_armv4:u_cpu|alu_core:u_alu_core|logic_ops:u_logic" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/alu_core.sv Line: 48
-Info (12128): Elaborating entity "ram_data" for hierarchy "cpu_armv4:u_cpu|ram_data:u_ram" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/cpu_armv4.sv Line: 113
-Info (12128): Elaborating entity "seven_segment_display" for hierarchy "seven_segment_display:u_hex_A" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 316
-Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:u_vga" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 388
+Info (12128): Elaborating entity "ram_data" for hierarchy "cpu_armv4:u_cpu|ram_data:u_ram" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/cpu_armv4.sv Line: 115
+Info (12128): Elaborating entity "seven_segment_display" for hierarchy "seven_segment_display:u_hex_A" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 331
+Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_controller:u_vga" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 403
 Info (12128): Elaborating entity "vga_timing" for hierarchy "vga_controller:u_vga|vga_timing:u_timing" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/vga_controller.sv Line: 42
-Info (12128): Elaborating entity "vga_calc_ui" for hierarchy "vga_calc_ui:u_vga_calc_ui" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 419
+Info (12128): Elaborating entity "vga_calc_ui" for hierarchy "vga_calc_ui:u_vga_calc_ui" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 438
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276007): RAM logic "cpu_armv4:u_cpu|ram_data:u_ram|mem_array" is uninferred due to asynchronous read logic File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/ram_data.sv Line: 15
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/db/ProyectoFT.ram0_rom_program_aa5684e4.hdl.mif" contains "don't care" values -- overwriting them with 0s
@@ -1949,33 +1950,33 @@ Info (12133): Instantiated megafunction "cpu_armv4:u_cpu|alu_core:u_alu_core|div
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_65m.tdf
     Info (12023): Found entity 1: lpm_divide_65m File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/db/lpm_divide_65m.tdf Line: 25
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 24
-    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 24
-    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 24
-    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 24
-    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 24
-    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 24
-    Warning (13410): Pin "HEX3[6]" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 24
-    Warning (13410): Pin "VGA_BLANK_N" is stuck at VCC File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 34
-    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 36
+    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 20
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 20
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 20
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 20
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 20
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 20
+    Warning (13410): Pin "HEX3[6]" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 20
+    Warning (13410): Pin "VGA_BLANK_N" is stuck at VCC File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 30
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 32
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 5 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/output_files/ProyectoFT.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 11
-    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 11
-    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 11
-Info (21057): Implemented 15683 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 7
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 7
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/ggabr/OneDrive/Escritorio/Proyecto_Final_TDD/SystemVerilog/top_program.sv Line: 7
+Info (21057): Implemented 16947 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 9 input pins
     Info (21059): Implemented 65 output pins
-    Info (21061): Implemented 15609 logic cells
+    Info (21061): Implemented 16873 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 24 warnings
-    Info: Peak virtual memory: 5011 megabytes
-    Info: Processing ended: Sat Nov 15 21:36:20 2025
-    Info: Elapsed time: 00:00:43
-    Info: Total CPU time (on all processors): 00:00:53
+    Info: Peak virtual memory: 4997 megabytes
+    Info: Processing ended: Tue Dec  2 04:23:26 2025
+    Info: Elapsed time: 00:00:51
+    Info: Total CPU time (on all processors): 00:01:01
 
 
 +------------------------------------------+

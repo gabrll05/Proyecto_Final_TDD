@@ -1,15 +1,18 @@
 // ============================================================
-// vga_calc_ui.sv  (VERTICAL, DÍGITOS PEQUEÑOS, LABELS A/B CUSTOM)
+// vga_calc_ui.sv
 // Layout:
 //
 // A : valor
 // B : valor
-// + : valor
-// - : valor
-// * : valor
-// / : valor
+// + : valor   [Z C V N]
+// - : valor   [Z C V N]
+// * : valor   [Z C V N]
+// / : valor   [Z C V N]
+//
+// En la franja superior gris aparecen las letras:
+//           Z   C   V   N
+// alineadas con las columnas de flags.
 // ============================================================
-
 module vga_calc_ui (
     input  logic [11:0] x,
     input  logic [11:0] y,
@@ -21,6 +24,12 @@ module vga_calc_ui (
     input  logic [3:0]  sub_nib,
     input  logic [3:0]  mul_nib,
     input  logic [3:0]  div_nib,
+
+    // FLAGS = {Z, N, C, V} desde la ALU
+    input  logic [3:0]  flags_sum,
+    input  logic [3:0]  flags_sub,
+    input  logic [3:0]  flags_mul,
+    input  logic [3:0]  flags_div,
 
     output logic [7:0]  vga_r,
     output logic [7:0]  vga_g,
@@ -43,6 +52,15 @@ module vga_calc_ui (
     localparam integer DIGIT_W   = 26;
     localparam integer DIGIT_H   = 48;
     localparam integer SEG_TH    = 4;   // grosor de trazo
+
+    // Flags (4 columnas a la derecha)
+    localparam integer FLAG_COL0_X   = 260; // columna Z
+    localparam integer FLAG_COL_SP   = 30;  // separación entre Z,C,V,N
+    localparam integer FLAG_BOX_SIZE = 12;  // tamaño de cada LED
+
+    // Letras Z C V N (pequeñas, arriba)
+    localparam integer FLAG_LET_CELL = 6;   // tamaño de "celda" del font 3x5
+    localparam integer FLAG_LET_Y    = 30;  // parte superior de las letras
 
     // --------------------------
     // Variables internas
@@ -72,6 +90,12 @@ module vga_calc_ui (
     integer ax0, ax1, ay0, ay1, amidY;
     integer bx0, bx1, by0, by1, bmidY;
 
+    // centros verticales de las filas de operaciones
+    integer cy_sum, cy_sub, cy_mul_row, cy_div_row;
+
+    // posiciones X de las letras Z C V N
+    integer z_x0, c_x0, v_x0, n_x0;
+
     // --------------------------
     // Helpers
     // --------------------------
@@ -93,7 +117,6 @@ module vga_calc_ui (
             4'h1: hex_to_segs = 7'b0110000;
             4'h2: hex_to_segs = 7'b1101101;
             4'h3: hex_to_segs = 7'b1111001;
-            // 4 con b, c, f, g encendidos
             4'h4: hex_to_segs = 7'b0110011;
             4'h5: hex_to_segs = 7'b1011011;
             4'h6: hex_to_segs = 7'b1011111;
@@ -122,27 +145,29 @@ module vga_calc_ui (
         integer H;
         integer TH;
 
-        logic hit;
+        logic   hit;
         integer my0, my1;
 
         begin
-            W  = DIGIT_W;
-            H  = DIGIT_H;
-            TH = SEG_TH;
+            W   = DIGIT_W;
+            H   = DIGIT_H;
+            TH  = SEG_TH;
             hit = 1'b0;
 
             // Horizontales
-            if (segs[6]) begin // a
+            if (segs[6]) begin // a (top)
                 if (in_rect(px, py, dx+5, dx+W-5, dy, dy+TH))
                     hit = 1'b1;
             end
-            if (segs[3]) begin // d (medio)
+
+            if (segs[0]) begin // g (middle)
                 my0 = dy + (H/2) - (TH/2);
                 my1 = my0 + TH;
                 if (in_rect(px, py, dx+5, dx+W-5, my0, my1))
                     hit = 1'b1;
             end
-            if (segs[0]) begin // g (abajo)
+
+            if (segs[3]) begin // d (bottom)
                 if (in_rect(px, py, dx+5, dx+W-5, dy+H-TH, dy+H))
                     hit = 1'b1;
             end
@@ -166,6 +191,25 @@ module vga_calc_ui (
             end
 
             digit_pixel = hit;
+        end
+    endfunction
+
+    // Helper: cuadrito de font 3x5 (para letras Z,C,V,N arriba)
+    function automatic logic font_cell(
+        input logic [11:0] px,
+        input logic [11:0] py,
+        input integer      base_x,
+        input integer      cell_x,  // 0..2
+        input integer      base_y,
+        input integer      cell_y   // 0..4
+    );
+        integer x0, x1, y0, y1;
+        begin
+            x0 = base_x + cell_x*FLAG_LET_CELL;
+            x1 = x0 + FLAG_LET_CELL;
+            y0 = base_y + cell_y*FLAG_LET_CELL;
+            y1 = y0 + FLAG_LET_CELL;
+            font_cell = in_rect(px, py, x0, x1, y0, y1);
         end
     endfunction
 
@@ -203,6 +247,13 @@ module vga_calc_ui (
         ax0 = 0; ax1 = 0; ay0 = 0; ay1 = 0; amidY = 0;
         bx0 = 0; bx1 = 0; by0 = 0; by1 = 0; bmidY = 0;
 
+        cy_sum      = 0;
+        cy_sub      = 0;
+        cy_mul_row  = 0;
+        cy_div_row  = 0;
+
+        z_x0 = 0; c_x0 = 0; v_x0 = 0; n_x0 = 0;
+
         if (!video_on) begin
             // negro
         end else begin
@@ -211,12 +262,97 @@ module vga_calc_ui (
             vga_g = 8'hFF;
             vga_b = 8'hFF;
 
-            // franja superior
+            // franja superior gris
             if (in_rect(x, y, 0, 640, 20, 70)) begin
                 vga_r = 8'hE0;
                 vga_g = 8'hE0;
                 vga_b = 8'hE0;
             end
+
+            // -------------------------------------------------
+            // Letras Z C V N en la franja superior
+            // Font 3x5 con celdas de 6x6 píxeles
+            // -------------------------------------------------
+            z_x0 = FLAG_COL0_X;
+            c_x0 = FLAG_COL0_X + FLAG_COL_SP;
+            v_x0 = FLAG_COL0_X + 2*FLAG_COL_SP;
+            n_x0 = FLAG_COL0_X + 3*FLAG_COL_SP;
+
+            // Z:
+            // ### 
+            // ..#
+            // .#.
+            // #..
+            // ###
+            if (
+                font_cell(x,y,z_x0,0,FLAG_LET_Y,0) ||
+                font_cell(x,y,z_x0,1,FLAG_LET_Y,0) ||
+                font_cell(x,y,z_x0,2,FLAG_LET_Y,0) ||
+                font_cell(x,y,z_x0,2,FLAG_LET_Y,1) ||
+                font_cell(x,y,z_x0,1,FLAG_LET_Y,2) ||
+                font_cell(x,y,z_x0,0,FLAG_LET_Y,3) ||
+                font_cell(x,y,z_x0,0,FLAG_LET_Y,4) ||
+                font_cell(x,y,z_x0,1,FLAG_LET_Y,4) ||
+                font_cell(x,y,z_x0,2,FLAG_LET_Y,4)
+            )
+                {vga_r, vga_g, vga_b} = 24'h000000;
+
+            // C:
+            // ### 
+            // #..
+            // #..
+            // #..
+            // ### 
+            if (
+                font_cell(x,y,c_x0,0,FLAG_LET_Y,0) ||
+                font_cell(x,y,c_x0,1,FLAG_LET_Y,0) ||
+                font_cell(x,y,c_x0,2,FLAG_LET_Y,0) ||
+                font_cell(x,y,c_x0,0,FLAG_LET_Y,1) ||
+                font_cell(x,y,c_x0,0,FLAG_LET_Y,2) ||
+                font_cell(x,y,c_x0,0,FLAG_LET_Y,3) ||
+                font_cell(x,y,c_x0,0,FLAG_LET_Y,4) ||
+                font_cell(x,y,c_x0,1,FLAG_LET_Y,4) ||
+                font_cell(x,y,c_x0,2,FLAG_LET_Y,4)
+            )
+                {vga_r, vga_g, vga_b} = 24'h000000;
+
+            // V:
+            // #.# 
+            // #.# 
+            // #.# 
+            // .#. 
+            // .#. 
+            if (
+                font_cell(x,y,v_x0,0,FLAG_LET_Y,0) ||
+                font_cell(x,y,v_x0,2,FLAG_LET_Y,0) ||
+                font_cell(x,y,v_x0,0,FLAG_LET_Y,1) ||
+                font_cell(x,y,v_x0,2,FLAG_LET_Y,1) ||
+                font_cell(x,y,v_x0,0,FLAG_LET_Y,2) ||
+                font_cell(x,y,v_x0,2,FLAG_LET_Y,2) ||
+                font_cell(x,y,v_x0,1,FLAG_LET_Y,3) ||
+                font_cell(x,y,v_x0,1,FLAG_LET_Y,4)
+            )
+                {vga_r, vga_g, vga_b} = 24'h000000;
+
+            // N:
+            // #.# 
+            // ##. 
+            // #.# 
+            // #.# 
+            // #.# 
+            if (
+                font_cell(x,y,n_x0,0,FLAG_LET_Y,0) ||
+                font_cell(x,y,n_x0,2,FLAG_LET_Y,0) ||
+                font_cell(x,y,n_x0,0,FLAG_LET_Y,1) ||
+                font_cell(x,y,n_x0,1,FLAG_LET_Y,1) ||
+                font_cell(x,y,n_x0,0,FLAG_LET_Y,2) ||
+                font_cell(x,y,n_x0,2,FLAG_LET_Y,2) ||
+                font_cell(x,y,n_x0,0,FLAG_LET_Y,3) ||
+                font_cell(x,y,n_x0,2,FLAG_LET_Y,3) ||
+                font_cell(x,y,n_x0,0,FLAG_LET_Y,4) ||
+                font_cell(x,y,n_x0,2,FLAG_LET_Y,4)
+            )
+                {vga_r, vga_g, vga_b} = 24'h000000;
 
             // ====== LABEL "A" dibujado a mano ======
             ax0   = LABEL_X;
@@ -225,12 +361,13 @@ module vga_calc_ui (
             ay1   = ROW0_Y + DIGIT_H;
             amidY = ay0 + (ay1 - ay0)/2;
 
-            if ( // dos columnas + barra superior + barra media
+            if (
                 in_rect(x, y, ax0,         ax0+SEG_TH, ay0+SEG_TH, ay1)       || // izquierda
                 in_rect(x, y, ax1-SEG_TH,  ax1,        ay0+SEG_TH, ay1)       || // derecha
                 in_rect(x, y, ax0+SEG_TH,  ax1-SEG_TH, ay0,         ay0+SEG_TH) || // top
                 in_rect(x, y, ax0+SEG_TH,  ax1-SEG_TH,
-                             amidY-SEG_TH/2, amidY+SEG_TH/2) ) begin           // barra media
+                             amidY-SEG_TH/2, amidY+SEG_TH/2)
+            ) begin
                 vga_r = 8'h00;
                 vga_g = 8'h00;
                 vga_b = 8'h00;
@@ -244,21 +381,13 @@ module vga_calc_ui (
             bmidY = by0 + (by1 - by0)/2;
 
             if (
-                // barra izquierda completa
                 in_rect(x, y, bx0, bx0+SEG_TH, by0, by1) ||
-                // barra superior
                 in_rect(x, y, bx0+SEG_TH, bx1-SEG_TH, by0, by0+SEG_TH) ||
-                // barra media
                 in_rect(x, y, bx0+SEG_TH, bx1-SEG_TH,
                              bmidY-SEG_TH/2, bmidY+SEG_TH/2) ||
-                // barra inferior
                 in_rect(x, y, bx0+SEG_TH, bx1-SEG_TH, by1-SEG_TH, by1) ||
-                // “panza” superior derecha
-                in_rect(x, y, bx1-SEG_TH, bx1,
-                             by0+SEG_TH, bmidY-SEG_TH/2) ||
-                // “panza” inferior derecha
-                in_rect(x, y, bx1-SEG_TH, bx1,
-                             bmidY+SEG_TH/2, by1-SEG_TH)
+                in_rect(x, y, bx1-SEG_TH, bx1, by0+SEG_TH, bmidY-SEG_TH/2) ||
+                in_rect(x, y, bx1-SEG_TH, bx1, bmidY+SEG_TH/2, by1-SEG_TH)
             ) begin
                 vga_r = 8'h00;
                 vga_g = 8'h00;
@@ -324,6 +453,159 @@ module vga_calc_ui (
                 baseY = ROW0_Y + r*ROW_SP + 16;
                 if ( in_rect(x, y, colon_x-2, colon_x+2, baseY,    baseY+3) ||
                      in_rect(x, y, colon_x-2, colon_x+2, baseY+16, baseY+19))
+                    {vga_r, vga_g, vga_b} = 24'h000000;
+            end
+
+            // ==================================================
+            // FLAGS por operación: 4 "LEDs" (Z, C, V, N)
+            //  - fila suma: ROW0_Y + 2*ROW_SP
+            //  - fila resta: ROW0_Y + 3*ROW_SP
+            //  - fila mul:   ROW0_Y + 4*ROW_SP
+            //  - fila div:   ROW0_Y + 5*ROW_SP
+            // Columna 0: Z (FLAGS[3])
+            // Columna 1: C (FLAGS[1])
+            // Columna 2: V (FLAGS[0])
+            // Columna 3: N (FLAGS[2])
+            // ==================================================
+
+            cy_sum     = ROW0_Y + 2*ROW_SP + DIGIT_H/2;
+            cy_sub     = ROW0_Y + 3*ROW_SP + DIGIT_H/2;
+            cy_mul_row = ROW0_Y + 4*ROW_SP + DIGIT_H/2;
+            cy_div_row = ROW0_Y + 5*ROW_SP + DIGIT_H/2;
+
+            // --- SUMA ---
+            if (flags_sum[3]) begin // Z
+                if (in_rect(x, y,
+                            FLAG_COL0_X,
+                            FLAG_COL0_X + FLAG_BOX_SIZE,
+                            cy_sum - FLAG_BOX_SIZE/2,
+                            cy_sum + FLAG_BOX_SIZE/2))
+                    {vga_r, vga_g, vga_b} = 24'h000000;
+            end
+            if (flags_sum[1]) begin // C
+                if (in_rect(x, y,
+                            FLAG_COL0_X + FLAG_COL_SP,
+                            FLAG_COL0_X + FLAG_COL_SP + FLAG_BOX_SIZE,
+                            cy_sum - FLAG_BOX_SIZE/2,
+                            cy_sum + FLAG_BOX_SIZE/2))
+                    {vga_r, vga_g, vga_b} = 24'h000000;
+            end
+            if (flags_sum[0]) begin // V
+                if (in_rect(x, y,
+                            FLAG_COL0_X + 2*FLAG_COL_SP,
+                            FLAG_COL0_X + 2*FLAG_COL_SP + FLAG_BOX_SIZE,
+                            cy_sum - FLAG_BOX_SIZE/2,
+                            cy_sum + FLAG_BOX_SIZE/2))
+                    {vga_r, vga_g, vga_b} = 24'h000000;
+            end
+            if (flags_sum[2]) begin // N
+                if (in_rect(x, y,
+                            FLAG_COL0_X + 3*FLAG_COL_SP,
+                            FLAG_COL0_X + 3*FLAG_COL_SP + FLAG_BOX_SIZE,
+                            cy_sum - FLAG_BOX_SIZE/2,
+                            cy_sum + FLAG_BOX_SIZE/2))
+                    {vga_r, vga_g, vga_b} = 24'h000000;
+            end
+
+            // --- RESTA ---
+            if (flags_sub[3]) begin // Z
+                if (in_rect(x, y,
+                            FLAG_COL0_X,
+                            FLAG_COL0_X + FLAG_BOX_SIZE,
+                            cy_sub - FLAG_BOX_SIZE/2,
+                            cy_sub + FLAG_BOX_SIZE/2))
+                    {vga_r, vga_g, vga_b} = 24'h000000;
+            end
+            if (flags_sub[1]) begin // C
+                if (in_rect(x, y,
+                            FLAG_COL0_X + FLAG_COL_SP,
+                            FLAG_COL0_X + FLAG_COL_SP + FLAG_BOX_SIZE,
+                            cy_sub - FLAG_BOX_SIZE/2,
+                            cy_sub + FLAG_BOX_SIZE/2))
+                    {vga_r, vga_g, vga_b} = 24'h000000;
+            end
+            if (flags_sub[0]) begin // V
+                if (in_rect(x, y,
+                            FLAG_COL0_X + 2*FLAG_COL_SP,
+                            FLAG_COL0_X + 2*FLAG_COL_SP + FLAG_BOX_SIZE,
+                            cy_sub - FLAG_BOX_SIZE/2,
+                            cy_sub + FLAG_BOX_SIZE/2))
+                    {vga_r, vga_g, vga_b} = 24'h000000;
+            end
+            if (flags_sub[2]) begin // N
+                if (in_rect(x, y,
+                            FLAG_COL0_X + 3*FLAG_COL_SP,
+                            FLAG_COL0_X + 3*FLAG_COL_SP + FLAG_BOX_SIZE,
+                            cy_sub - FLAG_BOX_SIZE/2,
+                            cy_sub + FLAG_BOX_SIZE/2))
+                    {vga_r, vga_g, vga_b} = 24'h000000;
+            end
+
+            // --- MUL ---
+            if (flags_mul[3]) begin // Z
+                if (in_rect(x, y,
+                            FLAG_COL0_X,
+                            FLAG_COL0_X + FLAG_BOX_SIZE,
+                            cy_mul_row - FLAG_BOX_SIZE/2,
+                            cy_mul_row + FLAG_BOX_SIZE/2))
+                    {vga_r, vga_g, vga_b} = 24'h000000;
+            end
+            if (flags_mul[1]) begin // C (overflow de mul en tu ALU)
+                if (in_rect(x, y,
+                            FLAG_COL0_X + FLAG_COL_SP,
+                            FLAG_COL0_X + FLAG_COL_SP + FLAG_BOX_SIZE,
+                            cy_mul_row - FLAG_BOX_SIZE/2,
+                            cy_mul_row + FLAG_BOX_SIZE/2))
+                    {vga_r, vga_g, vga_b} = 24'h000000;
+            end
+            if (flags_mul[0]) begin // V
+                if (in_rect(x, y,
+                            FLAG_COL0_X + 2*FLAG_COL_SP,
+                            FLAG_COL0_X + 2*FLAG_COL_SP + FLAG_BOX_SIZE,
+                            cy_mul_row - FLAG_BOX_SIZE/2,
+                            cy_mul_row + FLAG_BOX_SIZE/2))
+                    {vga_r, vga_g, vga_b} = 24'h000000;
+            end
+            if (flags_mul[2]) begin // N
+                if (in_rect(x, y,
+                            FLAG_COL0_X + 3*FLAG_COL_SP,
+                            FLAG_COL0_X + 3*FLAG_COL_SP + FLAG_BOX_SIZE,
+                            cy_mul_row - FLAG_BOX_SIZE/2,
+                            cy_mul_row + FLAG_BOX_SIZE/2))
+                    {vga_r, vga_g, vga_b} = 24'h000000;
+            end
+
+            // --- DIV ---
+            if (flags_div[3]) begin // Z
+                if (in_rect(x, y,
+                            FLAG_COL0_X,
+                            FLAG_COL0_X + FLAG_BOX_SIZE,
+                            cy_div_row - FLAG_BOX_SIZE/2,
+                            cy_div_row + FLAG_BOX_SIZE/2))
+                    {vga_r, vga_g, vga_b} = 24'h000000;
+            end
+            if (flags_div[1]) begin // C
+                if (in_rect(x, y,
+                            FLAG_COL0_X + FLAG_COL_SP,
+                            FLAG_COL0_X + FLAG_COL_SP + FLAG_BOX_SIZE,
+                            cy_div_row - FLAG_BOX_SIZE/2,
+                            cy_div_row + FLAG_BOX_SIZE/2))
+                    {vga_r, vga_g, vga_b} = 24'h000000;
+            end
+            if (flags_div[0]) begin // V
+                if (in_rect(x, y,
+                            FLAG_COL0_X + 2*FLAG_COL_SP,
+                            FLAG_COL0_X + 2*FLAG_COL_SP + FLAG_BOX_SIZE,
+                            cy_div_row - FLAG_BOX_SIZE/2,
+                            cy_div_row + FLAG_BOX_SIZE/2))
+                    {vga_r, vga_g, vga_b} = 24'h000000;
+            end
+            if (flags_div[2]) begin // N
+                if (in_rect(x, y,
+                            FLAG_COL0_X + 3*FLAG_COL_SP,
+                            FLAG_COL0_X + 3*FLAG_COL_SP + FLAG_BOX_SIZE,
+                            cy_div_row - FLAG_BOX_SIZE/2,
+                            cy_div_row + FLAG_BOX_SIZE/2))
                     {vga_r, vga_g, vga_b} = 24'h000000;
             end
         end
